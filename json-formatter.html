@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON 포맷터 — JSON 정렬·압축·유효성 검사 | 텍스트킷</title>
+  <meta name="description" content="JSON을 보기 좋게 정렬하거나 압축하고 유효성을 검사합니다. 구문 강조 표시 포함. 무료 온라인 JSON 포맷터.">
+  <link rel="canonical" href="https://textkit.wooahouse.com/json-formatter.html">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .json-output-pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      font-family: 'Courier New', 'Consolas', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 500px;
+      overflow-y: auto;
+      border: 1.5px solid #313244;
+    }
+    .json-key { color: #89b4fa; }
+    .json-string { color: #a6e3a1; }
+    .json-number { color: #fab387; }
+    .json-boolean { color: #f38ba8; }
+    .json-null { color: #f38ba8; }
+    .json-bracket { color: #cba6f7; }
+    .json-validation-ok {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #dcfce7; color: #166534;
+      border-radius: var(--radius-sm); padding: 8px 14px;
+      font-size: 0.88rem; font-weight: 600; margin-top: 10px;
+    }
+    .json-validation-err {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fee2e2; color: #991b1b;
+      border-radius: var(--radius-sm); padding: 8px 14px;
+      font-size: 0.88rem; font-weight: 600; margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">텍스트킷 <span>| TextKit</span></a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">소개</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">Linker Services</span>
+  <div class="our-sites-links">
+    <a href="https://linker.wooahouse.com/" target="_blank" rel="noopener">🔗 Linker</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 PDFKit</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ ImageKit</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 ColorKit</a>
+    <a href="https://textkit.wooahouse.com/" target="_blank" rel="noopener" class="active">✏️ TextKit</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 QRKit</a>
+    <a href="https://chromekit.wooahouse.com/" target="_blank" rel="noopener">🧩 ChromeKit</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 FontKit</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 MacTools</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ PCTools</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 VSKit</a>
+  </div>
+</div>
+
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="index.html">텍스트킷</a>
+    <span>›</span>
+    <span>JSON 포맷터</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">📦</span>
+    <h1>JSON 포맷터</h1>
+    <p>JSON을 보기 좋게 정렬하거나 압축하고 유효성을 검사합니다</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">JSON 입력</div>
+    <textarea id="inputText" rows="10" class="mono" placeholder='JSON을 붙여넣거나 입력하세요...&#10;예: {"name":"텍스트킷","tools":12,"free":true}'></textarea>
+    <div class="btn-group" style="margin-top:14px;">
+      <button class="btn btn-primary" onclick="format()">✨ 예쁘게 정렬</button>
+      <button class="btn btn-outline" onclick="minify()">📦 압축 (Minify)</button>
+      <button class="btn btn-outline" onclick="validate()">✅ 유효성 검사</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+    </div>
+    <div id="validationResult"></div>
+  </div>
+
+  <div class="text-panel" id="outputPanel" style="display:none;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+    </div>
+    <pre class="json-output-pre" id="outputPre"></pre>
+    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 HTML 엔티티 변환이 필요하신가요? <a href="html-entity.html">HTML 엔티티 변환 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 텍스트킷. 모든 권리 보유.</p>
+      <div class="footer-bottom-links">
+        <a href="index.html">홈</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="about.html">소개</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let lastFormattedText = '';
+
+  function escapeHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function syntaxHighlight(json) {
+    const escaped = escapeHtml(json);
+    return escaped.replace(
+      /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?|[{}\[\],])/g,
+      function(match) {
+        let cls = 'json-number';
+        if (/^"/.test(match)) {
+          cls = /:$/.test(match) ? 'json-key' : 'json-string';
+        } else if (/true|false/.test(match)) {
+          cls = 'json-boolean';
+        } else if (/null/.test(match)) {
+          cls = 'json-null';
+        } else if (/[{}\[\]]/.test(match)) {
+          cls = 'json-bracket';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+      }
+    );
+  }
+
+  function showOutput(text, label) {
+    lastFormattedText = text;
+    document.getElementById('outputLabel').textContent = label;
+    document.getElementById('outputPre').innerHTML = syntaxHighlight(text);
+    document.getElementById('outputPanel').style.display = 'block';
+  }
+
+  function showValidation(ok, msg) {
+    const el = document.getElementById('validationResult');
+    el.innerHTML = ok
+      ? `<div class="json-validation-ok">✅ ${msg}</div>`
+      : `<div class="json-validation-err">❌ ${msg}</div>`;
+  }
+
+  function clearValidation() {
+    document.getElementById('validationResult').innerHTML = '';
+  }
+
+  function format() {
+    const input = document.getElementById('inputText').value.trim();
+    clearValidation();
+    if (!input) return;
+    try {
+      const parsed = JSON.parse(input);
+      const formatted = JSON.stringify(parsed, null, 2);
+      showOutput(formatted, '결과 — 예쁘게 정렬');
+    } catch(e) {
+      showValidation(false, '유효하지 않은 JSON입니다: ' + e.message);
+      document.getElementById('outputPanel').style.display = 'none';
+    }
+  }
+
+  function minify() {
+    const input = document.getElementById('inputText').value.trim();
+    clearValidation();
+    if (!input) return;
+    try {
+      const parsed = JSON.parse(input);
+      const minified = JSON.stringify(parsed);
+      showOutput(minified, '결과 — 압축 (Minify)');
+    } catch(e) {
+      showValidation(false, '유효하지 않은 JSON입니다: ' + e.message);
+      document.getElementById('outputPanel').style.display = 'none';
+    }
+  }
+
+  function validate() {
+    const input = document.getElementById('inputText').value.trim();
+    if (!input) return;
+    try {
+      JSON.parse(input);
+      showValidation(true, '유효한 JSON입니다.');
+    } catch(e) {
+      showValidation(false, '유효하지 않은 JSON입니다: ' + e.message);
+    }
+  }
+
+  function clearAll() {
+    document.getElementById('inputText').value = '';
+    document.getElementById('outputPanel').style.display = 'none';
+    clearValidation();
+    lastFormattedText = '';
+  }
+
+  function copyOutput() {
+    if (!lastFormattedText) return;
+    navigator.clipboard.writeText(lastFormattedText).then(() => {
+      const alert = document.getElementById('copyAlert');
+      alert.classList.add('show');
+      setTimeout(() => alert.classList.remove('show'), 2000);
+    });
+  }
+</script>
+<script src="js/pwa-install.js"></script>
+</body>
+</html>

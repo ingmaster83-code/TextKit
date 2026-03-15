@@ -1,0 +1,33 @@
+{
+  "name": "텍스트킷 - 무료 텍스트 도구",
+  "short_name": "텍스트킷",
+  "description": "글자수 세기, 텍스트 변환, 포맷, 암호화까지 무료 온라인 텍스트 도구 모음.",
+  "start_url": "/?source=pwa",
+  "display": "standalone",
+  "background_color": "#1A1A2E",
+  "theme_color": "#F59E0B",
+  "lang": "ko",
+  "orientation": "portrait-primary",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

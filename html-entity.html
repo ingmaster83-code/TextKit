@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML 엔티티 변환 — 특수문자 ↔ HTML 엔티티 | 텍스트킷</title>
+  <meta name="description" content="HTML 특수문자(&, <, >, &quot;, ')를 HTML 엔티티로 변환하거나 엔티티를 원래 문자로 디코딩합니다. 무료 온라인 HTML 엔티티 변환기.">
+  <link rel="canonical" href="https://textkit.wooahouse.com/html-entity.html">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">텍스트킷 <span>| TextKit</span></a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">소개</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">Linker Services</span>
+  <div class="our-sites-links">
+    <a href="https://linker.wooahouse.com/" target="_blank" rel="noopener">🔗 Linker</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 PDFKit</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ ImageKit</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 ColorKit</a>
+    <a href="https://textkit.wooahouse.com/" target="_blank" rel="noopener" class="active">✏️ TextKit</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 QRKit</a>
+    <a href="https://chromekit.wooahouse.com/" target="_blank" rel="noopener">🧩 ChromeKit</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 FontKit</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 MacTools</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ PCTools</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 VSKit</a>
+  </div>
+</div>
+
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="index.html">텍스트킷</a>
+    <span>›</span>
+    <span>HTML 엔티티 변환</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🏷️</span>
+    <h1>HTML 엔티티 변환</h1>
+    <p>HTML 특수문자를 엔티티로 인코딩하거나 엔티티를 원래 문자로 디코딩합니다</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">입력</div>
+    <textarea id="inputText" rows="8" placeholder="변환할 텍스트를 입력하세요...&#10;예: &lt;div class=&quot;hello&quot;&gt;안녕 &amp; 반가워&lt;/div&gt;"></textarea>
+    <div class="btn-group" style="margin-top:14px;">
+      <button class="btn btn-primary" onclick="encode()">🔒 엔티티 인코딩</button>
+      <button class="btn btn-outline" onclick="decode()">🔓 엔티티 디코딩</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+    </div>
+  </div>
+
+  <div class="text-panel">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+    </div>
+    <div class="output-wrap">
+      <textarea id="outputText" rows="8" readonly class="mono" placeholder="변환 버튼을 클릭하면 결과가 표시됩니다..."></textarea>
+    </div>
+    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+  </div>
+
+  <div class="about-card" style="margin-top:24px;">
+    <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:12px;">변환 대상 문자</h3>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap:8px;">
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">&amp;</code> → <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">&amp;amp;</code>
+      </div>
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">&lt;</code> → <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">&amp;lt;</code>
+      </div>
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">&gt;</code> → <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">&amp;gt;</code>
+      </div>
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">"</code> → <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">&amp;quot;</code>
+      </div>
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">'</code> → <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">&amp;#39;</code>
+      </div>
+    </div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 JSON 형식 처리가 필요하신가요? <a href="json-formatter.html">JSON 포맷터 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 텍스트킷. 모든 권리 보유.</p>
+      <div class="footer-bottom-links">
+        <a href="index.html">홈</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="about.html">소개</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function encode() {
+    const input = document.getElementById('inputText').value;
+    if (!input) return;
+    const result = input
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+    document.getElementById('outputText').value = result;
+    document.getElementById('outputLabel').textContent = '결과 — HTML 엔티티 인코딩';
+  }
+
+  function decode() {
+    const input = document.getElementById('inputText').value;
+    if (!input) return;
+    const result = input
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&apos;/g, "'")
+      .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec))
+      .replace(/&#x([0-9a-fA-F]+);/g, (match, hex) => String.fromCharCode(parseInt(hex, 16)));
+    document.getElementById('outputText').value = result;
+    document.getElementById('outputLabel').textContent = '결과 — HTML 엔티티 디코딩';
+  }
+
+  function clearAll() {
+    document.getElementById('inputText').value = '';
+    document.getElementById('outputText').value = '';
+    document.getElementById('outputLabel').textContent = '결과';
+  }
+
+  function copyOutput() {
+    const output = document.getElementById('outputText').value;
+    if (!output) return;
+    navigator.clipboard.writeText(output).then(() => {
+      const alert = document.getElementById('copyAlert');
+      alert.classList.add('show');
+      setTimeout(() => alert.classList.remove('show'), 2000);
+    });
+  }
+</script>
+<script src="js/pwa-install.js"></script>
+</body>
+</html>
