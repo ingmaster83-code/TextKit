@@ -10,6 +10,42 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#F59E0B">
   <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "글자수 세기",
+  "url": "https://textkit.wooahouse.com/char-counter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "공백도 글자수에 포함되나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "기본적으로 공백 포함 글자수와 공백 제외 글자수를 모두 표시합니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "실시간으로 카운트되나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "네, 텍스트를 입력하거나 붙여넣으면 즉시 글자수가 업데이트됩니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "한국어 글자수도 정확하게 세나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "네, 한글, 영문, 숫자, 특수문자 모두 정확하게 카운트됩니다."}
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -38,6 +74,7 @@
     <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 ColorKit</a>
     <a href="https://textkit.wooahouse.com/" target="_blank" rel="noopener" class="active">✏️ TextKit</a>
     <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 QRKit</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 CalcKit</a>
     <a href="https://steamkit.wooahouse.com/" target="_blank" rel="noopener">🎮 SteamKit</a>
     <a href="https://chromekit.wooahouse.com/" target="_blank" rel="noopener">🧩 ChromeKit</a>
     <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 FontKit</a>
@@ -137,6 +174,24 @@
   <div class="cross-link-tip">
     💡 텍스트를 비교하고 싶다면? <a href="text-diff.html">텍스트 비교 도구 →</a>
   </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">자주 묻는 질문</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 공백도 글자수에 포함되나요?</h3>
+      <p style="color:#555;margin:0;">기본적으로 공백 포함 글자수와 공백 제외 글자수를 모두 표시합니다.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 실시간으로 카운트되나요?</h3>
+      <p style="color:#555;margin:0;">네, 텍스트를 입력하거나 붙여넣으면 즉시 글자수가 업데이트됩니다.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 한국어 글자수도 정확하게 세나요?</h3>
+      <p style="color:#555;margin:0;">네, 한글, 영문, 숫자, 특수문자 모두 정확하게 카운트됩니다.</p>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>

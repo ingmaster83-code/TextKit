@@ -31,6 +31,42 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#F59E0B">
   <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CSV JSON 변환기",
+  "url": "https://textkit.wooahouse.com/csv-json.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "CSV와 JSON 양방향 변환이 모두 되나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "네, CSV→JSON 및 JSON→CSV 양방향 변환을 모두 지원합니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "한국어 데이터도 변환되나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "네, UTF-8 인코딩 기반으로 한국어를 포함한 모든 언어 데이터를 변환할 수 있습니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "변환 결과를 파일로 다운로드할 수 있나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "네, 변환된 결과를 .json 또는 .csv 파일로 바로 다운로드할 수 있습니다."}
+    }
+  ]
+}
+</script>
   <style>
     .tab-bar {
       display: flex;
@@ -261,6 +297,24 @@
   <div class="cross-link-tip" style="margin-top:20px;">
     💡 JSON 포맷팅이 필요하신가요? <a href="json-formatter.html">JSON 포맷터 →</a>
   </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">자주 묻는 질문</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. CSV와 JSON 양방향 변환이 모두 되나요?</h3>
+      <p style="color:#555;margin:0;">네, CSV→JSON 및 JSON→CSV 양방향 변환을 모두 지원합니다.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 한국어 데이터도 변환되나요?</h3>
+      <p style="color:#555;margin:0;">네, UTF-8 인코딩 기반으로 한국어를 포함한 모든 언어 데이터를 변환할 수 있습니다.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 변환 결과를 파일로 다운로드할 수 있나요?</h3>
+      <p style="color:#555;margin:0;">네, 변환된 결과를 .json 또는 .csv 파일로 바로 다운로드할 수 있습니다.</p>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
