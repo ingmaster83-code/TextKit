@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>무료 온라인 텍스트 도구 모음 — 글자수·변환·포맷·암호화 | 텍스트킷</title>
-  <meta name="description" content="글자수 세기, 텍스트 비교, 대소문자 변환, URL 인코딩, Base64, JSON 포맷터, 해시 생성 등 12가지 텍스트 도구 무료 제공. 회원가입 없이 브라우저에서 바로 사용.">
-  <meta name="keywords" content="글자수세기,텍스트변환,대소문자변환,URL인코딩,Base64인코딩,JSON포맷터,해시생성,텍스트비교,비밀번호생성기,Lorem Ipsum,HTML엔티티,텍스트도구,무료텍스트,온라인텍스트">
+  <title>무료 온라인 텍스트 도구 모음 — 글자수·변환·포맷·마크다운·정규식 | 텍스트킷</title>
+  <meta name="description" content="글자수 세기, 텍스트 비교, 대소문자 변환, URL 인코딩, Base64, JSON 포맷터, 해시 생성, 마크다운 에디터, 정규식 테스터, CSV↔JSON 변환 등 15가지 텍스트 도구 무료 제공. 회원가입 없이 브라우저에서 바로 사용.">
+  <meta name="keywords" content="글자수세기,텍스트변환,대소문자변환,URL인코딩,Base64인코딩,JSON포맷터,해시생성,텍스트비교,비밀번호생성기,Lorem Ipsum,HTML엔티티,마크다운에디터,정규식테스터,CSV JSON변환,텍스트도구,무료텍스트,온라인텍스트">
   <link rel="canonical" href="https://textkit.wooahouse.com/">
   <!-- Open Graph -->
   <meta property="og:title" content="무료 온라인 텍스트 도구 모음 | 텍스트킷">
-  <meta property="og:description" content="글자수 세기·변환·포맷·암호화까지 12가지 텍스트 도구 무료 제공.">
+  <meta property="og:description" content="글자수 세기·변환·포맷·마크다운·정규식까지 15가지 텍스트 도구 무료 제공.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://textkit.wooahouse.com/">
   <meta property="og:locale" content="ko_KR">
@@ -46,7 +46,10 @@
       {"@type":"ListItem","position":9,"name":"Lorem Ipsum 생성기","url":"https://textkit.wooahouse.com/lorem-ipsum.html"},
       {"@type":"ListItem","position":10,"name":"비밀번호 생성기","url":"https://textkit.wooahouse.com/password-generator.html"},
       {"@type":"ListItem","position":11,"name":"JSON 포맷터","url":"https://textkit.wooahouse.com/json-formatter.html"},
-      {"@type":"ListItem","position":12,"name":"해시 생성기","url":"https://textkit.wooahouse.com/hash-generator.html"}
+      {"@type":"ListItem","position":12,"name":"해시 생성기","url":"https://textkit.wooahouse.com/hash-generator.html"},
+      {"@type":"ListItem","position":13,"name":"마크다운 에디터","url":"https://textkit.wooahouse.com/markdown-editor.html"},
+      {"@type":"ListItem","position":14,"name":"정규식 테스터","url":"https://textkit.wooahouse.com/regex-tester.html"},
+      {"@type":"ListItem","position":15,"name":"CSV JSON 변환","url":"https://textkit.wooahouse.com/csv-json.html"}
     ]
   }
   </script>
@@ -61,6 +64,7 @@
   <style>
     .tools-section { padding-top: 52px; }
     .tools-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+    .new-badge { position:absolute; top:8px; right:8px; background:#EF4444; color:white; font-size:0.65rem; font-weight:700; padding:2px 6px; border-radius:4px; }
     @media (max-width: 768px) { .tools-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 520px) { .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .tool-card { padding: 18px 10px 14px; } .tool-icon { font-size: 2rem; } }
   </style>
@@ -98,12 +102,13 @@
     <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 MacTools</a>
     <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ PCTools</a>
     <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 VSKit</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 CalcKit</a>
   </div>
 </div>
 
 <section class="hero">
   <h1>모든 텍스트 작업 무료로, 한 곳에서</h1>
-  <p>글자수 세기·변환·포맷·암호화까지 <strong style="color:#FEF3C7;">12가지 도구</strong><br>회원가입 없이, 텍스트는 브라우저 밖으로 나가지 않아요</p>
+  <p>글자수 세기·변환·포맷·마크다운·정규식까지 <strong style="color:#FEF3C7;">15가지 도구</strong><br>회원가입 없이, 텍스트는 브라우저 밖으로 나가지 않아요</p>
   <button id="heroInstallBtn" class="hero-install-btn">📌 홈 화면에 추가</button>
   <div class="hero-related">
     <span>JSON·코드 작업엔 VS Code도 →</span>
@@ -245,6 +250,39 @@
     </div>
   </div>
 
+  <div class="category-block">
+    <div class="category-header">
+      <div class="category-dot" style="background:#0EA5E9"></div>
+      <div>
+        <span class="category-title">코드 & 개발</span>
+        <p class="category-desc">마크다운 편집, 정규식 테스트, 데이터 변환 도구</p>
+      </div>
+    </div>
+    <div class="tools-grid">
+      <a href="markdown-editor.html" class="tool-card">
+        <span class="free-badge">무료</span>
+        <span class="new-badge">NEW</span>
+        <span class="tool-icon">📝</span>
+        <div class="tool-name">마크다운 에디터</div>
+        <div class="tool-desc">실시간 마크다운 편집 및 HTML 미리보기</div>
+      </a>
+      <a href="regex-tester.html" class="tool-card">
+        <span class="free-badge">무료</span>
+        <span class="new-badge">NEW</span>
+        <span class="tool-icon">🔍</span>
+        <div class="tool-name">정규식 테스터</div>
+        <div class="tool-desc">Regex 패턴 실시간 테스트 및 매칭 확인</div>
+      </a>
+      <a href="csv-json.html" class="tool-card">
+        <span class="free-badge">무료</span>
+        <span class="new-badge">NEW</span>
+        <span class="tool-icon">🔄</span>
+        <div class="tool-name">CSV ↔ JSON 변환</div>
+        <div class="tool-desc">CSV와 JSON 형식 상호 변환</div>
+      </a>
+    </div>
+  </div>
+
 </section>
 
 <div class="features">
@@ -301,6 +339,12 @@
         <a href="hash-generator.html">해시 생성기</a>
       </div>
       <div class="footer-links">
+        <h4>코드 & 개발</h4>
+        <a href="markdown-editor.html">마크다운 에디터</a>
+        <a href="regex-tester.html">정규식 테스터</a>
+        <a href="csv-json.html">CSV ↔ JSON 변환</a>
+      </div>
+      <div class="footer-links">
         <h4>정보</h4>
         <a href="about.html">서비스 소개</a>
         <a href="privacy.html">개인정보처리방침</a>
@@ -317,6 +361,7 @@
         <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">MacTools</a>
         <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">PCTools</a>
         <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">VSKit</a>
+        <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">CalcKit</a>
       </div>
     </div>
     <div class="footer-bottom">

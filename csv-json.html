@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV JSON 변환 무료 — CSV를 JSON으로 JSON을 CSV로 | 텍스트킷</title>
+  <meta name="description" content="CSV를 JSON으로, JSON을 CSV로 무료 변환. 파일 업로드 또는 텍스트 직접 입력 지원. 파파파스 기반 정확한 파싱.">
+  <meta name="keywords" content="CSV JSON변환,CSV to JSON,JSON to CSV,CSV변환기,데이터변환,무료CSV변환">
+  <link rel="canonical" href="https://textkit.wooahouse.com/csv-json.html">
+  <!-- Open Graph -->
+  <meta property="og:title" content="CSV JSON 변환 무료 — CSV를 JSON으로 JSON을 CSV로 | 텍스트킷">
+  <meta property="og:description" content="CSV를 JSON으로, JSON을 CSV로 무료 변환. 파일 업로드 또는 텍스트 직접 입력 지원.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/csv-json.html">
+  <meta property="og:locale" content="ko_KR">
+  <!-- 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CSV JSON 변환",
+    "url": "https://textkit.wooahouse.com/csv-json.html",
+    "description": "CSV를 JSON으로, JSON을 CSV로 무료 변환. 파일 업로드 또는 텍스트 직접 입력 지원.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+    "inLanguage": "ko"
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+    }
+    .tab-bar button {
+      flex: 1;
+      padding: 12px 20px;
+      border: 1px solid var(--border);
+      background: #F3F4F6;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-light);
+      transition: background 0.15s, color 0.15s;
+    }
+    .tab-bar button:first-child { border-radius: var(--radius-sm) 0 0 0; }
+    .tab-bar button:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+    .tab-bar button.active {
+      background: white;
+      color: var(--primary);
+      border-bottom-color: white;
+    }
+    .tab-content {
+      display: none;
+      background: white;
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      padding: 24px;
+    }
+    .tab-content.active { display: block; }
+    .convert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media(max-width:768px) {
+      .convert-grid { grid-template-columns: 1fr; }
+    }
+    .convert-col h3 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 10px;
+    }
+    .convert-col textarea {
+      min-height: 250px;
+    }
+    .options-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin: 12px 0;
+    }
+    .options-row label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+    .options-row label input { accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer; }
+    .info-badge {
+      display: inline-block;
+      background: #F3F4F6;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+    .info-badge strong { color: var(--primary); }
+    .table-preview-wrap {
+      margin-top: 16px;
+      max-height: 300px;
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+    .table-preview {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .table-preview th {
+      background: var(--primary-light);
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+    .table-preview th, .table-preview td {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      text-align: left;
+      white-space: nowrap;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .table-preview tr:nth-child(even) { background: #F9FAFB; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">텍스트킷 <span>| TextKit</span></a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">소개</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">Linker Services</span>
+  <div class="our-sites-links">
+    <a href="https://linker.wooahouse.com/" target="_blank" rel="noopener">🔗 Linker</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 PDFKit</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ ImageKit</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 ColorKit</a>
+    <a href="https://textkit.wooahouse.com/" target="_blank" rel="noopener" class="active">✏️ TextKit</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 QRKit</a>
+    <a href="https://steamkit.wooahouse.com/" target="_blank" rel="noopener">🎮 SteamKit</a>
+    <a href="https://chromekit.wooahouse.com/" target="_blank" rel="noopener">🧩 ChromeKit</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 FontKit</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 MacTools</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ PCTools</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 VSKit</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 CalcKit</a>
+  </div>
+</div>
+
+<main class="tool-page" style="max-width:1000px;">
+  <div class="breadcrumb">
+    <a href="index.html">텍스트킷</a>
+    <span>›</span>
+    <span>CSV ↔ JSON 변환</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔄</span>
+    <h1>CSV ↔ JSON 변환</h1>
+    <p>CSV를 JSON으로, JSON을 CSV로 무료 변환합니다</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="active" onclick="switchTab('csv2json')">CSV → JSON</button>
+    <button onclick="switchTab('json2csv')">JSON → CSV</button>
+  </div>
+
+  <!-- CSV → JSON -->
+  <div class="tab-content active" id="tab-csv2json">
+    <div class="options-row">
+      <label><input type="checkbox" id="csvHeader" checked> 첫 행을 헤더로 사용</label>
+      <label><input type="checkbox" id="csvNullEmpty"> 빈 값을 null로 처리</label>
+    </div>
+    <div class="convert-grid">
+      <div class="convert-col">
+        <h3>CSV 입력</h3>
+        <textarea id="csvInput" class="mono" placeholder="CSV 데이터를 붙여넣거나 파일을 업로드하세요...&#10;&#10;예:&#10;이름,나이,도시&#10;홍길동,30,서울&#10;김철수,25,부산"></textarea>
+        <div class="btn-group">
+          <button class="btn btn-secondary btn-sm" onclick="document.getElementById('csvFileInput').click()">📂 CSV 파일 업로드</button>
+          <button class="btn btn-secondary btn-sm" onclick="clearCsvInput()">🗑️ 지우기</button>
+        </div>
+        <input type="file" id="csvFileInput" accept=".csv,.tsv,.txt" style="display:none;">
+      </div>
+      <div class="convert-col">
+        <h3>JSON 결과</h3>
+        <textarea id="jsonOutput" class="mono" readonly placeholder="변환 결과가 여기에 표시됩니다..."></textarea>
+        <div class="btn-group">
+          <button class="btn btn-success btn-sm" onclick="copyText('jsonOutput')">📋 복사</button>
+          <button class="btn btn-outline btn-sm" onclick="downloadFile('jsonOutput','data.json','application/json')">⬇️ JSON 다운로드</button>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:16px;">
+      <button class="btn btn-primary btn-lg" onclick="convertCsvToJson()" style="max-width:400px;">🔄 CSV → JSON 변환</button>
+    </div>
+    <div id="csvInfo" class="info-badge" style="display:none;"></div>
+    <div id="csvTablePreview" class="table-preview-wrap" style="display:none;"></div>
+    <div id="csvError" class="alert alert-error"></div>
+  </div>
+
+  <!-- JSON → CSV -->
+  <div class="tab-content" id="tab-json2csv">
+    <div class="convert-grid">
+      <div class="convert-col">
+        <h3>JSON 입력</h3>
+        <textarea id="jsonInput" class="mono" placeholder="JSON 배열을 붙여넣거나 파일을 업로드하세요...&#10;&#10;예:&#10;[&#10;  {&quot;이름&quot;:&quot;홍길동&quot;,&quot;나이&quot;:30,&quot;도시&quot;:&quot;서울&quot;},&#10;  {&quot;이름&quot;:&quot;김철수&quot;,&quot;나이&quot;:25,&quot;도시&quot;:&quot;부산&quot;}&#10;]"></textarea>
+        <div class="btn-group">
+          <button class="btn btn-secondary btn-sm" onclick="document.getElementById('jsonFileInput').click()">📂 JSON 파일 업로드</button>
+          <button class="btn btn-secondary btn-sm" onclick="clearJsonInput()">🗑️ 지우기</button>
+        </div>
+        <input type="file" id="jsonFileInput" accept=".json" style="display:none;">
+      </div>
+      <div class="convert-col">
+        <h3>CSV 결과</h3>
+        <textarea id="csvOutput" class="mono" readonly placeholder="변환 결과가 여기에 표시됩니다..."></textarea>
+        <div class="btn-group">
+          <button class="btn btn-success btn-sm" onclick="copyText('csvOutput')">📋 복사</button>
+          <button class="btn btn-outline btn-sm" onclick="downloadFile('csvOutput','data.csv','text/csv')">⬇️ CSV 다운로드</button>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:16px;">
+      <button class="btn btn-primary btn-lg" onclick="convertJsonToCsv()" style="max-width:400px;">🔄 JSON → CSV 변환</button>
+    </div>
+    <div id="jsonInfo" class="info-badge" style="display:none;"></div>
+    <div id="jsonError" class="alert alert-error"></div>
+  </div>
+
+  <div id="copyAlert" class="alert alert-success">클립보드에 복사되었습니다!</div>
+
+  <div class="cross-link-tip" style="margin-top:20px;">
+    💡 JSON 포맷팅이 필요하신가요? <a href="json-formatter.html">JSON 포맷터 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 텍스트킷. 모든 권리 보유.</p>
+      <div class="footer-bottom-links">
+        <a href="index.html">홈</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="about.html">소개</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script>
+  // Tab switching
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-bar button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    if (tab === 'csv2json') {
+      document.querySelector('.tab-bar button:first-child').classList.add('active');
+      document.getElementById('tab-csv2json').classList.add('active');
+    } else {
+      document.querySelector('.tab-bar button:last-child').classList.add('active');
+      document.getElementById('tab-json2csv').classList.add('active');
+    }
+  }
+
+  // File uploads
+  document.getElementById('csvFileInput').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) { document.getElementById('csvInput').value = ev.target.result; };
+    reader.readAsText(file);
+    this.value = '';
+  });
+
+  document.getElementById('jsonFileInput').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) { document.getElementById('jsonInput').value = ev.target.result; };
+    reader.readAsText(file);
+    this.value = '';
+  });
+
+  // CSV → JSON
+  function convertCsvToJson() {
+    const csv = document.getElementById('csvInput').value.trim();
+    const useHeader = document.getElementById('csvHeader').checked;
+    const nullEmpty = document.getElementById('csvNullEmpty').checked;
+    const errorEl = document.getElementById('csvError');
+    const infoEl = document.getElementById('csvInfo');
+    const tableEl = document.getElementById('csvTablePreview');
+
+    errorEl.classList.remove('show');
+    infoEl.style.display = 'none';
+    tableEl.style.display = 'none';
+
+    if (!csv) {
+      showError('csvError', 'CSV 데이터를 입력해주세요.');
+      return;
+    }
+
+    try {
+      const result = Papa.parse(csv, {
+        header: useHeader,
+        skipEmptyLines: true,
+        dynamicTyping: true,
+        transform: function(value) {
+          if (nullEmpty && value === '') return null;
+          return value;
+        }
+      });
+
+      if (result.errors.length > 0) {
+        const errMsgs = result.errors.slice(0, 3).map(e => `행 ${e.row + 1}: ${e.message}`).join('\n');
+        showError('csvError', '파싱 경고:\n' + errMsgs);
+      }
+
+      const json = JSON.stringify(result.data, null, 2);
+      document.getElementById('jsonOutput').value = json;
+
+      // Info
+      const rows = result.data.length;
+      const cols = useHeader ? (result.meta.fields ? result.meta.fields.length : 0) : (result.data[0] ? result.data[0].length : 0);
+      infoEl.innerHTML = `<strong>${rows}</strong>행 × <strong>${cols}</strong>열 변환 완료`;
+      infoEl.style.display = 'inline-block';
+
+      // Table preview
+      if (result.data.length > 0) {
+        let html = '<table class="table-preview"><thead><tr>';
+        if (useHeader && result.meta.fields) {
+          result.meta.fields.forEach(f => { html += `<th>${escapeHtml(String(f))}</th>`; });
+        } else if (result.data[0]) {
+          result.data[0].forEach((_, i) => { html += `<th>열 ${i + 1}</th>`; });
+        }
+        html += '</tr></thead><tbody>';
+        const previewRows = result.data.slice(0, 20);
+        previewRows.forEach(row => {
+          html += '<tr>';
+          if (useHeader && result.meta.fields) {
+            result.meta.fields.forEach(f => {
+              const val = row[f];
+              html += `<td>${val === null ? '<em style="color:#9CA3AF;">null</em>' : escapeHtml(String(val))}</td>`;
+            });
+          } else if (Array.isArray(row)) {
+            row.forEach(cell => {
+              html += `<td>${cell === null ? '<em style="color:#9CA3AF;">null</em>' : escapeHtml(String(cell))}</td>`;
+            });
+          }
+          html += '</tr>';
+        });
+        if (result.data.length > 20) {
+          html += `<tr><td colspan="99" style="text-align:center;color:var(--text-light);">... 외 ${result.data.length - 20}행</td></tr>`;
+        }
+        html += '</tbody></table>';
+        tableEl.innerHTML = html;
+        tableEl.style.display = 'block';
+      }
+    } catch (e) {
+      showError('csvError', 'CSV 파싱 오류: ' + e.message);
+    }
+  }
+
+  // JSON → CSV
+  function convertJsonToCsv() {
+    const jsonStr = document.getElementById('jsonInput').value.trim();
+    const errorEl = document.getElementById('jsonError');
+    const infoEl = document.getElementById('jsonInfo');
+
+    errorEl.classList.remove('show');
+    infoEl.style.display = 'none';
+
+    if (!jsonStr) {
+      showError('jsonError', 'JSON 데이터를 입력해주세요.');
+      return;
+    }
+
+    try {
+      let data = JSON.parse(jsonStr);
+
+      // If it's a single object, wrap in array
+      if (!Array.isArray(data)) {
+        if (typeof data === 'object' && data !== null) {
+          data = [data];
+        } else {
+          showError('jsonError', 'JSON은 객체 배열이어야 합니다. 예: [{"key":"value"}, ...]');
+          return;
+        }
+      }
+
+      if (data.length === 0) {
+        showError('jsonError', 'JSON 배열이 비어 있습니다.');
+        return;
+      }
+
+      // Flatten first level of nested objects
+      const flatData = data.map(row => {
+        const flat = {};
+        for (const [key, val] of Object.entries(row)) {
+          if (val !== null && typeof val === 'object' && !Array.isArray(val)) {
+            for (const [subKey, subVal] of Object.entries(val)) {
+              flat[key + '.' + subKey] = subVal;
+            }
+          } else if (Array.isArray(val)) {
+            flat[key] = JSON.stringify(val);
+          } else {
+            flat[key] = val;
+          }
+        }
+        return flat;
+      });
+
+      const csv = Papa.unparse(flatData);
+      document.getElementById('csvOutput').value = csv;
+
+      // Collect all keys
+      const keys = new Set();
+      flatData.forEach(row => Object.keys(row).forEach(k => keys.add(k)));
+
+      infoEl.innerHTML = `<strong>${flatData.length}</strong>행 × <strong>${keys.size}</strong>열 변환 완료`;
+      infoEl.style.display = 'inline-block';
+    } catch (e) {
+      showError('jsonError', 'JSON 파싱 오류: ' + e.message);
+    }
+  }
+
+  // Utilities
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function showError(id, msg) {
+    const el = document.getElementById(id);
+    el.textContent = msg;
+    el.classList.add('show');
+  }
+
+  function copyText(id) {
+    const text = document.getElementById(id).value;
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const alert = document.getElementById('copyAlert');
+      alert.classList.add('show');
+      setTimeout(() => alert.classList.remove('show'), 2000);
+    });
+  }
+
+  function downloadFile(id, filename, mime) {
+    const text = document.getElementById(id).value;
+    if (!text) return;
+    const blob = new Blob([text], { type: mime + ';charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  function clearCsvInput() {
+    document.getElementById('csvInput').value = '';
+    document.getElementById('jsonOutput').value = '';
+    document.getElementById('csvError').classList.remove('show');
+    document.getElementById('csvInfo').style.display = 'none';
+    document.getElementById('csvTablePreview').style.display = 'none';
+  }
+
+  function clearJsonInput() {
+    document.getElementById('jsonInput').value = '';
+    document.getElementById('csvOutput').value = '';
+    document.getElementById('jsonError').classList.remove('show');
+    document.getElementById('jsonInfo').style.display = 'none';
+  }
+</script>
+<script src="js/pwa-install.js"></script>
+</body>
+</html>
