@@ -124,4 +124,57 @@
     const el = document.getElementById('pwa-install-banner');
     if (el) el.remove();
   };
-})();
+
+  // 다운로드 시 광고 인터스티셜
+  document.addEventListener('DOMContentLoaded', () => {
+    const downloadBtn = document.getElementById('downloadBtn');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', () => {
+        showDownloadAd();
+        setTimeout(showPWABanner, 2000);
+      });
+    }
+  });
+
+  window.showDownloadAd = function() {
+    if (sessionStorage.getItem('dl_ad_shown')) return;
+    if (window.matchMedia('(display-mode: standalone)').matches) return;
+    sessionStorage.setItem('dl_ad_shown', '1');
+    const style = document.createElement('style');
+    style.textContent = `
+      #dl-ad-overlay { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.82); z-index:10000; display:flex; align-items:center; justify-content:center; animation:dlFadeIn .2s ease; }
+      @keyframes dlFadeIn { from{opacity:0} to{opacity:1} }
+      #dl-ad-box { background:#fff; border-radius:16px; padding:20px 20px 16px; max-width:360px; width:92%; text-align:center; box-shadow:0 8px 40px rgba(0,0,0,0.4); }
+      #dl-ad-label { font-size:.72rem; color:#aaa; margin-bottom:10px; }
+      #dl-ad-footer { margin-top:12px; font-size:.83rem; color:#777; }
+      #dl-ad-close { margin-top:8px; padding:7px 22px; background:#222; color:#fff; border:none; border-radius:8px; cursor:pointer; font-size:.83rem; display:none; }
+      #dl-ad-close:hover { background:#444; }
+    `;
+    document.head.appendChild(style);
+    const overlay = document.createElement('div');
+    overlay.id = 'dl-ad-overlay';
+    overlay.innerHTML = `
+      <div id="dl-ad-box">
+        <div id="dl-ad-label">잠시 광고를 시청해 주세요</div>
+        <ins class="adsbygoogle" style="display:block;min-height:100px"
+          data-ad-client="ca-pub-6464921081676309"
+          data-ad-slot="7520795194"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+        <div id="dl-ad-footer">
+          <span id="dl-ad-count">5</span>초 후 자동으로 닫힙니다
+          <br><button id="dl-ad-close" onclick="document.getElementById('dl-ad-overlay').remove()">닫기</button>
+        </div>
+      </div>`;
+    document.body.appendChild(overlay);
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+    let count = 5;
+    const timer = setInterval(() => {
+      count--;
+      const el = document.getElementById('dl-ad-count');
+      if (el) el.textContent = count;
+      if (count <= 3) { const btn = document.getElementById('dl-ad-close'); if (btn) btn.style.display = 'inline-block'; }
+      if (count <= 0) { clearInterval(timer); const ov = document.getElementById('dl-ad-overlay'); if (ov) ov.remove(); }
+    }, 1000);
+    setTimeout(() => { overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); }); }, 3000);
+  };})();
