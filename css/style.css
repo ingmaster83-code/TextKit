@@ -940,3 +940,5 @@ footer {
   .hero { padding: 36px 20px 60px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+.coupang-notice { font-size: 0.72rem; color: #6B7280; text-align: center; padding-top: 12px; border-top: 1px solid #374151; margin-top: 12px; }
