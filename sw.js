@@ -1,4 +1,4 @@
-const CACHE_NAME = 'textkit-v2';
+const CACHE_NAME = 'textkit-v3';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
