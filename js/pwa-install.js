@@ -1,4 +1,4 @@
-// PWA 설치 유도 스크립트 — 텍스트킷
+﻿// PWA 설치 유도 스크립트 — 텍스트킷
 (function() {
   let deferredPrompt = null;
 
@@ -100,7 +100,7 @@
     banner.innerHTML = `
       <div class="pwa-banner-icon">✏️</div>
       <div class="pwa-banner-text">
-        <strong>텍스트킷 바로가기 추가</strong>
+        <strong> 바로가기 추가</strong>
         <span>${isIOS ? 'Safari 메뉴 → 홈 화면에 추가' : '앱처럼 설치해서 빠르게 접근하세요!'}</span>
       </div>
       ${btnHtml}
