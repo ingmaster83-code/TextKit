@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>텍스트 통계 — 단어 빈도·문장·단락 분석 | WooaText</title>
+  <meta name="description" content="텍스트의 글자수, 단어 수, 문장 수, 단어 빈도 Top20, 평균 단어 길이를 실시간 분석합니다. 무료 온라인 텍스트 통계 도구.">
+  <meta name="keywords" content="텍스트 통계, 단어 빈도 분석, 문장 분석, 단락 분석, 글자수, 단어수, 평균 단어 길이, 텍스트 분석, 온라인 텍스트 도구">
+  <link rel="canonical" href="https://textkit.wooahouse.com/text-stats.html">
+  <meta property="og:title" content="텍스트 통계 — 단어 빈도·문장·단락 분석 | WooaText">
+  <meta property="og:description" content="텍스트의 글자수, 단어 수, 문장 수, 단어 빈도 Top20, 평균 단어 길이를 실시간 분석합니다. 무료 온라인 텍스트 통계 도구.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/text-stats.html">
+  <meta property="og:locale" content="ko_KR">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "텍스트 통계",
+  "url": "https://textkit.wooahouse.com/text-stats.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "단어 빈도 분석에서 불용어란 무엇인가요?",
+      "acceptedAnswer": {"@type": "Answer","text": "불용어는 분석에서 의미 없는 조사, 접속사 등(이, 그, a, the 등)을 말합니다. 옵션으로 제외할 수 있습니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "한국어도 분석할 수 있나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "네, 한국어 텍스트의 글자수, 단어, 문장 분석이 가능합니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "읽기 시간은 어떻게 계산하나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "분당 평균 200단어를 기준으로 예상 읽기 시간을 계산합니다."}
+    }
+  ]
+}
+</script>
+<style>
+.stats-grid-8 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.stat-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #F59E0B;
+  line-height: 1.1;
+  word-break: break-all;
+}
+.stat-label {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+.freq-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+.freq-table th {
+  background: #f3f4f6;
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+}
+.freq-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+.freq-table tr:last-child td { border-bottom: none; }
+.freq-bar-wrap {
+  background: #f3f4f6;
+  border-radius: 4px;
+  height: 12px;
+  min-width: 60px;
+  overflow: hidden;
+}
+.freq-bar {
+  background: linear-gradient(90deg, #F59E0B, #FBBF24);
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.rank-badge {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #F59E0B;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 24px;
+}
+.rank-badge.top3 { background: #d97706; }
+.read-time-banner {
+  background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+  border: 1px solid #F59E0B;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-top: 16px;
+  font-size: 1rem;
+  color: #92400e;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.options-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.freq-empty {
+  text-align: center;
+  color: #9ca3af;
+  padding: 24px 0;
+  font-size: 0.9rem;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">소개</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://chromekit.wooahouse.com/" target="_blank" rel="noopener">🧩 WooaChrome</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+<div style="text-align:center;margin:8px auto 20px;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="7080296704"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+  <div class="breadcrumb">
+    <a href="index.html">WooaText</a>
+    <span>›</span>
+    <span>텍스트 통계</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">📊</span>
+    <h1>텍스트 통계 — 단어 빈도·문장 분석</h1>
+    <p>텍스트를 입력하면 글자수·단어수·문장수·단락수·단어 빈도 Top20을 실시간으로 분석합니다</p>
+  </div>
+
+  <!-- 입력 영역 -->
+  <div class="text-panel">
+    <div class="text-panel-title">텍스트 입력</div>
+    <textarea id="inputText" rows="10" placeholder="여기에 분석할 텍스트를 입력하거나 붙여넣기 하세요..."></textarea>
+    <div class="options-row">
+      <button class="btn btn-secondary btn-sm" onclick="clearText()">🗑️ 지우기</button>
+    </div>
+  </div>
+
+  <!-- 기본 통계 카드 -->
+  <div class="text-panel">
+    <div class="text-panel-title">기본 통계</div>
+    <div class="stats-grid-8">
+      <div class="stat-card">
+        <div class="stat-value" id="charCount">0</div>
+        <div class="stat-label">총 글자수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="charNoSpace">0</div>
+        <div class="stat-label">공백 제외 글자</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="wordCount">0</div>
+        <div class="stat-label">단어 수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="sentenceCount">0</div>
+        <div class="stat-label">문장 수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="paragraphCount">0</div>
+        <div class="stat-label">단락 수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="lineCount">0</div>
+        <div class="stat-label">줄 수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="avgWordLen">0</div>
+        <div class="stat-label">평균 단어 길이</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="longestWord" style="font-size:1.1rem;">—</div>
+        <div class="stat-label">가장 긴 단어</div>
+      </div>
+    </div>
+
+    <div class="read-time-banner" id="readTimeBanner">
+      ⏱️ 예상 읽기 시간: <span id="readTime">—</span>
+    </div>
+  </div>
+
+  <!-- 단어 빈도 Top 20 -->
+  <div class="text-panel">
+    <div class="text-panel-title">단어 빈도 Top 20</div>
+    <div class="options-row">
+      <label class="checkbox-item" style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+        <input type="checkbox" id="excludeStopwords" checked>
+        불용어 제외 (a, the, 이, 그 등)
+      </label>
+    </div>
+    <div id="freqTableWrap">
+      <div class="freq-empty">텍스트를 입력하면 단어 빈도를 분석합니다.</div>
+    </div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 텍스트를 비교하고 싶다면? <a href="text-diff.html">텍스트 비교 도구 →</a>
+  </div>
+
+  <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+    <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">자주 묻는 질문</h2>
+    <div class="faq-list">
+      <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+        <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 단어 빈도 분석에서 불용어란 무엇인가요?</h3>
+        <p style="color:#555;margin:0;">불용어는 분석에서 의미 없는 조사, 접속사 등(이, 그, a, the 등)을 말합니다. 체크박스 옵션으로 제외할 수 있습니다.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+        <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 한국어도 분석할 수 있나요?</h3>
+        <p style="color:#555;margin:0;">네, 한국어 텍스트의 글자수, 단어, 문장 분석이 가능합니다.</p>
+      </div>
+      <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+        <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 읽기 시간은 어떻게 계산하나요?</h3>
+        <p style="color:#555;margin:0;">분당 평균 200단어를 기준으로 예상 읽기 시간을 계산합니다.</p>
+      </div>
+    </div>
+  </section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <div class="ad-card-label">광고</div>
+    <div class="ad-card-placeholder">📢<br>광고가 표시됩니다</div>
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. 모든 권리 보유.</p>
+      <div class="footer-bottom-links">
+        <a href="index.html">홈</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="about.html">소개</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const STOPWORDS = new Set([
+  'a','an','the','is','are','was','were','be','been','being',
+  'have','has','had','do','does','did','will','would','could',
+  'should','may','might','shall','and','or','but','in','on',
+  'at','to','for','of','with','by','from','as','if','then',
+  'than','so','yet','both','either','not','no','nor','just',
+  'it','its','this','that','these','those','i','we','you',
+  'he','she','they','me','us','him','her','them','my','our',
+  'your','his','their',
+  '이','그','저','이것','그것','저것','은','는','가','을','를',
+  '에','에서','로','으로','와','과','도','만','보다','같이',
+  '처럼','이다','있다','없다','하다','되다','것','수','때',
+  '한','등','및','또','또한','하지만','그러나','그리고','그래서',
+  '즉','따라서','그런데','하여','위해','대해','대한','통해','관한'
+]);
+
+let debounceTimer = null;
+
+function analyze(text) {
+  const chars = text.length;
+  const charsNoSpace = text.replace(/\s/g, '').length;
+  const words = text.trim() ? text.trim().split(/\s+/) : [];
+  const wordCount = words.length;
+  const sentences = text.split(/[.!?。！？]+/).filter(s => s.trim()).length;
+  const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim()).length || (text.trim() ? 1 : 0);
+  const lines = text.split('\n').length;
+  const avgWordLen = wordCount
+    ? (words.reduce((sum, w) => sum + w.replace(/[^a-zA-Z가-힣]/g, '').length, 0) / wordCount).toFixed(1)
+    : 0;
+  const longestWord = words.reduce((a, b) => a.length > b.length ? a : b, '');
+  return { chars, charsNoSpace, wordCount, sentences, paragraphs, lines, avgWordLen, longestWord };
+}
+
+function wordFrequency(text, excludeStopwords) {
+  const freq = {};
+  text.toLowerCase()
+    .replace(/[^a-zA-Z가-힣\s]/g, '')
+    .split(/\s+/)
+    .forEach(w => {
+      if (!w) return;
+      if (excludeStopwords && STOPWORDS.has(w)) return;
+      freq[w] = (freq[w] || 0) + 1;
+    });
+  return Object.entries(freq).sort((a, b) => b[1] - a[1]).slice(0, 20);
+}
+
+function renderFreqTable(entries) {
+  const wrap = document.getElementById('freqTableWrap');
+  if (!entries.length) {
+    wrap.innerHTML = '<div class="freq-empty">단어를 입력하면 빈도를 분석합니다.</div>';
+    return;
+  }
+  const maxCount = entries[0][1];
+  let html = '<table class="freq-table"><thead><tr><th>순위</th><th>단어</th><th>횟수</th><th style="min-width:120px;">비율</th></tr></thead><tbody>';
+  entries.forEach(([word, count], i) => {
+    const rank = i + 1;
+    const pct = Math.round(count / maxCount * 100);
+    const badgeClass = rank <= 3 ? 'rank-badge top3' : 'rank-badge';
+    html += `<tr>
+      <td><span class="${badgeClass}">${rank}</span></td>
+      <td style="font-weight:600;">${escHtml(word)}</td>
+      <td style="color:#d97706;font-weight:700;">${count.toLocaleString()}</td>
+      <td>
+        <div class="freq-bar-wrap">
+          <div class="freq-bar" style="width:${pct}%"></div>
+        </div>
+      </td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  wrap.innerHTML = html;
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function updateAll() {
+  const text = document.getElementById('inputText').value;
+  const excludeStopwords = document.getElementById('excludeStopwords').checked;
+  const s = analyze(text);
+
+  document.getElementById('charCount').textContent = s.chars.toLocaleString();
+  document.getElementById('charNoSpace').textContent = s.charsNoSpace.toLocaleString();
+  document.getElementById('wordCount').textContent = s.wordCount.toLocaleString();
+  document.getElementById('sentenceCount').textContent = s.sentences.toLocaleString();
+  document.getElementById('paragraphCount').textContent = s.paragraphs.toLocaleString();
+  document.getElementById('lineCount').textContent = s.lines.toLocaleString();
+  document.getElementById('avgWordLen').textContent = s.avgWordLen;
+  document.getElementById('longestWord').textContent = s.longestWord || '—';
+
+  if (s.wordCount === 0) {
+    document.getElementById('readTime').textContent = '—';
+  } else {
+    const mins = Math.ceil(s.wordCount / 200);
+    document.getElementById('readTime').textContent = `약 ${mins}분`;
+  }
+
+  const freqEntries = text.trim() ? wordFrequency(text, excludeStopwords) : [];
+  renderFreqTable(freqEntries);
+}
+
+function scheduleUpdate() {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(updateAll, 500);
+}
+
+function clearText() {
+  document.getElementById('inputText').value = '';
+  updateAll();
+}
+
+document.getElementById('inputText').addEventListener('input', scheduleUpdate);
+document.getElementById('excludeStopwords').addEventListener('change', updateAll);
+
+// 초기 실행
+updateAll();
+</script>
+</body>
+</html>

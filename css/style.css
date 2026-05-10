@@ -942,3 +942,89 @@ footer {
 }
 
 .coupang-notice { font-size: 0.65rem; color: #9CA3AF; text-align: center; padding-top: 10px; border-top: 1px solid #374151; margin-top: 10px; }
+
+/* ───── Sidebar Ad Layout ───── */
+.page-with-sidebar {
+  max-width: 1160px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+}
+
+.page-with-sidebar .tool-page {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.tool-sidebar {
+  position: sticky;
+  top: 76px;
+}
+
+/* ── Ad Card (항상 보이는 카드 컨테이너) ── */
+.ad-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1.5px dashed var(--border);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 280px;
+  margin-bottom: 16px;
+}
+
+.ad-card-label {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+  padding: 2px 10px;
+  background: #f3f4f6;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.ad-card-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #d1d5db;
+  font-size: 0.78rem;
+  gap: 8px;
+  width: 100%;
+  min-height: 200px;
+  border-radius: 8px;
+  background: #f9fafb;
+  text-align: center;
+}
+
+/* ── Mobile: 사이드바 → 인라인 ── */
+@media (max-width: 1024px) {
+  .page-with-sidebar {
+    grid-template-columns: 1fr;
+    max-width: 820px;
+  }
+  .tool-sidebar {
+    position: static;
+    width: 100%;
+    order: 3;
+  }
+  .ad-card {
+    min-height: 120px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .ad-card-placeholder {
+    min-height: 80px;
+    flex: 1;
+  }
+}

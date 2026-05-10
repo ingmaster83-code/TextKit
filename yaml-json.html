@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YAML ↔ JSON 변환기 — 무료 온라인 상호 변환 | WooaText</title>
+  <meta name="description" content="YAML을 JSON으로, JSON을 YAML로 즉시 변환합니다. 유효성 검사 포함, 실시간 변환 지원. 무료 온라인 YAML JSON 변환기.">
+  <meta name="keywords" content="YAML JSON 변환, YAML to JSON, JSON to YAML, yaml json converter, yaml 변환기, json 변환기, 온라인 변환, yaml 파서">
+  <link rel="canonical" href="https://textkit.wooahouse.com/yaml-json.html">
+  <meta property="og:title" content="YAML ↔ JSON 변환기 — 무료 온라인 상호 변환 | WooaText">
+  <meta property="og:description" content="YAML을 JSON으로, JSON을 YAML로 즉시 변환합니다. 유효성 검사 포함, 실시간 변환 지원. 무료 온라인 YAML JSON 변환기.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/yaml-json.html">
+  <meta property="og:locale" content="ko_KR">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "YAML ↔ JSON 변환기",
+  "url": "https://textkit.wooahouse.com/yaml-json.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "YAML과 JSON의 차이는 무엇인가요?",
+      "acceptedAnswer": {"@type": "Answer","text": "YAML은 들여쓰기 기반으로 사람이 읽기 쉽고, JSON은 중괄호 기반으로 프로그램이 파싱하기 쉽습니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "주석이 있는 YAML도 변환되나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "YAML 주석(#으로 시작)은 JSON으로 변환 시 제거됩니다. JSON은 주석을 지원하지 않습니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "YAML 들여쓰기는 몇 칸으로 변환되나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "JSON→YAML 변환 시 기본 2칸 들여쓰기로 생성됩니다."}
+    }
+  ]
+}
+</script>
+  <style>
+    .converter-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .converter-layout { grid-template-columns: 1fr; }
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #374151;
+    }
+    .panel-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #374151;
+      letter-spacing: 0.03em;
+    }
+    .panel-actions {
+      display: flex;
+      gap: 6px;
+    }
+    textarea.mono {
+      width: 100%;
+      font-family: 'Courier New', 'Consolas', monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      resize: vertical;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      padding: 12px;
+      background: #fafafa;
+      color: #1f2937;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    textarea.mono:focus {
+      outline: none;
+      border-color: #F59E0B;
+      background: #fff;
+    }
+    textarea.mono.error-border {
+      border-color: #ef4444;
+    }
+    .status-msg {
+      margin-top: 8px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: none;
+    }
+    .status-msg.success {
+      background: #dcfce7;
+      color: #166534;
+      display: block;
+    }
+    .status-msg.error {
+      background: #fee2e2;
+      color: #991b1b;
+      display: block;
+      word-break: break-all;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      padding: 12px 16px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+    }
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #374151;
+      cursor: pointer;
+      user-select: none;
+    }
+    .toggle-switch {
+      position: relative;
+      width: 40px;
+      height: 22px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .toggle-track {
+      position: absolute;
+      inset: 0;
+      background: #d1d5db;
+      border-radius: 22px;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .toggle-track::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 3px;
+      top: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    .toggle-switch input:checked + .toggle-track {
+      background: #F59E0B;
+    }
+    .toggle-switch input:checked + .toggle-track::before {
+      transform: translateX(18px);
+    }
+    .convert-btn-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+    }
+    .btn-sm {
+      padding: 5px 12px;
+      font-size: 0.82rem;
+      border-radius: 6px;
+      border: 1.5px solid #d1d5db;
+      background: #fff;
+      color: #374151;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn-sm:hover {
+      background: #f3f4f6;
+      border-color: #9ca3af;
+    }
+    .faq-section {
+      margin-top: 40px;
+    }
+    .faq-section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+    .faq-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 14px 18px;
+      font-weight: 600;
+      color: #1f2937;
+      background: #f9fafb;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+    .faq-q:hover { background: #f3f4f6; }
+    .faq-q .faq-arrow { transition: transform 0.2s; font-size: 0.8rem; color: #6b7280; }
+    .faq-q.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 14px 18px;
+      color: #4b5563;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      border-top: 1px solid #e5e7eb;
+      background: #fff;
+    }
+    .faq-a.open { display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">소개</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://chromekit.wooahouse.com/" target="_blank" rel="noopener">🧩 WooaChrome</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div style="text-align:center;margin:8px auto 20px;max-width:728px;padding:0 8px">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="7080296704"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="index.html">WooaText</a>
+    <span>›</span>
+    <span>YAML ↔ JSON 변환</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔀</span>
+    <h1>YAML ↔ JSON 변환기 — 상호 변환</h1>
+    <p>YAML을 JSON으로, JSON을 YAML로 즉시 변환합니다. 유효성 검사와 실시간 변환을 지원합니다.</p>
+  </div>
+
+  <!-- 툴바 -->
+  <div class="toolbar">
+    <label class="toggle-label">
+      <span class="toggle-switch">
+        <input type="checkbox" id="autoToggle">
+        <span class="toggle-track"></span>
+      </span>
+      ↔ 양방향 자동 변환
+    </label>
+    <button class="btn-sm" onclick="loadExample()">📋 예시 불러오기</button>
+    <button class="btn-sm" onclick="clearAll()">🗑️ 전체 지우기</button>
+  </div>
+
+  <!-- 좌우 2열 레이아웃 -->
+  <div class="converter-layout">
+
+    <!-- 왼쪽: YAML 패널 -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label">YAML</span>
+        <div class="panel-actions">
+          <button class="btn-sm" onclick="copyText('yamlInput', 'yamlCopyBtn')" id="yamlCopyBtn">📋 복사</button>
+        </div>
+      </div>
+      <textarea id="yamlInput" rows="20" class="mono" placeholder="YAML을 입력하세요..." oninput="onYamlInput()"></textarea>
+      <div id="yamlStatus" class="status-msg"></div>
+      <div class="convert-btn-row">
+        <button class="btn-primary" onclick="yamlToJson()">→ JSON 변환</button>
+      </div>
+    </div>
+
+    <!-- 오른쪽: JSON 패널 -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label">JSON</span>
+        <div class="panel-actions">
+          <button class="btn-sm" onclick="copyText('jsonInput', 'jsonCopyBtn')" id="jsonCopyBtn">📋 복사</button>
+        </div>
+      </div>
+      <textarea id="jsonInput" rows="20" class="mono" placeholder="JSON을 입력하세요..." oninput="onJsonInput()"></textarea>
+      <div id="jsonStatus" class="status-msg"></div>
+      <div class="convert-btn-row">
+        <button class="btn-primary" onclick="jsonToYaml()">→ YAML 변환</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 하단 AdSense -->
+  <div style="text-align:center;margin:32px auto 20px;max-width:728px;padding:0 8px">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2>자주 묻는 질문</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        YAML과 JSON의 차이는 무엇인가요?
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">
+        YAML은 들여쓰기 기반으로 사람이 읽기 쉽고, JSON은 중괄호 기반으로 프로그램이 파싱하기 쉽습니다. YAML은 주석을 지원하고 더 간결하지만, JSON은 언어 표준 지원이 더 넓습니다.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        주석이 있는 YAML도 변환되나요?
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">
+        YAML 주석(#으로 시작)은 JSON으로 변환 시 제거됩니다. JSON은 주석을 지원하지 않습니다. 주석 내용을 보존하려면 별도로 관리해야 합니다.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        YAML 들여쓰기는 몇 칸으로 변환되나요?
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">
+        JSON→YAML 변환 시 기본 2칸 들여쓰기로 생성됩니다. JSON 역시 2칸 들여쓰기로 포맷팅됩니다.
+      </div>
+    </div>
+  </section>
+
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <div class="ad-card-label">광고</div>
+    <div class="ad-card-placeholder">📢<br>광고가 표시됩니다</div>
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. 모든 권리 보유.</p>
+      <div class="footer-bottom-links">
+        <a href="index.html">홈</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="about.html">소개</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var autoTimer = null;
+  var statusTimers = {};
+
+  function showStatus(panel, type, msg) {
+    var el = document.getElementById(panel + 'Status');
+    var ta = document.getElementById(panel + 'Input');
+    el.textContent = msg;
+    el.className = 'status-msg ' + type;
+    if (type === 'error') {
+      ta.classList.add('error-border');
+    } else {
+      ta.classList.remove('error-border');
+    }
+    if (statusTimers[panel]) clearTimeout(statusTimers[panel]);
+    if (type === 'success') {
+      statusTimers[panel] = setTimeout(function() {
+        el.className = 'status-msg';
+        el.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function clearStatus(panel) {
+    var el = document.getElementById(panel + 'Status');
+    el.className = 'status-msg';
+    el.textContent = '';
+    document.getElementById(panel + 'Input').classList.remove('error-border');
+  }
+
+  function yamlToJson() {
+    var yaml = document.getElementById('yamlInput').value.trim();
+    if (!yaml) return;
+    try {
+      var obj = jsyaml.load(yaml);
+      document.getElementById('jsonInput').value = JSON.stringify(obj, null, 2);
+      showStatus('json', 'success', '✅ 변환 완료');
+      clearStatus('yaml');
+    } catch(e) {
+      showStatus('yaml', 'error', '❌ YAML 오류: ' + e.message);
+    }
+  }
+
+  function jsonToYaml() {
+    var json = document.getElementById('jsonInput').value.trim();
+    if (!json) return;
+    try {
+      var obj = JSON.parse(json);
+      document.getElementById('yamlInput').value = jsyaml.dump(obj, { indent: 2 });
+      showStatus('yaml', 'success', '✅ 변환 완료');
+      clearStatus('json');
+    } catch(e) {
+      showStatus('json', 'error', '❌ JSON 오류: ' + e.message);
+    }
+  }
+
+  function onYamlInput() {
+    if (document.getElementById('autoToggle').checked) {
+      if (autoTimer) clearTimeout(autoTimer);
+      autoTimer = setTimeout(yamlToJson, 400);
+    }
+  }
+
+  function onJsonInput() {
+    if (document.getElementById('autoToggle').checked) {
+      if (autoTimer) clearTimeout(autoTimer);
+      autoTimer = setTimeout(jsonToYaml, 400);
+    }
+  }
+
+  function copyText(id, btnId) {
+    var val = document.getElementById(id).value;
+    if (!val.trim()) return;
+    navigator.clipboard.writeText(val).then(function() {
+      var btn = document.getElementById(btnId);
+      var orig = btn.textContent;
+      btn.textContent = '✅ 복사됨';
+      setTimeout(function() { btn.textContent = orig; }, 1500);
+    }).catch(function() {
+      var ta = document.getElementById(id);
+      ta.select();
+      document.execCommand('copy');
+    });
+  }
+
+  function loadExample() {
+    document.getElementById('yamlInput').value =
+      'name: WooaText\nversion: 1.0\nfeatures:\n  - text analysis\n  - format conversion\n  - code tools\nsettings:\n  theme: dark\n  language: ko\n  free: true';
+    clearStatus('yaml');
+    clearStatus('json');
+    yamlToJson();
+  }
+
+  function clearAll() {
+    document.getElementById('yamlInput').value = '';
+    document.getElementById('jsonInput').value = '';
+    clearStatus('yaml');
+    clearStatus('json');
+  }
+
+  function toggleFaq(el) {
+    var answer = el.nextElementSibling;
+    var isOpen = answer.classList.contains('open');
+    el.classList.toggle('open', !isOpen);
+    answer.classList.toggle('open', !isOpen);
+  }
+</script>
+<script src="js/pwa-install.js"></script>
+</body>
+</html>

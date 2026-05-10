@@ -1,11 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSON 포맷터 — JSON 정렬·압축·유효성 검사 | WooaText</title>
-  <meta name="description" content="JSON을 보기 좋게 정렬하거나 압축하고 유효성을 검사합니다. 구문 강조 표시 포함. 무료 온라인 JSON 포맷터.">
-  <link rel="canonical" href="https://textkit.wooahouse.com/json-formatter.html">
+  <title>XML 포맷터 — 들여쓰기 정렬·검증·압축 | WooaText</title>
+  <meta name="description" content="XML을 보기 좋게 들여쓰기 정렬하거나 압축하고 유효성을 검사합니다. 신택스 하이라이팅 포함. 무료 온라인 XML 포맷터.">
+  <meta name="keywords" content="XML 포맷터, XML 정렬, XML 압축, XML 유효성 검사, XML pretty print, XML minify, 온라인 XML 편집기">
+  <link rel="canonical" href="https://textkit.wooahouse.com/xml-formatter.html">
+  <meta property="og:title" content="XML 포맷터 — 들여쓰기 정렬·검증·압축 | WooaText">
+  <meta property="og:description" content="XML을 보기 좋게 들여쓰기 정렬하거나 압축하고 유효성을 검사합니다. 신택스 하이라이팅 포함. 무료 온라인 XML 포맷터.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/xml-formatter.html">
+  <meta property="og:locale" content="ko_KR">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#F59E0B">
@@ -14,8 +20,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "JSON 포맷터",
-  "url": "https://textkit.wooahouse.com/json-formatter.html",
+  "name": "XML 포맷터",
+  "url": "https://textkit.wooahouse.com/xml-formatter.html",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web",
   "inLanguage": "ko",
@@ -30,24 +36,24 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "JSON 유효성 검사도 되나요?",
-      "acceptedAnswer": {"@type": "Answer","text": "네, JSON 형식 오류가 있으면 오류 위치를 표시하여 수정을 도와줍니다."}
+      "name": "XML 유효성 검사가 되나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "네, DOMParser를 이용해 XML 형식 오류를 감지하고 오류 위치를 표시합니다."}
     },
     {
       "@type": "Question",
-      "name": "압축(minify) 기능도 있나요?",
-      "acceptedAnswer": {"@type": "Answer","text": "네, 들여쓰기 정렬(pretty) 외에도 공백을 제거하는 압축 기능을 제공합니다."}
+      "name": "JSON 포맷터와 차이가 뭔가요?",
+      "acceptedAnswer": {"@type": "Answer","text": "XML 포맷터는 XML 전용으로 태그, 속성, CDATA 등 XML 문법에 맞게 정렬합니다."}
     },
     {
       "@type": "Question",
-      "name": "큰 JSON 파일도 처리 가능한가요?",
-      "acceptedAnswer": {"@type": "Answer","text": "브라우저 메모리 내에서 처리되므로 일반적인 크기의 JSON은 빠르게 처리됩니다."}
+      "name": "큰 XML 파일도 처리할 수 있나요?",
+      "acceptedAnswer": {"@type": "Answer","text": "브라우저 메모리 내에서 처리되므로 일반적인 크기의 XML은 빠르게 처리됩니다."}
     }
   ]
 }
 </script>
   <style>
-    .json-output-pre {
+    .xml-output-pre {
       background: #1e1e2e;
       color: #cdd6f4;
       border-radius: var(--radius-sm);
@@ -61,23 +67,38 @@
       overflow-y: auto;
       border: 1.5px solid #313244;
     }
-    .json-key { color: #89b4fa; }
-    .json-string { color: #a6e3a1; }
-    .json-number { color: #fab387; }
-    .json-boolean { color: #f38ba8; }
-    .json-null { color: #f38ba8; }
-    .json-bracket { color: #cba6f7; }
-    .json-validation-ok {
+    .xml-tag      { color: #89b4fa; }
+    .xml-attr     { color: #fab387; }
+    .xml-value    { color: #a6e3a1; }
+    .xml-comment  { color: #6c7086; font-style: italic; }
+    .xml-cdata    { color: #f9e2af; }
+    .xml-prolog   { color: #cba6f7; }
+    .xml-validation-ok {
       display: inline-flex; align-items: center; gap: 8px;
       background: #dcfce7; color: #166534;
       border-radius: var(--radius-sm); padding: 8px 14px;
       font-size: 0.88rem; font-weight: 600; margin-top: 10px;
     }
-    .json-validation-err {
+    .xml-validation-err {
       display: inline-flex; align-items: center; gap: 8px;
       background: #fee2e2; color: #991b1b;
       border-radius: var(--radius-sm); padding: 8px 14px;
       font-size: 0.88rem; font-weight: 600; margin-top: 10px;
+    }
+    .indent-option {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px; flex-wrap: wrap;
+    }
+    .indent-option label {
+      font-size: 0.88rem; font-weight: 600; color: #374151;
+    }
+    .indent-option select {
+      padding: 5px 10px; border: 1.5px solid #d1d5db;
+      border-radius: var(--radius-sm); font-size: 0.88rem;
+      background: #fff; color: #374151; cursor: pointer;
+    }
+    .indent-option select:focus {
+      outline: none; border-color: #F59E0B;
     }
   </style>
 </head>
@@ -128,25 +149,34 @@
      data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
+
   <div class="breadcrumb">
     <a href="index.html">WooaText</a>
     <span>›</span>
-    <span>JSON 포맷터</span>
+    <span>XML 포맷터</span>
   </div>
 
   <div class="tool-header">
-    <span class="tool-header-icon">📦</span>
-    <h1>JSON 포맷터 무료 온라인 — JSON 들여쓰기·검증·미니파이</h1>
-    <p>JSON을 보기 좋게 정렬하거나 압축하고 유효성을 검사합니다</p>
+    <span class="tool-header-icon">📄</span>
+    <h1>XML 포맷터 — 들여쓰기 정렬·검증·압축</h1>
+    <p>XML을 보기 좋게 들여쓰기 정렬하거나 압축하고 유효성을 검사합니다</p>
   </div>
 
   <div class="text-panel">
-    <div class="text-panel-title">JSON 입력</div>
-    <textarea id="inputText" rows="10" class="mono" placeholder='JSON을 붙여넣거나 입력하세요...&#10;예: {"name":"WooaText","tools":12,"free":true}'></textarea>
+    <div class="indent-option">
+      <label for="indentSelect">들여쓰기:</label>
+      <select id="indentSelect">
+        <option value="2spaces">공백 2칸</option>
+        <option value="4spaces" selected>공백 4칸</option>
+        <option value="tab">탭(Tab)</option>
+      </select>
+    </div>
+    <div class="text-panel-title">XML 입력</div>
+    <textarea id="inputText" rows="12" class="mono" placeholder='XML을 붙여넣거나 입력하세요...&#10;예: &lt;?xml version="1.0"?&gt;&lt;root&gt;&lt;item id="1"&gt;Hello&lt;/item&gt;&lt;/root&gt;'></textarea>
     <div class="btn-group" style="margin-top:14px;">
-      <button class="btn btn-primary" onclick="format()">✨ 예쁘게 정렬</button>
-      <button class="btn btn-outline" onclick="minify()">📦 압축 (Minify)</button>
-      <button class="btn btn-outline" onclick="validate()">✅ 유효성 검사</button>
+      <button class="btn btn-primary" onclick="formatXMLAction()">✨ 예쁘게 정렬</button>
+      <button class="btn btn-outline" onclick="minifyXMLAction()">📦 압축</button>
+      <button class="btn btn-outline" onclick="validateXMLAction()">✅ 유효성 검사</button>
       <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
     </div>
     <div id="validationResult"></div>
@@ -157,28 +187,28 @@
       <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
       <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
     </div>
-    <pre class="json-output-pre" id="outputPre"></pre>
+    <pre class="xml-output-pre" id="outputPre"></pre>
     <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
   </div>
 
   <div class="cross-link-tip">
-    💡 HTML 엔티티 변환이 필요하신가요? <a href="html-entity.html">HTML 엔티티 변환 →</a>
+    💡 JSON 데이터 정렬이 필요하신가요? <a href="json-formatter.html">JSON 포맷터 →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
   <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">자주 묻는 질문</h2>
   <div class="faq-list">
     <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
-      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. JSON 유효성 검사도 되나요?</h3>
-      <p style="color:#555;margin:0;">네, JSON 형식 오류가 있으면 오류 위치를 표시하여 수정을 도와줍니다.</p>
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. XML 유효성 검사가 되나요?</h3>
+      <p style="color:#555;margin:0;">네, DOMParser를 이용해 XML 형식 오류를 감지하고 오류 위치를 표시합니다.</p>
     </div>
     <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
-      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 압축(minify) 기능도 있나요?</h3>
-      <p style="color:#555;margin:0;">네, 들여쓰기 정렬(pretty) 외에도 공백을 제거하는 압축 기능을 제공합니다.</p>
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. JSON 포맷터와 차이가 뭔가요?</h3>
+      <p style="color:#555;margin:0;">XML 포맷터는 XML 전용으로 태그, 속성, CDATA 등 XML 문법에 맞게 정렬합니다.</p>
     </div>
     <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
-      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 큰 JSON 파일도 처리 가능한가요?</h3>
-      <p style="color:#555;margin:0;">브라우저 메모리 내에서 처리되므로 일반적인 크기의 JSON은 빠르게 처리됩니다.</p>
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. 큰 XML 파일도 처리할 수 있나요?</h3>
+      <p style="color:#555;margin:0;">브라우저 메모리 내에서 처리되므로 일반적인 크기의 XML은 빠르게 처리됩니다.</p>
     </div>
   </div>
 </section>
@@ -224,84 +254,150 @@
 <script>
   let lastFormattedText = '';
 
-  function escapeHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  function getIndent() {
+    const val = document.getElementById('indentSelect').value;
+    if (val === '2spaces') return '  ';
+    if (val === 'tab') return '\t';
+    return '    ';
   }
 
-  function syntaxHighlight(json) {
-    const escaped = escapeHtml(json);
-    return escaped.replace(
-      /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?|[{}\[\],])/g,
-      function(match) {
-        let cls = 'json-number';
-        if (/^"/.test(match)) {
-          cls = /:$/.test(match) ? 'json-key' : 'json-string';
-        } else if (/true|false/.test(match)) {
-          cls = 'json-boolean';
-        } else if (/null/.test(match)) {
-          cls = 'json-null';
-        } else if (/[{}\[\]]/.test(match)) {
-          cls = 'json-bracket';
-        }
-        return '<span class="' + cls + '">' + match + '</span>';
+  function parseXML(xmlStr) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(xmlStr, 'application/xml');
+    const err = doc.querySelector('parsererror');
+    if (err) throw new Error(err.textContent.split('\n')[0]);
+    return doc;
+  }
+
+  function formatXML(doc, indent) {
+    const xs = new XMLSerializer();
+    let raw = xs.serializeToString(doc);
+    let result = '';
+    let level = 0;
+    const pad = () => indent.repeat(level);
+
+    raw.replace(/>\s*</g, '>\n<').split('\n').forEach(line => {
+      line = line.trim();
+      if (!line) return;
+
+      // 닫는 태그면 레벨 감소 후 출력
+      if (line.match(/^<\//)) {
+        level = Math.max(0, level - 1);
+        result += pad() + line + '\n';
       }
-    );
+      // XML 선언 / DOCTYPE / 주석 / CDATA / 자기닫힘 태그 / 인라인 태그
+      else if (
+        line.match(/^<\?/) ||
+        line.match(/^<!/) ||
+        line.match(/\/>$/) ||
+        line.match(/^<[^>]+>.*<\/[^>]+>$/)
+      ) {
+        result += pad() + line + '\n';
+      }
+      // 여는 태그
+      else if (line.match(/^</)) {
+        result += pad() + line + '\n';
+        level++;
+      }
+      // 텍스트 노드
+      else {
+        result += pad() + line + '\n';
+      }
+    });
+
+    return result.trim();
+  }
+
+  function minifyXML(doc) {
+    return new XMLSerializer().serializeToString(doc).replace(/>\s+</g, '><').trim();
+  }
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function syntaxHighlightXML(xml) {
+    const escaped = escapeHtml(xml);
+
+    return escaped
+      // XML 선언/프롤로그: <?xml ... ?>
+      .replace(/(&lt;\?[^?]*\?&gt;)/g, '<span class="xml-prolog">$1</span>')
+      // 주석: <!-- ... -->
+      .replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="xml-comment">$1</span>')
+      // CDATA
+      .replace(/(&lt;!\[CDATA\[[\s\S]*?\]\]&gt;)/g, '<span class="xml-cdata">$1</span>')
+      // 속성값 "..." (먼저 치환)
+      .replace(/=(&quot;[^&]*&quot;)/g, '=<span class="xml-value">$1</span>')
+      // 속성명 (속성값 앞에 위치한 단어)
+      .replace(/\s([\w:.-]+)=(?=&lt;|<span class="xml-value">)/g, ' <span class="xml-attr">$1</span>=')
+      // 여는/닫는 태그명
+      .replace(/(&lt;\/?([\w:.-]+))/g, (match, p1, p2) => {
+        return p1.replace(p2, '<span class="xml-tag">' + p2 + '</span>');
+      });
   }
 
   function showOutput(text, label) {
     lastFormattedText = text;
     document.getElementById('outputLabel').textContent = label;
-    document.getElementById('outputPre').innerHTML = syntaxHighlight(text);
+    document.getElementById('outputPre').innerHTML = syntaxHighlightXML(text);
     document.getElementById('outputPanel').style.display = 'block';
   }
 
   function showValidation(ok, msg) {
     const el = document.getElementById('validationResult');
     el.innerHTML = ok
-      ? `<div class="json-validation-ok">✅ ${msg}</div>`
-      : `<div class="json-validation-err">❌ ${msg}</div>`;
+      ? `<div class="xml-validation-ok">✅ ${escapeHtmlText(msg)}</div>`
+      : `<div class="xml-validation-err">❌ ${escapeHtmlText(msg)}</div>`;
+  }
+
+  function escapeHtmlText(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
   function clearValidation() {
     document.getElementById('validationResult').innerHTML = '';
   }
 
-  function format() {
+  function formatXMLAction() {
     const input = document.getElementById('inputText').value.trim();
     clearValidation();
     if (!input) return;
     try {
-      const parsed = JSON.parse(input);
-      const formatted = JSON.stringify(parsed, null, 2);
+      const doc = parseXML(input);
+      const formatted = formatXML(doc, getIndent());
       showOutput(formatted, '결과 — 예쁘게 정렬');
     } catch(e) {
-      showValidation(false, '유효하지 않은 JSON입니다: ' + e.message);
+      showValidation(false, '유효하지 않은 XML입니다: ' + e.message);
       document.getElementById('outputPanel').style.display = 'none';
     }
   }
 
-  function minify() {
+  function minifyXMLAction() {
     const input = document.getElementById('inputText').value.trim();
     clearValidation();
     if (!input) return;
     try {
-      const parsed = JSON.parse(input);
-      const minified = JSON.stringify(parsed);
-      showOutput(minified, '결과 — 압축 (Minify)');
+      const doc = parseXML(input);
+      const minified = minifyXML(doc);
+      showOutput(minified, '결과 — 압축');
     } catch(e) {
-      showValidation(false, '유효하지 않은 JSON입니다: ' + e.message);
+      showValidation(false, '유효하지 않은 XML입니다: ' + e.message);
       document.getElementById('outputPanel').style.display = 'none';
     }
   }
 
-  function validate() {
+  function validateXMLAction() {
     const input = document.getElementById('inputText').value.trim();
     if (!input) return;
     try {
-      JSON.parse(input);
-      showValidation(true, '유효한 JSON입니다.');
+      parseXML(input);
+      showValidation(true, '유효한 XML입니다.');
     } catch(e) {
-      showValidation(false, '유효하지 않은 JSON입니다: ' + e.message);
+      showValidation(false, '유효하지 않은 XML입니다: ' + e.message);
     }
   }
 
