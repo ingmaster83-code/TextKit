@@ -2393,9 +2393,8 @@ def build_page(filename, meta):
         if '</style>' in html:
             html = html.replace('</style>', LANG_SWITCHER_CSS + '</style>', 1)
 
-    # ── 헤더에 언어 선택기 삽입 ──
-    html = re.sub(
-        r'(\s*</div>\s*</header>)',
+    # ── 헤더에 언어 선택기 삽입 (기존 KO header-right 있으면 교체, 없으면 추가) ──
+    _en_hdr = (
         f'\n    <div class="header-right">\n'
         f'      <div class="lang-switcher">\n'
         f'        <a href="../{filename}">KO</a>\n'
@@ -2405,9 +2404,19 @@ def build_page(filename, meta):
         f'      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>\n'
         f'    </div>\n'
         f'  </div>\n'
-        f'</header>',
-        html, count=1
+        f'</header>'
     )
+    if 'lang-switcher' in html:
+        # 기존 KO header-right 블록 전체를 EN 버전으로 교체
+        html = re.sub(
+            r'\s*<div class="header-right">.*?</header>',
+            _en_hdr, html, count=1, flags=re.DOTALL
+        )
+    else:
+        html = re.sub(
+            r'(\s*</div>\s*</header>)',
+            _en_hdr, html, count=1
+        )
 
     # ── 쿠팡 제거 ──
     html = re.sub(r'\s*<script src="https://ads-partners\.coupang\.com/g\.js"></script>\n?', '', html)
@@ -2450,8 +2459,7 @@ def build_simple(filename, en_title, en_desc):
     if 'lang-switcher' not in html and '</style>' in html:
         html = html.replace('</style>', LANG_SWITCHER_CSS + '</style>', 1)
 
-    html = re.sub(
-        r'(\s*</div>\s*</header>)',
+    _en_hdr_simple = (
         f'\n    <div class="header-right">\n'
         f'      <div class="lang-switcher">\n'
         f'        <a href="../{filename}">KO</a>\n'
@@ -2460,9 +2468,18 @@ def build_simple(filename, en_title, en_desc):
         f'      </div>\n'
         f'    </div>\n'
         f'  </div>\n'
-        f'</header>',
-        html, count=1
+        f'</header>'
     )
+    if 'lang-switcher' in html:
+        html = re.sub(
+            r'\s*<div class="header-right">.*?</header>',
+            _en_hdr_simple, html, count=1, flags=re.DOTALL
+        )
+    else:
+        html = re.sub(
+            r'(\s*</div>\s*</header>)',
+            _en_hdr_simple, html, count=1
+        )
 
     html = re.sub(r'\s*<script src="https://ads-partners\.coupang\.com/g\.js"></script>\n?', '', html)
     html = re.sub(r'<script>\s*new PartnersCoupang\.G\([^)]*\);?\s*</script>', '', html)
