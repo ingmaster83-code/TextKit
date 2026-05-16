@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Diff Checker Online Free — Compare Two Texts | WooaText</title>
+  <meta name="description" content="Compare two texts and highlight differences in color. Find added, removed, or changed content instantly. Free online text diff tool, no upload needed.">
+  <meta name="keywords" content="text diff, compare text online, text comparison, find differences, diff checker free, text diff tool, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/text-diff.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/text-diff.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/text-diff.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/text-diff.html">
+  <meta property="og:title" content="Text Diff Checker Free Online | WooaText">
+  <meta property="og:description" content="Compare two texts and highlight differences instantly. Free, no sign-up needed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/text-diff.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Text Diff Checker",
+  "url": "https://textkit.wooahouse.com/en/text-diff.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the diff comparison work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool highlights added text in green and removed text in red, making differences easy to spot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compare large texts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All processing is done in your browser, so there is no file size limit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my text sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All comparison happens locally in your browser. Your text never leaves your device."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .diff-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 640px) { .diff-columns { grid-template-columns: 1fr; } }
+    .diff-legend {
+      display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.82rem; margin-bottom: 12px;
+    }
+    .diff-legend span {
+      display: flex; align-items: center; gap: 6px;
+    }
+    .legend-add { width: 14px; height: 14px; background: #DCFCE7; border: 1px solid #22C55E; border-radius: 3px; }
+    .legend-remove { width: 14px; height: 14px; background: #FEE2E2; border: 1px solid #EF4444; border-radius: 3px; }
+    .diff-stats { display: flex; gap: 20px; font-size: 0.85rem; margin-bottom: 12px; flex-wrap: wrap; }
+    .diff-stat { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+    .diff-stat-add { color: #16A34A; }
+    .diff-stat-remove { color: #DC2626; }
+    .diff-stat-same { color: #6B7280; }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../text-diff.html">KO</a>
+        <span>|</span>
+        <a href="text-diff.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page" style="max-width:1000px;">
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>텍스트 비교</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔍</span>
+    <h1>Text Diff Checker — Free Online</h1>
+    <p>두 텍스트를 입력하고 비교 버튼을 누르면 차이점을 색으로 표시합니다</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="diff-columns">
+      <div>
+        <div class="text-panel-title">원본 텍스트</div>
+        <textarea id="text1" rows="10" placeholder="원본 텍스트를 입력하세요..."></textarea>
+      </div>
+      <div>
+        <div class="text-panel-title">비교 텍스트</div>
+        <textarea id="text2" rows="10" placeholder="비교할 텍스트를 입력하세요..."></textarea>
+      </div>
+    </div>
+    <div class="btn-group" style="margin-top:16px;">
+      <button class="btn btn-primary" onclick="compareDiff()">🔍 비교하기</button>
+      <div class="checkbox-group" style="margin-left:8px;">
+        <label class="checkbox-item">
+          <input type="checkbox" id="ignoreCase">
+          대소문자 무시
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" id="ignoreWhitespace">
+          공백 무시
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-panel" id="resultPanel" style="display:none;">
+    <div class="text-panel-title">비교 결과</div>
+    <div class="diff-legend">
+      <span><span class="legend-add"></span> 추가됨</span>
+      <span><span class="legend-remove"></span> 삭제됨</span>
+    </div>
+    <div class="diff-stats" id="diffStats"></div>
+    <div class="diff-output" id="diffOutput"></div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 글자수를 확인하고 싶다면? <a href="../char-counter.html">Character Counter →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. How does the diff comparison work?</h3>
+      <p style="color:#555;margin:0;">The tool highlights added text in green and removed text in red, making differences easy to spot.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can I compare large texts?</h3>
+      <p style="color:#555;margin:0;">Yes. All processing is done in your browser, so there is no file size limit.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Is my text sent to a server?</h3>
+      <p style="color:#555;margin:0;">No. All comparison happens locally in your browser. Your text never leaves your device.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // LCS-based line diff
+  function lcs(a, b) {
+    const m = a.length, n = b.length;
+    const dp = Array.from({length: m+1}, () => new Array(n+1).fill(0));
+    for (let i = 1; i <= m; i++)
+      for (let j = 1; j <= n; j++)
+        dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1] + 1 : Math.max(dp[i-1][j], dp[i][j-1]);
+    // Backtrack
+    const ops = [];
+    let i = m, j = n;
+    while (i > 0 || j > 0) {
+      if (i > 0 && j > 0 && a[i-1] === b[j-1]) { ops.unshift({type:'same', val:a[i-1]}); i--; j--; }
+      else if (j > 0 && (i === 0 || dp[i][j-1] >= dp[i-1][j])) { ops.unshift({type:'add', val:b[j-1]}); j--; }
+      else { ops.unshift({type:'remove', val:a[i-1]}); i--; }
+    }
+    return ops;
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function compareDiff() {
+    let t1 = document.getElementById('text1').value;
+    let t2 = document.getElementById('text2').value;
+    const ignoreCase = document.getElementById('ignoreCase').checked;
+    const ignoreWs = document.getElementById('ignoreWhitespace').checked;
+
+    let cmp1 = t1, cmp2 = t2;
+    if (ignoreCase) { cmp1 = cmp1.toLowerCase(); cmp2 = cmp2.toLowerCase(); }
+    if (ignoreWs) { cmp1 = cmp1.replace(/\s+/g,' ').trim(); cmp2 = cmp2.replace(/\s+/g,' ').trim(); }
+
+    const lines1 = cmp1.split('\n');
+    const lines2 = cmp2.split('\n');
+    const orig1 = t1.split('\n');
+    const orig2 = t2.split('\n');
+
+    const ops = lcs(lines1, lines2);
+
+    // Map ops back to original lines
+    let idx1 = 0, idx2 = 0;
+    const htmlLines = [];
+    let addCount = 0, removeCount = 0, sameCount = 0;
+
+    ops.forEach(op => {
+      if (op.type === 'same') {
+        htmlLines.push(`<span class="diff-line-same">${escapeHtml(orig1[idx1] ?? op.val)}</span>`);
+        idx1++; idx2++; sameCount++;
+      } else if (op.type === 'add') {
+        htmlLines.push(`<span class="diff-line-add">+ ${escapeHtml(orig2[idx2] ?? op.val)}</span>`);
+        idx2++; addCount++;
+      } else {
+        htmlLines.push(`<span class="diff-line-remove">- ${escapeHtml(orig1[idx1] ?? op.val)}</span>`);
+        idx1++; removeCount++;
+      }
+    });
+
+    document.getElementById('diffOutput').innerHTML = htmlLines.join('');
+    document.getElementById('diffStats').innerHTML = `
+      <span class="diff-stat diff-stat-add">+ ${addCount}줄 추가</span>
+      <span class="diff-stat diff-stat-remove">- ${removeCount}줄 삭제</span>
+      <span class="diff-stat diff-stat-same">= ${sameCount}줄 동일</span>
+    `;
+    document.getElementById('resultPanel').style.display = 'block';
+    document.getElementById('resultPanel').scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

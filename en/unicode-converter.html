@@ -1,0 +1,429 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unicode Converter Online Free — Text to \uXXXX, &#XXXX; & U+XXXX | WooaText</title>
+  <meta name="description" content="Convert text to Unicode escape sequences (\uXXXX), HTML numeric references (&#XXXX;), and code points (U+XXXX) online for free. Reverse conversion included.">
+  <meta name="keywords" content="unicode converter, text to unicode, unicode escape, \uXXXX, &#XXXX; converter, unicode code point, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/unicode-converter.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/unicode-converter.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/unicode-converter.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/unicode-converter.html">
+  <meta property="og:title" content="Unicode Converter Free Online | WooaText">
+  <meta property="og:description" content="Convert text to Unicode escape sequences, HTML numeric references, and code points. Free, instant.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/unicode-converter.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Unicode Converter",
+  "url": "https://textkit.wooahouse.com/en/unicode-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Unicode escape sequence?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Unicode escape sequence represents a character as \\uXXXX where XXXX is the hex code point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What formats does the tool support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JavaScript/JSON \\uXXXX, HTML &#XXXX; (decimal), HTML &#xXXXX; (hex), and U+XXXX code points."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert back from Unicode to text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool supports both encoding (text → unicode) and decoding (unicode → text)."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .conv-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .conv-btn-group .btn {
+      flex: 1 1 auto;
+      min-width: 160px;
+      font-size: 0.88rem;
+    }
+    .output-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .output-header .text-panel-title {
+      margin-bottom: 0;
+    }
+    .char-table-wrap {
+      overflow-x: auto;
+      margin-top: 4px;
+    }
+    .char-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+    }
+    .char-table th {
+      background: var(--bg-secondary);
+      color: var(--text-light);
+      font-weight: 600;
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+    .char-table td {
+      padding: 7px 12px;
+      border-bottom: 1px solid var(--border);
+      font-family: 'Courier New', monospace;
+      vertical-align: middle;
+    }
+    .char-table tr:last-child td {
+      border-bottom: none;
+    }
+    .char-table tr:hover td {
+      background: var(--bg-secondary);
+    }
+    .char-glyph {
+      font-size: 1.1rem;
+      font-family: inherit;
+    }
+    .char-table-note {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 8px;
+      text-align: right;
+    }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../unicode-converter.html">KO</a>
+        <span>|</span>
+        <a href="unicode-converter.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>유니코드 변환기</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔤</span>
+    <h1>Unicode Converter — Free Online</h1>
+    <p>텍스트를 Unicode escape(\uXXXX), HTML 엔티티(&#XXXX;), 코드포인트(U+XXXX)로 변환하거나 반대로 복원합니다</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">입력 텍스트</div>
+    <textarea id="inputText" rows="5" placeholder="변환할 텍스트를 입력하세요...&#10;예: 안녕하세요 / Hello 🌍 / 안녕"></textarea>
+
+    <div style="margin-top:14px;">
+      <div class="conv-btn-group">
+        <button class="btn btn-primary" onclick="convert('unicode')">→ Unicode escape</button>
+        <button class="btn btn-primary" onclick="convert('entity')">→ HTML entity</button>
+        <button class="btn btn-primary" onclick="convert('codepoint')">→ 코드포인트</button>
+        <button class="btn btn-outline" onclick="convert('restore')">← 텍스트로 복원</button>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="clearAll()" style="margin-top:4px;">🗑️ 지우기</button>
+    </div>
+
+    <div id="errorMsg" class="alert alert-error"></div>
+  </div>
+
+  <div class="text-panel" id="outputPanel" style="display:none;">
+    <div class="output-header">
+      <div class="text-panel-title" id="outputLabel">결과</div>
+      <button class="btn btn-outline btn-sm" onclick="copyOutput(this)">📋 복사</button>
+    </div>
+    <textarea id="outputText" rows="5" readonly placeholder="결과가 여기에 표시됩니다."></textarea>
+  </div>
+
+  <div class="text-panel" id="tablePanel" style="display:none;">
+    <div class="text-panel-title">문자별 상세 정보 <span style="font-size:0.8rem;font-weight:400;color:var(--text-light);">(최대 50자)</span></div>
+    <div class="char-table-wrap">
+      <table class="char-table" id="charTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>문자</th>
+            <th>코드포인트</th>
+            <th>Unicode escape</th>
+            <th>HTML entity</th>
+          </tr>
+        </thead>
+        <tbody id="charTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 HTML 엔티티 변환도 필요하신가요? <a href="html-entity.html">HTML 엔티티 변환기 →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. What is a Unicode escape sequence?</h3>
+      <p style="color:#555;margin:0;">A Unicode escape sequence represents a character as \uXXXX where XXXX is the hex code point.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. What formats does the tool support?</h3>
+      <p style="color:#555;margin:0;">JavaScript/JSON \uXXXX, HTML &#XXXX; (decimal), HTML &#xXXXX; (hex), and U+XXXX code points.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can I convert back from Unicode to text?</h3>
+      <p style="color:#555;margin:0;">Yes. The tool supports both encoding (text → unicode) and decoding (unicode → text).</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toUnicodeEscape(str) {
+    return [...str].map(ch => {
+      const cp = ch.codePointAt(0);
+      if (cp > 0xFFFF) return '\\u{' + cp.toString(16).toUpperCase() + '}';
+      return cp < 128 ? ch : '\\u' + cp.toString(16).toUpperCase().padStart(4, '0');
+    }).join('');
+  }
+
+  function toHtmlEntity(str) {
+    return [...str].map(ch => {
+      const cp = ch.codePointAt(0);
+      return cp < 128 ? ch : '&#' + cp + ';';
+    }).join('');
+  }
+
+  function toCodePoints(str) {
+    return [...str].map(ch =>
+      'U+' + ch.codePointAt(0).toString(16).toUpperCase().padStart(4, '0')
+    ).join(' ');
+  }
+
+  function fromEncoded(str) {
+    return str
+      .replace(/\\u\{([0-9a-fA-F]+)\}/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+      .replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
+      .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(parseInt(n)))
+      .replace(/U\+([0-9a-fA-F]{4,6})/g, (_, h) => String.fromCodePoint(parseInt(h, 16)));
+  }
+
+  const labelMap = {
+    unicode:   '결과 — Unicode escape (\\uXXXX)',
+    entity:    '결과 — HTML entity (&#XXXX;)',
+    codepoint: '결과 — 코드포인트 (U+XXXX)',
+    restore:   '결과 — 복원된 텍스트'
+  };
+
+  function convert(mode) {
+    const input = document.getElementById('inputText').value;
+    const errEl = document.getElementById('errorMsg');
+    errEl.classList.remove('show');
+
+    if (!input.trim()) {
+      errEl.textContent = '❌ 변환할 텍스트를 입력해주세요.';
+      errEl.classList.add('show');
+      return;
+    }
+
+    let result;
+    try {
+      if (mode === 'unicode')   result = toUnicodeEscape(input);
+      else if (mode === 'entity')    result = toHtmlEntity(input);
+      else if (mode === 'codepoint') result = toCodePoints(input);
+      else if (mode === 'restore')   result = fromEncoded(input);
+    } catch (e) {
+      errEl.textContent = '❌ 변환 중 오류가 발생했습니다: ' + e.message;
+      errEl.classList.add('show');
+      return;
+    }
+
+    document.getElementById('outputLabel').textContent = labelMap[mode] || '결과';
+    document.getElementById('outputText').value = result;
+    document.getElementById('outputPanel').style.display = 'block';
+
+    buildCharTable(input);
+  }
+
+  function buildCharTable(str) {
+    const chars = [...str].slice(0, 50);
+    if (chars.length === 0) {
+      document.getElementById('tablePanel').style.display = 'none';
+      return;
+    }
+
+    const tbody = document.getElementById('charTableBody');
+    tbody.innerHTML = chars.map((ch, i) => {
+      const cp = ch.codePointAt(0);
+      const cpHex = cp.toString(16).toUpperCase().padStart(4, '0');
+      const unicodeEsc = cp > 0xFFFF
+        ? '\\u{' + cp.toString(16).toUpperCase() + '}'
+        : (cp < 128 ? '(ASCII)' : '\\u' + cpHex);
+      const htmlEnt = cp < 128 ? '(ASCII)' : '&#' + cp + ';';
+      return `<tr>
+        <td style="color:var(--text-light)">${i + 1}</td>
+        <td class="char-glyph">${escapeHtml(ch)}</td>
+        <td>U+${cpHex}</td>
+        <td>${escapeHtml(unicodeEsc)}</td>
+        <td>${escapeHtml(htmlEnt)}</td>
+      </tr>`;
+    }).join('');
+
+    document.getElementById('tablePanel').style.display = 'block';
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function clearAll() {
+    document.getElementById('inputText').value = '';
+    document.getElementById('outputText').value = '';
+    document.getElementById('outputPanel').style.display = 'none';
+    document.getElementById('tablePanel').style.display = 'none';
+    document.getElementById('errorMsg').classList.remove('show');
+  }
+
+  function copyOutput(btn) {
+    const text = document.getElementById('outputText').value;
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '✅ 복사됨';
+      setTimeout(() => { btn.textContent = orig; }, 1500);
+    });
+  }
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

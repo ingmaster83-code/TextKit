@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unix Timestamp Converter Online Free — Timestamp to Date & Back | WooaText</title>
+  <meta name="description" content="Convert Unix timestamps to human-readable dates and vice versa online for free. Live current timestamp display. Supports seconds and milliseconds.">
+  <meta name="keywords" content="unix timestamp converter, timestamp to date, date to timestamp, epoch converter online free, current unix time, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/timestamp-converter.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/timestamp-converter.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/timestamp-converter.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/timestamp-converter.html">
+  <meta property="og:title" content="Unix Timestamp Converter Free Online | WooaText">
+  <meta property="og:description" content="Convert Unix timestamps to dates and back. Real-time current timestamp. Free, instant.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/timestamp-converter.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Timestamp Converter",
+  "url": "https://textkit.wooahouse.com/en/timestamp-converter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Unix timestamp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Unix timestamp is the number of seconds (or milliseconds) elapsed since January 1, 1970, 00:00:00 UTC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support milliseconds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Both second-precision and millisecond-precision timestamps are supported."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the current timestamp shown in real time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The current Unix timestamp is displayed and updated every second."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    @media (max-width: 600px) {
+      .result-grid { grid-template-columns: 1fr; }
+    }
+    .result-card {
+      background: var(--bg-secondary);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .result-card-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .result-card-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .result-card-value {
+      flex: 1;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      word-break: break-all;
+      color: var(--text);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 7px 10px;
+      line-height: 1.5;
+    }
+    .result-card-value.highlight {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .result-section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 14px 0;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-divider {
+      margin: 28px 0;
+      border: none;
+      border-top: 2px dashed var(--border);
+    }
+    .relative-time {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 6px;
+      font-style: italic;
+    }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../timestamp-converter.html">KO</a>
+        <span>|</span>
+        <a href="timestamp-converter.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>타임스탬프 변환기</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🕐</span>
+    <h1>Unix Timestamp Converter — Free Online</h1>
+    <p>Unix timestamp를 날짜시간으로, 날짜시간을 timestamp로 변환합니다. 초/밀리초 자동 감지, 현재 시각 실시간 표시.</p>
+  </div>
+
+  <!-- 현재 시각 카드 -->
+  <div class="current-time-card" style="background:linear-gradient(135deg,#F59E0B,#D97706);color:white;padding:20px;border-radius:12px;margin-bottom:24px;text-align:center;">
+    <div style="font-size:0.85rem;opacity:0.9;margin-bottom:6px;">현재 Unix Timestamp (초)</div>
+    <div id="currentTs" style="font-size:2rem;font-weight:700;font-family:monospace;margin-bottom:8px;"></div>
+    <div id="currentDate" style="font-size:0.9rem;opacity:0.9;"></div>
+    <button onclick="useCurrentTs()" style="margin-top:12px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);color:white;padding:6px 16px;border-radius:6px;cursor:pointer;">이 값 사용</button>
+  </div>
+
+  <!-- 섹션 1: Timestamp → 날짜시간 -->
+  <div class="text-panel">
+    <div class="result-section-title">🔢 Timestamp → 날짜시간</div>
+    <div style="margin-bottom:10px;font-size:0.85rem;color:var(--text-light);">10자리(초) 또는 13자리(밀리초)를 입력하면 자동 감지합니다.</div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <input type="number" id="tsInput" placeholder="예: 1715230800 (초) 또는 1715230800000 (밀리초)"
+        style="flex:1;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:monospace;background:var(--bg-secondary);color:var(--text);"
+        onkeydown="if(event.key==='Enter') convertTs()">
+      <button class="btn btn-primary" onclick="convertTs()" style="white-space:nowrap;">→ 변환</button>
+    </div>
+    <div id="tsError" class="alert alert-error" style="margin-top:10px;"></div>
+
+    <div id="tsResults" style="display:none;margin-top:4px;">
+      <div class="result-grid">
+        <div class="result-card">
+          <div class="result-card-label">로컬 시간</div>
+          <div class="result-card-row">
+            <div class="result-card-value highlight" id="res-local"></div>
+            <button class="btn btn-outline btn-sm" onclick="copyResult('res-local', this)">📋</button>
+          </div>
+        </div>
+        <div class="result-card">
+          <div class="result-card-label">UTC</div>
+          <div class="result-card-row">
+            <div class="result-card-value" id="res-utc"></div>
+            <button class="btn btn-outline btn-sm" onclick="copyResult('res-utc', this)">📋</button>
+          </div>
+        </div>
+        <div class="result-card">
+          <div class="result-card-label">ISO 8601</div>
+          <div class="result-card-row">
+            <div class="result-card-value" id="res-iso"></div>
+            <button class="btn btn-outline btn-sm" onclick="copyResult('res-iso', this)">📋</button>
+          </div>
+        </div>
+        <div class="result-card">
+          <div class="result-card-label">상대 시간</div>
+          <div class="result-card-row">
+            <div class="result-card-value" id="res-relative"></div>
+            <button class="btn btn-outline btn-sm" onclick="copyResult('res-relative', this)">📋</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-card" style="margin-top:12px;">
+        <div class="result-card-label">감지된 단위</div>
+        <div class="result-card-row">
+          <div class="result-card-value" id="res-unit"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- 섹션 2: 날짜시간 → Timestamp -->
+  <div class="text-panel">
+    <div class="result-section-title">📅 날짜시간 → Timestamp</div>
+    <div style="margin-bottom:10px;font-size:0.85rem;color:var(--text-light);">현재 기기의 로컬 시간대 기준으로 변환합니다.</div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+      <input type="datetime-local" id="datetimeInput"
+        style="flex:1;min-width:200px;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;background:var(--bg-secondary);color:var(--text);">
+      <button class="btn btn-primary" onclick="convertDatetime()" style="white-space:nowrap;">→ 변환</button>
+    </div>
+    <div id="dtError" class="alert alert-error" style="margin-top:10px;"></div>
+
+    <div id="dtResults" style="display:none;margin-top:4px;">
+      <div class="result-grid">
+        <div class="result-card">
+          <div class="result-card-label">초 (seconds)</div>
+          <div class="result-card-row">
+            <div class="result-card-value highlight" id="res-sec"></div>
+            <button class="btn btn-outline btn-sm" onclick="copyResult('res-sec', this)">📋</button>
+          </div>
+        </div>
+        <div class="result-card">
+          <div class="result-card-label">밀리초 (milliseconds)</div>
+          <div class="result-card-row">
+            <div class="result-card-value" id="res-ms"></div>
+            <button class="btn btn-outline btn-sm" onclick="copyResult('res-ms', this)">📋</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-card" style="margin-top:12px;">
+        <div class="result-card-label">ISO 8601</div>
+        <div class="result-card-row">
+          <div class="result-card-value" id="res-dt-iso"></div>
+          <button class="btn btn-outline btn-sm" onclick="copyResult('res-dt-iso', this)">📋</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 해시값이 필요하신가요? <a href="hash-generator.html">해시 생성기 →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. What is a Unix timestamp?</h3>
+      <p style="color:#555;margin:0;">A Unix timestamp is the number of seconds (or milliseconds) elapsed since January 1, 1970, 00:00:00 UTC.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Does it support milliseconds?</h3>
+      <p style="color:#555;margin:0;">Yes. Both second-precision and millisecond-precision timestamps are supported.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Is the current timestamp shown in real time?</h3>
+      <p style="color:#555;margin:0;">Yes. The current Unix timestamp is displayed and updated every second.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 실시간 현재 시각
+  function updateClock() {
+    const now = Math.floor(Date.now() / 1000);
+    document.getElementById('currentTs').textContent = now;
+    document.getElementById('currentDate').textContent = new Date().toLocaleString('ko-KR');
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // 현재 timestamp를 입력 필드에 적용
+  function useCurrentTs() {
+    const now = Math.floor(Date.now() / 1000);
+    document.getElementById('tsInput').value = now;
+    convertTs();
+  }
+
+  // 초/밀리초 자동 감지
+  function detectAndConvert(val) {
+    const str = String(val).replace(/\D/g, '');
+    const num = parseInt(str, 10);
+    const isMs = str.length >= 13;
+    const ms = isMs ? num : num * 1000;
+    return { date: new Date(ms), isMs };
+  }
+
+  // 상대 시간 계산
+  function getRelativeTime(date) {
+    const diffMs = date.getTime() - Date.now();
+    const diffSec = Math.round(diffMs / 1000);
+    const abs = Math.abs(diffSec);
+    const suffix = diffSec < 0 ? '전' : '후';
+
+    if (abs < 60) return abs + '초 ' + suffix;
+    if (abs < 3600) return Math.round(abs / 60) + '분 ' + suffix;
+    if (abs < 86400) return Math.round(abs / 3600) + '시간 ' + suffix;
+    if (abs < 2592000) return Math.round(abs / 86400) + '일 ' + suffix;
+    if (abs < 31536000) return Math.round(abs / 2592000) + '개월 ' + suffix;
+    return Math.round(abs / 31536000) + '년 ' + suffix;
+  }
+
+  // Timestamp → 날짜시간 변환
+  function convertTs() {
+    const val = document.getElementById('tsInput').value.trim();
+    const errEl = document.getElementById('tsError');
+    const resEl = document.getElementById('tsResults');
+    errEl.classList.remove('show');
+    resEl.style.display = 'none';
+
+    if (!val) {
+      errEl.textContent = '❌ Timestamp 값을 입력해주세요.';
+      errEl.classList.add('show');
+      return;
+    }
+
+    const num = parseInt(val.replace(/\D/g, ''), 10);
+    if (isNaN(num) || num < 0) {
+      errEl.textContent = '❌ 유효한 숫자를 입력해주세요.';
+      errEl.classList.add('show');
+      return;
+    }
+
+    const { date, isMs } = detectAndConvert(val);
+
+    if (isNaN(date.getTime())) {
+      errEl.textContent = '❌ 변환할 수 없는 값입니다. 10자리(초) 또는 13자리(밀리초)를 입력해주세요.';
+      errEl.classList.add('show');
+      return;
+    }
+
+    document.getElementById('res-local').textContent = date.toLocaleString('ko-KR', {
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: false
+    });
+    document.getElementById('res-utc').textContent = date.toUTCString();
+    document.getElementById('res-iso').textContent = date.toISOString();
+    document.getElementById('res-relative').textContent = getRelativeTime(date);
+    document.getElementById('res-unit').textContent = isMs
+      ? '밀리초(milliseconds) — 13자리 감지'
+      : '초(seconds) — 10자리 감지';
+
+    resEl.style.display = 'block';
+  }
+
+  // 날짜시간 → Timestamp 변환
+  function convertDatetime() {
+    const val = document.getElementById('datetimeInput').value;
+    const errEl = document.getElementById('dtError');
+    const resEl = document.getElementById('dtResults');
+    errEl.classList.remove('show');
+    resEl.style.display = 'none';
+
+    if (!val) {
+      errEl.textContent = '❌ 날짜와 시간을 선택해주세요.';
+      errEl.classList.add('show');
+      return;
+    }
+
+    const date = new Date(val);
+    if (isNaN(date.getTime())) {
+      errEl.textContent = '❌ 유효한 날짜/시간이 아닙니다.';
+      errEl.classList.add('show');
+      return;
+    }
+
+    const ms = date.getTime();
+    const sec = Math.floor(ms / 1000);
+
+    document.getElementById('res-sec').textContent = sec;
+    document.getElementById('res-ms').textContent = ms;
+    document.getElementById('res-dt-iso').textContent = date.toISOString();
+
+    resEl.style.display = 'block';
+  }
+
+  // 복사 버튼
+  function copyResult(id, btn) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.textContent.trim()).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '✅';
+      setTimeout(() => { btn.textContent = orig; }, 1500);
+    });
+  }
+
+  // datetime-local 기본값: 현재 시각
+  (function setDefaultDatetime() {
+    const now = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const local = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    document.getElementById('datetimeInput').value = local;
+  })();
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JWT Decoder Online Free — Parse & Inspect JWT Tokens | WooaText</title>
+  <meta name="description" content="Decode and inspect JWT (JSON Web Tokens) online for free. View header, payload, and expiry without sending tokens to any server. 100% browser-based.">
+  <meta name="keywords" content="JWT decoder, JSON Web Token decoder, JWT parser, decode JWT online free, JWT inspect, token debugger, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/jwt-decoder.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/jwt-decoder.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/jwt-decoder.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/jwt-decoder.html">
+  <meta property="og:title" content="JWT Decoder Free Online | WooaText">
+  <meta property="og:description" content="Decode JWT tokens in your browser. View header, payload, and expiry. Free, 100% private.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/jwt-decoder.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "JWT Decoder",
+  "url": "https://textkit.wooahouse.com/en/jwt-decoder.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the JWT sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All decoding happens locally in your browser. Your token is never sent to any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the tool verify the JWT signature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool decodes (parses) the JWT without signature verification. For full verification, use a server-side library."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I check the expiry time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool shows the \"exp\" claim as a human-readable date and tells you if the token is expired."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .jwt-pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      font-family: 'Courier New', 'Consolas', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1.5px solid #313244;
+      margin: 0;
+    }
+    .json-key { color: #89b4fa; }
+    .json-string { color: #a6e3a1; }
+    .json-number { color: #fab387; }
+    .json-boolean { color: #f38ba8; }
+    .json-null { color: #f38ba8; }
+    .json-bracket { color: #cba6f7; }
+
+    .jwt-card {
+      background: #fff;
+      border: 1.5px solid #e5e7eb;
+      border-radius: var(--radius-sm, 8px);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .jwt-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .jwt-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #374151;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .jwt-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: #fef3c7;
+      color: #92400e;
+    }
+    .jwt-badge.header  { background: #dbeafe; color: #1e40af; }
+    .jwt-badge.payload { background: #dcfce7; color: #166534; }
+    .jwt-badge.sig     { background: #fce7f3; color: #9d174d; }
+
+    .sig-text {
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      color: #6b7280;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 12px 14px;
+      word-break: break-all;
+      line-height: 1.6;
+    }
+
+    .exp-box {
+      margin-top: 14px;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      line-height: 1.8;
+    }
+    .exp-box.valid   { background: #dcfce7; border: 1px solid #bbf7d0; color: #166534; }
+    .exp-box.expired { background: #fee2e2; border: 1px solid #fecaca; color: #991b1b; }
+    .exp-box-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .exp-row { display: flex; gap: 8px; }
+    .exp-label { min-width: 90px; font-weight: 600; }
+
+    .error-box {
+      background: #fee2e2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../jwt-decoder.html">KO</a>
+        <span>|</span>
+        <a href="jwt-decoder.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>JWT 디코더</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔑</span>
+    <h1>JWT Decoder — Free Online</h1>
+    <p>JWT 토큰을 붙여넣으면 Header, Payload, Signature를 즉시 파싱합니다. 만료일시 및 남은 시간 표시. 100% 브라우저 처리.</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">JWT 토큰 입력</div>
+    <textarea id="jwtInput" rows="5" class="mono" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."></textarea>
+    <div class="btn-group" style="margin-top:14px;">
+      <button class="btn btn-primary" onclick="decodeAndRender()">🔍 디코딩</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+    </div>
+  </div>
+
+  <div id="errorArea" style="display:none; margin-top:12px;"></div>
+
+  <div id="resultArea" style="display:none; margin-top:20px;">
+
+    <!-- Header 카드 -->
+    <div class="jwt-card">
+      <div class="jwt-card-header">
+        <div class="jwt-card-title">
+          <span class="jwt-badge header">HEADER</span>
+          알고리즘 &amp; 토큰 타입
+        </div>
+        <button class="btn btn-success btn-sm" onclick="copySection('headerPre', 'copyAlertHeader')">📋 복사</button>
+      </div>
+      <pre class="jwt-pre" id="headerPre"></pre>
+      <div id="copyAlertHeader" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+    </div>
+
+    <!-- Payload 카드 -->
+    <div class="jwt-card">
+      <div class="jwt-card-header">
+        <div class="jwt-card-title">
+          <span class="jwt-badge payload">PAYLOAD</span>
+          클레임 데이터
+        </div>
+        <button class="btn btn-success btn-sm" onclick="copySection('payloadPre', 'copyAlertPayload')">📋 복사</button>
+      </div>
+      <pre class="jwt-pre" id="payloadPre"></pre>
+      <div id="copyAlertPayload" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+      <div id="expInfo"></div>
+    </div>
+
+    <!-- Signature 카드 -->
+    <div class="jwt-card">
+      <div class="jwt-card-header">
+        <div class="jwt-card-title">
+          <span class="jwt-badge sig">SIGNATURE</span>
+          서명 (Base64URL)
+        </div>
+      </div>
+      <div class="sig-text" id="sigText"></div>
+      <p style="margin:8px 0 0; font-size:0.8rem; color:#9ca3af;">⚠️ 서명 검증은 지원하지 않습니다. 검증은 서버에서 비밀키로 확인하세요.</p>
+    </div>
+
+  </div>
+
+  <div class="cross-link-tip">
+    💡 JSON 데이터를 보기 좋게 정렬하고 싶으신가요? <a href="../json-formatter.html">JSON Formatter →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Is the JWT sent to a server?</h3>
+      <p style="color:#555;margin:0;">No. All decoding happens locally in your browser. Your token is never sent to any server.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Does the tool verify the JWT signature?</h3>
+      <p style="color:#555;margin:0;">This tool decodes (parses) the JWT without signature verification. For full verification, use a server-side library.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can I check the expiry time?</h3>
+      <p style="color:#555;margin:0;">Yes. The tool shows the "exp" claim as a human-readable date and tells you if the token is expired.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── JWT 디코딩 ──────────────────────────────────────────────
+  function decodeJWT(token) {
+    const parts = token.trim().split('.');
+    if (parts.length !== 3) throw new Error('JWT 형식이 올바르지 않습니다 (헤더.페이로드.서명 3부분 필요)');
+    function b64decode(str) {
+      str = str.replace(/-/g, '+').replace(/_/g, '/');
+      while (str.length % 4) str += '=';
+      return JSON.parse(atob(str));
+    }
+    return {
+      header: b64decode(parts[0]),
+      payload: b64decode(parts[1]),
+      signature: parts[2]
+    };
+  }
+
+  // ── 문자열 이스케이프 & 구문 강조 ──────────────────────────
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function syntaxHighlight(json) {
+    const escaped = escapeHtml(json);
+    return escaped.replace(
+      /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?|[{}\[\],])/g,
+      function (match) {
+        let cls = 'json-number';
+        if (/^"/.test(match)) {
+          cls = /:$/.test(match) ? 'json-key' : 'json-string';
+        } else if (/true|false/.test(match)) {
+          cls = 'json-boolean';
+        } else if (/null/.test(match)) {
+          cls = 'json-null';
+        } else if (/[{}\[\]]/.test(match)) {
+          cls = 'json-bracket';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+      }
+    );
+  }
+
+  // ── exp 만료 정보 렌더 ──────────────────────────────────────
+  function renderExpInfo(payload) {
+    const el = document.getElementById('expInfo');
+    if (!payload.exp) { el.innerHTML = ''; return; }
+
+    const expDate = new Date(payload.exp * 1000);
+    const now = new Date();
+    const isExpired = now > expDate;
+    const diffMs = Math.abs(expDate - now);
+
+    // 남은/경과 시간 계산
+    const totalSec = Math.floor(diffMs / 1000);
+    const days    = Math.floor(totalSec / 86400);
+    const hours   = Math.floor((totalSec % 86400) / 3600);
+    const minutes = Math.floor((totalSec % 3600) / 60);
+    const seconds = totalSec % 60;
+
+    let diffStr = '';
+    if (days > 0)    diffStr += days + '일 ';
+    if (hours > 0)   diffStr += hours + '시간 ';
+    if (minutes > 0) diffStr += minutes + '분 ';
+    diffStr += seconds + '초';
+
+    // 한국시간(KST = UTC+9) 포맷
+    const kstOptions = {
+      timeZone: 'Asia/Seoul',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: false
+    };
+    const expKST = expDate.toLocaleString('ko-KR', kstOptions) + ' (KST)';
+
+    const cls   = isExpired ? 'expired' : 'valid';
+    const icon  = isExpired ? '🔴' : '🟢';
+    const state = isExpired ? '만료됨' : '유효';
+    const timeLabel = isExpired ? '경과 시간' : '남은 시간';
+
+    el.innerHTML = `
+      <div class="exp-box ${cls}">
+        <div class="exp-box-title">${icon} 만료 정보 — <strong>${state}</strong></div>
+        <div class="exp-row"><span class="exp-label">만료 일시</span><span>${expKST}</span></div>
+        <div class="exp-row"><span class="exp-label">${timeLabel}</span><span>${diffStr}</span></div>
+      </div>`;
+  }
+
+  // ── 메인 디코딩 & 렌더 ─────────────────────────────────────
+  function decodeAndRender() {
+    const token = document.getElementById('jwtInput').value.trim();
+    const errorArea  = document.getElementById('errorArea');
+    const resultArea = document.getElementById('resultArea');
+
+    errorArea.style.display  = 'none';
+    resultArea.style.display = 'none';
+
+    if (!token) return;
+
+    let decoded;
+    try {
+      decoded = decodeJWT(token);
+    } catch (e) {
+      errorArea.innerHTML = `<div class="error-box">❌ ${escapeHtml(e.message)}</div>`;
+      errorArea.style.display = 'block';
+      return;
+    }
+
+    const headerJson  = JSON.stringify(decoded.header,  null, 2);
+    const payloadJson = JSON.stringify(decoded.payload, null, 2);
+
+    document.getElementById('headerPre').innerHTML  = syntaxHighlight(headerJson);
+    document.getElementById('payloadPre').innerHTML = syntaxHighlight(payloadJson);
+    document.getElementById('sigText').textContent  = decoded.signature;
+
+    renderExpInfo(decoded.payload);
+
+    resultArea.style.display = 'block';
+  }
+
+  // ── 복사 ────────────────────────────────────────────────────
+  function copySection(preId, alertId) {
+    const text = document.getElementById(preId).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const alert = document.getElementById(alertId);
+      alert.classList.add('show');
+      setTimeout(() => alert.classList.remove('show'), 2000);
+    });
+  }
+
+  // ── 지우기 ──────────────────────────────────────────────────
+  function clearAll() {
+    document.getElementById('jwtInput').value = '';
+    document.getElementById('errorArea').style.display  = 'none';
+    document.getElementById('resultArea').style.display = 'none';
+  }
+
+  // ── Enter 키 지원 ────────────────────────────────────────────
+  document.getElementById('jwtInput').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) decodeAndRender();
+  });
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

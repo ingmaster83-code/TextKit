@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line Numbering Tool Online Free — Add Numbers to Lines | WooaText</title>
+  <meta name="description" content="Add line numbers, bullets, or custom symbols to each line of text online for free. Customize prefix format and starting number. Instant, browser-based.">
+  <meta name="keywords" content="line numbering, add line numbers, numbered list, line number tool online free, prefix lines, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/line-numbering.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/line-numbering.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/line-numbering.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/line-numbering.html">
+  <meta property="og:title" content="Line Numbering Tool Free Online | WooaText">
+  <meta property="og:description" content="Add numbers, bullets, or custom prefixes to each text line. Free, instant, browser-based.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/line-numbering.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Line Numbering",
+  "url": "https://textkit.wooahouse.com/en/line-numbering.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I choose the starting number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Set the starting number for the line sequence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What prefix styles are available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Numbers (1. 2. 3.), bullets (• or -), or a custom symbol you define."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a line limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All processing is done locally in your browser."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .format-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .format-btn {
+      padding: 6px 14px;
+      border: 2px solid var(--border, #e5e7eb);
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text, #374151);
+      transition: all 0.15s;
+    }
+    .format-btn:hover {
+      border-color: var(--primary, #F59E0B);
+      color: var(--primary, #F59E0B);
+    }
+    .format-btn.active {
+      border-color: var(--primary, #F59E0B);
+      background: var(--primary, #F59E0B);
+      color: #fff;
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .option-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-light, #6b7280);
+      margin-bottom: 6px;
+    }
+    .option-group input[type="number"],
+    .option-group input[type="text"],
+    .option-group select {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1.5px solid var(--border, #e5e7eb);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      background: #fff;
+      box-sizing: border-box;
+    }
+    .option-group input:focus,
+    .option-group select:focus {
+      outline: none;
+      border-color: var(--primary, #F59E0B);
+    }
+    .option-group .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text, #374151);
+      cursor: pointer;
+      margin-top: 4px;
+    }
+    .option-group .checkbox-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--primary, #F59E0B);
+      cursor: pointer;
+    }
+    .options-panel {
+      background: #f8f9fa;
+      border: 1.5px solid var(--border, #e5e7eb);
+      border-radius: 10px;
+      padding: 18px;
+      margin: 16px 0;
+    }
+    .options-panel-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text, #374151);
+      margin-bottom: 12px;
+    }
+    #customPrefixWrap {
+      margin-top: 10px;
+    }
+    #customPrefixWrap input {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1.5px solid var(--border, #e5e7eb);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+    #customPrefixWrap input:focus {
+      outline: none;
+      border-color: var(--primary, #F59E0B);
+    }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../line-numbering.html">KO</a>
+        <span>|</span>
+        <a href="line-numbering.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>번호 매기기</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔢</span>
+    <h1>Line Numbering Tool — Free Online</h1>
+    <p>텍스트 각 줄에 번호나 글머리 기호를 자동으로 추가합니다. 다양한 형식과 시작 번호를 자유롭게 설정하세요.</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">원본 텍스트</div>
+    <textarea id="inputText" rows="10" placeholder="번호를 매길 텍스트를 입력하세요...&#10;예:&#10;사과&#10;바나나&#10;포도&#10;딸기"></textarea>
+  </div>
+
+  <div class="options-panel">
+    <div class="options-panel-title">형식 선택</div>
+    <div class="format-btn-group" id="formatBtnGroup">
+      <button class="format-btn active" data-format="1.">1. 숫자점</button>
+      <button class="format-btn" data-format="1)">1) 숫자괄호</button>
+      <button class="format-btn" data-format="(1)">(1) 괄호숫자</button>
+      <button class="format-btn" data-format="①">① 원문자</button>
+      <button class="format-btn" data-format="-">- 하이픈</button>
+      <button class="format-btn" data-format="•">• 불릿</button>
+      <button class="format-btn" data-format="▸">▸ 화살표</button>
+      <button class="format-btn" data-format="★">★ 별</button>
+      <button class="format-btn" data-format="custom">✏️ 커스텀</button>
+    </div>
+    <div id="customPrefixWrap" style="display:none;">
+      <input type="text" id="customPrefix" placeholder='커스텀 접두사 입력 (예: >>, Step, ※)' maxlength="20">
+    </div>
+
+    <div class="options-grid">
+      <div class="option-group">
+        <label>시작 번호 (숫자 형식에만 적용)</label>
+        <input type="number" id="startNum" value="1" min="1" max="9999">
+      </div>
+      <div class="option-group">
+        <label>구분자 (번호와 텍스트 사이)</label>
+        <select id="separator">
+          <option value=" ">공백</option>
+          <option value="	">탭</option>
+          <option value="">없음</option>
+        </select>
+      </div>
+      <div class="option-group">
+        <label>빈 줄 처리</label>
+        <select id="emptyLineMode">
+          <option value="include">번호 포함</option>
+          <option value="skip">번호 건너뜀</option>
+          <option value="remove">빈 줄 제거</option>
+        </select>
+      </div>
+      <div class="option-group">
+        <label>정렬 패딩</label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="padNumbers">
+          자리수 맞추기 (01. 02. … 10.)
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-group" style="margin: 4px 0 16px;">
+    <button class="btn btn-primary" onclick="convert()">▶ 변환</button>
+    <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+  </div>
+
+  <div class="text-panel">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <div class="text-panel-title" style="margin-bottom:0;">결과</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+    </div>
+    <div class="output-wrap">
+      <textarea id="outputText" rows="10" readonly class="mono" placeholder="변환 버튼을 클릭하면 결과가 표시됩니다..."></textarea>
+    </div>
+    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 줄 정렬이나 중복 제거도 필요하다면? <a href="line-tools.html">줄 정렬·중복 제거 →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can I choose the starting number?</h3>
+      <p style="color:#555;margin:0;">Yes. Set the starting number for the line sequence.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. What prefix styles are available?</h3>
+      <p style="color:#555;margin:0;">Numbers (1. 2. 3.), bullets (• or -), or a custom symbol you define.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Is there a line limit?</h3>
+      <p style="color:#555;margin:0;">No. All processing is done locally in your browser.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const CIRCLED = ['①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩',
+                   '⑪','⑫','⑬','⑭','⑮','⑯','⑰','⑱','⑲','⑳'];
+
+  let selectedFormat = '1.';
+
+  // 형식 버튼 클릭
+  document.getElementById('formatBtnGroup').addEventListener('click', function(e) {
+    const btn = e.target.closest('.format-btn');
+    if (!btn) return;
+    document.querySelectorAll('.format-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedFormat = btn.dataset.format;
+    document.getElementById('customPrefixWrap').style.display =
+      selectedFormat === 'custom' ? 'block' : 'none';
+  });
+
+  function numberLines(text, opts) {
+    const lines = text.split('\n');
+    let num = opts.start;
+
+    // 숫자 형식 여부
+    const isNumeric = ['1.', '1)', '(1)', '①'].includes(opts.format);
+
+    // 패딩 계산: 번호가 매겨질 줄 수 기준
+    const countableLines = opts.emptyLineMode === 'include'
+      ? lines.length
+      : lines.filter(l => l.trim() !== '').length;
+    const maxNum = opts.start + countableLines - 1;
+    const padLen = (opts.pad && isNumeric) ? maxNum.toString().length : 0;
+
+    const result = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const isEmpty = line.trim() === '';
+
+      if (isEmpty) {
+        if (opts.emptyLineMode === 'remove') continue;
+        if (opts.emptyLineMode === 'skip') { result.push(''); continue; }
+        // include: 빈 줄도 번호 부여
+      }
+
+      let prefix;
+      if (opts.format === 'custom') {
+        prefix = opts.customPrefix;
+      } else if (isNumeric) {
+        const nStr = padLen > 0 ? num.toString().padStart(padLen, '0') : num.toString();
+        if (opts.format === '1.') prefix = nStr + '.';
+        else if (opts.format === '1)') prefix = nStr + ')';
+        else if (opts.format === '(1)') prefix = '(' + nStr + ')';
+        else if (opts.format === '①') prefix = CIRCLED[num - 1] !== undefined ? CIRCLED[num - 1] : num + '.';
+        num++;
+      } else {
+        // 기호 형식: -, •, ▸, ★
+        prefix = opts.format;
+      }
+
+      result.push(prefix + opts.separator + line);
+    }
+
+    return result.join('\n');
+  }
+
+  function convert() {
+    const text = document.getElementById('inputText').value;
+    if (!text.trim()) return;
+
+    const opts = {
+      format: selectedFormat,
+      customPrefix: document.getElementById('customPrefix').value || '>>',
+      start: parseInt(document.getElementById('startNum').value, 10) || 1,
+      separator: document.getElementById('separator').value,
+      emptyLineMode: document.getElementById('emptyLineMode').value,
+      pad: document.getElementById('padNumbers').checked
+    };
+
+    const result = numberLines(text, opts);
+    document.getElementById('outputText').value = result;
+  }
+
+  function clearAll() {
+    document.getElementById('inputText').value = '';
+    document.getElementById('outputText').value = '';
+  }
+
+  function copyOutput() {
+    const output = document.getElementById('outputText').value;
+    if (!output) return;
+    navigator.clipboard.writeText(output).then(() => {
+      const alert = document.getElementById('copyAlert');
+      alert.classList.add('show');
+      setTimeout(() => alert.classList.remove('show'), 2000);
+    });
+  }
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

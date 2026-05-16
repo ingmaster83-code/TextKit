@@ -1,0 +1,522 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slug Generator Online Free — URL Friendly Slug from Text | WooaText</title>
+  <meta name="description" content="Generate URL-friendly slugs from text online for free. Convert spaces and special characters to hyphens. Korean romanization option included.">
+  <meta name="keywords" content="slug generator, URL slug, text to slug, SEO slug, create slug online free, URL friendly string, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/slug-generator.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/slug-generator.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/slug-generator.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/slug-generator.html">
+  <meta property="og:title" content="Slug Generator Free Online | WooaText">
+  <meta property="og:description" content="Generate URL-friendly slugs from text. Korean romanization option. Free, instant.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/slug-generator.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Slug Generator",
+  "url": "https://textkit.wooahouse.com/en/slug-generator.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a URL slug?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A slug is a URL-friendly version of a string, using only lowercase letters, numbers, and hyphens — no spaces or special characters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support Korean text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Korean characters can be romanized (transliterated) and converted into a valid slug."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I customize the separator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can choose a hyphen (-) or underscore (_) as the separator."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .slug-options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .slug-option-group {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .slug-option-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 10px;
+    }
+    .slug-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .slug-radio-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .slug-radio-item input[type="radio"],
+    .slug-radio-item input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--primary);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .slug-radio-item label {
+      font-size: 0.88rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+    .slug-result-box {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin-top: 20px;
+      border: 1.5px solid var(--border);
+    }
+    .slug-result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .slug-result-value {
+      font-family: 'Courier New', monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      word-break: break-all;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      min-height: 2em;
+      padding: 10px 14px;
+      background: white;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    .slug-result-value.empty {
+      color: var(--text-light);
+      font-weight: 400;
+      font-size: 0.95rem;
+    }
+    .slug-url-preview {
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      background: #f1f5f9;
+      border-radius: 5px;
+      padding: 8px 12px;
+      margin-top: 10px;
+      word-break: break-all;
+    }
+    .slug-url-preview .url-base {
+      color: #94a3b8;
+    }
+    .slug-url-preview .url-slug {
+      color: #0f172a;
+      font-weight: 600;
+    }
+    .slug-copy-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .slug-stat {
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../slug-generator.html">KO</a>
+        <span>|</span>
+        <a href="slug-generator.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>슬러그 생성기</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔗</span>
+    <h1>Slug Generator — Free Online</h1>
+    <p>텍스트를 URL에 사용할 수 있는 슬러그로 변환합니다. 한글 음역, 구분자·대소문자 옵션을 지원합니다.</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">입력 텍스트</div>
+    <input
+      type="text"
+      id="inputText"
+      placeholder="예: 안녕하세요 세상! Hello World"
+      style="width:100%; padding:12px 14px; font-size:1rem; border:1.5px solid var(--border); border-radius:var(--radius-sm); outline:none; box-sizing:border-box; font-family:inherit; background:white;"
+      oninput="updateSlug()"
+    >
+
+    <div class="slug-options-grid">
+      <!-- 구분자 -->
+      <div class="slug-option-group">
+        <div class="slug-option-label">구분자</div>
+        <div class="slug-radio-group">
+          <div class="slug-radio-item">
+            <input type="radio" name="separator" id="sepHyphen" value="-" checked onchange="updateSlug()">
+            <label for="sepHyphen">하이픈 <code>-</code> (기본)</label>
+          </div>
+          <div class="slug-radio-item">
+            <input type="radio" name="separator" id="sepUnderscore" value="_" onchange="updateSlug()">
+            <label for="sepUnderscore">언더스코어 <code>_</code></label>
+          </div>
+          <div class="slug-radio-item">
+            <input type="radio" name="separator" id="sepDot" value="." onchange="updateSlug()">
+            <label for="sepDot">점 <code>.</code></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 대소문자 -->
+      <div class="slug-option-group">
+        <div class="slug-option-label">대소문자</div>
+        <div class="slug-radio-group">
+          <div class="slug-radio-item">
+            <input type="radio" name="caseOpt" id="caseLower" value="lower" checked onchange="updateSlug()">
+            <label for="caseLower">소문자 (기본)</label>
+          </div>
+          <div class="slug-radio-item">
+            <input type="radio" name="caseOpt" id="caseUpper" value="upper" onchange="updateSlug()">
+            <label for="caseUpper">대문자</label>
+          </div>
+          <div class="slug-radio-item">
+            <input type="radio" name="caseOpt" id="caseOriginal" value="original" onchange="updateSlug()">
+            <label for="caseOriginal">원문 유지</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 한글 처리 -->
+      <div class="slug-option-group">
+        <div class="slug-option-label">한글 처리</div>
+        <div class="slug-radio-group">
+          <div class="slug-radio-item">
+            <input type="radio" name="hangulOpt" id="hangulRoman" value="roman" checked onchange="updateSlug()">
+            <label for="hangulRoman">음역 (romanization)</label>
+          </div>
+          <div class="slug-radio-item">
+            <input type="radio" name="hangulOpt" id="hangulKeep" value="keep" onchange="updateSlug()">
+            <label for="hangulKeep">한글 그대로</label>
+          </div>
+          <div class="slug-radio-item">
+            <input type="radio" name="hangulOpt" id="hangulRemove" value="remove" onchange="updateSlug()">
+            <label for="hangulRemove">제거</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 기타 옵션 -->
+      <div class="slug-option-group">
+        <div class="slug-option-label">추가 옵션</div>
+        <div class="slug-radio-group">
+          <div class="slug-radio-item">
+            <input type="checkbox" id="removeNumbers" onchange="updateSlug()">
+            <label for="removeNumbers">숫자 제거</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 결과 -->
+    <div class="slug-result-box" id="resultBox">
+      <div class="slug-result-label">생성된 슬러그</div>
+      <div class="slug-result-value empty" id="slugResult">텍스트를 입력하면 슬러그가 실시간으로 생성됩니다.</div>
+      <div class="slug-copy-row">
+        <button class="btn btn-primary" id="copyBtn" onclick="copySlug()" style="padding:8px 18px; font-size:0.88rem;">Copy</button>
+        <span class="slug-stat" id="slugStat"></span>
+      </div>
+      <div class="slug-result-label" style="margin-top:16px;">URL 미리보기</div>
+      <div class="slug-url-preview">
+        <span class="url-base">https://example.com/</span><span class="url-slug" id="urlPreview"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 URL 인코딩이 필요하신가요? <a href="url-encoder.html">URL 인코딩 도구 →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. What is a URL slug?</h3>
+      <p style="color:#555;margin:0;">A slug is a URL-friendly version of a string, using only lowercase letters, numbers, and hyphens — no spaces or special characters.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Does it support Korean text?</h3>
+      <p style="color:#555;margin:0;">Yes. Korean characters can be romanized (transliterated) and converted into a valid slug.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can I customize the separator?</h3>
+      <p style="color:#555;margin:0;">Yes. You can choose a hyphen (-) or underscore (_) as the separator.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── 한글 음역 테이블 ── */
+  const ROMANIZATION = {
+    'ㄱ':'g','ㄴ':'n','ㄷ':'d','ㄹ':'r','ㅁ':'m','ㅂ':'b','ㅅ':'s','ㅇ':'','ㅈ':'j','ㅊ':'ch','ㅋ':'k','ㅌ':'t','ㅍ':'p','ㅎ':'h',
+    'ㄲ':'kk','ㄸ':'tt','ㅃ':'pp','ㅆ':'ss','ㅉ':'jj',
+    'ㅏ':'a','ㅐ':'ae','ㅑ':'ya','ㅒ':'yae','ㅓ':'eo','ㅔ':'e','ㅕ':'yeo','ㅖ':'ye','ㅗ':'o','ㅘ':'wa','ㅙ':'wae','ㅚ':'oe','ㅛ':'yo','ㅜ':'u','ㅝ':'wo','ㅞ':'we','ㅟ':'wi','ㅠ':'yu','ㅡ':'eu','ㅢ':'ui','ㅣ':'i'
+  };
+
+  const CHO  = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+  const JUNG = ['ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ'];
+  const JONG = ['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+
+  function hangulToRoman(ch) {
+    const code = ch.charCodeAt(0) - 0xAC00;
+    if (code < 0 || code > 11171) return ch;
+    const cho  = Math.floor(code / 588);
+    const jung = Math.floor((code % 588) / 28);
+    const jong = code % 28;
+    return (ROMANIZATION[CHO[cho]] || '') + (ROMANIZATION[JUNG[jung]] || '') + (ROMANIZATION[JONG[jong]] || '');
+  }
+
+  function toSlug(text, options) {
+    let result = text;
+
+    /* 한글 처리 */
+    if (options.hangul === 'roman') {
+      result = [...result].map(ch => /[가-힣]/.test(ch) ? hangulToRoman(ch) : ch).join('');
+      /* 자모 단독 문자 제거 */
+      result = result.replace(/[ㄱ-ㅎㅏ-ㅣ]/g, '');
+    } else if (options.hangul === 'remove') {
+      result = result.replace(/[가-힣ㄱ-ㅎㅏ-ㅣ]/g, '');
+    }
+    /* hangul === 'keep' 는 그대로 */
+
+    /* 대소문자 */
+    if (options.caseOpt === 'lower') result = result.toLowerCase();
+    else if (options.caseOpt === 'upper') result = result.toUpperCase();
+
+    /* 한글 그대로 옵션이 아닐 때 비ASCII·비단어 문자 제거 */
+    if (options.hangul !== 'keep') {
+      result = result.replace(/[^\w\s-]/g, '');
+    } else {
+      /* keep 모드: ASCII 특수문자(단어/공백/한글 제외) 제거 */
+      result = result.replace(/[^\w가-힣\s-]/g, '');
+    }
+
+    /* 숫자 제거 */
+    if (options.removeNumbers) result = result.replace(/\d/g, '');
+
+    /* 공백·구분자 정규화 */
+    const sep = options.separator;
+    const escapedSep = sep.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    result = result.trim()
+      .replace(/[\s_-]+/g, sep)
+      .replace(new RegExp(`^${escapedSep}+|${escapedSep}+$`, 'g'), '');
+
+    return result;
+  }
+
+  function getOptions() {
+    return {
+      separator:     document.querySelector('input[name="separator"]:checked').value,
+      caseOpt:       document.querySelector('input[name="caseOpt"]:checked').value,
+      hangul:        document.querySelector('input[name="hangulOpt"]:checked').value,
+      removeNumbers: document.getElementById('removeNumbers').checked
+    };
+  }
+
+  let currentSlug = '';
+
+  function updateSlug() {
+    const text = document.getElementById('inputText').value;
+    const resultEl = document.getElementById('slugResult');
+    const urlEl    = document.getElementById('urlPreview');
+    const statEl   = document.getElementById('slugStat');
+
+    if (!text.trim()) {
+      resultEl.textContent = '텍스트를 입력하면 슬러그가 실시간으로 생성됩니다.';
+      resultEl.classList.add('empty');
+      urlEl.textContent = '';
+      statEl.textContent = '';
+      currentSlug = '';
+      return;
+    }
+
+    const slug = toSlug(text, getOptions());
+    currentSlug = slug;
+
+    if (slug === '') {
+      resultEl.textContent = '(결과 없음 — 옵션을 조정해보세요)';
+      resultEl.classList.add('empty');
+      urlEl.textContent = '';
+      statEl.textContent = '';
+    } else {
+      resultEl.textContent = slug;
+      resultEl.classList.remove('empty');
+      urlEl.textContent = slug;
+      statEl.textContent = `${slug.length}자`;
+    }
+  }
+
+  function copySlug() {
+    if (!currentSlug) return;
+    navigator.clipboard.writeText(currentSlug).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = '복사됨!';
+      btn.disabled = true;
+      setTimeout(() => { btn.textContent = '복사'; btn.disabled = false; }, 1500);
+    });
+  }
+
+  /* 페이지 로드 시 초기화 */
+  updateSlug();
+</script>
+</body>
+</html>

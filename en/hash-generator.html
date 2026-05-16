@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hash Generator Online Free — MD5, SHA-1, SHA-256, SHA-512 | WooaText</title>
+  <meta name="description" content="Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text online for free. Instant, browser-based, no upload needed.">
+  <meta name="keywords" content="hash generator, MD5 generator, SHA-256 online, SHA-512, text hash free, hash calculator, checksum online, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/hash-generator.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/hash-generator.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/hash-generator.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/hash-generator.html">
+  <meta property="og:title" content="Hash Generator Free Online — MD5, SHA-256, SHA-512 | WooaText">
+  <meta property="og:description" content="Generate MD5, SHA-1, SHA-256, SHA-512 hashes instantly. Free, browser-based, no upload.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/hash-generator.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Hash Generator",
+  "url": "https://textkit.wooahouse.com/en/hash-generator.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a hash?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A hash is a fixed-length string produced by a hash function from any input. Even a tiny change in input produces a completely different hash."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which hash algorithms are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MD5, SHA-1, SHA-256, and SHA-512 are all supported."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this to store passwords securely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MD5 and SHA-1 are not recommended for passwords. Use bcrypt or SHA-256/512 with a salt for secure password hashing."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .hash-algo-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .hash-algo-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+    .hash-algo-option input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+    .hash-algo-option label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: monospace;
+    }
+    .hash-results {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .hash-result-item {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      border: 1.5px solid var(--border);
+    }
+    .hash-result-algo {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .hash-result-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hash-result-value {
+      flex: 1;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      word-break: break-all;
+      color: var(--text);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      line-height: 1.5;
+    }
+    .hash-copy-btn {
+      flex-shrink: 0;
+    }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../hash-generator.html">KO</a>
+        <span>|</span>
+        <a href="hash-generator.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>해시 생성기</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">#️⃣</span>
+    <h1>Hash Generator — Free Online</h1>
+    <p>텍스트의 SHA-256, SHA-1, SHA-512 해시값을 브라우저에서 안전하게 생성합니다</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">입력 텍스트</div>
+    <textarea id="inputText" rows="6" placeholder="해시를 생성할 텍스트를 입력하세요...&#10;예: 안녕하세요 / Hello World / pa$$w0rd"></textarea>
+
+    <div style="margin-top:14px; margin-bottom:6px;">
+      <div style="font-size:0.88rem; font-weight:600; color:var(--text-light); margin-bottom:10px;">해시 알고리즘 선택</div>
+      <div class="hash-algo-options">
+        <div class="hash-algo-option">
+          <input type="checkbox" id="algoSHA256" checked>
+          <label for="algoSHA256">SHA-256</label>
+        </div>
+        <div class="hash-algo-option">
+          <input type="checkbox" id="algoSHA1" checked>
+          <label for="algoSHA1">SHA-1</label>
+        </div>
+        <div class="hash-algo-option">
+          <input type="checkbox" id="algoSHA512" checked>
+          <label for="algoSHA512">SHA-512</label>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" onclick="generateHashes()" style="width:100%; padding:12px; font-size:0.95rem;">
+      #️⃣ 해시 생성
+    </button>
+
+    <div id="errorMsg" class="alert alert-error"></div>
+  </div>
+
+  <div class="text-panel" id="resultsPanel" style="display:none;">
+    <div class="text-panel-title" style="margin-bottom:16px;">결과</div>
+    <div class="hash-results" id="hashResults"></div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 비밀번호 생성이 필요하신가요? <a href="password-generator.html">비밀번호 생성기 →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. What is a hash?</h3>
+      <p style="color:#555;margin:0;">A hash is a fixed-length string produced by a hash function from any input. Even a tiny change in input produces a completely different hash.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Which hash algorithms are supported?</h3>
+      <p style="color:#555;margin:0;">MD5, SHA-1, SHA-256, and SHA-512 are all supported.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can I use this to store passwords securely?</h3>
+      <p style="color:#555;margin:0;">MD5 and SHA-1 are not recommended for passwords. Use bcrypt or SHA-256/512 with a salt for secure password hashing.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  async function digestMessage(algo, message) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(message);
+    const hashBuffer = await crypto.subtle.digest(algo, data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  async function generateHashes() {
+    const input = document.getElementById('inputText').value;
+    const errEl = document.getElementById('errorMsg');
+    errEl.classList.remove('show');
+
+    if (!input) {
+      errEl.textContent = '❌ 해시를 생성할 텍스트를 입력해주세요.';
+      errEl.classList.add('show');
+      return;
+    }
+
+    const useSHA256 = document.getElementById('algoSHA256').checked;
+    const useSHA1 = document.getElementById('algoSHA1').checked;
+    const useSHA512 = document.getElementById('algoSHA512').checked;
+
+    if (!useSHA256 && !useSHA1 && !useSHA512) {
+      errEl.textContent = '❌ 최소 하나의 알고리즘을 선택해주세요.';
+      errEl.classList.add('show');
+      return;
+    }
+
+    const algos = [];
+    if (useSHA256) algos.push({ name: 'SHA-256', subtle: 'SHA-256' });
+    if (useSHA1) algos.push({ name: 'SHA-1', subtle: 'SHA-1' });
+    if (useSHA512) algos.push({ name: 'SHA-512', subtle: 'SHA-512' });
+
+    const resultsEl = document.getElementById('hashResults');
+    const panel = document.getElementById('resultsPanel');
+    resultsEl.innerHTML = '<div style="color:var(--text-light); font-size:0.88rem;">⏳ 해시 생성 중...</div>';
+    panel.style.display = 'block';
+
+    try {
+      const results = await Promise.all(
+        algos.map(async (algo) => ({
+          name: algo.name,
+          hash: await digestMessage(algo.subtle, input)
+        }))
+      );
+
+      resultsEl.innerHTML = results.map(r => `
+        <div class="hash-result-item">
+          <div class="hash-result-algo">${r.name}</div>
+          <div class="hash-result-row">
+            <div class="hash-result-value" id="hash-${r.name.replace('-','')}">${r.hash}</div>
+            <button class="btn btn-outline btn-sm hash-copy-btn" onclick="copyHash('${r.name.replace('-','')}', this)">📋 복사</button>
+          </div>
+        </div>
+      `).join('');
+    } catch(e) {
+      resultsEl.innerHTML = `<div class="alert alert-error show">❌ 해시 생성 중 오류: ${e.message}</div>`;
+    }
+  }
+
+  function copyHash(id, btn) {
+    const el = document.getElementById('hash-' + id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.textContent).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '✅ 복사됨';
+      setTimeout(() => { btn.textContent = orig; }, 1500);
+    });
+  }
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

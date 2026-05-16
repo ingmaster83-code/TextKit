@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morse Code Translator Online Free — Text to Morse & Back | WooaText</title>
+  <meta name="description" content="Translate text to Morse code or decode Morse code back to text online for free. Supports audio playback. Instant, browser-based, no sign-up.">
+  <meta name="keywords" content="morse code translator, text to morse code, morse code decoder, morse code online free, morse code generator, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/morse-code.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/morse-code.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/morse-code.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/morse-code.html">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Morse Code Translator Free Online | WooaText">
+  <meta property="og:description" content="Translate text to Morse code or decode Morse back to text. Audio playback included. Free, instant.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/morse-code.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Morse Code Translator",
+    "url": "https://textkit.wooahouse.com/en/morse-code.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .morse-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .morse-layout { grid-template-columns: 1fr; }
+    }
+    .morse-panel {
+      background: #fff;
+      border: 1.5px solid var(--border, #E5E7EB);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .morse-panel-header {
+      padding: 10px 14px;
+      background: #FAFAFA;
+      border-bottom: 1px solid var(--border, #E5E7EB);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .morse-panel-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text, #1F2937);
+    }
+    .morse-panel textarea {
+      width: 100%;
+      min-height: 200px;
+      padding: 14px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      border: none;
+      outline: none;
+      resize: vertical;
+      color: var(--text, #1F2937);
+      background: #fff;
+      line-height: 1.8;
+      box-sizing: border-box;
+      letter-spacing: 0.05em;
+    }
+    .convert-actions {
+      display: flex;
+      gap: 10px;
+      margin: 16px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-morse {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-morse-primary { background: var(--primary, #F59E0B); color: white; }
+    .btn-morse-primary:hover { filter: brightness(0.92); }
+    .btn-morse-secondary { background: #F3F4F6; color: var(--text, #1F2937); border: 1.5px solid var(--border, #E5E7EB); }
+    .btn-morse-secondary:hover { background: #E5E7EB; }
+    .btn-morse-play { background: #10B981; color: white; }
+    .btn-morse-play:hover { filter: brightness(0.92); }
+    .btn-morse-play.playing { background: #EF4444; }
+    .copy-btn-sm {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border: 1px solid var(--border, #E5E7EB);
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--text, #1F2937);
+      transition: all 0.15s;
+    }
+    .copy-btn-sm:hover { border-color: var(--primary, #F59E0B); color: var(--primary, #F59E0B); }
+    .copy-alert {
+      display: none;
+      font-size: 0.78rem;
+      color: #059669;
+      font-weight: 600;
+    }
+    .copy-alert.show { display: inline; }
+    /* 모스부호 표 */
+    .morse-table-wrap {
+      margin-top: 28px;
+    }
+    .morse-table-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .morse-table-item {
+      background: #F9FAFB;
+      border: 1px solid var(--border, #E5E7EB);
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+    .morse-table-char {
+      font-weight: 700;
+      color: var(--primary, #F59E0B);
+      font-size: 1rem;
+    }
+    .morse-table-code {
+      font-family: 'Courier New', monospace;
+      color: var(--text, #1F2937);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+    }
+    .morse-speed-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+      color: var(--text-light, #6B7280);
+    }
+    .morse-speed-wrap input[type="range"] {
+      width: 120px;
+    }
+    .progress-bar-wrap {
+      height: 4px;
+      background: #E5E7EB;
+      border-radius: 2px;
+      margin: 8px 0;
+      overflow: hidden;
+      display: none;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--primary, #F59E0B);
+      border-radius: 2px;
+      transition: width 0.1s linear;
+      width: 0%;
+    }
+    .play-status {
+      font-size: 0.82rem;
+      color: var(--text-light, #6B7280);
+      min-height: 18px;
+      margin-top: 4px;
+    }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../morse-code.html">KO</a>
+        <span>|</span>
+        <a href="morse-code.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>모스부호 변환</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">📡</span>
+    <h1>Morse Code Translator — Free Online</h1>
+    <p>텍스트를 모스부호로, 모스부호를 텍스트로 변환하고 실제 신호음으로 재생합니다</p>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">변환 도구</div>
+
+    <div class="convert-actions" style="margin-top:0;margin-bottom:16px;">
+      <button class="btn-morse btn-morse-primary" onclick="textToMorse()">📡 텍스트 → 모스부호</button>
+      <button class="btn-morse btn-morse-primary" onclick="morseToText()">✏️ 모스부호 → 텍스트</button>
+      <button class="btn-morse btn-morse-secondary" onclick="clearAll()">🗑️ 초기화</button>
+    </div>
+
+    <div class="morse-layout">
+      <!-- 왼쪽: 텍스트 -->
+      <div class="morse-panel">
+        <div class="morse-panel-header">
+          <span class="morse-panel-title">텍스트</span>
+          <button class="copy-btn-sm" onclick="copyArea('textArea', 'alert1')">Copy</button>
+        </div>
+        <textarea id="textArea" placeholder="여기에 텍스트를 입력하세요&#10;예: HELLO WORLD&#10;한글은 영어 발음으로 변환됩니다"></textarea>
+        <div style="padding:4px 14px;"><span class="copy-alert" id="alert1">복사됨!</span></div>
+      </div>
+
+      <!-- 오른쪽: 모스부호 -->
+      <div class="morse-panel">
+        <div class="morse-panel-header">
+          <span class="morse-panel-title">모스부호 ( · 단음, — 장음, / 글자, // 단어)</span>
+          <button class="copy-btn-sm" onclick="copyArea('morseArea', 'alert2')">Copy</button>
+        </div>
+        <textarea id="morseArea" placeholder="여기에 모스부호를 입력하거나&#10;위 버튼으로 변환된 결과가 표시됩니다&#10;&#10;예: .... . .-.. .-.. --- / .-- --- .-. .-.. -.."></textarea>
+        <div style="padding:4px 14px;"><span class="copy-alert" id="alert2">복사됨!</span></div>
+      </div>
+    </div>
+
+    <!-- 재생 컨트롤 -->
+    <div style="margin-top:20px;padding:16px;background:#F9FAFB;border-radius:10px;border:1px solid var(--border);">
+      <div style="font-size:0.88rem;font-weight:700;margin-bottom:10px;color:var(--text);">🎵 신호음 재생</div>
+      <div class="morse-speed-wrap">
+        <label style="white-space:nowrap;">재생 속도</label>
+        <input type="range" id="speedRange" min="1" max="5" value="3" step="1">
+        <span id="speedLabel" style="font-weight:600;color:var(--primary);">보통</span>
+        <label style="white-space:nowrap;margin-left:12px;">주파수</label>
+        <input type="range" id="freqRange" min="400" max="1000" value="700" step="50">
+        <span id="freqLabel" style="font-weight:600;color:var(--primary);">700Hz</span>
+      </div>
+      <div class="progress-bar-wrap" id="progressWrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="play-status" id="playStatus"></div>
+      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn-morse btn-morse-play" id="playBtn" onclick="playMorse()">▶ 재생</button>
+        <button class="btn-morse btn-morse-secondary" onclick="stopMorse()">⏹ 정지</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 모스부호 표 -->
+  <div class="panel morse-table-wrap">
+    <div class="panel-title">모스부호 표</div>
+    <div style="font-size:0.82rem;color:var(--text-light);margin-bottom:10px;">· = 단음(dit) &nbsp; — = 장음(dah)</div>
+    <div style="font-size:0.88rem;font-weight:700;margin-bottom:6px;color:var(--text);">알파벳</div>
+    <div class="morse-table-grid" id="alphaTable"></div>
+    <div style="font-size:0.88rem;font-weight:700;margin:16px 0 6px;color:var(--text);">숫자</div>
+    <div class="morse-table-grid" id="numTable"></div>
+    <div style="font-size:0.88rem;font-weight:700;margin:16px 0 6px;color:var(--text);">특수문자</div>
+    <div class="morse-table-grid" id="specTable"></div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 문자 인코딩 변환이 필요하다면 <a href="unicode-converter.html">유니코드 변환기</a>도 이용해보세요.
+  </div>
+
+  <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+    <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Does it support audio playback?</h3>
+      <p style="color:#555;margin:0;">Yes. The tool can play the Morse code as audio beeps so you can hear the signal.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Which characters are supported?</h3>
+      <p style="color:#555;margin:0;">Letters A-Z, digits 0-9, and common punctuation marks are all supported in Morse code.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can I decode Morse code back to text?</h3>
+      <p style="color:#555;margin:0;">Yes. Enter dots and dashes and the tool will decode them back to readable text.</p>
+    </div>
+  </div>
+</section>
+
+  <div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ——— 모스부호 사전 ———
+const MORSE_MAP = {
+  'A':'.-','B':'-...','C':'-.-.','D':'-..','E':'.','F':'..-.','G':'--.','H':'....','I':'..','J':'.---',
+  'K':'-.-','L':'.-..','M':'--','N':'-.','O':'---','P':'.--.','Q':'--.-','R':'.-.','S':'...','T':'-',
+  'U':'..-','V':'...-','W':'.--','X':'-..-','Y':'-.--','Z':'--..',
+  '0':'-----','1':'.----','2':'..---','3':'...--','4':'....-','5':'.....','6':'-....','7':'--...','8':'---..','9':'----.',
+  '.':'.-.-.-',',':'--..--','?':'..--..','\'':'.----.','!':'-.-.--','/':'-..-.','(':'-.--.',')'':'-.--.-',
+  '&':'.-...', ':':'---...', ';':'-.-.-.', '=':'-...-', '+':'.-.-.', '-':'-....-', '_':'..--.-',
+  '"':'.-..-.', '$':'...-..-', '@':'.--.-.', ' ':'/'
+};
+
+const MORSE_REVERSE = {};
+Object.entries(MORSE_MAP).forEach(([ch, code]) => { if (ch !== ' ') MORSE_REVERSE[code] = ch; });
+
+// 한글 → 로마자 근사 변환 (초성 기준)
+const HANGUL_TO_EN = {
+  'ㄱ':'G','ㄴ':'N','ㄷ':'D','ㄹ':'R','ㅁ':'M','ㅂ':'B','ㅅ':'S','ㅇ':'','ㅈ':'J','ㅊ':'CH',
+  'ㅋ':'K','ㅌ':'T','ㅍ':'P','ㅎ':'H',
+  'ㅏ':'A','ㅑ':'YA','ㅓ':'EO','ㅕ':'YEO','ㅗ':'O','ㅛ':'YO','ㅜ':'U','ㅠ':'YU','ㅡ':'EU','ㅣ':'I',
+  'ㅐ':'AE','ㅒ':'YAE','ㅔ':'E','ㅖ':'YE','ㅚ':'OE','ㅟ':'WI','ㅙ':'WAE','ㅞ':'WE','ㅘ':'WA','ㅝ':'WO','ㅢ':'UI'
+};
+
+const JAMO_CHO = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+const JAMO_JUNG = ['ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ'];
+const JAMO_JONG = ['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+
+function hangulToRoman(ch) {
+  const code = ch.charCodeAt(0);
+  if (code < 0xAC00 || code > 0xD7A3) return null;
+  const offset = code - 0xAC00;
+  const jong = offset % 28;
+  const jung = Math.floor(offset / 28) % 21;
+  const cho = Math.floor(offset / 28 / 21);
+  let result = '';
+  result += HANGUL_TO_EN[JAMO_CHO[cho]] || '';
+  result += HANGUL_TO_EN[JAMO_JUNG[jung]] || '';
+  if (jong > 0) result += HANGUL_TO_EN[JAMO_JONG[jong]] || '';
+  return result;
+}
+
+function textToMorseStr(text) {
+  const upper = text.toUpperCase();
+  const words = upper.split(' ');
+  return words.map(word => {
+    const chars = [...word];
+    const morseChars = [];
+    chars.forEach(ch => {
+      // 한글 처리
+      if (ch >= '가' && ch <= '힣') {
+        const roman = hangulToRoman(ch);
+        if (roman) {
+          [...roman].forEach(rc => {
+            const code = MORSE_MAP[rc];
+            if (code) morseChars.push(code);
+          });
+        }
+      } else {
+        const code = MORSE_MAP[ch];
+        if (code && code !== '/') morseChars.push(code);
+      }
+    });
+    return morseChars.join(' ');
+  }).filter(w => w).join(' / ');
+}
+
+function morseToTextStr(morse) {
+  // 정규화: 다양한 dash 문자 통일
+  const normalized = morse.replace(/[—–−]/g, '-').replace(/[·•]/g, '.');
+  const wordGroups = normalized.split(/\s*\/\s*/);
+  return wordGroups.map(word => {
+    const codes = word.trim().split(/\s+/);
+    return codes.map(code => MORSE_REVERSE[code] || '?').join('');
+  }).join(' ');
+}
+
+function textToMorse() {
+  const text = document.getElementById('textArea').value;
+  if (!text.trim()) { alert('변환할 텍스트를 입력하세요.'); return; }
+  document.getElementById('morseArea').value = textToMorseStr(text);
+}
+
+function morseToText() {
+  const morse = document.getElementById('morseArea').value;
+  if (!morse.trim()) { alert('변환할 모스부호를 입력하세요.'); return; }
+  document.getElementById('textArea').value = morseToTextStr(morse);
+}
+
+function clearAll() {
+  document.getElementById('textArea').value = '';
+  document.getElementById('morseArea').value = '';
+  stopMorse();
+}
+
+function copyArea(id, alertId) {
+  const el = document.getElementById(id);
+  if (!el.value) return;
+  navigator.clipboard.writeText(el.value).then(() => showAlert(alertId))
+    .catch(() => { el.select(); document.execCommand('copy'); showAlert(alertId); });
+}
+
+function showAlert(id) {
+  const a = document.getElementById(id);
+  a.classList.add('show');
+  setTimeout(() => a.classList.remove('show'), 2000);
+}
+
+// ——— 재생 ———
+const SPEED_LABELS = ['매우 느림', '느림', '보통', '빠름', '매우 빠름'];
+const SPEED_UNIT_MS = [200, 150, 100, 70, 45]; // 단음 길이 (ms)
+
+const speedRange = document.getElementById('speedRange');
+const freqRange = document.getElementById('freqRange');
+const speedLabel = document.getElementById('speedLabel');
+const freqLabel = document.getElementById('freqLabel');
+
+speedRange.addEventListener('input', () => {
+  speedLabel.textContent = SPEED_LABELS[parseInt(speedRange.value) - 1];
+});
+freqRange.addEventListener('input', () => {
+  freqLabel.textContent = freqRange.value + 'Hz';
+});
+
+let audioCtx = null;
+let isPlaying = false;
+let stopFlag = false;
+let playQueue = [];
+
+function getAudioCtx() {
+  if (!audioCtx || audioCtx.state === 'closed') {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  return audioCtx;
+}
+
+async function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function playMorse() {
+  if (isPlaying) return;
+
+  let morse = document.getElementById('morseArea').value.trim();
+  if (!morse) {
+    // 텍스트 영역에서 자동 변환
+    const text = document.getElementById('textArea').value.trim();
+    if (!text) { alert('재생할 모스부호 또는 텍스트를 입력하세요.'); return; }
+    morse = textToMorseStr(text);
+    document.getElementById('morseArea').value = morse;
+  }
+
+  const unitMs = SPEED_UNIT_MS[parseInt(speedRange.value) - 1];
+  const freq = parseInt(freqRange.value);
+  const ctx = getAudioCtx();
+
+  // 정규화
+  const normalized = morse.replace(/[—–−]/g, '-').replace(/[·•]/g, '.');
+  const symbols = normalized.replace(/\//g, ' / ').split(/\s+/).filter(s => s);
+
+  const totalSymbols = symbols.filter(s => s !== '/').length;
+  let done = 0;
+
+  isPlaying = true;
+  stopFlag = false;
+  const playBtn = document.getElementById('playBtn');
+  playBtn.textContent = '▶ 재생 중...';
+  playBtn.classList.add('playing');
+  document.getElementById('progressWrap').style.display = 'block';
+  document.getElementById('progressBar').style.width = '0%';
+  document.getElementById('playStatus').textContent = '재생 중...';
+
+  for (let i = 0; i < symbols.length; i++) {
+    if (stopFlag) break;
+    const sym = symbols[i];
+
+    if (sym === '/') {
+      // 단어 간격: 7 units (글자 간격 3 포함)
+      await sleep(unitMs * 4);
+    } else {
+      // 각 글자의 각 부호
+      const parts = sym.split('');
+      for (let pi = 0; pi < parts.length; pi++) {
+        if (stopFlag) break;
+        const p = parts[pi];
+        const duration = p === '-' ? unitMs * 3 : unitMs;
+        // 신호 재생
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = freq;
+        osc.type = 'sine';
+        gain.gain.setValueAtTime(0, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.5, ctx.currentTime + 0.005);
+        gain.gain.setValueAtTime(0.5, ctx.currentTime + duration / 1000 - 0.005);
+        gain.gain.linearRampToValueAtTime(0, ctx.currentTime + duration / 1000);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + duration / 1000);
+        await sleep(duration);
+        if (stopFlag) break;
+        // 부호 간격: 1 unit
+        if (pi < parts.length - 1) await sleep(unitMs);
+      }
+      done++;
+      const pct = totalSymbols > 0 ? Math.round(done / totalSymbols * 100) : 0;
+      document.getElementById('progressBar').style.width = pct + '%';
+      // 글자 간격: 3 units (1 already consumed)
+      if (i < symbols.length - 1 && symbols[i + 1] !== '/') {
+        await sleep(unitMs * 2);
+      }
+    }
+  }
+
+  isPlaying = false;
+  stopFlag = false;
+  playBtn.textContent = '▶ 재생';
+  playBtn.classList.remove('playing');
+  document.getElementById('progressBar').style.width = stopFlag ? document.getElementById('progressBar').style.width : '100%';
+  document.getElementById('playStatus').textContent = stopFlag ? '정지됨' : '재생 완료';
+  setTimeout(() => {
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('playStatus').textContent = '';
+  }, 2000);
+}
+
+function stopMorse() {
+  stopFlag = true;
+  isPlaying = false;
+  const playBtn = document.getElementById('playBtn');
+  if (playBtn) {
+    playBtn.textContent = '▶ 재생';
+    playBtn.classList.remove('playing');
+  }
+  if (audioCtx) {
+    try { audioCtx.close(); } catch(e) {}
+    audioCtx = null;
+  }
+  const progressWrap = document.getElementById('progressWrap');
+  if (progressWrap) progressWrap.style.display = 'none';
+  const playStatus = document.getElementById('playStatus');
+  if (playStatus) playStatus.textContent = '';
+}
+
+// ——— 모스부호 표 생성 ———
+function buildTable() {
+  const alphaTable = document.getElementById('alphaTable');
+  const numTable = document.getElementById('numTable');
+  const specTable = document.getElementById('specTable');
+
+  const alphas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const nums = '0123456789'.split('');
+  const specs = ['.', ',', '?', '!', '/', '&', ':', '=', '+', '-', '@'];
+
+  function makeItem(ch) {
+    const item = document.createElement('div');
+    item.className = 'morse-table-item';
+    item.title = '클릭해서 모스부호 복사';
+    item.style.cursor = 'pointer';
+    item.onclick = () => {
+      navigator.clipboard.writeText(MORSE_MAP[ch] || '').catch(() => {});
+    };
+    item.innerHTML = `<span class="morse-table-char">${ch}</span><span class="morse-table-code">${MORSE_MAP[ch] || '?'}</span>`;
+    return item;
+  }
+
+  alphas.forEach(ch => alphaTable.appendChild(makeItem(ch)));
+  nums.forEach(ch => numTable.appendChild(makeItem(ch)));
+  specs.forEach(ch => {
+    if (MORSE_MAP[ch]) specTable.appendChild(makeItem(ch));
+  });
+}
+
+buildTable();
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regex Tester Online Free — Regular Expression Matcher | WooaText</title>
+  <meta name="description" content="Test regular expressions online for free. Enter a pattern and see all matches highlighted in real time. Supports flags: global, case-insensitive, multiline. No sign-up.">
+  <meta name="keywords" content="regex tester, regular expression tester, regex online free, regex match, regex checker, test regex, javascript regex, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/regex-tester.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/regex-tester.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/regex-tester.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/regex-tester.html">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Regex Tester Free Online | WooaText">
+  <meta property="og:description" content="Test regex patterns with live match highlighting. Free, instant, browser-based.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/regex-tester.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <!-- 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Regex Tester",
+    "url": "https://textkit.wooahouse.com/en/regex-tester.html",
+    "description": "Test regular expressions online for free. Enter a pattern and see all matches highlighted in real time. Supports flags: global, case-insensitive, multiline. No sign-up.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+    "inLanguage": "en"
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Regex Tester",
+  "url": "https://textkit.wooahouse.com/en/regex-tester.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which regex flavor is used?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JavaScript RegExp is used, which is compatible with most modern programming languages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What flags are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Global (g), case-insensitive (i), and multiline (m) flags are all supported."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are match groups shown?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Capture groups are displayed alongside each match result."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .regex-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 1rem;
+      transition: border-color 0.15s;
+    }
+    .regex-input-wrap:focus-within { border-color: var(--primary); }
+    .regex-input-wrap .slash {
+      padding: 10px 4px 10px 12px;
+      color: var(--text-light);
+      font-weight: 700;
+      user-select: none;
+    }
+    .regex-input-wrap input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 10px 4px;
+      background: transparent;
+      color: var(--text);
+      min-width: 0;
+    }
+    .regex-input-wrap .flags {
+      padding: 10px 12px 10px 4px;
+      color: var(--primary);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .regex-error {
+      color: #DC2626;
+      font-size: 0.82rem;
+      margin-top: 6px;
+      display: none;
+    }
+    .regex-error.show { display: block; }
+    .flags-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .flags-group label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .flags-group label input { accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer; }
+    .flags-group label code {
+      background: #F3F4F6;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    /* Highlight area */
+    .highlight-container {
+      position: relative;
+      min-height: 200px;
+    }
+    .highlight-backdrop {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      padding: 14px;
+      font-size: 0.95rem;
+      font-family: 'Noto Sans KR', -apple-system, monospace;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-y: auto;
+      color: transparent;
+      background: #FAFAFA;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .highlight-backdrop mark {
+      background: #FDE68A;
+      color: transparent;
+      border-radius: 2px;
+      box-shadow: 0 0 0 1px #F59E0B;
+    }
+    .highlight-backdrop mark:nth-of-type(even) {
+      background: #BFDBFE;
+      box-shadow: 0 0 0 1px #3B82F6;
+    }
+    .highlight-textarea {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      min-height: 200px;
+      padding: 14px;
+      font-size: 0.95rem;
+      font-family: 'Noto Sans KR', -apple-system, monospace;
+      line-height: 1.6;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--text);
+      resize: vertical;
+      outline: none;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .highlight-textarea:focus { border-color: var(--primary); }
+    .highlight-textarea:focus + .highlight-backdrop,
+    .highlight-textarea:focus ~ .highlight-backdrop { border-color: var(--primary); background: white; }
+    .match-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .match-card {
+      background: #F9FAFB;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+    }
+    .match-card:last-child { margin-bottom: 0; }
+    .match-card .match-label {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 4px;
+    }
+    .match-card .match-value {
+      font-family: 'Consolas', monospace;
+      word-break: break-all;
+    }
+    .match-card .match-groups {
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+    .match-card .match-groups span {
+      display: inline-block;
+      background: #E0E7FF;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin: 2px 4px 2px 0;
+      font-family: 'Consolas', monospace;
+    }
+    .quick-patterns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .quick-patterns button {
+      background: #F3F4F6;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-family: inherit;
+      cursor: pointer;
+      color: var(--text);
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .quick-patterns button:hover { background: var(--primary-light); border-color: var(--primary); }
+    .replace-result {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      font-family: 'Consolas', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-all;
+      min-height: 60px;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 8px;
+    }
+    .matches-list { max-height: 400px; overflow-y: auto; }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../regex-tester.html">KO</a>
+        <span>|</span>
+        <a href="regex-tester.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>정규식 테스터</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔍</span>
+    <h1>Regex Tester — Free Online</h1>
+    <p>정규식 패턴을 실시간으로 테스트하고 매칭 결과를 확인합니다</p>
+  </div>
+
+  <!-- 패턴 입력 -->
+  <div class="text-panel">
+    <div class="text-panel-title">정규식 패턴</div>
+    <div class="regex-input-wrap">
+      <span class="slash">/</span>
+      <input type="text" id="regexPattern" placeholder="정규식 패턴을 입력하세요" autocomplete="off" spellcheck="false">
+      <span class="slash">/</span>
+      <span class="flags" id="flagsDisplay">g</span>
+    </div>
+    <div class="regex-error" id="regexError"></div>
+    <div class="flags-group">
+      <label><input type="checkbox" id="flagG" checked onchange="updateFlags()"> <code>g</code> 전역</label>
+      <label><input type="checkbox" id="flagI" onchange="updateFlags()"> <code>i</code> 대소문자 무시</label>
+      <label><input type="checkbox" id="flagM" onchange="updateFlags()"> <code>m</code> 멀티라인</label>
+      <label><input type="checkbox" id="flagS" onchange="updateFlags()"> <code>s</code> dotAll</label>
+    </div>
+  </div>
+
+  <!-- 빠른 패턴 -->
+  <div class="text-panel">
+    <div class="text-panel-title">빠른 패턴 모음</div>
+    <div class="quick-patterns">
+      <button onclick="setPattern('[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}')">이메일</button>
+      <button onclick="setPattern('01[0-9]-?\\d{3,4}-?\\d{4}')">전화번호</button>
+      <button onclick="setPattern('https?:\\/\\/[^\\s]+')">URL</button>
+      <button onclick="setPattern('[가-힣]+')">한글만</button>
+      <button onclick="setPattern('\\d+')">숫자만</button>
+      <button onclick="setPattern('\\d{4}-\\d{2}-\\d{2}')">날짜</button>
+      <button onclick="setPattern('\\s+')">공백</button>
+      <button onclick="setPattern('<[^>]+>')">HTML 태그</button>
+    </div>
+  </div>
+
+  <!-- 테스트 문자열 -->
+  <div class="text-panel">
+    <div class="text-panel-title">테스트 문자열</div>
+    <div class="highlight-container">
+      <textarea id="testString" class="highlight-textarea" rows="8" placeholder="테스트할 문자열을 입력하세요...&#10;예: test@email.com 010-1234-5678 https://example.com"></textarea>
+      <div id="highlightBackdrop" class="highlight-backdrop"></div>
+    </div>
+  </div>
+
+  <!-- 매칭 결과 -->
+  <div class="text-panel">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <div class="text-panel-title" style="margin-bottom:0;">매칭 결과</div>
+      <span class="match-badge" id="matchCount">0개 매칭</span>
+    </div>
+    <div class="matches-list" id="matchesList">
+      <div style="color:var(--text-light); font-size:0.88rem;">패턴과 테스트 문자열을 입력하면 매칭 결과가 표시됩니다.</div>
+    </div>
+  </div>
+
+  <!-- 치환 -->
+  <div class="text-panel">
+    <div class="text-panel-title">치환 (Replace)</div>
+    <input type="text" id="replacePattern" placeholder="치환 패턴 (예: $1-$2)" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:'Consolas',monospace;outline:none;background:#FAFAFA;" spellcheck="false">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+      <span class="text-panel-title" style="margin-bottom:0;">치환 결과</span>
+      <button class="btn btn-success btn-sm" onclick="copyReplace()">📋 복사</button>
+    </div>
+    <div class="replace-result" id="replaceResult">치환 패턴을 입력하면 결과가 표시됩니다.</div>
+  </div>
+  <div id="copyAlert" class="alert alert-success">클립보드에 복사되었습니다!</div>
+
+  <div class="cross-link-tip">
+    💡 URL 인코딩/디코딩이 필요하신가요? <a href="url-encoder.html">URL 인코딩 도구 →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Which regex flavor is used?</h3>
+      <p style="color:#555;margin:0;">JavaScript RegExp is used, which is compatible with most modern programming languages.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. What flags are supported?</h3>
+      <p style="color:#555;margin:0;">Global (g), case-insensitive (i), and multiline (m) flags are all supported.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Are match groups shown?</h3>
+      <p style="color:#555;margin:0;">Yes. Capture groups are displayed alongside each match result.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const patternInput = document.getElementById('regexPattern');
+  const testStringEl = document.getElementById('testString');
+  const highlightBackdrop = document.getElementById('highlightBackdrop');
+  const matchesList = document.getElementById('matchesList');
+  const matchCountEl = document.getElementById('matchCount');
+  const replacePatternEl = document.getElementById('replacePattern');
+  const replaceResultEl = document.getElementById('replaceResult');
+  const regexError = document.getElementById('regexError');
+
+  // Event listeners
+  patternInput.addEventListener('input', runTest);
+  testStringEl.addEventListener('input', runTest);
+  testStringEl.addEventListener('scroll', syncScroll);
+  replacePatternEl.addEventListener('input', runTest);
+
+  function updateFlags() {
+    const g = document.getElementById('flagG').checked ? 'g' : '';
+    const i = document.getElementById('flagI').checked ? 'i' : '';
+    const m = document.getElementById('flagM').checked ? 'm' : '';
+    const s = document.getElementById('flagS').checked ? 's' : '';
+    document.getElementById('flagsDisplay').textContent = g + i + m + s || '(없음)';
+    runTest();
+  }
+
+  function getFlags() {
+    let flags = '';
+    if (document.getElementById('flagG').checked) flags += 'g';
+    if (document.getElementById('flagI').checked) flags += 'i';
+    if (document.getElementById('flagM').checked) flags += 'm';
+    if (document.getElementById('flagS').checked) flags += 's';
+    return flags;
+  }
+
+  function setPattern(pattern) {
+    patternInput.value = pattern;
+    runTest();
+  }
+
+  function syncScroll() {
+    highlightBackdrop.scrollTop = testStringEl.scrollTop;
+    highlightBackdrop.scrollLeft = testStringEl.scrollLeft;
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function runTest() {
+    const pattern = patternInput.value;
+    const testStr = testStringEl.value;
+    const flags = getFlags();
+
+    // Reset
+    regexError.classList.remove('show');
+    regexError.textContent = '';
+
+    if (!pattern) {
+      highlightBackdrop.innerHTML = escapeHtml(testStr) + '\n';
+      matchesList.innerHTML = '<div style="color:var(--text-light);font-size:0.88rem;">패턴을 입력하세요.</div>';
+      matchCountEl.textContent = '0개 매칭';
+      replaceResultEl.textContent = testStr || '치환 패턴을 입력하면 결과가 표시됩니다.';
+      return;
+    }
+
+    let regex;
+    try {
+      regex = new RegExp(pattern, flags);
+    } catch (e) {
+      regexError.textContent = '유효하지 않은 정규식: ' + e.message;
+      regexError.classList.add('show');
+      highlightBackdrop.innerHTML = escapeHtml(testStr) + '\n';
+      matchesList.innerHTML = '';
+      matchCountEl.textContent = '오류';
+      return;
+    }
+
+    if (!testStr) {
+      highlightBackdrop.innerHTML = '\n';
+      matchesList.innerHTML = '<div style="color:var(--text-light);font-size:0.88rem;">테스트 문자열을 입력하세요.</div>';
+      matchCountEl.textContent = '0개 매칭';
+      replaceResultEl.textContent = '';
+      return;
+    }
+
+    // Find all matches
+    const matches = [];
+    if (flags.includes('g')) {
+      let m;
+      // Guard against infinite loop with zero-length matches
+      const safeRegex = new RegExp(pattern, flags);
+      let lastIndex = -1;
+      while ((m = safeRegex.exec(testStr)) !== null) {
+        if (safeRegex.lastIndex === lastIndex) {
+          safeRegex.lastIndex++;
+          continue;
+        }
+        lastIndex = safeRegex.lastIndex;
+        matches.push({ value: m[0], index: m.index, groups: m.slice(1) });
+        if (matches.length > 1000) break;
+      }
+    } else {
+      const m = regex.exec(testStr);
+      if (m) {
+        matches.push({ value: m[0], index: m.index, groups: m.slice(1) });
+      }
+    }
+
+    matchCountEl.textContent = matches.length + '개 매칭';
+
+    // Highlight
+    if (matches.length > 0) {
+      let highlighted = '';
+      let lastEnd = 0;
+      for (const match of matches) {
+        const start = match.index;
+        const end = start + match.value.length;
+        highlighted += escapeHtml(testStr.slice(lastEnd, start));
+        highlighted += '<mark>' + escapeHtml(testStr.slice(start, end)) + '</mark>';
+        lastEnd = end;
+      }
+      highlighted += escapeHtml(testStr.slice(lastEnd));
+      highlightBackdrop.innerHTML = highlighted + '\n';
+    } else {
+      highlightBackdrop.innerHTML = escapeHtml(testStr) + '\n';
+    }
+
+    // Match list
+    if (matches.length > 0) {
+      let html = '';
+      matches.forEach((match, i) => {
+        html += `<div class="match-card">
+          <div class="match-label">매칭 #${i + 1} (인덱스: ${match.index})</div>
+          <div class="match-value">${escapeHtml(match.value)}</div>`;
+        if (match.groups.length > 0) {
+          html += '<div class="match-groups">그룹: ';
+          match.groups.forEach((g, gi) => {
+            html += `<span>$${gi + 1}: ${g !== undefined ? escapeHtml(g) : '(없음)'}</span>`;
+          });
+          html += '</div>';
+        }
+        html += '</div>';
+      });
+      matchesList.innerHTML = html;
+    } else {
+      matchesList.innerHTML = '<div style="color:var(--text-light);font-size:0.88rem;">매칭되는 결과가 없습니다.</div>';
+    }
+
+    // Replace
+    const replaceVal = replacePatternEl.value;
+    if (replaceVal !== '') {
+      try {
+        const result = testStr.replace(regex, replaceVal);
+        replaceResultEl.textContent = result;
+      } catch (e) {
+        replaceResultEl.textContent = '치환 오류: ' + e.message;
+      }
+    } else {
+      replaceResultEl.textContent = testStr;
+    }
+  }
+
+  function copyReplace() {
+    const text = replaceResultEl.textContent;
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const alert = document.getElementById('copyAlert');
+      alert.classList.add('show');
+      setTimeout(() => alert.classList.remove('show'), 2000);
+    });
+  }
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

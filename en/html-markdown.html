@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML to Markdown Converter Online Free | WooaText</title>
+  <meta name="description" content="Convert HTML to Markdown online for free. Paste HTML and get clean Markdown output instantly. Browser-based, no sign-up needed.">
+  <meta name="keywords" content="HTML to Markdown, convert HTML to MD, HTML markdown converter online free, html2markdown, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/html-markdown.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/html-markdown.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/html-markdown.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/html-markdown.html">
+  <!-- Open Graph -->
+  <meta property="og:title" content="HTML to Markdown Converter Free Online | WooaText">
+  <meta property="og:description" content="Convert HTML to Markdown instantly. Free, browser-based, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/html-markdown.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HTML to Markdown",
+    "url": "https://textkit.wooahouse.com/en/html-markdown.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .convert-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .convert-layout { grid-template-columns: 1fr; }
+    }
+    .convert-panel {
+      background: #fff;
+      border: 1.5px solid var(--border, #E5E7EB);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .convert-panel-header {
+      padding: 10px 14px;
+      background: #FAFAFA;
+      border-bottom: 1px solid var(--border, #E5E7EB);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .convert-panel-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text, #1F2937);
+    }
+    .convert-panel textarea {
+      width: 100%;
+      min-height: 320px;
+      padding: 14px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      border: none;
+      outline: none;
+      resize: vertical;
+      color: var(--text, #1F2937);
+      background: #fff;
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+    .convert-actions {
+      display: flex;
+      gap: 10px;
+      margin: 16px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-convert {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-convert-primary {
+      background: var(--primary, #F59E0B);
+      color: white;
+    }
+    .btn-convert-primary:hover { filter: brightness(0.92); }
+    .btn-convert-secondary {
+      background: #F3F4F6;
+      color: var(--text, #1F2937);
+      border: 1.5px solid var(--border, #E5E7EB);
+    }
+    .btn-convert-secondary:hover { background: #E5E7EB; }
+    .copy-btn-sm {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border: 1px solid var(--border, #E5E7EB);
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--text, #1F2937);
+      transition: all 0.15s;
+    }
+    .copy-btn-sm:hover { border-color: var(--primary, #F59E0B); color: var(--primary, #F59E0B); }
+    .copy-alert {
+      display: none;
+      font-size: 0.78rem;
+      color: #059669;
+      font-weight: 600;
+    }
+    .copy-alert.show { display: inline; }
+    .panel-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 6px;
+    }
+    .label-html { background: #DBEAFE; color: #1D4ED8; }
+    .label-md { background: #D1FAE5; color: #065F46; }
+    .direction-arrow {
+      text-align: center;
+      font-size: 1.5rem;
+      color: var(--primary, #F59E0B);
+      padding: 4px 0;
+    }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../html-markdown.html">KO</a>
+        <span>|</span>
+        <a href="html-markdown.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>HTML ↔ 마크다운 변환</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔄</span>
+    <h1>HTML to Markdown — Free Online</h1>
+    <p>HTML을 마크다운으로, 마크다운을 HTML로 상호 변환합니다</p>
+  </div>
+
+  <div id="loadingMsg" style="text-align:center;padding:20px;color:var(--text-light);">라이브러리 로딩 중...</div>
+
+  <div id="mainTool" style="display:none;">
+    <div class="convert-actions" style="margin-top:0;margin-bottom:16px;">
+      <button class="btn-convert btn-convert-primary" onclick="convertHtmlToMd()">HTML → 마크다운</button>
+      <button class="btn-convert btn-convert-primary" onclick="convertMdToHtml()">마크다운 → HTML</button>
+      <button class="btn-convert btn-convert-secondary" onclick="clearAll()">🗑️ 초기화</button>
+    </div>
+
+    <div class="convert-layout">
+      <!-- 입력 -->
+      <div class="convert-panel">
+        <div class="convert-panel-header">
+          <div>
+            <span class="convert-panel-title">입력</span>
+            <span class="panel-label label-html" id="inputLabel">HTML</span>
+          </div>
+          <button class="copy-btn-sm" onclick="copyText('inputArea', 'copyAlert1')">Copy</button>
+        </div>
+        <textarea id="inputArea" placeholder="여기에 HTML 또는 마크다운을 입력하세요...
+
+예시 HTML:
+&lt;h1&gt;제목&lt;/h1&gt;
+&lt;p&gt;단락 텍스트입니다.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;항목 1&lt;/li&gt;&lt;li&gt;항목 2&lt;/li&gt;&lt;/ul&gt;
+
+예시 마크다운:
+# 제목
+단락 텍스트입니다.
+- 항목 1
+- 항목 2"></textarea>
+        <div style="padding:6px 14px;"><span class="copy-alert" id="copyAlert1">복사됨!</span></div>
+      </div>
+
+      <!-- 결과 -->
+      <div class="convert-panel">
+        <div class="convert-panel-header">
+          <div>
+            <span class="convert-panel-title">결과</span>
+            <span class="panel-label label-md" id="outputLabel">마크다운</span>
+          </div>
+          <button class="copy-btn-sm" onclick="copyText('outputArea', 'copyAlert2')">Copy</button>
+        </div>
+        <textarea id="outputArea" readonly placeholder="변환 버튼을 클릭하면 여기에 결과가 표시됩니다..."></textarea>
+        <div style="padding:6px 14px;"><span class="copy-alert" id="copyAlert2">복사됨!</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;font-size:0.8rem;color:var(--text-light);text-align:center;">
+      💡 HTML→마크다운: Turndown.js 사용 | 마크다운→HTML: marked.js 사용 | 모든 변환은 브라우저 내에서 처리됩니다
+    </div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 마크다운 실시간 편집이 필요하다면 <a href="markdown-editor.html">마크다운 에디터</a>를 이용하세요.
+  </div>
+
+  <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+    <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Which HTML elements are converted?</h3>
+      <p style="color:#555;margin:0;">Headings, paragraphs, links, images, bold, italic, lists, tables, and code blocks are all converted.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. What happens to unsupported HTML?</h3>
+      <p style="color:#555;margin:0;">Unsupported or complex HTML may be left as raw HTML in the Markdown output.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can I convert Markdown back to HTML?</h3>
+      <p style="color:#555;margin:0;">For Markdown → HTML, use the Markdown Editor tool on WooaText.</p>
+    </div>
+  </div>
+</section>
+
+  <div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CDN 라이브러리 -->
+<script src="https://cdn.jsdelivr.net/npm/turndown@7.1.2/dist/turndown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/lib/marked.umd.min.js"></script>
+
+<script>
+let turndownService = null;
+let librariesLoaded = false;
+
+function initLibraries() {
+  try {
+    if (typeof TurndownService !== 'undefined' && typeof marked !== 'undefined') {
+      turndownService = new TurndownService({
+        headingStyle: 'atx',
+        codeBlockStyle: 'fenced',
+        bulletListMarker: '-',
+        hr: '---',
+        linkStyle: 'inlined'
+      });
+      // 표(table) 지원 플러그인
+      turndownService.addRule('table', {
+        filter: ['table'],
+        replacement: function(content, node) {
+          const rows = Array.from(node.querySelectorAll('tr'));
+          if (!rows.length) return content;
+          const result = [];
+          rows.forEach((row, ri) => {
+            const cells = Array.from(row.querySelectorAll('th,td'));
+            const line = '| ' + cells.map(c => c.textContent.trim().replace(/\|/g, '\\|')).join(' | ') + ' |';
+            result.push(line);
+            if (ri === 0) {
+              const sep = '| ' + cells.map(() => '---').join(' | ') + ' |';
+              result.push(sep);
+            }
+          });
+          return '\n\n' + result.join('\n') + '\n\n';
+        }
+      });
+      librariesLoaded = true;
+      document.getElementById('loadingMsg').style.display = 'none';
+      document.getElementById('mainTool').style.display = 'block';
+    } else {
+      setTimeout(initLibraries, 200);
+    }
+  } catch (e) {
+    document.getElementById('loadingMsg').textContent = '라이브러리 로드 중 오류: ' + e.message;
+  }
+}
+initLibraries();
+
+function convertHtmlToMd() {
+  if (!librariesLoaded) return;
+  const html = document.getElementById('inputArea').value.trim();
+  if (!html) { alert('변환할 HTML을 입력하세요.'); return; }
+  try {
+    const md = turndownService.turndown(html);
+    document.getElementById('outputArea').value = md;
+    document.getElementById('inputLabel').textContent = 'HTML';
+    document.getElementById('inputLabel').className = 'panel-label label-html';
+    document.getElementById('outputLabel').textContent = '마크다운';
+    document.getElementById('outputLabel').className = 'panel-label label-md';
+  } catch (e) {
+    document.getElementById('outputArea').value = '변환 오류: ' + e.message;
+  }
+}
+
+function convertMdToHtml() {
+  if (!librariesLoaded) return;
+  const md = document.getElementById('inputArea').value.trim();
+  if (!md) { alert('변환할 마크다운을 입력하세요.'); return; }
+  try {
+    const html = marked.parse(md);
+    document.getElementById('outputArea').value = html;
+    document.getElementById('inputLabel').textContent = '마크다운';
+    document.getElementById('inputLabel').className = 'panel-label label-md';
+    document.getElementById('outputLabel').textContent = 'HTML';
+    document.getElementById('outputLabel').className = 'panel-label label-html';
+  } catch (e) {
+    document.getElementById('outputArea').value = '변환 오류: ' + e.message;
+  }
+}
+
+function clearAll() {
+  document.getElementById('inputArea').value = '';
+  document.getElementById('outputArea').value = '';
+  document.getElementById('inputLabel').textContent = 'HTML';
+  document.getElementById('inputLabel').className = 'panel-label label-html';
+  document.getElementById('outputLabel').textContent = '마크다운';
+  document.getElementById('outputLabel').className = 'panel-label label-md';
+}
+
+function copyText(textareaId, alertId) {
+  const el = document.getElementById(textareaId);
+  if (!el.value) return;
+  navigator.clipboard.writeText(el.value).then(() => {
+    showAlert(alertId);
+  }).catch(() => {
+    el.select();
+    document.execCommand('copy');
+    showAlert(alertId);
+  });
+}
+
+function showAlert(alertId) {
+  const alert = document.getElementById(alertId);
+  alert.classList.add('show');
+  setTimeout(() => alert.classList.remove('show'), 2000);
+}
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

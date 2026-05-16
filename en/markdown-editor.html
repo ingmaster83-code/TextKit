@@ -1,0 +1,584 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown Editor Online Free — Live Preview | WooaText</title>
+  <meta name="description" content="Write and preview Markdown online for free. Real-time HTML preview with syntax highlighting. Export to HTML. No sign-up, no upload.">
+  <meta name="keywords" content="markdown editor online, markdown preview, live markdown, markdown to HTML, markdown free, online markdown editor, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/markdown-editor.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/markdown-editor.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/markdown-editor.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/markdown-editor.html">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Markdown Editor Free Online — Live Preview | WooaText">
+  <meta property="og:description" content="Write Markdown with live HTML preview. Free, browser-based, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/markdown-editor.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <!-- 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Markdown Editor",
+    "url": "https://textkit.wooahouse.com/en/markdown-editor.html",
+    "description": "Write and preview Markdown online for free. Real-time HTML preview with syntax highlighting. Export to HTML. No sign-up, no upload.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+    "inLanguage": "en"
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Markdown Editor",
+  "url": "https://textkit.wooahouse.com/en/markdown-editor.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the preview updated in real time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The HTML preview updates instantly as you type Markdown."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Markdown syntax is supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard Markdown including headings, lists, links, images, code blocks, tables, and bold/italic text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can copy the rendered HTML or download the Markdown file."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .md-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 8px 12px;
+      background: #F3F4F6;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    }
+    .md-toolbar button {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 600;
+      color: var(--text);
+      transition: background 0.15s;
+    }
+    .md-toolbar button:hover { background: var(--primary-light); }
+    .md-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 600px;
+    }
+    .md-editor-wrap { display: flex; flex-direction: column; }
+    .md-editor {
+      font-family: 'Courier New', 'Consolas', monospace;
+      font-size: 0.92rem;
+      resize: none;
+      flex: 1;
+      border-radius: 0 0 0 var(--radius-sm);
+      border-right: none;
+      min-height: 500px;
+      tab-size: 2;
+    }
+    .md-preview-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    .md-preview-label {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      background: #F3F4F6;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      border-left: none;
+      border-radius: 0 var(--radius-sm) 0 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+    .md-preview {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 0 0 var(--radius-sm) 0;
+      border: 1px solid var(--border);
+      border-left: none;
+      line-height: 1.8;
+      min-height: 500px;
+    }
+    .md-preview h1, .md-preview h2, .md-preview h3 { border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 20px 0 12px; }
+    .md-preview h1 { font-size: 1.6rem; }
+    .md-preview h2 { font-size: 1.3rem; }
+    .md-preview h3 { font-size: 1.1rem; border-bottom: none; }
+    .md-preview p { margin: 10px 0; }
+    .md-preview code { background: #F3F4F6; padding: 2px 6px; border-radius: 4px; font-size: 0.88rem; }
+    .md-preview pre { background: #1E1E1E; border-radius: 8px; overflow-x: auto; padding: 16px; margin: 12px 0; }
+    .md-preview pre code { background: transparent; color: #E2E8F0; padding: 0; }
+    .md-preview blockquote { border-left: 4px solid var(--primary); padding-left: 16px; color: var(--text-light); margin: 12px 0; }
+    .md-preview table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+    .md-preview table td, .md-preview table th { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+    .md-preview table th { background: var(--primary-light); font-weight: 600; }
+    .md-preview ul, .md-preview ol { padding-left: 24px; margin: 10px 0; }
+    .md-preview li { margin: 4px 0; }
+    .md-preview img { max-width: 100%; border-radius: 8px; }
+    .md-preview hr { border: none; border-top: 2px solid var(--border); margin: 20px 0; }
+    .md-preview a { color: var(--primary-dark); }
+    .md-stats {
+      display: flex;
+      gap: 16px;
+      padding: 10px 16px;
+      background: #F9FAFB;
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+    .md-stats span strong { color: var(--text); }
+    .md-mobile-tabs {
+      display: none;
+      gap: 0;
+    }
+    .md-mobile-tabs button {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid var(--border);
+      background: #F3F4F6;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-light);
+    }
+    .md-mobile-tabs button.active {
+      background: white;
+      color: var(--primary);
+      border-bottom-color: white;
+    }
+    @media(max-width:768px) {
+      .md-container { grid-template-columns: 1fr; min-height: auto; }
+      .md-editor { min-height: 350px; border-right: 1px solid var(--border); border-radius: 0; }
+      .md-preview { min-height: 350px; border-left: 1px solid var(--border); border-radius: 0; }
+      .md-preview-label { border-left: 1px solid var(--border); border-radius: 0; }
+      .md-mobile-tabs { display: flex; }
+      .md-editor-wrap.hidden, .md-preview-wrap.hidden { display: none; }
+    }
+    .tool-page.wide { max-width: 1100px; }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../markdown-editor.html">KO</a>
+        <span>|</span>
+        <a href="markdown-editor.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<main class="tool-page wide">
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>마크다운 에디터</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">📝</span>
+    <h1>Markdown Editor — Live Preview</h1>
+    <p>마크다운을 실시간으로 HTML로 변환하며 미리보기합니다</p>
+  </div>
+
+  <div class="md-toolbar">
+    <button onclick="insertMd('**','**')" title="굵게">B</button>
+    <button onclick="insertMd('*','*')" title="기울임"><i>I</i></button>
+    <button onclick="insertMd('~~','~~')" title="취소선"><s>S</s></button>
+    <button onclick="insertMd('\n# ','')" title="제목1">H1</button>
+    <button onclick="insertMd('\n## ','')" title="제목2">H2</button>
+    <button onclick="insertMd('\n### ','')" title="제목3">H3</button>
+    <button onclick="insertMd('[','](url)')" title="링크">Link</button>
+    <button onclick="insertMd('![alt](',')')" title="이미지">Img</button>
+    <button onclick="insertMd('`','`')" title="인라인 코드">Code</button>
+    <button onclick="insertMd('\n```\n','\n```\n')" title="코드 블록">Block</button>
+    <button onclick="insertTable()" title="표">Table</button>
+    <button onclick="insertMd('\n---\n','')" title="수평선">HR</button>
+    <button onclick="insertMd('\n> ','')" title="인용">Quote</button>
+    <button onclick="insertMd('\n- ','')" title="목록">List</button>
+    <button onclick="insertMd('\n- [ ] ','')" title="체크리스트">Check</button>
+  </div>
+
+  <div class="md-mobile-tabs">
+    <button class="active" onclick="showTab('editor')">편집</button>
+    <button onclick="showTab('preview')">미리보기</button>
+  </div>
+
+  <div class="md-container">
+    <div class="md-editor-wrap">
+      <textarea id="mdEditor" class="md-editor" placeholder="마크다운을 입력하세요..." spellcheck="false"></textarea>
+    </div>
+    <div class="md-preview-wrap">
+      <div class="md-preview-label">미리보기</div>
+      <div id="mdPreview" class="md-preview"></div>
+    </div>
+  </div>
+
+  <div class="md-stats">
+    <span>글자 <strong id="statChars">0</strong></span>
+    <span>단어 <strong id="statWords">0</strong></span>
+    <span>줄 <strong id="statLines">0</strong></span>
+  </div>
+
+  <div class="btn-group" style="margin-top:16px;">
+    <button class="btn btn-secondary" onclick="loadMdFile()">📂 MD 파일 불러오기</button>
+    <button class="btn btn-primary" onclick="saveMdFile()">💾 MD 저장</button>
+    <button class="btn btn-success" onclick="copyHtml()">📋 HTML 복사</button>
+    <button class="btn btn-outline" onclick="downloadHtml()">⬇️ HTML 다운로드</button>
+  </div>
+  <input type="file" id="fileInput" accept=".md,.markdown,.txt" style="display:none;">
+  <div id="copyAlert" class="alert alert-success">클립보드에 복사되었습니다!</div>
+
+  <div class="cross-link-tip" style="margin-top:20px;">
+    💡 코드 작업에 유용한 VS Code 확장이 필요하신가요? <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">Browse Extensions on WooaVS →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Is the preview updated in real time?</h3>
+      <p style="color:#555;margin:0;">Yes. The HTML preview updates instantly as you type Markdown.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Which Markdown syntax is supported?</h3>
+      <p style="color:#555;margin:0;">Standard Markdown including headings, lists, links, images, code blocks, tables, and bold/italic text.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can I export the result?</h3>
+      <p style="color:#555;margin:0;">Yes. You can copy the rendered HTML or download the Markdown file.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+  // Configure marked
+  marked.setOptions({
+    breaks: true,
+    gfm: true,
+    highlight: function(code, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        try { return hljs.highlight(code, { language: lang }).value; } catch(e) {}
+      }
+      try { return hljs.highlightAuto(code).value; } catch(e) {}
+      return code;
+    }
+  });
+
+  const editor = document.getElementById('mdEditor');
+  const preview = document.getElementById('mdPreview');
+  const fileInput = document.getElementById('fileInput');
+
+  // Default sample
+  const defaultMd = `# 마크다운 에디터에 오신 것을 환영합니다!
+
+이것은 **실시간 마크다운 미리보기** 도구입니다.
+
+## 기본 서식
+
+**굵게**, *기울임*, ~~취소선~~을 사용할 수 있습니다.
+
+## 목록
+
+- 항목 1
+- 항목 2
+  - 하위 항목
+
+1. 번호 목록
+2. 두 번째 항목
+
+## 코드
+
+인라인 코드: \`console.log("Hello")\`
+
+\`\`\`javascript
+function greet(name) {
+  return \`안녕하세요, \${name}님!\`;
+}
+console.log(greet("세계"));
+\`\`\`
+
+## 인용문
+
+> 마크다운은 읽기 쉽고 쓰기 쉬운 텍스트 포맷입니다.
+
+## 표
+
+| 기능 | 지원 여부 |
+|------|-----------|
+| 굵게 | ✅ |
+| 기울임 | ✅ |
+| 코드 블록 | ✅ |
+| 표 | ✅ |
+
+## 링크 & 이미지
+
+[WooaText 홈](https://textkit.wooahouse.com/)
+
+---
+
+*WooaText에서 무료로 마크다운을 편집하세요!*`;
+
+  editor.value = defaultMd;
+  renderPreview();
+
+  // Real-time preview
+  editor.addEventListener('input', renderPreview);
+
+  function renderPreview() {
+    const md = editor.value;
+    preview.innerHTML = marked.parse(md);
+    // Highlight code blocks
+    preview.querySelectorAll('pre code').forEach(block => {
+      hljs.highlightElement(block);
+    });
+    updateStats(md);
+  }
+
+  function updateStats(text) {
+    document.getElementById('statChars').textContent = text.length;
+    document.getElementById('statWords').textContent = text.trim() ? text.trim().split(/\s+/).length : 0;
+    document.getElementById('statLines').textContent = text ? text.split('\n').length : 0;
+  }
+
+  // Toolbar insert
+  function insertMd(before, after) {
+    const start = editor.selectionStart;
+    const end = editor.selectionEnd;
+    const selected = editor.value.substring(start, end);
+    const text = before + (selected || '텍스트') + after;
+    editor.setRangeText(text, start, end, 'select');
+    editor.focus();
+    renderPreview();
+  }
+
+  function insertTable() {
+    const table = '\n| 제목1 | 제목2 | 제목3 |\n|-------|-------|-------|\n| 내용1 | 내용2 | 내용3 |\n| 내용4 | 내용5 | 내용6 |\n';
+    const pos = editor.selectionStart;
+    editor.setRangeText(table, pos, pos, 'end');
+    editor.focus();
+    renderPreview();
+  }
+
+  // Tab key support
+  editor.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const start = this.selectionStart;
+      this.setRangeText('  ', start, start, 'end');
+      renderPreview();
+    }
+  });
+
+  // File operations
+  function loadMdFile() {
+    fileInput.click();
+  }
+
+  fileInput.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      editor.value = ev.target.result;
+      renderPreview();
+    };
+    reader.readAsText(file);
+    fileInput.value = '';
+  });
+
+  function saveMdFile() {
+    const blob = new Blob([editor.value], { type: 'text/markdown;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'document.md';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  function copyHtml() {
+    const html = marked.parse(editor.value);
+    navigator.clipboard.writeText(html).then(() => {
+      const alert = document.getElementById('copyAlert');
+      alert.classList.add('show');
+      setTimeout(() => alert.classList.remove('show'), 2000);
+    });
+  }
+
+  function downloadHtml() {
+    const html = `<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>Markdown Editor Online Free — Live Preview | WooaText</title>
+<style>body{font-family:-apple-system,sans-serif;max-width:800px;margin:40px auto;padding:0 20px;line-height:1.8;color:#1a1a2e;}pre{background:#1e1e1e;color:#e2e8f0;padding:16px;border-radius:8px;overflow-x:auto;}code{background:#f3f4f6;padding:2px 6px;border-radius:4px;}pre code{background:transparent;}table{border-collapse:collapse;width:100%;}td,th{border:1px solid #e5e7eb;padding:8px 12px;}th{background:#fef3c7;}blockquote{border-left:4px solid #f59e0b;padding-left:16px;color:#6b7280;}</style>
+</head><body>${marked.parse(editor.value)}</body></html>`;
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'document.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  // Mobile tabs
+  function showTab(tab) {
+    const btns = document.querySelectorAll('.md-mobile-tabs button');
+    const editorWrap = document.querySelector('.md-editor-wrap');
+    const previewWrap = document.querySelector('.md-preview-wrap');
+    btns.forEach(b => b.classList.remove('active'));
+    if (tab === 'editor') {
+      btns[0].classList.add('active');
+      editorWrap.classList.remove('hidden');
+      previewWrap.classList.add('hidden');
+    } else {
+      btns[1].classList.add('active');
+      editorWrap.classList.add('hidden');
+      previewWrap.classList.remove('hidden');
+      renderPreview();
+    }
+  }
+</script>
+<script src="../js/pwa-install.js"></script>
+
+<!-- 하단 고정 광고 배너 -->
+<div id="bottom-ad-bar" style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;padding:4px 8px;z-index:9999;display:flex;align-items:center;justify-content:center;min-height:60px;">
+  <button onclick="document.getElementById('bottom-ad-bar').style.display='none'" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;color:#9ca3af;" title="닫기">✕</button>
+  <div style="font-size:0.65rem;color:#9ca3af;position:absolute;left:8px;top:4px;">광고</div>
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:90px;max-width:100%"
+       data-ad-client="ca-pub-6464921081676309"
+       data-ad-slot="7080296704"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</body>
+</html>

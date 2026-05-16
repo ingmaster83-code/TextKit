@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Formatter & Validator Online Free — Pretty Print & Minify | WooaText</title>
+  <meta name="description" content="Format and validate JSON online for free. Pretty-print with indentation, minify/compress, or validate JSON syntax errors. Instant, browser-based, no sign-up.">
+  <meta name="keywords" content="JSON formatter, JSON validator, pretty print JSON, JSON beautifier, JSON minifier, format JSON online free, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/json-formatter.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/json-formatter.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/json-formatter.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/json-formatter.html">
+  <meta property="og:title" content="JSON Formatter & Validator Free Online | WooaText">
+  <meta property="og:description" content="Format, validate, and minify JSON online. Free, instant, browser-based.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/json-formatter.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "JSON Formatter",
+  "url": "https://textkit.wooahouse.com/en/json-formatter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can the tool detect JSON errors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If your JSON is invalid, the tool shows an error message pointing out where the issue is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between format and minify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Formatting adds indentation and line breaks for readability. Minifying removes all whitespace to reduce file size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a size limit for JSON input?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All processing is done in your browser, so there is no server-side size limit."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .json-output-pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      font-family: 'Courier New', 'Consolas', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 500px;
+      overflow-y: auto;
+      border: 1.5px solid #313244;
+    }
+    .json-key { color: #89b4fa; }
+    .json-string { color: #a6e3a1; }
+    .json-number { color: #fab387; }
+    .json-boolean { color: #f38ba8; }
+    .json-null { color: #f38ba8; }
+    .json-bracket { color: #cba6f7; }
+    .json-validation-ok {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #dcfce7; color: #166534;
+      border-radius: var(--radius-sm); padding: 8px 14px;
+      font-size: 0.88rem; font-weight: 600; margin-top: 10px;
+    }
+    .json-validation-err {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fee2e2; color: #991b1b;
+      border-radius: var(--radius-sm); padding: 8px 14px;
+      font-size: 0.88rem; font-weight: 600; margin-top: 10px;
+    }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../json-formatter.html">KO</a>
+        <span>|</span>
+        <a href="json-formatter.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>JSON Formatter</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">📦</span>
+    <h1>JSON Formatter & Validator — Free Online</h1>
+    <p>JSON을 보기 좋게 정렬하거나 압축하고 유효성을 검사합니다</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">JSON 입력</div>
+    <textarea id="inputText" rows="10" class="mono" placeholder='JSON을 붙여넣거나 입력하세요...&#10;예: {"name":"WooaText","tools":12,"free":true}'></textarea>
+    <div class="btn-group" style="margin-top:14px;">
+      <button class="btn btn-primary" onclick="format()">✨ 예쁘게 정렬</button>
+      <button class="btn btn-outline" onclick="minify()">📦 압축 (Minify)</button>
+      <button class="btn btn-outline" onclick="validate()">✅ 유효성 검사</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+    </div>
+    <div id="validationResult"></div>
+  </div>
+
+  <div class="text-panel" id="outputPanel" style="display:none;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+    </div>
+    <pre class="json-output-pre" id="outputPre"></pre>
+    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 HTML 엔티티 변환이 필요하신가요? <a href="html-entity.html">HTML 엔티티 변환 →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can the tool detect JSON errors?</h3>
+      <p style="color:#555;margin:0;">Yes. If your JSON is invalid, the tool shows an error message pointing out where the issue is.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. What is the difference between format and minify?</h3>
+      <p style="color:#555;margin:0;">Formatting adds indentation and line breaks for readability. Minifying removes all whitespace to reduce file size.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Is there a size limit for JSON input?</h3>
+      <p style="color:#555;margin:0;">No. All processing is done in your browser, so there is no server-side size limit.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let lastFormattedText = '';
+
+  function escapeHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function syntaxHighlight(json) {
+    const escaped = escapeHtml(json);
+    return escaped.replace(
+      /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?|[{}\[\],])/g,
+      function(match) {
+        let cls = 'json-number';
+        if (/^"/.test(match)) {
+          cls = /:$/.test(match) ? 'json-key' : 'json-string';
+        } else if (/true|false/.test(match)) {
+          cls = 'json-boolean';
+        } else if (/null/.test(match)) {
+          cls = 'json-null';
+        } else if (/[{}\[\]]/.test(match)) {
+          cls = 'json-bracket';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+      }
+    );
+  }
+
+  function showOutput(text, label) {
+    lastFormattedText = text;
+    document.getElementById('outputLabel').textContent = label;
+    document.getElementById('outputPre').innerHTML = syntaxHighlight(text);
+    document.getElementById('outputPanel').style.display = 'block';
+  }
+
+  function showValidation(ok, msg) {
+    const el = document.getElementById('validationResult');
+    el.innerHTML = ok
+      ? `<div class="json-validation-ok">✅ ${msg}</div>`
+      : `<div class="json-validation-err">❌ ${msg}</div>`;
+  }
+
+  function clearValidation() {
+    document.getElementById('validationResult').innerHTML = '';
+  }
+
+  function format() {
+    const input = document.getElementById('inputText').value.trim();
+    clearValidation();
+    if (!input) return;
+    try {
+      const parsed = JSON.parse(input);
+      const formatted = JSON.stringify(parsed, null, 2);
+      showOutput(formatted, '결과 — 예쁘게 정렬');
+    } catch(e) {
+      showValidation(false, '유효하지 않은 JSON입니다: ' + e.message);
+      document.getElementById('outputPanel').style.display = 'none';
+    }
+  }
+
+  function minify() {
+    const input = document.getElementById('inputText').value.trim();
+    clearValidation();
+    if (!input) return;
+    try {
+      const parsed = JSON.parse(input);
+      const minified = JSON.stringify(parsed);
+      showOutput(minified, '결과 — 압축 (Minify)');
+    } catch(e) {
+      showValidation(false, '유효하지 않은 JSON입니다: ' + e.message);
+      document.getElementById('outputPanel').style.display = 'none';
+    }
+  }
+
+  function validate() {
+    const input = document.getElementById('inputText').value.trim();
+    if (!input) return;
+    try {
+      JSON.parse(input);
+      showValidation(true, '유효한 JSON입니다.');
+    } catch(e) {
+      showValidation(false, '유효하지 않은 JSON입니다: ' + e.message);
+    }
+  }
+
+  function clearAll() {
+    document.getElementById('inputText').value = '';
+    document.getElementById('outputPanel').style.display = 'none';
+    clearValidation();
+    lastFormattedText = '';
+  }
+
+  function copyOutput() {
+    if (!lastFormattedText) return;
+    navigator.clipboard.writeText(lastFormattedText).then(() => {
+      const alert = document.getElementById('copyAlert');
+      alert.classList.add('show');
+      setTimeout(() => alert.classList.remove('show'), 2000);
+    });
+  }
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

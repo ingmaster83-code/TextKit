@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XML Formatter & Validator Online Free — Pretty Print & Minify | WooaText</title>
+  <meta name="description" content="Format, validate, and minify XML online for free. Pretty-print with indentation, check for syntax errors, or compress XML. Instant, browser-based.">
+  <meta name="keywords" content="XML formatter, XML validator, pretty print XML, XML beautifier, XML minifier, format XML online free, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/xml-formatter.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/xml-formatter.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/xml-formatter.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/xml-formatter.html">
+  <meta property="og:title" content="XML Formatter & Validator Free Online | WooaText">
+  <meta property="og:description" content="Format, validate, and minify XML instantly. Free, browser-based, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/xml-formatter.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "XML Formatter",
+  "url": "https://textkit.wooahouse.com/en/xml-formatter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can it detect XML errors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Invalid XML is flagged with an error message explaining the issue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between format and minify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Formatting adds indentation for readability. Minifying removes all unnecessary whitespace to reduce file size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a size limit for XML input?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All processing is done locally in your browser."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    .xml-output-pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      font-family: 'Courier New', 'Consolas', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 500px;
+      overflow-y: auto;
+      border: 1.5px solid #313244;
+    }
+    .xml-tag      { color: #89b4fa; }
+    .xml-attr     { color: #fab387; }
+    .xml-value    { color: #a6e3a1; }
+    .xml-comment  { color: #6c7086; font-style: italic; }
+    .xml-cdata    { color: #f9e2af; }
+    .xml-prolog   { color: #cba6f7; }
+    .xml-validation-ok {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #dcfce7; color: #166534;
+      border-radius: var(--radius-sm); padding: 8px 14px;
+      font-size: 0.88rem; font-weight: 600; margin-top: 10px;
+    }
+    .xml-validation-err {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fee2e2; color: #991b1b;
+      border-radius: var(--radius-sm); padding: 8px 14px;
+      font-size: 0.88rem; font-weight: 600; margin-top: 10px;
+    }
+    .indent-option {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px; flex-wrap: wrap;
+    }
+    .indent-option label {
+      font-size: 0.88rem; font-weight: 600; color: #374151;
+    }
+    .indent-option select {
+      padding: 5px 10px; border: 1.5px solid #d1d5db;
+      border-radius: var(--radius-sm); font-size: 0.88rem;
+      background: #fff; color: #374151; cursor: pointer;
+    }
+    .indent-option select:focus {
+      outline: none; border-color: #F59E0B;
+    }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../xml-formatter.html">KO</a>
+        <span>|</span>
+        <a href="xml-formatter.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>XML 포맷터</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">📄</span>
+    <h1>XML Formatter & Validator — Free Online</h1>
+    <p>XML을 보기 좋게 들여쓰기 정렬하거나 압축하고 유효성을 검사합니다</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="indent-option">
+      <label for="indentSelect">들여쓰기:</label>
+      <select id="indentSelect">
+        <option value="2spaces">공백 2칸</option>
+        <option value="4spaces" selected>공백 4칸</option>
+        <option value="tab">탭(Tab)</option>
+      </select>
+    </div>
+    <div class="text-panel-title">XML 입력</div>
+    <textarea id="inputText" rows="12" class="mono" placeholder='XML을 붙여넣거나 입력하세요...&#10;예: &lt;?xml version="1.0"?&gt;&lt;root&gt;&lt;item id="1"&gt;Hello&lt;/item&gt;&lt;/root&gt;'></textarea>
+    <div class="btn-group" style="margin-top:14px;">
+      <button class="btn btn-primary" onclick="formatXMLAction()">✨ 예쁘게 정렬</button>
+      <button class="btn btn-outline" onclick="minifyXMLAction()">📦 압축</button>
+      <button class="btn btn-outline" onclick="validateXMLAction()">✅ 유효성 검사</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+    </div>
+    <div id="validationResult"></div>
+  </div>
+
+  <div class="text-panel" id="outputPanel" style="display:none;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+    </div>
+    <pre class="xml-output-pre" id="outputPre"></pre>
+    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+  </div>
+
+  <div class="cross-link-tip">
+    💡 JSON 데이터 정렬이 필요하신가요? <a href="../json-formatter.html">JSON Formatter →</a>
+  </div>
+
+<section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Can it detect XML errors?</h3>
+      <p style="color:#555;margin:0;">Yes. Invalid XML is flagged with an error message explaining the issue.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:1.2rem;padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. What is the difference between format and minify?</h3>
+      <p style="color:#555;margin:0;">Formatting adds indentation for readability. Minifying removes all unnecessary whitespace to reduce file size.</p>
+    </div>
+    <div class="faq-item" style="padding:1rem;background:#f8f9fa;border-radius:8px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Q. Is there a size limit for XML input?</h3>
+      <p style="color:#555;margin:0;">No. All processing is done locally in your browser.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar">
+  <div class="ad-card">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:250px"
+         data-ad-client="ca-pub-6464921081676309"
+         data-ad-slot="1419180025"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="ad-card" style="margin-top:16px;overflow:hidden;">    
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <p>© 2026 WooaText. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let lastFormattedText = '';
+
+  function getIndent() {
+    const val = document.getElementById('indentSelect').value;
+    if (val === '2spaces') return '  ';
+    if (val === 'tab') return '\t';
+    return '    ';
+  }
+
+  function parseXML(xmlStr) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(xmlStr, 'application/xml');
+    const err = doc.querySelector('parsererror');
+    if (err) throw new Error(err.textContent.split('\n')[0]);
+    return doc;
+  }
+
+  function formatXML(doc, indent) {
+    const xs = new XMLSerializer();
+    let raw = xs.serializeToString(doc);
+    let result = '';
+    let level = 0;
+    const pad = () => indent.repeat(level);
+
+    raw.replace(/>\s*</g, '>\n<').split('\n').forEach(line => {
+      line = line.trim();
+      if (!line) return;
+
+      // 닫는 태그면 레벨 감소 후 출력
+      if (line.match(/^<\//)) {
+        level = Math.max(0, level - 1);
+        result += pad() + line + '\n';
+      }
+      // XML 선언 / DOCTYPE / 주석 / CDATA / 자기닫힘 태그 / 인라인 태그
+      else if (
+        line.match(/^<\?/) ||
+        line.match(/^<!/) ||
+        line.match(/\/>$/) ||
+        line.match(/^<[^>]+>.*<\/[^>]+>$/)
+      ) {
+        result += pad() + line + '\n';
+      }
+      // 여는 태그
+      else if (line.match(/^</)) {
+        result += pad() + line + '\n';
+        level++;
+      }
+      // 텍스트 노드
+      else {
+        result += pad() + line + '\n';
+      }
+    });
+
+    return result.trim();
+  }
+
+  function minifyXML(doc) {
+    return new XMLSerializer().serializeToString(doc).replace(/>\s+</g, '><').trim();
+  }
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function syntaxHighlightXML(xml) {
+    const escaped = escapeHtml(xml);
+
+    return escaped
+      // XML 선언/프롤로그: <?xml ... ?>
+      .replace(/(&lt;\?[^?]*\?&gt;)/g, '<span class="xml-prolog">$1</span>')
+      // 주석: <!-- ... -->
+      .replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="xml-comment">$1</span>')
+      // CDATA
+      .replace(/(&lt;!\[CDATA\[[\s\S]*?\]\]&gt;)/g, '<span class="xml-cdata">$1</span>')
+      // 속성값 "..." (먼저 치환)
+      .replace(/=(&quot;[^&]*&quot;)/g, '=<span class="xml-value">$1</span>')
+      // 속성명 (속성값 앞에 위치한 단어)
+      .replace(/\s([\w:.-]+)=(?=&lt;|<span class="xml-value">)/g, ' <span class="xml-attr">$1</span>=')
+      // 여는/닫는 태그명
+      .replace(/(&lt;\/?([\w:.-]+))/g, (match, p1, p2) => {
+        return p1.replace(p2, '<span class="xml-tag">' + p2 + '</span>');
+      });
+  }
+
+  function showOutput(text, label) {
+    lastFormattedText = text;
+    document.getElementById('outputLabel').textContent = label;
+    document.getElementById('outputPre').innerHTML = syntaxHighlightXML(text);
+    document.getElementById('outputPanel').style.display = 'block';
+  }
+
+  function showValidation(ok, msg) {
+    const el = document.getElementById('validationResult');
+    el.innerHTML = ok
+      ? `<div class="xml-validation-ok">✅ ${escapeHtmlText(msg)}</div>`
+      : `<div class="xml-validation-err">❌ ${escapeHtmlText(msg)}</div>`;
+  }
+
+  function escapeHtmlText(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function clearValidation() {
+    document.getElementById('validationResult').innerHTML = '';
+  }
+
+  function formatXMLAction() {
+    const input = document.getElementById('inputText').value.trim();
+    clearValidation();
+    if (!input) return;
+    try {
+      const doc = parseXML(input);
+      const formatted = formatXML(doc, getIndent());
+      showOutput(formatted, '결과 — 예쁘게 정렬');
+    } catch(e) {
+      showValidation(false, '유효하지 않은 XML입니다: ' + e.message);
+      document.getElementById('outputPanel').style.display = 'none';
+    }
+  }
+
+  function minifyXMLAction() {
+    const input = document.getElementById('inputText').value.trim();
+    clearValidation();
+    if (!input) return;
+    try {
+      const doc = parseXML(input);
+      const minified = minifyXML(doc);
+      showOutput(minified, '결과 — 압축');
+    } catch(e) {
+      showValidation(false, '유효하지 않은 XML입니다: ' + e.message);
+      document.getElementById('outputPanel').style.display = 'none';
+    }
+  }
+
+  function validateXMLAction() {
+    const input = document.getElementById('inputText').value.trim();
+    if (!input) return;
+    try {
+      parseXML(input);
+      showValidation(true, '유효한 XML입니다.');
+    } catch(e) {
+      showValidation(false, '유효하지 않은 XML입니다: ' + e.message);
+    }
+  }
+
+  function clearAll() {
+    document.getElementById('inputText').value = '';
+    document.getElementById('outputPanel').style.display = 'none';
+    clearValidation();
+    lastFormattedText = '';
+  }
+
+  function copyOutput() {
+    if (!lastFormattedText) return;
+    navigator.clipboard.writeText(lastFormattedText).then(() => {
+      const alert = document.getElementById('copyAlert');
+      alert.classList.add('show');
+      setTimeout(() => alert.classList.remove('show'), 2000);
+    });
+  }
+</script>
+<script src="../js/pwa-install.js"></script>
+</body>
+</html>

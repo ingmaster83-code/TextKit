@@ -1,0 +1,583 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online HTML/CSS/JS Editor — Live Preview & URL Share | WooaText</title>
+  <meta name="description" content="Write HTML, CSS, and JavaScript with a live preview in your browser. Free online editor with URL sharing support. No sign-up, no installation.">
+  <meta name="keywords" content="HTML CSS JS editor, online code editor, live preview, HTML editor online free, code playground, web editor, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/html-css-editor.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/html-css-editor.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/html-css-editor.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/html-css-editor.html">
+  <meta property="og:title" content="HTML/CSS/JS Editor Free Online — Live Preview | WooaText">
+  <meta property="og:description" content="Code HTML, CSS, and JS with an instant live preview. Share via URL. Free, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/html-css-editor.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HTML/CSS/JS Editor",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://textkit.wooahouse.com/en/html-css-editor.html",
+    "description": "Write HTML, CSS, and JavaScript with a live preview in your browser. Free online editor with URL sharing support. No sign-up, no installation.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+    "inLanguage": "en"
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+
+  <!-- CodeMirror 5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closetag.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ── 전체 레이아웃 ── */
+    body { background: #1a1a2e; }
+    .page-wrap { max-width: 100%; padding: 0; }
+
+    /* ── 툴바 ── */
+    .editor-toolbar {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px; background: #16213e; border-bottom: 1px solid #0f3460;
+      flex-wrap: wrap;
+    }
+    .toolbar-title { font-weight: 700; color: #e2e8f0; font-size: 0.95rem; margin-right: 4px; }
+    .toolbar-btn {
+      padding: 6px 14px; border-radius: 6px; border: none; cursor: pointer;
+      font-size: 0.82rem; font-weight: 600; transition: all 0.15s;
+    }
+    .btn-run { background: #22c55e; color: #fff; }
+    .btn-run:hover { background: #16a34a; }
+    .btn-share { background: #3b82f6; color: #fff; }
+    .btn-share:hover { background: #2563eb; }
+    .btn-clear { background: #374151; color: #d1d5db; }
+    .btn-clear:hover { background: #4b5563; }
+    .btn-fullscreen { background: #8b5cf6; color: #fff; }
+    .btn-fullscreen:hover { background: #7c3aed; }
+    .btn-layout { background: #374151; color: #d1d5db; }
+    .btn-layout:hover { background: #4b5563; }
+    .auto-run-wrap { display: flex; align-items: center; gap: 6px; color: #9ca3af; font-size: 0.82rem; margin-left: auto; }
+    .auto-run-wrap input { accent-color: #22c55e; width: 16px; height: 16px; cursor: pointer; }
+    .template-select {
+      background: #374151; color: #d1d5db; border: 1px solid #4b5563;
+      border-radius: 6px; padding: 5px 10px; font-size: 0.82rem; cursor: pointer;
+    }
+
+    /* ── 에디터 & 프리뷰 래퍼 ── */
+    .editor-main {
+      display: flex; height: calc(100vh - 110px);
+    }
+    .editor-main.layout-vertical {
+      flex-direction: column;
+    }
+
+    /* ── 에디터 패널 영역 ── */
+    .editors-pane {
+      display: flex; flex-direction: column; width: 50%; min-width: 200px;
+      border-right: 3px solid #0f3460; overflow: hidden;
+    }
+    .editor-main.layout-vertical .editors-pane {
+      width: 100%; height: 50%; border-right: none; border-bottom: 3px solid #0f3460;
+      flex-direction: row;
+    }
+
+    /* ── 탭 ── */
+    .editor-tabs { display: flex; background: #0f3460; }
+    .editor-tab {
+      padding: 8px 18px; font-size: 0.82rem; font-weight: 600; cursor: pointer;
+      color: #64748b; border-bottom: 2px solid transparent; transition: all 0.15s;
+      user-select: none;
+    }
+    .editor-tab.active { color: #e2e8f0; border-bottom-color: #F59E0B; }
+    .editor-tab:hover:not(.active) { color: #94a3b8; }
+
+    /* ── 개별 에디터 패널 ── */
+    .editor-panel {
+      display: flex; flex-direction: column; flex: 1; overflow: hidden;
+    }
+    .editor-panel-header {
+      padding: 6px 12px; background: #1e293b; display: flex; align-items: center;
+      justify-content: space-between; font-size: 0.78rem; color: #64748b; font-weight: 600;
+    }
+    .editor-panel-header span { color: #94a3b8; }
+    .panel-lang { display: flex; align-items: center; gap: 6px; }
+    .lang-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .lang-dot.html { background: #e34c26; }
+    .lang-dot.css { background: #264de4; }
+    .lang-dot.js { background: #f7df1e; }
+
+    .CodeMirror {
+      height: 100%; font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+      font-size: 13px; line-height: 1.6;
+    }
+    .cm-wrap { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+    .cm-wrap .CodeMirror { flex: 1; }
+
+    /* 수평 레이아웃에서 탭 방식 */
+    .tab-content { display: none; flex: 1; overflow: hidden; flex-direction: column; }
+    .tab-content.active { display: flex; }
+
+    /* 수직 레이아웃에서 3분할 */
+    .editor-main.layout-vertical .editors-pane .editor-panel { border-right: 2px solid #0f3460; }
+    .editor-main.layout-vertical .editors-pane .editor-panel:last-child { border-right: none; }
+    .editor-main.layout-vertical .editor-tabs { display: none; }
+    .editor-main.layout-vertical .tab-content { display: flex !important; }
+
+    /* ── 프리뷰 패널 ── */
+    .preview-pane {
+      flex: 1; display: flex; flex-direction: column; min-width: 200px;
+    }
+    .preview-header {
+      padding: 8px 14px; background: #1e293b; display: flex; align-items: center;
+      justify-content: space-between; font-size: 0.8rem; color: #64748b; font-weight: 600;
+    }
+    .preview-header span { color: #22c55e; }
+    #previewFrame {
+      flex: 1; border: none; background: #fff;
+    }
+    .preview-pane.fullscreen {
+      position: fixed; inset: 0; z-index: 9999; width: 100%; height: 100%;
+    }
+    .preview-pane.fullscreen .preview-header { background: #16213e; }
+
+    /* ── 공유 토스트 ── */
+    .toast {
+      position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+      background: #22c55e; color: #fff; padding: 10px 22px; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 600; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s; z-index: 10000;
+    }
+    .toast.show { opacity: 1; }
+
+    /* ── 하단 AdSense ── */
+    .editor-adsense {
+      background: #16213e; padding: 8px 16px; text-align: center;
+    }
+
+    /* ── 모바일: 세로 고정 ── */
+    @media (max-width: 768px) {
+      .editor-main { flex-direction: column; height: auto; }
+      .editors-pane { width: 100%; border-right: none; border-bottom: 3px solid #0f3460; height: 45vh; }
+      .preview-pane { height: 45vh; }
+      .auto-run-wrap { margin-left: 0; }
+      .editor-main.layout-vertical .editors-pane { flex-direction: column; }
+      .editor-main.layout-vertical .tab-content { display: none !important; }
+      .editor-main.layout-vertical .tab-content.active { display: flex !important; }
+      .editor-main.layout-vertical .editor-tabs { display: flex; }
+    }
+
+    /* 헤더/푸터 위에 에디터 */
+    main.editor-page { padding: 0; }
+      .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수</a>
+      <a href="json-formatter.html">JSON</a>
+      <a href="markdown-editor.html">마크다운</a>
+      <a href="regex-tester.html">정규식</a>
+      <a href="html-css-editor.html" style="color:#F59E0B;">HTML/CSS</a>
+    </nav>
+    <div class="header-right">
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../html-css-editor.html">KO</a>
+        <span>|</span>
+        <a href="html-css-editor.html" class="active">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">WooaHouse Services</span>
+  <div class="our-sites-links">
+    <a href="https://wooahouse.com/" target="_blank" rel="noopener">🔗 WooaHouse</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 WooaPDF</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ WooaImage</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 WooaColor</a>
+    <a href="https://textkit.wooahouse.com/en/" target="_blank" rel="noopener" class="active">✏️ WooaText</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 WooaQR</a>
+    <a href="https://calckit.wooahouse.com/" target="_blank" rel="noopener">🧮 WooaCalc</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 WooaFont</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 WooaMac</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ WooaPC</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 WooaVS</a>
+    <a href="https://wooaaudio.wooahouse.com/" target="_blank" rel="noopener">🎵 WooaAudio</a>
+    <a href="https://wooaviewer.wooahouse.com/" target="_blank" rel="noopener">🔍 WooaViewer</a>
+    <a href="https://wooadev.wooahouse.com/" target="_blank" rel="noopener">🛠️ WooaDev</a>
+  </div>
+</div>
+
+<!-- 툴바 -->
+<div class="editor-toolbar">
+  <span class="toolbar-title">🖥️ HTML/CSS/JS 에디터</span>
+  <button class="toolbar-btn btn-run" onclick="runCode()">▶ 실행</button>
+  <select class="template-select" onchange="loadTemplate(this.value); this.value='';">
+    <option value="">템플릿 선택…</option>
+    <option value="blank">빈 페이지</option>
+    <option value="flexbox">Flexbox 예제</option>
+    <option value="grid">CSS Grid 예제</option>
+    <option value="animation">CSS 애니메이션</option>
+    <option value="card">카드 컴포넌트</option>
+    <option value="button">버튼 스타일</option>
+    <option value="darkmode">다크모드 토글</option>
+  </select>
+  <button class="toolbar-btn btn-layout" onclick="toggleLayout()" id="layoutBtn">↔ 수직 레이아웃</button>
+  <button class="toolbar-btn btn-share" onclick="shareCode()">🔗 URL 공유</button>
+  <button class="toolbar-btn btn-fullscreen" onclick="toggleFullscreen()">⛶ 미리보기 전체화면</button>
+  <button class="toolbar-btn btn-clear" onclick="clearAll()">🗑 초기화</button>
+  <label class="auto-run-wrap">
+    <input type="checkbox" id="autoRunCheck" checked> 자동 실행
+  </label>
+</div>
+
+<!-- 에디터 + 프리뷰 -->
+<div class="editor-main" id="editorMain">
+
+  <!-- 에디터 패널 -->
+  <div class="editors-pane" id="editorsPanem">
+    <!-- 탭 (수평 레이아웃용) -->
+    <div class="editor-tabs" id="editorTabs">
+      <div class="editor-tab active" onclick="switchTab('html')">HTML</div>
+      <div class="editor-tab" onclick="switchTab('css')">CSS</div>
+      <div class="editor-tab" onclick="switchTab('js')">JS</div>
+    </div>
+
+    <!-- HTML -->
+    <div class="tab-content active" id="tab-html">
+      <div class="editor-panel">
+        <div class="editor-panel-header">
+          <div class="panel-lang"><span class="lang-dot html"></span> HTML</div>
+        </div>
+        <div class="cm-wrap"><textarea id="htmlCode"></textarea></div>
+      </div>
+    </div>
+
+    <!-- CSS -->
+    <div class="tab-content" id="tab-css">
+      <div class="editor-panel">
+        <div class="editor-panel-header">
+          <div class="panel-lang"><span class="lang-dot css"></span> CSS</div>
+        </div>
+        <div class="cm-wrap"><textarea id="cssCode"></textarea></div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <div class="tab-content" id="tab-js">
+      <div class="editor-panel">
+        <div class="editor-panel-header">
+          <div class="panel-lang"><span class="lang-dot js"></span> JavaScript</div>
+        </div>
+        <div class="cm-wrap"><textarea id="jsCode"></textarea></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 미리보기 -->
+  <div class="preview-pane" id="previewPane">
+    <div class="preview-header">
+      <span>📺 미리보기</span>
+      <span id="previewStatus" style="color:#22c55e;">● 준비</span>
+    </div>
+    <iframe id="previewFrame" sandbox="allow-scripts allow-modals"></iframe>
+  </div>
+</div>
+
+<!-- AdSense -->
+<div class="editor-adsense">
+  <ins class="adsbygoogle" style="display:block;width:100%;max-height:90px;"
+    data-ad-client="ca-pub-6464921081676309" data-ad-slot="1419180025"
+    data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-footer">WooaText</span>
+        <p>HTML·CSS·JS 온라인 에디터. 코드를 작성하고 실시간으로 미리보기. URL로 공유 가능.</p>
+      </div>
+      <div class="footer-links">
+        <h4>코드 & 개발</h4>
+        <a href="html-css-editor.html">HTML/CSS/JS 에디터</a>
+        <a href="markdown-editor.html">마크다운 에디터</a>
+        <a href="regex-tester.html">정규식 테스터</a>
+        <a href="json-formatter.html">JSON Formatter</a>
+        <a href="csv-json.html">CSV ↔ JSON 변환</a>
+      </div>
+      <div class="footer-links">
+        <h4>텍스트 도구</h4>
+        <a href="char-counter.html">Char Counter</a>
+        <a href="text-diff.html">텍스트 비교</a>
+        <a href="case-converter.html">Case Converter</a>
+        <a href="hash-generator.html">해시 생성기</a>
+      </div>
+      <div class="footer-links">
+        <h4>관련 서비스</h4>
+        <a href="https://colorkit.wooahouse.com/css-variables.html" target="_blank" rel="noopener">CSS 변수 생성기 →</a>
+        <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">VS Code 확장 →</a>
+        <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">WooaColor →</a>
+      </div>
+      <div class="footer-links">
+        <h4>정보</h4>
+        <a href="../about.html">서비스 소개</a>
+        <a href="../privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 WooaText. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/pwa-install.js"></script>
+
+<script>
+/* ── 템플릿 ── */
+const TEMPLATES = {
+  blank: {
+    html: `<h1>HTML / CSS / JS Editor — Live Preview</h1>\n<p>HTML, CSS, JS를 작성해보세요.</p>`,
+    css: `body {\n  font-family: sans-serif;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n  margin: 0;\n  background: #f0f4f8;\n}\nh1 { color: #3b82f6; }`,
+    js: `// JavaScript를 입력하세요\nconsole.log('Hello, World!');`
+  },
+  flexbox: {
+    html: `<div class="container">\n  <div class="box">1</div>\n  <div class="box">2</div>\n  <div class="box">3</div>\n  <div class="box">4</div>\n  <div class="box">5</div>\n</div>`,
+    css: `* { box-sizing: border-box; margin: 0; padding: 0; }\nbody { background: #1e293b; display: flex; align-items: center; justify-content: center; min-height: 100vh; }\n.container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 16px;\n  padding: 24px;\n  justify-content: center;\n}\n.box {\n  width: 100px;\n  height: 100px;\n  background: linear-gradient(135deg, #6366f1, #8b5cf6);\n  border-radius: 12px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-size: 1.5rem;\n  font-weight: bold;\n  cursor: pointer;\n  transition: transform 0.2s;\n}\n.box:hover { transform: scale(1.1); }`,
+    js: `document.querySelectorAll('.box').forEach(box => {\n  box.addEventListener('click', () => {\n    box.style.background = \`hsl(\${Math.random()*360}, 70%, 60%)\`;\n  });\n});`
+  },
+  grid: {
+    html: `<div class="grid-container">\n  <div class="header">헤더</div>\n  <div class="sidebar">사이드바</div>\n  <div class="main">메인 콘텐츠</div>\n  <div class="aside">위젯</div>\n  <div class="footer">푸터</div>\n</div>`,
+    css: `* { box-sizing: border-box; margin: 0; }\nbody { font-family: sans-serif; background: #f1f5f9; }\n.grid-container {\n  display: grid;\n  grid-template-areas:\n    "header header header"\n    "sidebar main aside"\n    "footer footer footer";\n  grid-template-columns: 180px 1fr 140px;\n  grid-template-rows: 60px 1fr 50px;\n  min-height: 100vh;\n  gap: 4px;\n  padding: 4px;\n}\n.header  { grid-area: header;  background: #3b82f6; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: 700; }\n.sidebar { grid-area: sidebar; background: #6366f1; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px; }\n.main    { grid-area: main;    background: #fff;    display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #334155; font-weight: 600; }\n.aside   { grid-area: aside;   background: #8b5cf6; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px; }\n.footer  { grid-area: footer;  background: #1e293b; color: #94a3b8; display: flex; align-items: center; justify-content: center; border-radius: 8px; }`,
+    js: ``
+  },
+  animation: {
+    html: `<div class="scene">\n  <div class="ball"></div>\n  <div class="shadow"></div>\n</div>`,
+    css: `body { margin: 0; background: #0f172a; display: flex; align-items: center; justify-content: center; min-height: 100vh; }\n.scene { position: relative; width: 100px; }\n.ball {\n  width: 80px; height: 80px;\n  border-radius: 50%;\n  background: radial-gradient(circle at 35% 35%, #f472b6, #7c3aed);\n  margin: 0 auto;\n  animation: bounce 0.8s cubic-bezier(0.36, 0, 0.66, -0.56) infinite alternate;\n  box-shadow: 0 0 30px #7c3aed88;\n}\n.shadow {\n  width: 60px; height: 12px;\n  background: rgba(0,0,0,0.4);\n  border-radius: 50%;\n  margin: 8px auto 0;\n  animation: shadow 0.8s ease-in-out infinite alternate;\n  filter: blur(4px);\n}\n@keyframes bounce {\n  from { transform: translateY(0); }\n  to   { transform: translateY(-80px); }\n}\n@keyframes shadow {\n  from { transform: scaleX(1);   opacity: 0.5; }\n  to   { transform: scaleX(0.5); opacity: 0.2; }\n}`,
+    js: ``
+  },
+  card: {
+    html: `<div class="card">\n  <div class="card-img">🌄</div>\n  <div class="card-body">\n    <span class="badge">여행</span>\n    <h2>제주도 여행기</h2>\n    <p>파란 하늘, 검은 돌, 초록 들판. 제주의 모든 것이 아름다웠습니다.</p>\n    <button class="btn">자세히 보기</button>\n  </div>\n</div>`,
+    css: `* { box-sizing: border-box; margin: 0; }\nbody { font-family: 'Segoe UI', sans-serif; background: #f1f5f9; display: flex; align-items: center; justify-content: center; min-height: 100vh; }\n.card { width: 300px; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12); transition: transform 0.2s; }\n.card:hover { transform: translateY(-4px); }\n.card-img { height: 160px; background: linear-gradient(135deg, #06b6d4, #3b82f6); display: flex; align-items: center; justify-content: center; font-size: 4rem; }\n.card-body { padding: 20px; }\n.badge { background: #dbeafe; color: #1d4ed8; font-size: 0.72rem; padding: 3px 10px; border-radius: 20px; font-weight: 600; }\nh2 { margin: 10px 0 8px; color: #1e293b; font-size: 1.1rem; }\np { color: #64748b; font-size: 0.88rem; line-height: 1.6; margin-bottom: 16px; }\n.btn { width: 100%; padding: 10px; background: #3b82f6; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.15s; }\n.btn:hover { background: #2563eb; }`,
+    js: `document.querySelector('.btn').addEventListener('click', () => {\n  alert('카드 클릭!');\n});`
+  },
+  button: {
+    html: `<div class="showcase">\n  <button class="btn btn-primary">Primary</button>\n  <button class="btn btn-secondary">Secondary</button>\n  <button class="btn btn-success">Success</button>\n  <button class="btn btn-danger">Danger</button>\n  <button class="btn btn-outline">Outline</button>\n  <button class="btn btn-ghost">Ghost</button>\n  <button class="btn btn-loading">로딩 중…</button>\n</div>`,
+    css: `* { box-sizing: border-box; }\nbody { font-family: 'Segoe UI', sans-serif; background: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; }\n.showcase { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; padding: 32px; }\n.btn { padding: 10px 22px; border-radius: 8px; border: none; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.15s; letter-spacing: 0.01em; }\n.btn-primary   { background: #3b82f6; color: #fff; } .btn-primary:hover   { background: #2563eb; box-shadow: 0 4px 12px #3b82f640; }\n.btn-secondary { background: #8b5cf6; color: #fff; } .btn-secondary:hover { background: #7c3aed; box-shadow: 0 4px 12px #8b5cf640; }\n.btn-success   { background: #22c55e; color: #fff; } .btn-success:hover   { background: #16a34a; box-shadow: 0 4px 12px #22c55e40; }\n.btn-danger    { background: #ef4444; color: #fff; } .btn-danger:hover    { background: #dc2626; box-shadow: 0 4px 12px #ef444440; }\n.btn-outline   { background: transparent; color: #3b82f6; border: 2px solid #3b82f6; } .btn-outline:hover { background: #3b82f6; color: #fff; }\n.btn-ghost     { background: transparent; color: #64748b; } .btn-ghost:hover { background: #f1f5f9; color: #1e293b; }\n.btn-loading   { background: #94a3b8; color: #fff; cursor: not-allowed; opacity: 0.7; }`,
+    js: `document.querySelectorAll('.btn:not(.btn-loading)').forEach(btn => {\n  btn.addEventListener('click', function() {\n    this.style.transform = 'scale(0.95)';\n    setTimeout(() => this.style.transform = '', 150);\n  });\n});`
+  },
+  darkmode: {
+    html: `<div class="app">\n  <header class="app-header">\n    <h1>나의 블로그</h1>\n    <button class="toggle-btn" id="toggleBtn">🌙 다크모드</button>\n  </header>\n  <main class="app-main">\n    <article>\n      <h2>오늘의 이야기</h2>\n      <p>다크모드와 라이트모드를 자유롭게 전환해 보세요. 사용자 선호도를 localStorage에 저장합니다.</p>\n      <p>버튼을 눌러 테마를 바꿔보세요!</p>\n    </article>\n  </main>\n</div>`,
+    css: `* { box-sizing: border-box; margin: 0; transition: background 0.3s, color 0.3s; }\nbody { font-family: 'Segoe UI', sans-serif; }\n.app { min-height: 100vh; background: #f8fafc; color: #1e293b; }\n.app.dark { background: #0f172a; color: #e2e8f0; }\n.app-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; background: #fff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 4px rgba(0,0,0,.05); }\n.app.dark .app-header { background: #1e293b; border-color: #334155; }\nh1 { font-size: 1.2rem; color: #3b82f6; }\n.toggle-btn { padding: 8px 16px; border-radius: 8px; border: 1px solid #e2e8f0; background: #f1f5f9; cursor: pointer; font-size: 0.85rem; font-weight: 600; }\n.app.dark .toggle-btn { background: #334155; border-color: #475569; color: #e2e8f0; }\n.app-main { padding: 32px 24px; max-width: 600px; margin: 0 auto; }\nh2 { margin-bottom: 12px; font-size: 1.15rem; }\np { color: #64748b; line-height: 1.7; margin-bottom: 12px; }\n.app.dark p { color: #94a3b8; }`,
+    js: `const app = document.querySelector('.app');\nconst btn = document.getElementById('toggleBtn');\nconst saved = localStorage.getItem('theme');\nif (saved === 'dark') { app.classList.add('dark'); btn.textContent = '☀️ 라이트모드'; }\nbtn.addEventListener('click', () => {\n  const isDark = app.classList.toggle('dark');\n  btn.textContent = isDark ? '☀️ 라이트모드' : '🌙 다크모드';\n  localStorage.setItem('theme', isDark ? 'dark' : 'light');\n});`
+  }
+};
+
+/* ── CodeMirror 초기화 ── */
+const cmHtml = CodeMirror.fromTextArea(document.getElementById('htmlCode'), {
+  mode: 'htmlmixed', theme: 'dracula', lineNumbers: true,
+  autoCloseTags: true, autoCloseBrackets: true, tabSize: 2, indentWithTabs: false, lineWrapping: false
+});
+const cmCss = CodeMirror.fromTextArea(document.getElementById('cssCode'), {
+  mode: 'css', theme: 'dracula', lineNumbers: true,
+  autoCloseBrackets: true, tabSize: 2, indentWithTabs: false, lineWrapping: false
+});
+const cmJs = CodeMirror.fromTextArea(document.getElementById('jsCode'), {
+  mode: 'javascript', theme: 'dracula', lineNumbers: true,
+  autoCloseBrackets: true, tabSize: 2, indentWithTabs: false, lineWrapping: false
+});
+
+/* CodeMirror 컨테이너 높이 설정 */
+function setEditorHeight() {
+  [cmHtml, cmCss, cmJs].forEach(cm => {
+    cm.getWrapperElement().style.height = '100%';
+    cm.refresh();
+  });
+}
+
+/* ── 자동 실행 디바운스 ── */
+let debounceTimer = null;
+function onCodeChange() {
+  if (!document.getElementById('autoRunCheck').checked) return;
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(runCode, 600);
+}
+cmHtml.on('change', onCodeChange);
+cmCss.on('change', onCodeChange);
+cmJs.on('change', onCodeChange);
+
+/* ── 실행 ── */
+function runCode() {
+  const html = cmHtml.getValue();
+  const css  = cmCss.getValue();
+  const js   = cmJs.getValue();
+  const doc = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>${css}</style></head><body>${html}<script>${js}<\/script></body></html>`;
+  const frame = document.getElementById('previewFrame');
+  frame.srcdoc = doc;
+  const status = document.getElementById('previewStatus');
+  status.textContent = '● 실행됨';
+  status.style.color = '#22c55e';
+}
+
+/* ── 탭 전환 (수평 레이아웃) ── */
+function switchTab(lang) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.editor-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + lang).classList.add('active');
+  document.querySelectorAll('.editor-tab').forEach(t => {
+    if (t.textContent.trim().toLowerCase().startsWith(lang === 'js' ? 'js' : lang)) t.classList.add('active');
+  });
+  setTimeout(() => { cmHtml.refresh(); cmCss.refresh(); cmJs.refresh(); }, 10);
+}
+
+/* ── 레이아웃 토글 ── */
+let isVertical = false;
+function toggleLayout() {
+  isVertical = !isVertical;
+  const main = document.getElementById('editorMain');
+  const btn = document.getElementById('layoutBtn');
+  if (isVertical) {
+    main.classList.add('layout-vertical');
+    btn.textContent = '↕ 수평 레이아웃';
+  } else {
+    main.classList.remove('layout-vertical');
+    btn.textContent = '↔ 수직 레이아웃';
+  }
+  setTimeout(() => { cmHtml.refresh(); cmCss.refresh(); cmJs.refresh(); }, 50);
+}
+
+/* ── 전체화면 ── */
+let isFullscreen = false;
+function toggleFullscreen() {
+  isFullscreen = !isFullscreen;
+  document.getElementById('previewPane').classList.toggle('fullscreen', isFullscreen);
+  if (isFullscreen) {
+    const closeBtn = document.createElement('button');
+    closeBtn.id = 'closeFullscreenBtn';
+    closeBtn.textContent = '✕ 닫기';
+    closeBtn.style.cssText = 'position:fixed;top:12px;right:16px;z-index:10001;padding:8px 16px;background:#ef4444;color:#fff;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:0.9rem;';
+    closeBtn.onclick = toggleFullscreen;
+    document.body.appendChild(closeBtn);
+  } else {
+    const btn = document.getElementById('closeFullscreenBtn');
+    if (btn) btn.remove();
+  }
+}
+
+/* ── URL 공유 ── */
+function shareCode() {
+  const data = { h: cmHtml.getValue(), c: cmCss.getValue(), j: cmJs.getValue() };
+  try {
+    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+    const url = location.origin + location.pathname + '#' + encoded;
+    navigator.clipboard.writeText(url).then(() => showToast('🔗 URL이 클립보드에 복사됐어요!')).catch(() => prompt('아래 URL을 복사하세요:', url));
+  } catch(e) { alert('공유 URL 생성 실패'); }
+}
+
+/* ── URL에서 복원 ── */
+function loadFromHash() {
+  const hash = location.hash.slice(1);
+  if (!hash) return false;
+  try {
+    const data = JSON.parse(decodeURIComponent(escape(atob(hash))));
+    if (data.h !== undefined) cmHtml.setValue(data.h);
+    if (data.c !== undefined) cmCss.setValue(data.c);
+    if (data.j !== undefined) cmJs.setValue(data.j);
+    return true;
+  } catch(e) { return false; }
+}
+
+/* ── 템플릿 로드 ── */
+function loadTemplate(name) {
+  if (!name) return;
+  const t = TEMPLATES[name];
+  if (!t) return;
+  cmHtml.setValue(t.html);
+  cmCss.setValue(t.css);
+  cmJs.setValue(t.js);
+  runCode();
+}
+
+/* ── 초기화 ── */
+function clearAll() {
+  if (!confirm('모든 코드를 초기화할까요?')) return;
+  cmHtml.setValue(''); cmCss.setValue(''); cmJs.setValue('');
+  document.getElementById('previewFrame').srcdoc = '';
+  location.hash = '';
+}
+
+/* ── 토스트 ── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* ── 초기 실행 ── */
+window.addEventListener('load', () => {
+  setEditorHeight();
+  const loaded = loadFromHash();
+  if (!loaded) loadTemplate('blank');
+  else runCode();
+});
+window.addEventListener('resize', () => { cmHtml.refresh(); cmCss.refresh(); cmJs.refresh(); });
+</script>
+
+<!-- 하단 고정 광고 배너 -->
+<div id="bottom-ad-bar" style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;padding:4px 8px;z-index:9999;display:flex;align-items:center;justify-content:center;min-height:60px;">
+  <button onclick="document.getElementById('bottom-ad-bar').style.display='none'" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;color:#9ca3af;" title="닫기">✕</button>
+  <div style="font-size:0.65rem;color:#9ca3af;position:absolute;left:8px;top:4px;">광고</div>
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:90px;max-width:100%"
+       data-ad-client="ca-pub-6464921081676309"
+       data-ad-slot="7080296704"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<style>
+  #editor-area { padding-bottom: 70px; }
+</style>
+</body>
+</html>
