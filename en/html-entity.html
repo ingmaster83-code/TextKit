@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -51,21 +51,28 @@
     {
       "@type": "Question",
       "name": "HTML Entity Converter",
-      "acceptedAnswer": {"@type": "Answer","text": "HTML 코드에서 <, >, &, \" 등의 특수문자를 안전하게 표시하기 위해 엔티티로 변환합니다."}
+      "acceptedAnswer": {"@type": "Answer","text": "To safely display special characters like <, >, &, \" in HTML code, convert them to entities."}
     },
     {
       "@type": "Question",
       "name": "HTML Entity Converter",
-      "acceptedAnswer": {"@type": "Answer","text": "네, HTML 엔티티 인코딩과 디코딩 양방향 모두 지원합니다."}
+      "acceptedAnswer": {"@type": "Answer","text": "Yes, both HTML entity encoding and decoding are supported."}
     },
     {
       "@type": "Question",
       "name": "HTML Entity Converter",
-      "acceptedAnswer": {"@type": "Answer","text": "주요 HTML 특수문자 엔티티를 모두 지원합니다."}
+      "acceptedAnswer": {"@type": "Answer","text": "All major HTML special character entities are supported."}
     }
   ]
 }
 </script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+  </style>
 </head>
 <body>
 
@@ -80,7 +87,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="html-entity.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/html-entity.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -118,38 +130,38 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>HTML 엔티티 변환</span>
+    <span>HTML Entity Converter</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🏷️</span>
     <h1>HTML Entity Converter — Free Online</h1>
-    <p>HTML 특수문자를 엔티티로 인코딩하거나 엔티티를 원래 문자로 디코딩합니다</p>
+    <p>Convert special characters to HTML entities or decode HTML entities back to readable text.</p>
   </div>
 
   <div class="text-panel">
     <div class="text-panel-title">Input</div>
-    <textarea id="inputText" rows="8" placeholder="변환할 텍스트를 입력하세요...&#10;예: &lt;div class=&quot;hello&quot;&gt;안녕 &amp; 반가워&lt;/div&gt;"></textarea>
+    <textarea id="inputText" rows="8" placeholder="Enter text to encode or HTML entities to decode..."></textarea>
     <div class="btn-group" style="margin-top:14px;">
-      <button class="btn btn-primary" onclick="encode()">🔒 엔티티 인코딩</button>
-      <button class="btn btn-outline" onclick="decode()">🔓 엔티티 디코딩</button>
-      <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+      <button class="btn btn-primary" onclick="encode()">🔒 Encode to HTML Entity</button>
+      <button class="btn btn-outline" onclick="decode()">🔓 Decode from HTML Entity</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
     </div>
   </div>
 
   <div class="text-panel">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
-      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">Result</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 Copy</button>
     </div>
     <div class="output-wrap">
-      <textarea id="outputText" rows="8" readonly class="mono" placeholder="변환 버튼을 클릭하면 결과가 표시됩니다..."></textarea>
+      <textarea id="outputText" rows="8" readonly class="mono" placeholder="Click a button to see the result..."></textarea>
     </div>
-    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+    <div id="copyAlert" class="alert alert-success">✅ Copied to clipboard!</div>
   </div>
 
   <div class="about-card" style="margin-top:24px;">
-    <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:12px;">변환 대상 문자</h3>
+    <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:12px;">Characters converted</h3>
     <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap:8px;">
       <div style="font-size:0.85rem; color:var(--text-light);">
         <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">&amp;</code> → <code style="background:var(--bg-secondary); padding:2px 6px; border-radius:4px;">&amp;amp;</code>
@@ -170,7 +182,7 @@
   </div>
 
   <div class="cross-link-tip">
-    💡 JSON 형식 처리가 필요하신가요? <a href="../json-formatter.html">JSON Formatter →</a>
+    💡 Need JSON formatting? <a href="../json-formatter.html">JSON Formatter →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -241,7 +253,7 @@
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;');
     document.getElementById('outputText').value = result;
-    document.getElementById('outputLabel').textContent = '결과 — HTML 엔티티 인코딩';
+    document.getElementById('outputLabel').textContent = 'Result — HTML Entity Encode';
   }
 
   function decode() {
@@ -257,13 +269,13 @@
       .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec))
       .replace(/&#x([0-9a-fA-F]+);/g, (match, hex) => String.fromCharCode(parseInt(hex, 16)));
     document.getElementById('outputText').value = result;
-    document.getElementById('outputLabel').textContent = '결과 — HTML 엔티티 디코딩';
+    document.getElementById('outputLabel').textContent = 'Result — HTML Entity Decode';
   }
 
   function clearAll() {
     document.getElementById('inputText').value = '';
     document.getElementById('outputText').value = '';
-    document.getElementById('outputLabel').textContent = '결과';
+    document.getElementById('outputLabel').textContent = 'Result';
   }
 
   function copyOutput() {

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -174,12 +174,13 @@
   padding: 24px 0;
   font-size: 0.9rem;
 }
+
     .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -194,7 +195,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="text-stats.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/text-stats.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -233,78 +239,78 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>텍스트 통계</span>
+    <span>Text Statistics</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">📊</span>
     <h1>Text Statistics — Free Online</h1>
-    <p>텍스트를 입력하면 글자수·단어수·문장수·단락수·단어 빈도 Top20을 실시간으로 분석합니다</p>
+    <p>Paste text to analyze word frequency, sentence count, paragraph count, and readability in real time.</p>
   </div>
 
-  <!-- 입력 영역 -->
+  <!-- Input Area -->
   <div class="text-panel">
     <div class="text-panel-title">Text Input</div>
-    <textarea id="inputText" rows="10" placeholder="여기에 분석할 텍스트를 입력하거나 붙여넣기 하세요..."></textarea>
+    <textarea id="inputText" rows="10" placeholder="Type or paste text to analyze here..."></textarea>
     <div class="options-row">
-      <button class="btn btn-secondary btn-sm" onclick="clearText()">🗑️ 지우기</button>
+      <button class="btn btn-secondary btn-sm" onclick="clearText()">🗑️ Clear</button>
     </div>
   </div>
 
-  <!-- 기본 통계 카드 -->
+  <!-- Basic Stats Cards -->
   <div class="text-panel">
-    <div class="text-panel-title">기본 통계</div>
+    <div class="text-panel-title">Basic Statistics</div>
     <div class="stats-grid-8">
       <div class="stat-card">
         <div class="stat-value" id="charCount">0</div>
-        <div class="stat-label">총 글자수</div>
+        <div class="stat-label">Total Chars</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="charNoSpace">0</div>
-        <div class="stat-label">공백 제외 글자</div>
+        <div class="stat-label">Chars (no spaces)</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="wordCount">0</div>
-        <div class="stat-label">단어 수</div>
+        <div class="stat-label">Words</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="sentenceCount">0</div>
-        <div class="stat-label">문장 수</div>
+        <div class="stat-label">Sentences</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="paragraphCount">0</div>
-        <div class="stat-label">단락 수</div>
+        <div class="stat-label">Paragraphs</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="lineCount">0</div>
-        <div class="stat-label">줄 수</div>
+        <div class="stat-label">Lines</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="avgWordLen">0</div>
-        <div class="stat-label">평균 단어 길이</div>
+        <div class="stat-label">Avg Word Length</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="longestWord" style="font-size:1.1rem;">—</div>
-        <div class="stat-label">가장 긴 단어</div>
+        <div class="stat-label">Longest Word</div>
       </div>
     </div>
 
     <div class="read-time-banner" id="readTimeBanner">
-      ⏱️ 예상 읽기 시간: <span id="readTime">—</span>
+      ⏱️ Estimated reading time: <span id="readTime">—</span>
     </div>
   </div>
 
-  <!-- 단어 빈도 Top 20 -->
+  <!-- Word Frequency Top 20 -->
   <div class="text-panel">
-    <div class="text-panel-title">단어 빈도 Top 20</div>
+    <div class="text-panel-title">Word Frequency Top 20</div>
     <div class="options-row">
       <label class="checkbox-item" style="display:flex;align-items:center;gap:6px;cursor:pointer;">
         <input type="checkbox" id="excludeStopwords" checked>
-        불용어 제외 (a, the, 이, 그 등)
+        Exclude stop words (a, the, etc.)
       </label>
     </div>
     <div id="freqTableWrap">
-      <div class="freq-empty">텍스트를 입력하면 단어 빈도를 분석합니다.</div>
+      <div class="freq-empty">Enter text to analyze word frequency.</div>
     </div>
   </div>
 
@@ -379,11 +385,11 @@ const STOPWORDS = new Set([
   'it','its','this','that','these','those','i','we','you',
   'he','she','they','me','us','him','her','them','my','our',
   'your','his','their',
-  '이','그','저','이것','그것','저것','은','는','가','을','를',
-  '에','에서','로','으로','와','과','도','만','보다','같이',
-  '처럼','이다','있다','없다','하다','되다','것','수','때',
-  '한','등','및','또','또한','하지만','그러나','그리고','그래서',
-  '즉','따라서','그런데','하여','위해','대해','대한','통해','관한'
+  'i','the','a','this','that','those','is','are','was','were','has',
+  'have','had','do','does','did','will','would','could','should','may',
+  'might','shall','be','been','being','and','or','but','not','in',
+  'on','at','by','for','with','about','to','from','of','as',
+  'so','if','when','then','than','while','after','before','it','its'
 ]);
 
 let debounceTimer = null;
@@ -419,11 +425,11 @@ function wordFrequency(text, excludeStopwords) {
 function renderFreqTable(entries) {
   const wrap = document.getElementById('freqTableWrap');
   if (!entries.length) {
-    wrap.innerHTML = '<div class="freq-empty">단어를 입력하면 빈도를 분석합니다.</div>';
+    wrap.innerHTML = '<div class="freq-empty">Enter text to analyze word frequency.</div>';
     return;
   }
   const maxCount = entries[0][1];
-  let html = '<table class="freq-table"><thead><tr><th>순위</th><th>단어</th><th>횟수</th><th style="min-width:120px;">비율</th></tr></thead><tbody>';
+  let html = '<table class="freq-table"><thead><tr><th>Rank</th><th>Word</th><th>Count</th><th style="min-width:120px;">Ratio</th></tr></thead><tbody>';
   entries.forEach(([word, count], i) => {
     const rank = i + 1;
     const pct = Math.round(count / maxCount * 100);
@@ -465,7 +471,7 @@ function updateAll() {
     document.getElementById('readTime').textContent = '—';
   } else {
     const mins = Math.ceil(s.wordCount / 200);
-    document.getElementById('readTime').textContent = `약 ${mins}분`;
+    document.getElementById('readTime').textContent = `~${mins} min`;
   }
 
   const freqEntries = text.trim() ? wordFrequency(text, excludeStopwords) : [];
@@ -485,7 +491,7 @@ function clearText() {
 document.getElementById('inputText').addEventListener('input', scheduleUpdate);
 document.getElementById('excludeStopwords').addEventListener('change', updateAll);
 
-// 초기 실행
+// Initial run
 updateAll();
 </script>
 </body>

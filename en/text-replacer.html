@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -27,7 +27,7 @@
   <meta property="og:url" content="https://textkit.wooahouse.com/en/text-replacer.html">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
-  <!-- 구조화 데이터 -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -240,12 +240,13 @@
         flex: 1 1 calc(50% - 4px);
       }
     }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -295,7 +296,7 @@
 <div class="page-with-sidebar">
   <main class="tool-page">
 
-    <!-- 상단 AdSense -->
+    <!-- Top AdSense -->
     <div class="ad-container" style="margin-bottom:24px;">
       <ins class="adsbygoogle"
            style="display:block"
@@ -310,7 +311,7 @@
     <nav class="breadcrumb" aria-label="breadcrumb">
       <a href="../index.html">WooaText</a>
       <span>›</span>
-      <span>텍스트 치환기</span>
+      <span>Text Replacer</span>
     </nav>
 
     <!-- Tool Header -->
@@ -318,28 +319,28 @@
       <div class="tool-icon">🔄</div>
       <div>
         <h1>Text Find & Replace — Free Online</h1>
-        <p class="tool-desc">단어·문장을 한번에 치환합니다. 정규식 모드와 대소문자 무시 옵션을 규칙별로 설정하고, 여러 규칙을 순서대로 일괄 적용할 수 있습니다.</p>
+        <p class="tool-desc">Replace words and sentences in bulk. Set regex mode and case-insensitive options per rule, and apply multiple rules in order.</p>
       </div>
     </div>
 
     <!-- Tool Body -->
     <div class="tool-body">
 
-      <!-- 원본 텍스트 -->
+      <!-- Source Text -->
       <div class="form-group">
-        <label for="sourceText" class="form-label">원본 텍스트</label>
-        <textarea id="sourceText" rows="8" class="form-textarea" placeholder="치환할 텍스트를 입력하거나 붙여넣으세요..."></textarea>
+        <label for="sourceText" class="form-label">Source Text</label>
+        <textarea id="sourceText" rows="8" class="form-textarea" placeholder="Enter or paste text to process..."></textarea>
       </div>
 
-      <!-- 치환 규칙 -->
+      <!-- Replace Rules -->
       <div class="rules-section">
-        <div class="rules-section-title">치환 규칙</div>
+        <div class="rules-section-title">Replacement Rules</div>
 
-        <!-- 열 헤더 -->
+        <!-- Column Headers -->
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;padding:0 2px;">
-          <span style="flex:1;font-size:0.78rem;color:var(--text-light);font-weight:600;">찾기</span>
-          <span style="flex:1;font-size:0.78rem;color:var(--text-light);font-weight:600;">바꾸기</span>
-          <span style="width:36px;font-size:0.78rem;color:var(--text-light);font-weight:600;text-align:center;">정규식</span>
+          <span style="flex:1;font-size:0.78rem;color:var(--text-light);font-weight:600;">Find</span>
+          <span style="flex:1;font-size:0.78rem;color:var(--text-light);font-weight:600;">Replace</span>
+          <span style="width:36px;font-size:0.78rem;color:var(--text-light);font-weight:600;text-align:center;">Regex</span>
           <span style="width:36px;font-size:0.78rem;color:var(--text-light);font-weight:600;text-align:center;">Aa</span>
           <span style="width:36px;"></span>
         </div>
@@ -347,33 +348,33 @@
         <div id="rulesList"></div>
 
         <div class="rules-footer">
-          <button class="btn-add-rule" id="addRuleBtn">＋ 규칙 추가</button>
-          <span class="rule-hint">규칙은 위에서 아래 순서로 적용됩니다.</span>
+          <button class="btn-add-rule" id="addRuleBtn">＋ Add rule</button>
+          <span class="rule-hint">Rules are applied top to bottom.</span>
         </div>
       </div>
 
-      <!-- 오류 메시지 -->
+      <!-- Error Message -->
       <div class="error-msg" id="errorMsg"></div>
 
-      <!-- 실행 버튼 -->
+      <!-- Run Button -->
       <div class="btn-group" style="margin-bottom:20px;">
-        <button class="btn btn-primary" id="runBtn">▶ 치환 실행</button>
-        <button class="btn btn-secondary" id="clearBtn">🗑️ 지우기</button>
+        <button class="btn btn-primary" id="runBtn">▶ Apply Rules</button>
+        <button class="btn btn-secondary" id="clearBtn">🗑️ Clear</button>
       </div>
 
-      <!-- 결과 -->
+      <!-- Result -->
       <div class="result-header">
-        <span class="result-label">결과</span>
-        <button class="btn btn-secondary btn-sm" id="copyBtn">📋 복사</button>
+        <span class="result-label">Result</span>
+        <button class="btn btn-secondary btn-sm" id="copyBtn">📋 Copy</button>
       </div>
-      <textarea id="resultText" rows="8" class="form-textarea" readonly placeholder="치환 결과가 여기에 표시됩니다..."></textarea>
+      <textarea id="resultText" rows="8" class="form-textarea" readonly placeholder="Result will appear here..."></textarea>
       <div id="countBadge" class="count-badge" style="display:none;">
-        🔄 치환 횟수: <span id="countNum">0</span>개
+        🔄 Replacements: <span id="countNum">0</span>
       </div>
 
     </div><!-- /tool-body -->
 
-    <!-- 하단 AdSense -->
+    <!-- Bottom AdSense -->
     <div class="ad-container" style="margin-top:32px;">
       <ins class="adsbygoogle"
            style="display:block"
@@ -389,28 +390,28 @@
       <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
 
       <div class="faq-item">
-        <h3>정규식 모드는 어떻게 사용하나요?</h3>
-        <p>각 규칙의 <strong>.*</strong> 버튼을 눌러 활성화하면 찾기 필드에 정규식 패턴을 입력할 수 있습니다. 예: <code>\d+</code>는 숫자를, <code>\s+</code>는 공백을 매칭합니다.</p>
+        <h3>How do I use regex mode?</h3>
+        <p>Activate the <strong>.*</strong> button for each rule to enter a regex pattern in the Find field. E.g. <code>\d+</code> matches digits, <code>\s+</code> matches whitespace.</p>
       </div>
 
       <div class="faq-item">
-        <h3>여러 단어를 한번에 바꿀 수 있나요?</h3>
-        <p>네, <strong>+ 규칙 추가</strong> 버튼으로 규칙을 여러 개 추가하면 순서대로 모두 적용됩니다. 규칙은 위에서 아래 순으로 실행됩니다.</p>
+        <h3>Can I replace multiple words at once?</h3>
+        <p>Yes, add multiple rules with the <strong>+ Add Rule</strong> button and they are applied in order from top to bottom.</p>
       </div>
 
       <div class="faq-item">
-        <h3>원본 텍스트는 변경되나요?</h3>
-        <p>아니요, 원본은 그대로 유지되고 결과 영역에 치환된 텍스트가 표시됩니다. 원본 영역의 내용을 직접 수정하기 전까지 보존됩니다.</p>
+        <h3>Will the original text be changed?</h3>
+        <p>No, the original text is preserved; the replaced text appears in the result area. It stays intact until you manually edit the source field.</p>
       </div>
 
       <div class="faq-item">
-        <h3>대소문자 무시 옵션은 무엇인가요?</h3>
-        <p>각 규칙의 <strong>Aa</strong> 버튼을 활성화하면 대소문자를 구분하지 않고 치환합니다. 예: "Hello"를 찾으면 "hello", "HELLO"도 함께 치환됩니다.</p>
+        <h3>What is the Ignore Case option?</h3>
+        <p>Enable the <strong>Aa</strong> button for each rule to replace without case sensitivity. E.g. searching "Hello" also matches "hello" and "HELLO".</p>
       </div>
 
       <div class="faq-item">
-        <h3>바꾸기 필드를 비워두면 어떻게 되나요?</h3>
-        <p>찾은 텍스트가 빈 문자열로 치환됩니다. 즉, 해당 패턴과 일치하는 텍스트를 모두 삭제하는 효과를 얻을 수 있습니다.</p>
+        <h3>What happens if the Replace field is empty?</h3>
+        <p>The matched text is replaced with an empty string — effectively deleting all occurrences of the pattern.</p>
       </div>
     </section>
 
@@ -446,7 +447,7 @@
   </footer>
 
   <script>
-    // --- 규칙 행 생성 ---
+    // --- Build Rule Row ---
     let ruleCount = 0;
 
     function createRuleRow() {
@@ -455,14 +456,14 @@
       div.className = 'rule-row';
       div.dataset.ruleId = ruleCount;
       div.innerHTML = `
-        <input class="rule-find" type="text" placeholder="찾기..." autocomplete="off" spellcheck="false">
-        <input class="rule-replace" type="text" placeholder="바꾸기..." autocomplete="off" spellcheck="false">
-        <button class="rule-regex-btn toggle-btn" title="정규식 모드 (.*)" aria-pressed="false">.*</button>
-        <button class="rule-case-btn toggle-btn" title="대소문자 무시" aria-pressed="false">Aa</button>
-        <button class="rule-del-btn" title="이 규칙 삭제">✕</button>
+        <input class="rule-find" type="text" placeholder="Find..." autocomplete="off" spellcheck="false">
+        <input class="rule-replace" type="text" placeholder="Replace..." autocomplete="off" spellcheck="false">
+        <button class="rule-regex-btn toggle-btn" title="Regex mode (.*)" aria-pressed="false">.*</button>
+        <button class="rule-case-btn toggle-btn" title="Ignore case" aria-pressed="false">Aa</button>
+        <button class="rule-del-btn" title="Delete this rule">✕</button>
       `;
 
-      // toggle 버튼 이벤트
+      // toggle button event
       div.querySelector('.rule-regex-btn').addEventListener('click', function() {
         this.classList.toggle('active');
         this.setAttribute('aria-pressed', this.classList.contains('active'));
@@ -472,11 +473,11 @@
         this.setAttribute('aria-pressed', this.classList.contains('active'));
       });
 
-      // 삭제 버튼 이벤트
+      // delete button event
       div.querySelector('.rule-del-btn').addEventListener('click', function() {
         const list = document.getElementById('rulesList');
         if (list.children.length <= 1) {
-          // 마지막 규칙이면 초기화만
+          // if last rule, just reset
           div.querySelector('.rule-find').value = '';
           div.querySelector('.rule-replace').value = '';
           div.querySelector('.rule-regex-btn').classList.remove('active');
@@ -488,7 +489,7 @@
         }
       });
 
-      // Enter 키로 치환 실행
+      // run replace on Enter key
       div.querySelector('.rule-find').addEventListener('keydown', function(e) {
         if (e.key === 'Enter') document.getElementById('runBtn').click();
       });
@@ -499,18 +500,18 @@
       return div;
     }
 
-    // 초기 1개 행 추가
+    // add initial rule row
     document.getElementById('rulesList').appendChild(createRuleRow());
 
-    // 규칙 추가 버튼
+    // add rule button
     document.getElementById('addRuleBtn').addEventListener('click', function() {
       document.getElementById('rulesList').appendChild(createRuleRow());
-      // 새 행의 찾기 필드로 포커스
+      // focus find field of new row
       const rows = document.getElementById('rulesList').querySelectorAll('.rule-find');
       rows[rows.length - 1].focus();
     });
 
-    // --- 치환 로직 ---
+    // --- Replace Logic ---
     function applyRules(source, rules) {
       let result = source;
       let totalCount = 0;
@@ -525,7 +526,7 @@
             ? new RegExp(find, flags)
             : new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), flags);
         } catch (e) {
-          errors.push(`규칙 ${idx + 1}: 잘못된 정규식 — ${e.message}`);
+          errors.push(`Rule ${idx + 1}: invalid regex — ${e.message}`);
           return;
         }
         const matches = result.match(pattern);
@@ -536,7 +537,7 @@
       return { result, count: totalCount, errors };
     }
 
-    // --- 규칙 수집 ---
+    // --- Collect Rules ---
     function collectRules() {
       const rows = document.getElementById('rulesList').querySelectorAll('.rule-row');
       return Array.from(rows).map(row => ({
@@ -547,7 +548,7 @@
       }));
     }
 
-    // --- 치환 실행 ---
+    // --- Run Replace ---
     document.getElementById('runBtn').addEventListener('click', function() {
       const source = document.getElementById('sourceText').value;
       const errorEl = document.getElementById('errorMsg');
@@ -559,7 +560,7 @@
       errorEl.textContent = '';
 
       if (!source) {
-        errorEl.textContent = '원본 텍스트를 입력해 주세요.';
+        errorEl.textContent = 'Please enter the source text.';
         errorEl.classList.add('show');
         return;
       }
@@ -567,7 +568,7 @@
       const rules = collectRules();
       const hasAnyFind = rules.some(r => r.find.trim() !== '');
       if (!hasAnyFind) {
-        errorEl.textContent = '치환할 찾기 값을 최소 하나 이상 입력해 주세요.';
+        errorEl.textContent = 'Enter at least one Find value.';
         errorEl.classList.add('show');
         return;
       }
@@ -584,7 +585,7 @@
       countBadge.style.display = 'inline-flex';
     });
 
-    // --- 지우기 ---
+    // --- Clear ---
     document.getElementById('clearBtn').addEventListener('click', function() {
       document.getElementById('sourceText').value = '';
       document.getElementById('resultText').value = '';
@@ -592,7 +593,7 @@
       document.getElementById('errorMsg').classList.remove('show');
       document.getElementById('errorMsg').textContent = '';
 
-      // 규칙 초기화
+      // reset rules
       const list = document.getElementById('rulesList');
       list.innerHTML = '';
       list.appendChild(createRuleRow());
@@ -600,7 +601,7 @@
       document.getElementById('sourceText').focus();
     });
 
-    // --- 복사 ---
+    // --- Copy ---
     document.getElementById('copyBtn').addEventListener('click', function() {
       const resultEl = document.getElementById('resultText');
       if (!resultEl.value) return;
@@ -608,7 +609,7 @@
       navigator.clipboard.writeText(resultEl.value).then(() => {
         const btn = this;
         const orig = btn.textContent;
-        btn.textContent = '✅ 복사됨';
+        btn.textContent = '✅ Copied';
         setTimeout(() => { btn.textContent = orig; }, 1800);
       }).catch(() => {
         resultEl.select();

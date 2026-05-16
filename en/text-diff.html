@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -95,12 +95,13 @@
     .diff-stat-add { color: #16A34A; }
     .diff-stat-remove { color: #DC2626; }
     .diff-stat-same { color: #6B7280; }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -115,7 +116,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="text-diff.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/text-diff.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -153,53 +159,53 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>텍스트 비교</span>
+    <span>Text Diff</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🔍</span>
     <h1>Text Diff Checker — Free Online</h1>
-    <p>두 텍스트를 입력하고 비교 버튼을 누르면 차이점을 색으로 표시합니다</p>
+    <p>Enter two texts and click Compare to highlight differences with color.</p>
   </div>
 
   <div class="text-panel">
     <div class="diff-columns">
       <div>
-        <div class="text-panel-title">원본 텍스트</div>
-        <textarea id="text1" rows="10" placeholder="원본 텍스트를 입력하세요..."></textarea>
+        <div class="text-panel-title">Original Text</div>
+        <textarea id="text1" rows="10" placeholder="Enter original text..."></textarea>
       </div>
       <div>
-        <div class="text-panel-title">비교 텍스트</div>
-        <textarea id="text2" rows="10" placeholder="비교할 텍스트를 입력하세요..."></textarea>
+        <div class="text-panel-title">Compare Text</div>
+        <textarea id="text2" rows="10" placeholder="Enter text to compare..."></textarea>
       </div>
     </div>
     <div class="btn-group" style="margin-top:16px;">
-      <button class="btn btn-primary" onclick="compareDiff()">🔍 비교하기</button>
+      <button class="btn btn-primary" onclick="compareDiff()">🔍 Compare</button>
       <div class="checkbox-group" style="margin-left:8px;">
         <label class="checkbox-item">
           <input type="checkbox" id="ignoreCase">
-          대소문자 무시
+          Ignore case
         </label>
         <label class="checkbox-item">
           <input type="checkbox" id="ignoreWhitespace">
-          공백 무시
+          Ignore whitespace
         </label>
       </div>
     </div>
   </div>
 
   <div class="text-panel" id="resultPanel" style="display:none;">
-    <div class="text-panel-title">비교 결과</div>
+    <div class="text-panel-title">Comparison Result</div>
     <div class="diff-legend">
-      <span><span class="legend-add"></span> 추가됨</span>
-      <span><span class="legend-remove"></span> 삭제됨</span>
+      <span><span class="legend-add"></span> Added</span>
+      <span><span class="legend-remove"></span> Removed</span>
     </div>
     <div class="diff-stats" id="diffStats"></div>
     <div class="diff-output" id="diffOutput"></div>
   </div>
 
   <div class="cross-link-tip">
-    💡 글자수를 확인하고 싶다면? <a href="../char-counter.html">Character Counter →</a>
+    💡 Want to count characters? <a href="../char-counter.html">Character Counter →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -319,9 +325,9 @@
 
     document.getElementById('diffOutput').innerHTML = htmlLines.join('');
     document.getElementById('diffStats').innerHTML = `
-      <span class="diff-stat diff-stat-add">+ ${addCount}줄 추가</span>
-      <span class="diff-stat diff-stat-remove">- ${removeCount}줄 삭제</span>
-      <span class="diff-stat diff-stat-same">= ${sameCount}줄 동일</span>
+      <span class="diff-stat diff-stat-add">+ ${addCount} lines added</span>
+      <span class="diff-stat diff-stat-remove">- ${removeCount} lines removed</span>
+      <span class="diff-stat diff-stat-same">= ${sameCount} lines same</span>
     `;
     document.getElementById('resultPanel').style.display = 'block';
     document.getElementById('resultPanel').scrollIntoView({behavior:'smooth', block:'nearest'});

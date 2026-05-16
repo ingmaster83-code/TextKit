@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -176,12 +176,13 @@
       align-items: center;
       gap: 8px;
     }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -196,7 +197,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="jwt-decoder.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/jwt-decoder.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -235,21 +241,21 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>JWT 디코더</span>
+    <span>JWT Decoder</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🔑</span>
     <h1>JWT Decoder — Free Online</h1>
-    <p>JWT 토큰을 붙여넣으면 Header, Payload, Signature를 즉시 파싱합니다. 만료일시 및 남은 시간 표시. 100% 브라우저 처리.</p>
+    <p>Paste a JWT token to decode its header and payload. Check expiry date. No server upload — 100% private.</p>
   </div>
 
   <div class="text-panel">
-    <div class="text-panel-title">JWT 토큰 입력</div>
+    <div class="text-panel-title">JWT Token Input</div>
     <textarea id="jwtInput" rows="5" class="mono" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."></textarea>
     <div class="btn-group" style="margin-top:14px;">
-      <button class="btn btn-primary" onclick="decodeAndRender()">🔍 디코딩</button>
-      <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+      <button class="btn btn-primary" onclick="decodeAndRender()">🔍 Decode</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
     </div>
   </div>
 
@@ -257,49 +263,49 @@
 
   <div id="resultArea" style="display:none; margin-top:20px;">
 
-    <!-- Header 카드 -->
+    <!-- Header Card -->
     <div class="jwt-card">
       <div class="jwt-card-header">
         <div class="jwt-card-title">
           <span class="jwt-badge header">HEADER</span>
-          알고리즘 &amp; 토큰 타입
+          Algorithm &amp; Token Type
         </div>
-        <button class="btn btn-success btn-sm" onclick="copySection('headerPre', 'copyAlertHeader')">📋 복사</button>
+        <button class="btn btn-success btn-sm" onclick="copySection('headerPre', 'copyAlertHeader')">📋 Copy</button>
       </div>
       <pre class="jwt-pre" id="headerPre"></pre>
-      <div id="copyAlertHeader" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+      <div id="copyAlertHeader" class="alert alert-success">✅ Copied to clipboard!</div>
     </div>
 
-    <!-- Payload 카드 -->
+    <!-- Payload Card -->
     <div class="jwt-card">
       <div class="jwt-card-header">
         <div class="jwt-card-title">
           <span class="jwt-badge payload">PAYLOAD</span>
-          클레임 데이터
+          Claims Data
         </div>
-        <button class="btn btn-success btn-sm" onclick="copySection('payloadPre', 'copyAlertPayload')">📋 복사</button>
+        <button class="btn btn-success btn-sm" onclick="copySection('payloadPre', 'copyAlertPayload')">📋 Copy</button>
       </div>
       <pre class="jwt-pre" id="payloadPre"></pre>
-      <div id="copyAlertPayload" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+      <div id="copyAlertPayload" class="alert alert-success">✅ Copied to clipboard!</div>
       <div id="expInfo"></div>
     </div>
 
-    <!-- Signature 카드 -->
+    <!-- Signature Card -->
     <div class="jwt-card">
       <div class="jwt-card-header">
         <div class="jwt-card-title">
           <span class="jwt-badge sig">SIGNATURE</span>
-          서명 (Base64URL)
+          Signature (Base64URL)
         </div>
       </div>
       <div class="sig-text" id="sigText"></div>
-      <p style="margin:8px 0 0; font-size:0.8rem; color:#9ca3af;">⚠️ 서명 검증은 지원하지 않습니다. 검증은 서버에서 비밀키로 확인하세요.</p>
+      <p style="margin:8px 0 0; font-size:0.8rem; color:#9ca3af;">⚠️ Signature verification is not supported. Use a server-side library with your secret key.</p>
     </div>
 
   </div>
 
   <div class="cross-link-tip">
-    💡 JSON 데이터를 보기 좋게 정렬하고 싶으신가요? <a href="../json-formatter.html">JSON Formatter →</a>
+    💡 Want to format JSON data? <a href="../json-formatter.html">JSON Formatter →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -360,10 +366,10 @@
 </footer>
 
 <script>
-  // ── JWT 디코딩 ──────────────────────────────────────────────
+  // ── JWT Decoding ──────────────────────────────────────────────
   function decodeJWT(token) {
     const parts = token.trim().split('.');
-    if (parts.length !== 3) throw new Error('JWT 형식이 올바르지 않습니다 (헤더.페이로드.서명 3부분 필요)');
+    if (parts.length !== 3) throw new Error('JWT format is invalid (header.payload.signature — 3 parts required)');
     function b64decode(str) {
       str = str.replace(/-/g, '+').replace(/_/g, '/');
       while (str.length % 4) str += '=';
@@ -376,7 +382,7 @@
     };
   }
 
-  // ── 문자열 이스케이프 & 구문 강조 ──────────────────────────
+  // ── String Escape & Syntax Highlight ──────────────────────────
   function escapeHtml(str) {
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
@@ -401,7 +407,7 @@
     );
   }
 
-  // ── exp 만료 정보 렌더 ──────────────────────────────────────
+  // ── exp Expiry Info Render ──────────────────────────────────────
   function renderExpInfo(payload) {
     const el = document.getElementById('expInfo');
     if (!payload.exp) { el.innerHTML = ''; return; }
@@ -411,7 +417,7 @@
     const isExpired = now > expDate;
     const diffMs = Math.abs(expDate - now);
 
-    // 남은/경과 시간 계산
+    // Calculate remaining/elapsed time
     const totalSec = Math.floor(diffMs / 1000);
     const days    = Math.floor(totalSec / 86400);
     const hours   = Math.floor((totalSec % 86400) / 3600);
@@ -419,12 +425,12 @@
     const seconds = totalSec % 60;
 
     let diffStr = '';
-    if (days > 0)    diffStr += days + '일 ';
-    if (hours > 0)   diffStr += hours + '시간 ';
-    if (minutes > 0) diffStr += minutes + '분 ';
-    diffStr += seconds + '초';
+    if (days > 0)    diffStr += days + 'd ';
+    if (hours > 0)   diffStr += hours + 'h ';
+    if (minutes > 0) diffStr += minutes + 'm ';
+    diffStr += seconds + 's';
 
-    // 한국시간(KST = UTC+9) 포맷
+    // KST (UTC+9) format
     const kstOptions = {
       timeZone: 'Asia/Seoul',
       year: 'numeric', month: '2-digit', day: '2-digit',
@@ -435,18 +441,18 @@
 
     const cls   = isExpired ? 'expired' : 'valid';
     const icon  = isExpired ? '🔴' : '🟢';
-    const state = isExpired ? '만료됨' : '유효';
-    const timeLabel = isExpired ? '경과 시간' : '남은 시간';
+    const state = isExpired ? 'Expired' : 'Valid';
+    const timeLabel = isExpired ? 'Elapsed' : 'Remaining';
 
     el.innerHTML = `
       <div class="exp-box ${cls}">
-        <div class="exp-box-title">${icon} 만료 정보 — <strong>${state}</strong></div>
-        <div class="exp-row"><span class="exp-label">만료 일시</span><span>${expKST}</span></div>
+        <div class="exp-box-title">${icon} Expiry Info — <strong>${state}</strong></div>
+        <div class="exp-row"><span class="exp-label">Expires</span><span>${expKST}</span></div>
         <div class="exp-row"><span class="exp-label">${timeLabel}</span><span>${diffStr}</span></div>
       </div>`;
   }
 
-  // ── 메인 디코딩 & 렌더 ─────────────────────────────────────
+  // ── Main Decode & Render ─────────────────────────────────────
   function decodeAndRender() {
     const token = document.getElementById('jwtInput').value.trim();
     const errorArea  = document.getElementById('errorArea');
@@ -478,7 +484,7 @@
     resultArea.style.display = 'block';
   }
 
-  // ── 복사 ────────────────────────────────────────────────────
+  // ── Copy ────────────────────────────────────────────────────
   function copySection(preId, alertId) {
     const text = document.getElementById(preId).textContent;
     navigator.clipboard.writeText(text).then(() => {
@@ -488,14 +494,14 @@
     });
   }
 
-  // ── 지우기 ──────────────────────────────────────────────────
+  // ── Clear ──────────────────────────────────────────────────
   function clearAll() {
     document.getElementById('jwtInput').value = '';
     document.getElementById('errorArea').style.display  = 'none';
     document.getElementById('resultArea').style.display = 'none';
   }
 
-  // ── Enter 키 지원 ────────────────────────────────────────────
+  // ── Enter Key Support ────────────────────────────────────────────
   document.getElementById('jwtInput').addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) decodeAndRender();
   });

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -136,12 +136,13 @@
       margin-top: 8px;
       text-align: right;
     }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -156,7 +157,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="unicode-converter.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/unicode-converter.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -195,27 +201,27 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>유니코드 변환기</span>
+    <span>Unicode Converter</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🔤</span>
     <h1>Unicode Converter — Free Online</h1>
-    <p>텍스트를 Unicode escape(\uXXXX), HTML 엔티티(&#XXXX;), 코드포인트(U+XXXX)로 변환하거나 반대로 복원합니다</p>
+    <p>Convert text to Unicode escape sequences (\uXXXX), HTML numeric entities (&#XXXX;), or U+XXXX code points, and back.</p>
   </div>
 
   <div class="text-panel">
-    <div class="text-panel-title">입력 텍스트</div>
-    <textarea id="inputText" rows="5" placeholder="변환할 텍스트를 입력하세요...&#10;예: 안녕하세요 / Hello 🌍 / 안녕"></textarea>
+    <div class="text-panel-title">Input Text</div>
+    <textarea id="inputText" rows="5" placeholder="Enter text to convert...&#10;e.g.: Hello 🌍 / World"></textarea>
 
     <div style="margin-top:14px;">
       <div class="conv-btn-group">
         <button class="btn btn-primary" onclick="convert('unicode')">→ Unicode escape</button>
         <button class="btn btn-primary" onclick="convert('entity')">→ HTML entity</button>
-        <button class="btn btn-primary" onclick="convert('codepoint')">→ 코드포인트</button>
-        <button class="btn btn-outline" onclick="convert('restore')">← 텍스트로 복원</button>
+        <button class="btn btn-primary" onclick="convert('codepoint')">→ Code Points</button>
+        <button class="btn btn-outline" onclick="convert('restore')">← Restore to Text</button>
       </div>
-      <button class="btn btn-outline btn-sm" onclick="clearAll()" style="margin-top:4px;">🗑️ 지우기</button>
+      <button class="btn btn-outline btn-sm" onclick="clearAll()" style="margin-top:4px;">🗑️ Clear</button>
     </div>
 
     <div id="errorMsg" class="alert alert-error"></div>
@@ -223,21 +229,21 @@
 
   <div class="text-panel" id="outputPanel" style="display:none;">
     <div class="output-header">
-      <div class="text-panel-title" id="outputLabel">결과</div>
-      <button class="btn btn-outline btn-sm" onclick="copyOutput(this)">📋 복사</button>
+      <div class="text-panel-title" id="outputLabel">Result</div>
+      <button class="btn btn-outline btn-sm" onclick="copyOutput(this)">📋 Copy</button>
     </div>
-    <textarea id="outputText" rows="5" readonly placeholder="결과가 여기에 표시됩니다."></textarea>
+    <textarea id="outputText" rows="5" readonly placeholder="Result will appear here."></textarea>
   </div>
 
   <div class="text-panel" id="tablePanel" style="display:none;">
-    <div class="text-panel-title">문자별 상세 정보 <span style="font-size:0.8rem;font-weight:400;color:var(--text-light);">(최대 50자)</span></div>
+    <div class="text-panel-title">Per-character Details <span style="font-size:0.8rem;font-weight:400;color:var(--text-light);">(max 50 chars)</span></div>
     <div class="char-table-wrap">
       <table class="char-table" id="charTable">
         <thead>
           <tr>
             <th>#</th>
-            <th>문자</th>
-            <th>코드포인트</th>
+            <th>Char</th>
+            <th>Code Point</th>
             <th>Unicode escape</th>
             <th>HTML entity</th>
           </tr>
@@ -248,7 +254,7 @@
   </div>
 
   <div class="cross-link-tip">
-    💡 HTML 엔티티 변환도 필요하신가요? <a href="html-entity.html">HTML 엔티티 변환기 →</a>
+    💡 Need HTML entity conversion too? <a href="html-entity.html">HTML Entity →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -339,10 +345,10 @@
   }
 
   const labelMap = {
-    unicode:   '결과 — Unicode escape (\\uXXXX)',
-    entity:    '결과 — HTML entity (&#XXXX;)',
-    codepoint: '결과 — 코드포인트 (U+XXXX)',
-    restore:   '결과 — 복원된 텍스트'
+    unicode:   'Result — Unicode Escape (\\uXXXX)',
+    entity:    'Result — HTML Entity (&#XXXX;)',
+    codepoint: 'Result — Codepoint (U+XXXX)',
+    restore:   'Result — Restored Text'
   };
 
   function convert(mode) {
@@ -351,7 +357,7 @@
     errEl.classList.remove('show');
 
     if (!input.trim()) {
-      errEl.textContent = '❌ 변환할 텍스트를 입력해주세요.';
+      errEl.textContent = '❌ Please enter text to convert.';
       errEl.classList.add('show');
       return;
     }
@@ -363,12 +369,12 @@
       else if (mode === 'codepoint') result = toCodePoints(input);
       else if (mode === 'restore')   result = fromEncoded(input);
     } catch (e) {
-      errEl.textContent = '❌ 변환 중 오류가 발생했습니다: ' + e.message;
+      errEl.textContent = '❌ Conversion error: ' + e.message;
       errEl.classList.add('show');
       return;
     }
 
-    document.getElementById('outputLabel').textContent = labelMap[mode] || '결과';
+    document.getElementById('outputLabel').textContent = labelMap[mode] || 'Result';
     document.getElementById('outputText').value = result;
     document.getElementById('outputPanel').style.display = 'block';
 
@@ -419,7 +425,7 @@
     if (!text) return;
     navigator.clipboard.writeText(text).then(() => {
       const orig = btn.textContent;
-      btn.textContent = '✅ 복사됨';
+      btn.textContent = '✅ Copied';
       setTimeout(() => { btn.textContent = orig; }, 1500);
     });
   }

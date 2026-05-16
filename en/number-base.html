@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -211,12 +211,13 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -231,7 +232,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="number-base.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/number-base.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -270,47 +276,47 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>이진수/진법 변환기</span>
+    <span>Number Base Converter</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🔢</span>
     <h1>Number Base Converter — Free Online</h1>
-    <p>어느 칸에 값을 입력하거나 수정해도 나머지 진법이 즉시 자동 변환됩니다. 16진수는 대소문자 모두 입력 가능하며 결과는 대문자로 표시됩니다.</p>
+    <p>Enter a number in any base and see the binary, octal, decimal, and hexadecimal equivalents in real time.</p>
   </div>
 
   <div class="text-panel">
     <div class="base-grid">
-      <!-- 2진수 -->
+      <!-- Binary -->
       <div class="base-card">
-        <div class="base-label">2진수 (Binary)</div>
-        <input id="bin" class="mono base-input" placeholder="예: 1010" autocomplete="off" spellcheck="false">
+        <div class="base-label">Binary (Base 2)</div>
+        <input id="bin" class="mono base-input" placeholder="e.g. 1010" autocomplete="off" spellcheck="false">
         <div class="base-copy-btn" id="copyBin" onclick="copyVal('bin')">Copy</div>
       </div>
-      <!-- 8진수 -->
+      <!-- Octal -->
       <div class="base-card">
-        <div class="base-label">8진수 (Octal)</div>
-        <input id="oct" class="mono base-input" placeholder="예: 12" autocomplete="off" spellcheck="false">
+        <div class="base-label">Octal (Base 8)</div>
+        <input id="oct" class="mono base-input" placeholder="e.g. 12" autocomplete="off" spellcheck="false">
         <div class="base-copy-btn" id="copyOct" onclick="copyVal('oct')">Copy</div>
       </div>
-      <!-- 10진수 -->
+      <!-- Decimal -->
       <div class="base-card">
-        <div class="base-label">10진수 (Decimal)</div>
-        <input id="dec" class="mono base-input" placeholder="예: 10" autocomplete="off" spellcheck="false">
+        <div class="base-label">Decimal (Base 10)</div>
+        <input id="dec" class="mono base-input" placeholder="e.g. 10" autocomplete="off" spellcheck="false">
         <div class="base-copy-btn" id="copyDec" onclick="copyVal('dec')">Copy</div>
       </div>
-      <!-- 16진수 -->
+      <!-- Hex -->
       <div class="base-card">
-        <div class="base-label">16진수 (Hexadecimal)</div>
-        <input id="hex" class="mono base-input" placeholder="예: A" autocomplete="off" spellcheck="false">
+        <div class="base-label">Hexadecimal (Base 16)</div>
+        <input id="hex" class="mono base-input" placeholder="e.g. A" autocomplete="off" spellcheck="false">
         <div class="base-copy-btn" id="copyHex" onclick="copyVal('hex')">Copy</div>
       </div>
     </div>
 
     <div class="error-msg" id="errorMsg"></div>
 
-    <!-- 퀵버튼 -->
-    <div class="section-title">자주 쓰는 값</div>
+    <!-- Quick Buttons -->
+    <div class="section-title">Common values</div>
     <div class="quick-btns">
       <button class="quick-btn" onclick="setDec(0)">0</button>
       <button class="quick-btn" onclick="setDec(1)">1</button>
@@ -326,25 +332,25 @@
     </div>
   </div>
 
-  <!-- 추가 정보 테이블 -->
+  <!-- Info Table -->
   <div class="text-panel info-table-wrap" id="infoPanel" style="display:none;">
-    <div class="text-panel-title" style="margin-bottom:14px;">추가 정보</div>
+    <div class="text-panel-title" style="margin-bottom:14px;">Additional Info</div>
     <table class="info-table">
       <tbody>
         <tr>
-          <th>비트 수 (Bit Length)</th>
+          <th>Bit Length</th>
           <td id="infoBits">—</td>
         </tr>
         <tr>
-          <th>부호 있는 32비트 정수 (Int32)</th>
+          <th>Signed 32-bit Int (Int32)</th>
           <td id="infoInt32">—</td>
         </tr>
         <tr>
-          <th>IEEE 754 단정밀도 (Float32)</th>
+          <th>IEEE 754 Float32</th>
           <td id="infoFloat32">—</td>
         </tr>
         <tr>
-          <th>IEEE 754 배정밀도 (Float64)</th>
+          <th>IEEE 754 Float64</th>
           <td id="infoFloat64">—</td>
         </tr>
       </tbody>
@@ -352,7 +358,7 @@
   </div>
 
   <div class="cross-link-tip">
-    💡 텍스트 해시가 필요하신가요? <a href="hash-generator.html">해시 생성기 →</a>
+    💡 Need a text hash? <a href="hash-generator.html">Hash Generator →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -461,11 +467,11 @@
       if (isNaN(decimal) || decimal < 0) throw new Error('invalid');
       if (decimal > MAX_SAFE) throw new Error('overflow');
     } catch(e) {
-      const labels = {2:'이진수',8:'8진수',10:'10진수',16:'16진수'};
+      const labels = {2:'Binary',8:'Octal',10:'Decimal',16:'Hex'};
       if (e.message === 'overflow') {
-        showError('입력값이 안전한 정수 범위(2^53-1)를 초과합니다.');
+        showError('Value exceeds safe integer range (2^53-1).');
       } else {
-        showError(`올바른 ${labels[fromBase]} 형식이 아닙니다.`);
+        showError(`Invalid ${labels[fromBase]} format.`);
       }
       markError(idMap[fromBase]);
       return;
@@ -486,13 +492,13 @@
     const panel = document.getElementById('infoPanel');
     panel.style.display = '';
 
-    // 비트 수
+    // Bit count
     const bits = decimal === 0 ? 1 : decimal.toString(2).length;
     document.getElementById('infoBits').textContent = bits + ' bit';
 
-    // 부호 있는 32비트 정수
-    const int32 = decimal | 0; // 비트 OR로 Int32 변환
-    document.getElementById('infoInt32').textContent = int32.toLocaleString() + (int32 !== decimal ? ' (※ 32비트 오버플로우)' : '');
+    // Signed 32-bit integer
+    const int32 = decimal | 0; // Convert to Int32 via bitwise OR
+    document.getElementById('infoInt32').textContent = int32.toLocaleString() + (int32 !== decimal ? ' (※ 32-bit overflow)' : '');
 
     // IEEE 754 Float32
     try {
@@ -523,13 +529,13 @@
     }
   }
 
-  // 이벤트 연결
+  // Bind events
   document.getElementById('bin').addEventListener('input', e => updateAll(2, e.target.value));
   document.getElementById('oct').addEventListener('input', e => updateAll(8, e.target.value));
   document.getElementById('dec').addEventListener('input', e => updateAll(10, e.target.value));
   document.getElementById('hex').addEventListener('input', e => updateAll(16, e.target.value));
 
-  // 퀵버튼
+  // Quick buttons
   function setDec(val) {
     const decEl = document.getElementById('dec');
     decEl.value = String(val);
@@ -537,17 +543,17 @@
     updateAll(10, String(val));
   }
 
-  // 복사
+  // Copy
   function copyVal(id) {
     const val = document.getElementById(id).value;
     if (!val) return;
     const btnId = 'copy' + id.charAt(0).toUpperCase() + id.slice(1);
     const btn = document.getElementById(btnId);
     navigator.clipboard.writeText(val).then(() => {
-      btn.textContent = '복사됨!';
+      btn.textContent = 'Copied!';
       btn.classList.add('copied');
       setTimeout(() => {
-        btn.textContent = '복사';
+        btn.textContent = 'Copy';
         btn.classList.remove('copied');
       }, 1500);
     }).catch(() => {
@@ -558,10 +564,10 @@
       tmp.select();
       document.execCommand('copy');
       document.body.removeChild(tmp);
-      btn.textContent = '복사됨!';
+      btn.textContent = 'Copied!';
       btn.classList.add('copied');
       setTimeout(() => {
-        btn.textContent = '복사';
+        btn.textContent = 'Copy';
         btn.classList.remove('copied');
       }, 1500);
     });

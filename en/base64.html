@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -75,6 +75,13 @@
   ]
 }
 </script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+  </style>
 </head>
 <body>
 
@@ -89,7 +96,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="base64.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/base64.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -127,39 +139,39 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>Base64 변환</span>
+    <span>Base64</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🔐</span>
     <h1>Base64 Encoder / Decoder — Free Online</h1>
-    <p>텍스트를 Base64로 인코딩하거나 Base64를 원래 텍스트로 디코딩합니다</p>
+    <p>Encode text to Base64 or decode a Base64 string back to readable text instantly.</p>
   </div>
 
   <div class="text-panel">
     <div class="text-panel-title">Input</div>
-    <textarea id="inputText" rows="8" placeholder="인코딩하거나 디코딩할 텍스트를 입력하세요...&#10;예: 안녕하세요 / 6rCV64S26riwIOyasOyepQ=="></textarea>
+    <textarea id="inputText" rows="8" placeholder="Enter text to encode or Base64 to decode..."></textarea>
     <div class="btn-group" style="margin-top:14px;">
-      <button class="btn btn-primary" onclick="encode()">🔒 Base64 인코딩</button>
-      <button class="btn btn-outline" onclick="decode()">🔓 Base64 디코딩</button>
-      <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+      <button class="btn btn-primary" onclick="encode()">🔒 Encode to Base64</button>
+      <button class="btn btn-outline" onclick="decode()">🔓 Decode from Base64</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
     </div>
   </div>
 
   <div class="text-panel">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
-      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">Result</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 Copy</button>
     </div>
     <div class="output-wrap">
-      <textarea id="outputText" rows="8" readonly class="mono" placeholder="변환 버튼을 클릭하면 결과가 표시됩니다..."></textarea>
+      <textarea id="outputText" rows="8" readonly class="mono" placeholder="Click a button to see the result..."></textarea>
     </div>
     <div id="errorMsg" class="alert alert-error"></div>
-    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+    <div id="copyAlert" class="alert alert-success">✅ Copied to clipboard!</div>
   </div>
 
   <div class="cross-link-tip">
-    💡 URL 인코딩이 필요하신가요? <a href="url-encoder.html">URL 인코딩/디코딩 →</a>
+    💡 Need URL encoding? <a href="url-encoder.html">URL Encoder →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -240,9 +252,9 @@
     try {
       const result = toBase64(input);
       document.getElementById('outputText').value = result;
-      document.getElementById('outputLabel').textContent = '결과 — Base64 인코딩';
+      document.getElementById('outputLabel').textContent = 'Result — Base64 Encode';
     } catch(e) {
-      showError('인코딩 중 오류가 발생했습니다: ' + e.message);
+      showError('Encoding error: ' + e.message);
     }
   }
 
@@ -253,16 +265,16 @@
     try {
       const result = fromBase64(input);
       document.getElementById('outputText').value = result;
-      document.getElementById('outputLabel').textContent = '결과 — Base64 디코딩';
+      document.getElementById('outputLabel').textContent = 'Result — Base64 Decode';
     } catch(e) {
-      showError('디코딩 중 오류가 발생했습니다. 유효한 Base64 형식인지 확인하세요.');
+      showError('Decoding error. Please verify it is a valid Base64 string.');
     }
   }
 
   function clearAll() {
     document.getElementById('inputText').value = '';
     document.getElementById('outputText').value = '';
-    document.getElementById('outputLabel').textContent = '결과';
+    document.getElementById('outputLabel').textContent = 'Result';
     clearMessages();
   }
 

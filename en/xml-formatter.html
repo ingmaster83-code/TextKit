@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -123,12 +123,13 @@
     .indent-option select:focus {
       outline: none; border-color: #F59E0B;
     }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -143,7 +144,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="xml-formatter.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/xml-formatter.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -182,46 +188,46 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>XML 포맷터</span>
+    <span>XML Formatter</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">📄</span>
     <h1>XML Formatter & Validator — Free Online</h1>
-    <p>XML을 보기 좋게 들여쓰기 정렬하거나 압축하고 유효성을 검사합니다</p>
+    <p>Paste XML to format it with proper indentation, check for syntax errors, or compress it to a single line.</p>
   </div>
 
   <div class="text-panel">
     <div class="indent-option">
-      <label for="indentSelect">들여쓰기:</label>
+      <label for="indentSelect">Indent:</label>
       <select id="indentSelect">
-        <option value="2spaces">공백 2칸</option>
-        <option value="4spaces" selected>공백 4칸</option>
-        <option value="tab">탭(Tab)</option>
+        <option value="2spaces">2 spaces</option>
+        <option value="4spaces" selected>4 spaces</option>
+        <option value="tab">Tab</option>
       </select>
     </div>
-    <div class="text-panel-title">XML 입력</div>
-    <textarea id="inputText" rows="12" class="mono" placeholder='XML을 붙여넣거나 입력하세요...&#10;예: &lt;?xml version="1.0"?&gt;&lt;root&gt;&lt;item id="1"&gt;Hello&lt;/item&gt;&lt;/root&gt;'></textarea>
+    <div class="text-panel-title">XML Input</div>
+    <textarea id="inputText" rows="12" class="mono" placeholder='Paste or enter XML here...&#10;e.g.: &lt;?xml version="1.0"?&gt;&lt;root&gt;&lt;item id="1"&gt;Hello&lt;/item&gt;&lt;/root&gt;'></textarea>
     <div class="btn-group" style="margin-top:14px;">
-      <button class="btn btn-primary" onclick="formatXMLAction()">✨ 예쁘게 정렬</button>
-      <button class="btn btn-outline" onclick="minifyXMLAction()">📦 압축</button>
-      <button class="btn btn-outline" onclick="validateXMLAction()">✅ 유효성 검사</button>
-      <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+      <button class="btn btn-primary" onclick="formatXMLAction()">✨ Format</button>
+      <button class="btn btn-outline" onclick="minifyXMLAction()">📦 Minify</button>
+      <button class="btn btn-outline" onclick="validateXMLAction()">✅ Validate</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
     </div>
     <div id="validationResult"></div>
   </div>
 
   <div class="text-panel" id="outputPanel" style="display:none;">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
-      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">Result</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 Copy</button>
     </div>
     <pre class="xml-output-pre" id="outputPre"></pre>
-    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+    <div id="copyAlert" class="alert alert-success">✅ Copied to clipboard!</div>
   </div>
 
   <div class="cross-link-tip">
-    💡 JSON 데이터 정렬이 필요하신가요? <a href="../json-formatter.html">JSON Formatter →</a>
+    💡 Need to format JSON? <a href="../json-formatter.html">JSON Formatter →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -310,12 +316,12 @@
       line = line.trim();
       if (!line) return;
 
-      // 닫는 태그면 레벨 감소 후 출력
+      // Closing tag: decrease level then output
       if (line.match(/^<\//)) {
         level = Math.max(0, level - 1);
         result += pad() + line + '\n';
       }
-      // XML 선언 / DOCTYPE / 주석 / CDATA / 자기닫힘 태그 / 인라인 태그
+      // XML declaration / DOCTYPE / comment / CDATA / self-closing / inline
       else if (
         line.match(/^<\?/) ||
         line.match(/^<!/) ||
@@ -324,12 +330,12 @@
       ) {
         result += pad() + line + '\n';
       }
-      // 여는 태그
+      // Opening tag
       else if (line.match(/^</)) {
         result += pad() + line + '\n';
         level++;
       }
-      // 텍스트 노드
+      // Text node
       else {
         result += pad() + line + '\n';
       }
@@ -354,17 +360,17 @@
     const escaped = escapeHtml(xml);
 
     return escaped
-      // XML 선언/프롤로그: <?xml ... ?>
+      // XML declaration/prolog: <?xml ... ?>
       .replace(/(&lt;\?[^?]*\?&gt;)/g, '<span class="xml-prolog">$1</span>')
-      // 주석: <!-- ... -->
+      // Comment: <!-- ... -->
       .replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="xml-comment">$1</span>')
       // CDATA
       .replace(/(&lt;!\[CDATA\[[\s\S]*?\]\]&gt;)/g, '<span class="xml-cdata">$1</span>')
-      // 속성값 "..." (먼저 치환)
+      // Attribute value "..." (replace first)
       .replace(/=(&quot;[^&]*&quot;)/g, '=<span class="xml-value">$1</span>')
-      // 속성명 (속성값 앞에 위치한 단어)
+      // Attribute name (word before attribute value)
       .replace(/\s([\w:.-]+)=(?=&lt;|<span class="xml-value">)/g, ' <span class="xml-attr">$1</span>=')
-      // 여는/닫는 태그명
+      // Opening/closing tag name
       .replace(/(&lt;\/?([\w:.-]+))/g, (match, p1, p2) => {
         return p1.replace(p2, '<span class="xml-tag">' + p2 + '</span>');
       });
@@ -399,9 +405,9 @@
     try {
       const doc = parseXML(input);
       const formatted = formatXML(doc, getIndent());
-      showOutput(formatted, '결과 — 예쁘게 정렬');
+      showOutput(formatted, 'Result — Pretty Print');
     } catch(e) {
-      showValidation(false, '유효하지 않은 XML입니다: ' + e.message);
+      showValidation(false, 'Invalid XML: ' + e.message);
       document.getElementById('outputPanel').style.display = 'none';
     }
   }
@@ -413,9 +419,9 @@
     try {
       const doc = parseXML(input);
       const minified = minifyXML(doc);
-      showOutput(minified, '결과 — 압축');
+      showOutput(minified, 'Result — Minified');
     } catch(e) {
-      showValidation(false, '유효하지 않은 XML입니다: ' + e.message);
+      showValidation(false, 'Invalid XML: ' + e.message);
       document.getElementById('outputPanel').style.display = 'none';
     }
   }
@@ -425,9 +431,9 @@
     if (!input) return;
     try {
       parseXML(input);
-      showValidation(true, '유효한 XML입니다.');
+      showValidation(true, 'Valid XML.');
     } catch(e) {
-      showValidation(false, '유효하지 않은 XML입니다: ' + e.message);
+      showValidation(false, 'Invalid XML: ' + e.message);
     }
   }
 

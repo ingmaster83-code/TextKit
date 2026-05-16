@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -75,6 +75,13 @@
   ]
 }
 </script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+  </style>
 </head>
 <body>
 
@@ -89,7 +96,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="char-counter.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/char-counter.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -133,12 +145,12 @@
   <div class="tool-header">
     <span class="tool-header-icon">🔢</span>
     <h1>Character Counter — Free Online</h1>
-    <p>텍스트를 입력하면 글자수·단어수·줄수·문장수·단락수를 실시간으로 세어 드립니다</p>
+    <p>Enter text to count characters, words, lines, sentences, and paragraphs in real time.</p>
   </div>
 
   <div class="text-panel">
     <div class="text-panel-title">Text Input</div>
-    <textarea id="inputText" rows="12" placeholder="여기에 텍스트를 입력하거나 붙여넣기 하세요..."></textarea>
+    <textarea id="inputText" rows="12" placeholder="Type or paste text here..."></textarea>
     <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
       <div class="checkbox-group">
         <label class="checkbox-item">

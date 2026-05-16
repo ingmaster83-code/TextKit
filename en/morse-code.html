@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -135,7 +135,7 @@
       font-weight: 600;
     }
     .copy-alert.show { display: inline; }
-    /* 모스부호 표 */
+    /* Morse Code Table */
     .morse-table-wrap {
       margin-top: 28px;
     }
@@ -198,12 +198,13 @@
       min-height: 18px;
       margin-top: 4px;
     }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -218,7 +219,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="morse-code.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/morse-code.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -256,54 +262,54 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>모스부호 변환</span>
+    <span>Morse Code Translator</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">📡</span>
     <h1>Morse Code Translator — Free Online</h1>
-    <p>텍스트를 모스부호로, 모스부호를 텍스트로 변환하고 실제 신호음으로 재생합니다</p>
+    <p>Convert text to Morse code or decode Morse code to text. Audio playback available.</p>
   </div>
 
   <div class="panel">
-    <div class="panel-title">변환 도구</div>
+    <div class="panel-title">Conversion Tool</div>
 
     <div class="convert-actions" style="margin-top:0;margin-bottom:16px;">
-      <button class="btn-morse btn-morse-primary" onclick="textToMorse()">📡 텍스트 → 모스부호</button>
-      <button class="btn-morse btn-morse-primary" onclick="morseToText()">✏️ 모스부호 → 텍스트</button>
-      <button class="btn-morse btn-morse-secondary" onclick="clearAll()">🗑️ 초기화</button>
+      <button class="btn-morse btn-morse-primary" onclick="textToMorse()">📡 Text → Morse</button>
+      <button class="btn-morse btn-morse-primary" onclick="morseToText()">✏️ Morse → Text</button>
+      <button class="btn-morse btn-morse-secondary" onclick="clearAll()">🗑️ Clear</button>
     </div>
 
     <div class="morse-layout">
-      <!-- 왼쪽: 텍스트 -->
+      <!-- Left: Text -->
       <div class="morse-panel">
         <div class="morse-panel-header">
-          <span class="morse-panel-title">텍스트</span>
+          <span class="morse-panel-title">Text</span>
           <button class="copy-btn-sm" onclick="copyArea('textArea', 'alert1')">Copy</button>
         </div>
-        <textarea id="textArea" placeholder="여기에 텍스트를 입력하세요&#10;예: HELLO WORLD&#10;한글은 영어 발음으로 변환됩니다"></textarea>
-        <div style="padding:4px 14px;"><span class="copy-alert" id="alert1">복사됨!</span></div>
+        <textarea id="textArea" placeholder="Enter text here&#10;e.g.: HELLO WORLD&#10;Korean is converted to English pronunciation"></textarea>
+        <div style="padding:4px 14px;"><span class="copy-alert" id="alert1">Copied!</span></div>
       </div>
 
-      <!-- 오른쪽: 모스부호 -->
+      <!-- Right: Morse Code -->
       <div class="morse-panel">
         <div class="morse-panel-header">
-          <span class="morse-panel-title">모스부호 ( · 단음, — 장음, / 글자, // 단어)</span>
+          <span class="morse-panel-title">Morse ( · dit, — dah, / letter, // word)</span>
           <button class="copy-btn-sm" onclick="copyArea('morseArea', 'alert2')">Copy</button>
         </div>
-        <textarea id="morseArea" placeholder="여기에 모스부호를 입력하거나&#10;위 버튼으로 변환된 결과가 표시됩니다&#10;&#10;예: .... . .-.. .-.. --- / .-- --- .-. .-.. -.."></textarea>
-        <div style="padding:4px 14px;"><span class="copy-alert" id="alert2">복사됨!</span></div>
+        <textarea id="morseArea" placeholder="Enter Morse code here&#10;Result will appear after using the buttons above&#10;&#10;e.g.: .... . .-.. .-.. --- / .-- --- .-. .-.. -.."></textarea>
+        <div style="padding:4px 14px;"><span class="copy-alert" id="alert2">Copied!</span></div>
       </div>
     </div>
 
-    <!-- 재생 컨트롤 -->
+    <!-- Playback Controls -->
     <div style="margin-top:20px;padding:16px;background:#F9FAFB;border-radius:10px;border:1px solid var(--border);">
-      <div style="font-size:0.88rem;font-weight:700;margin-bottom:10px;color:var(--text);">🎵 신호음 재생</div>
+      <div style="font-size:0.88rem;font-weight:700;margin-bottom:10px;color:var(--text);">🎵 Audio Playback</div>
       <div class="morse-speed-wrap">
-        <label style="white-space:nowrap;">재생 속도</label>
+        <label style="white-space:nowrap;">Speed</label>
         <input type="range" id="speedRange" min="1" max="5" value="3" step="1">
-        <span id="speedLabel" style="font-weight:600;color:var(--primary);">보통</span>
-        <label style="white-space:nowrap;margin-left:12px;">주파수</label>
+        <span id="speedLabel" style="font-weight:600;color:var(--primary);">Normal</span>
+        <label style="white-space:nowrap;margin-left:12px;">Frequency</label>
         <input type="range" id="freqRange" min="400" max="1000" value="700" step="50">
         <span id="freqLabel" style="font-weight:600;color:var(--primary);">700Hz</span>
       </div>
@@ -312,26 +318,26 @@
       </div>
       <div class="play-status" id="playStatus"></div>
       <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-        <button class="btn-morse btn-morse-play" id="playBtn" onclick="playMorse()">▶ 재생</button>
-        <button class="btn-morse btn-morse-secondary" onclick="stopMorse()">⏹ 정지</button>
+        <button class="btn-morse btn-morse-play" id="playBtn" onclick="playMorse()">▶ Play</button>
+        <button class="btn-morse btn-morse-secondary" onclick="stopMorse()">⏹ Stop</button>
       </div>
     </div>
   </div>
 
-  <!-- 모스부호 표 -->
+  <!-- Morse Code Table -->
   <div class="panel morse-table-wrap">
-    <div class="panel-title">모스부호 표</div>
-    <div style="font-size:0.82rem;color:var(--text-light);margin-bottom:10px;">· = 단음(dit) &nbsp; — = 장음(dah)</div>
-    <div style="font-size:0.88rem;font-weight:700;margin-bottom:6px;color:var(--text);">알파벳</div>
+    <div class="panel-title">Morse Code Table</div>
+    <div style="font-size:0.82rem;color:var(--text-light);margin-bottom:10px;">· = short (dit) &nbsp; — = long (dah)</div>
+    <div style="font-size:0.88rem;font-weight:700;margin-bottom:6px;color:var(--text);">Alphabet</div>
     <div class="morse-table-grid" id="alphaTable"></div>
-    <div style="font-size:0.88rem;font-weight:700;margin:16px 0 6px;color:var(--text);">숫자</div>
+    <div style="font-size:0.88rem;font-weight:700;margin:16px 0 6px;color:var(--text);">Numbers</div>
     <div class="morse-table-grid" id="numTable"></div>
-    <div style="font-size:0.88rem;font-weight:700;margin:16px 0 6px;color:var(--text);">특수문자</div>
+    <div style="font-size:0.88rem;font-weight:700;margin:16px 0 6px;color:var(--text);">Special chars</div>
     <div class="morse-table-grid" id="specTable"></div>
   </div>
 
   <div class="cross-link-tip">
-    💡 문자 인코딩 변환이 필요하다면 <a href="unicode-converter.html">유니코드 변환기</a>도 이용해보세요.
+    💡 For character encoding conversion, try the <a href="unicode-converter.html">Unicode Converter</a> too.
   </div>
 
   <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -392,7 +398,7 @@
 </footer>
 
 <script>
-// ——— 모스부호 사전 ———
+// ——— Morse Code Dictionary ———
 const MORSE_MAP = {
   'A':'.-','B':'-...','C':'-.-.','D':'-..','E':'.','F':'..-.','G':'--.','H':'....','I':'..','J':'.---',
   'K':'-.-','L':'.-..','M':'--','N':'-.','O':'---','P':'.--.','Q':'--.-','R':'.-.','S':'...','T':'-',
@@ -406,7 +412,7 @@ const MORSE_MAP = {
 const MORSE_REVERSE = {};
 Object.entries(MORSE_MAP).forEach(([ch, code]) => { if (ch !== ' ') MORSE_REVERSE[code] = ch; });
 
-// 한글 → 로마자 근사 변환 (초성 기준)
+// Hangul → Romanization (initial consonant based)
 const HANGUL_TO_EN = {
   'ㄱ':'G','ㄴ':'N','ㄷ':'D','ㄹ':'R','ㅁ':'M','ㅂ':'B','ㅅ':'S','ㅇ':'','ㅈ':'J','ㅊ':'CH',
   'ㅋ':'K','ㅌ':'T','ㅍ':'P','ㅎ':'H',
@@ -439,7 +445,7 @@ function textToMorseStr(text) {
     const chars = [...word];
     const morseChars = [];
     chars.forEach(ch => {
-      // 한글 처리
+      // Hangul processing
       if (ch >= '가' && ch <= '힣') {
         const roman = hangulToRoman(ch);
         if (roman) {
@@ -458,7 +464,7 @@ function textToMorseStr(text) {
 }
 
 function morseToTextStr(morse) {
-  // 정규화: 다양한 dash 문자 통일
+  // Normalize: unify various dash characters
   const normalized = morse.replace(/[—–−]/g, '-').replace(/[·•]/g, '.');
   const wordGroups = normalized.split(/\s*\/\s*/);
   return wordGroups.map(word => {
@@ -469,13 +475,13 @@ function morseToTextStr(morse) {
 
 function textToMorse() {
   const text = document.getElementById('textArea').value;
-  if (!text.trim()) { alert('변환할 텍스트를 입력하세요.'); return; }
+  if (!text.trim()) { alert('Please enter text to convert.'); return; }
   document.getElementById('morseArea').value = textToMorseStr(text);
 }
 
 function morseToText() {
   const morse = document.getElementById('morseArea').value;
-  if (!morse.trim()) { alert('변환할 모스부호를 입력하세요.'); return; }
+  if (!morse.trim()) { alert('Please enter Morse code to convert.'); return; }
   document.getElementById('textArea').value = morseToTextStr(morse);
 }
 
@@ -498,9 +504,9 @@ function showAlert(id) {
   setTimeout(() => a.classList.remove('show'), 2000);
 }
 
-// ——— 재생 ———
-const SPEED_LABELS = ['매우 느림', '느림', '보통', '빠름', '매우 빠름'];
-const SPEED_UNIT_MS = [200, 150, 100, 70, 45]; // 단음 길이 (ms)
+// ——— Playback ———
+const SPEED_LABELS = ['Very slow', 'Slow', 'Normal', 'Fast', 'Very fast'];
+const SPEED_UNIT_MS = [200, 150, 100, 70, 45]; // Dot duration (ms)
 
 const speedRange = document.getElementById('speedRange');
 const freqRange = document.getElementById('freqRange');
@@ -535,9 +541,9 @@ async function playMorse() {
 
   let morse = document.getElementById('morseArea').value.trim();
   if (!morse) {
-    // 텍스트 영역에서 자동 변환
+    // Auto-convert from text area
     const text = document.getElementById('textArea').value.trim();
-    if (!text) { alert('재생할 모스부호 또는 텍스트를 입력하세요.'); return; }
+    if (!text) { alert('Please enter Morse code or text to play.'); return; }
     morse = textToMorseStr(text);
     document.getElementById('morseArea').value = morse;
   }
@@ -546,7 +552,7 @@ async function playMorse() {
   const freq = parseInt(freqRange.value);
   const ctx = getAudioCtx();
 
-  // 정규화
+  // Normalize
   const normalized = morse.replace(/[—–−]/g, '-').replace(/[·•]/g, '.');
   const symbols = normalized.replace(/\//g, ' / ').split(/\s+/).filter(s => s);
 
@@ -556,27 +562,27 @@ async function playMorse() {
   isPlaying = true;
   stopFlag = false;
   const playBtn = document.getElementById('playBtn');
-  playBtn.textContent = '▶ 재생 중...';
+  playBtn.textContent = '▶ Playing...';
   playBtn.classList.add('playing');
   document.getElementById('progressWrap').style.display = 'block';
   document.getElementById('progressBar').style.width = '0%';
-  document.getElementById('playStatus').textContent = '재생 중...';
+  document.getElementById('playStatus').textContent = 'Playing...';
 
   for (let i = 0; i < symbols.length; i++) {
     if (stopFlag) break;
     const sym = symbols[i];
 
     if (sym === '/') {
-      // 단어 간격: 7 units (글자 간격 3 포함)
+      // Word gap: 7 units (includes 3 for char gap)
       await sleep(unitMs * 4);
     } else {
-      // 각 글자의 각 부호
+      // Each symbol of each character
       const parts = sym.split('');
       for (let pi = 0; pi < parts.length; pi++) {
         if (stopFlag) break;
         const p = parts[pi];
         const duration = p === '-' ? unitMs * 3 : unitMs;
-        // 신호 재생
+        // Play signal
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.connect(gain);
@@ -591,13 +597,13 @@ async function playMorse() {
         osc.stop(ctx.currentTime + duration / 1000);
         await sleep(duration);
         if (stopFlag) break;
-        // 부호 간격: 1 unit
+        // Symbol gap: 1 unit
         if (pi < parts.length - 1) await sleep(unitMs);
       }
       done++;
       const pct = totalSymbols > 0 ? Math.round(done / totalSymbols * 100) : 0;
       document.getElementById('progressBar').style.width = pct + '%';
-      // 글자 간격: 3 units (1 already consumed)
+      // Char gap: 3 units (1 already consumed)
       if (i < symbols.length - 1 && symbols[i + 1] !== '/') {
         await sleep(unitMs * 2);
       }
@@ -606,10 +612,10 @@ async function playMorse() {
 
   isPlaying = false;
   stopFlag = false;
-  playBtn.textContent = '▶ 재생';
+  playBtn.textContent = '▶ Play';
   playBtn.classList.remove('playing');
   document.getElementById('progressBar').style.width = stopFlag ? document.getElementById('progressBar').style.width : '100%';
-  document.getElementById('playStatus').textContent = stopFlag ? '정지됨' : '재생 완료';
+  document.getElementById('playStatus').textContent = stopFlag ? 'Stopped' : 'Done';
   setTimeout(() => {
     document.getElementById('progressWrap').style.display = 'none';
     document.getElementById('playStatus').textContent = '';
@@ -621,7 +627,7 @@ function stopMorse() {
   isPlaying = false;
   const playBtn = document.getElementById('playBtn');
   if (playBtn) {
-    playBtn.textContent = '▶ 재생';
+    playBtn.textContent = '▶ Play';
     playBtn.classList.remove('playing');
   }
   if (audioCtx) {
@@ -634,7 +640,7 @@ function stopMorse() {
   if (playStatus) playStatus.textContent = '';
 }
 
-// ——— 모스부호 표 생성 ———
+// ——— Build Morse Table ———
 function buildTable() {
   const alphaTable = document.getElementById('alphaTable');
   const numTable = document.getElementById('numTable');
@@ -647,7 +653,7 @@ function buildTable() {
   function makeItem(ch) {
     const item = document.createElement('div');
     item.className = 'morse-table-item';
-    item.title = '클릭해서 모스부호 복사';
+    item.title = 'Click to copy Morse code';
     item.style.cursor = 'pointer';
     item.onclick = () => {
       navigator.clipboard.writeText(MORSE_MAP[ch] || '').catch(() => {});

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -27,7 +27,7 @@
   <meta property="og:url" content="https://textkit.wooahouse.com/en/markdown-editor.html">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
-  <!-- 구조화 데이터 -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -218,12 +218,13 @@
       .md-editor-wrap.hidden, .md-preview-wrap.hidden { display: none; }
     }
     .tool-page.wide { max-width: 1100px; }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -238,7 +239,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="markdown-editor.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/markdown-editor.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -275,65 +281,65 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>마크다운 에디터</span>
+    <span>Markdown Editor</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">📝</span>
     <h1>Markdown Editor — Live Preview</h1>
-    <p>마크다운을 실시간으로 HTML로 변환하며 미리보기합니다</p>
+    <p>Write Markdown on the left and see the live HTML preview on the right. Copy or download anytime.</p>
   </div>
 
   <div class="md-toolbar">
-    <button onclick="insertMd('**','**')" title="굵게">B</button>
-    <button onclick="insertMd('*','*')" title="기울임"><i>I</i></button>
-    <button onclick="insertMd('~~','~~')" title="취소선"><s>S</s></button>
-    <button onclick="insertMd('\n# ','')" title="제목1">H1</button>
-    <button onclick="insertMd('\n## ','')" title="제목2">H2</button>
-    <button onclick="insertMd('\n### ','')" title="제목3">H3</button>
-    <button onclick="insertMd('[','](url)')" title="링크">Link</button>
-    <button onclick="insertMd('![alt](',')')" title="이미지">Img</button>
-    <button onclick="insertMd('`','`')" title="인라인 코드">Code</button>
-    <button onclick="insertMd('\n```\n','\n```\n')" title="코드 블록">Block</button>
-    <button onclick="insertTable()" title="표">Table</button>
-    <button onclick="insertMd('\n---\n','')" title="수평선">HR</button>
-    <button onclick="insertMd('\n> ','')" title="인용">Quote</button>
-    <button onclick="insertMd('\n- ','')" title="목록">List</button>
-    <button onclick="insertMd('\n- [ ] ','')" title="체크리스트">Check</button>
+    <button onclick="insertMd('**','**')" title="Bold">B</button>
+    <button onclick="insertMd('*','*')" title="Italic"><i>I</i></button>
+    <button onclick="insertMd('~~','~~')" title="Strikethrough"><s>S</s></button>
+    <button onclick="insertMd('\n# ','')" title="Heading1">H1</button>
+    <button onclick="insertMd('\n## ','')" title="Heading2">H2</button>
+    <button onclick="insertMd('\n### ','')" title="Heading3">H3</button>
+    <button onclick="insertMd('[','](url)')" title="Link">Link</button>
+    <button onclick="insertMd('![alt](',')')" title="Image">Img</button>
+    <button onclick="insertMd('`','`')" title="Inline Code">Code</button>
+    <button onclick="insertMd('\n```\n','\n```\n')" title="Code Block">Block</button>
+    <button onclick="insertTable()" title="Table">Table</button>
+    <button onclick="insertMd('\n---\n','')" title="HR">HR</button>
+    <button onclick="insertMd('\n> ','')" title="Quote">Quote</button>
+    <button onclick="insertMd('\n- ','')" title="List">List</button>
+    <button onclick="insertMd('\n- [ ] ','')" title="Checklist">Check</button>
   </div>
 
   <div class="md-mobile-tabs">
-    <button class="active" onclick="showTab('editor')">편집</button>
-    <button onclick="showTab('preview')">미리보기</button>
+    <button class="active" onclick="showTab('editor')">Edit</button>
+    <button onclick="showTab('preview')">Preview</button>
   </div>
 
   <div class="md-container">
     <div class="md-editor-wrap">
-      <textarea id="mdEditor" class="md-editor" placeholder="마크다운을 입력하세요..." spellcheck="false"></textarea>
+      <textarea id="mdEditor" class="md-editor" placeholder="Enter Markdown here..." spellcheck="false"></textarea>
     </div>
     <div class="md-preview-wrap">
-      <div class="md-preview-label">미리보기</div>
+      <div class="md-preview-label">Preview</div>
       <div id="mdPreview" class="md-preview"></div>
     </div>
   </div>
 
   <div class="md-stats">
-    <span>글자 <strong id="statChars">0</strong></span>
-    <span>단어 <strong id="statWords">0</strong></span>
-    <span>줄 <strong id="statLines">0</strong></span>
+    <span>Chars <strong id="statChars">0</strong></span>
+    <span>Words <strong id="statWords">0</strong></span>
+    <span>Lines <strong id="statLines">0</strong></span>
   </div>
 
   <div class="btn-group" style="margin-top:16px;">
-    <button class="btn btn-secondary" onclick="loadMdFile()">📂 MD 파일 불러오기</button>
-    <button class="btn btn-primary" onclick="saveMdFile()">💾 MD 저장</button>
-    <button class="btn btn-success" onclick="copyHtml()">📋 HTML 복사</button>
-    <button class="btn btn-outline" onclick="downloadHtml()">⬇️ HTML 다운로드</button>
+    <button class="btn btn-secondary" onclick="loadMdFile()">📂 Load MD File</button>
+    <button class="btn btn-primary" onclick="saveMdFile()">💾 Save MD</button>
+    <button class="btn btn-success" onclick="copyHtml()">📋 Copy HTML</button>
+    <button class="btn btn-outline" onclick="downloadHtml()">⬇️ Download HTML</button>
   </div>
   <input type="file" id="fileInput" accept=".md,.markdown,.txt" style="display:none;">
-  <div id="copyAlert" class="alert alert-success">클립보드에 복사되었습니다!</div>
+  <div id="copyAlert" class="alert alert-success">Copied to clipboard!</div>
 
   <div class="cross-link-tip" style="margin-top:20px;">
-    💡 코드 작업에 유용한 VS Code 확장이 필요하신가요? <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">Browse Extensions on WooaVS →</a>
+    💡 Need useful VS Code extensions? <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">Browse Extensions on WooaVS →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -399,54 +405,54 @@
   const fileInput = document.getElementById('fileInput');
 
   // Default sample
-  const defaultMd = `# 마크다운 에디터에 오신 것을 환영합니다!
+  const defaultMd = `# Welcome to the Markdown Editor!
 
-이것은 **실시간 마크다운 미리보기** 도구입니다.
+This is a **real-time Markdown preview** tool.
 
-## 기본 서식
+## Basic Formatting
 
-**굵게**, *기울임*, ~~취소선~~을 사용할 수 있습니다.
+**Bold**, *italic*, ~~strikethrough~~ are all supported.
 
-## 목록
+## Lists
 
-- 항목 1
-- 항목 2
-  - 하위 항목
+- Item 1
+- Item 2
+  - Sub-item
 
-1. 번호 목록
-2. 두 번째 항목
+1. Ordered list
+2. Second item
 
-## 코드
+## Code
 
-인라인 코드: \`console.log("Hello")\`
+Inline code: \`console.log("Hello")\`
 
 \`\`\`javascript
 function greet(name) {
-  return \`안녕하세요, \${name}님!\`;
+  return \`Hello, \${name}!\`;
 }
-console.log(greet("세계"));
+console.log(greet("World"));
 \`\`\`
 
-## 인용문
+## Blockquote
 
-> 마크다운은 읽기 쉽고 쓰기 쉬운 텍스트 포맷입니다.
+> Markdown is an easy-to-read and easy-to-write text format.
 
-## 표
+## Table
 
-| 기능 | 지원 여부 |
+| Feature | Supported |
 |------|-----------|
-| 굵게 | ✅ |
-| 기울임 | ✅ |
-| 코드 블록 | ✅ |
-| 표 | ✅ |
+| Bold | ✅ |
+| Italic | ✅ |
+| Code Block | ✅ |
+| Table | ✅ |
 
-## 링크 & 이미지
+## Links & Images
 
-[WooaText 홈](https://textkit.wooahouse.com/)
+[WooaText Home](https://textkit.wooahouse.com/)
 
 ---
 
-*WooaText에서 무료로 마크다운을 편집하세요!*`;
+*Edit Markdown for free on WooaText!*`;
 
   editor.value = defaultMd;
   renderPreview();
@@ -475,14 +481,14 @@ console.log(greet("세계"));
     const start = editor.selectionStart;
     const end = editor.selectionEnd;
     const selected = editor.value.substring(start, end);
-    const text = before + (selected || '텍스트') + after;
+    const text = before + (selected || 'text') + after;
     editor.setRangeText(text, start, end, 'select');
     editor.focus();
     renderPreview();
   }
 
   function insertTable() {
-    const table = '\n| 제목1 | 제목2 | 제목3 |\n|-------|-------|-------|\n| 내용1 | 내용2 | 내용3 |\n| 내용4 | 내용5 | 내용6 |\n';
+    const table = '\n| Header1 | Header2 | Header3 |\n|-------|-------|-------|\n| Cell1 | Cell2 | Cell3 |\n| Cell4 | Cell5 | Cell6 |\n';
     const pos = editor.selectionStart;
     editor.setRangeText(table, pos, pos, 'end');
     editor.focus();
@@ -536,7 +542,7 @@ console.log(greet("세계"));
 
   function downloadHtml() {
     const html = `<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head><meta charset="UTF-8"><title>Markdown Editor Online Free — Live Preview | WooaText</title>
 <style>body{font-family:-apple-system,sans-serif;max-width:800px;margin:40px auto;padding:0 20px;line-height:1.8;color:#1a1a2e;}pre{background:#1e1e1e;color:#e2e8f0;padding:16px;border-radius:8px;overflow-x:auto;}code{background:#f3f4f6;padding:2px 6px;border-radius:4px;}pre code{background:transparent;}table{border-collapse:collapse;width:100%;}td,th{border:1px solid #e5e7eb;padding:8px 12px;}th{background:#fef3c7;}blockquote{border-left:4px solid #f59e0b;padding-left:16px;color:#6b7280;}</style>
 </head><body>${marked.parse(editor.value)}</body></html>`;
@@ -568,10 +574,10 @@ console.log(greet("세계"));
 </script>
 <script src="../js/pwa-install.js"></script>
 
-<!-- 하단 고정 광고 배너 -->
+<!-- Bottom Fixed Ad Banner -->
 <div id="bottom-ad-bar" style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;padding:4px 8px;z-index:9999;display:flex;align-items:center;justify-content:center;min-height:60px;">
-  <button onclick="document.getElementById('bottom-ad-bar').style.display='none'" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;color:#9ca3af;" title="닫기">✕</button>
-  <div style="font-size:0.65rem;color:#9ca3af;position:absolute;left:8px;top:4px;">광고</div>
+  <button onclick="document.getElementById('bottom-ad-bar').style.display='none'" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;color:#9ca3af;" title="Close">✕</button>
+  <div style="font-size:0.65rem;color:#9ca3af;position:absolute;left:8px;top:4px;">Ad</div>
   <ins class="adsbygoogle"
        style="display:inline-block;width:728px;height:90px;max-width:100%"
        data-ad-client="ca-pub-6464921081676309"

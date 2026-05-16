@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -27,7 +27,7 @@
   <meta property="og:url" content="https://textkit.wooahouse.com/en/regex-tester.html">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
-  <!-- 구조화 데이터 -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -287,12 +287,13 @@
       margin-top: 8px;
     }
     .matches-list { max-height: 400px; overflow-y: auto; }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -307,7 +308,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="regex-tester.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/regex-tester.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -345,82 +351,82 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>정규식 테스터</span>
+    <span>Regex Tester</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🔍</span>
     <h1>Regex Tester — Free Online</h1>
-    <p>정규식 패턴을 실시간으로 테스트하고 매칭 결과를 확인합니다</p>
+    <p>Enter a regular expression pattern and test it against your text with live match highlighting.</p>
   </div>
 
-  <!-- 패턴 입력 -->
+  <!-- Pattern Input -->
   <div class="text-panel">
-    <div class="text-panel-title">정규식 패턴</div>
+    <div class="text-panel-title">Regex Pattern</div>
     <div class="regex-input-wrap">
       <span class="slash">/</span>
-      <input type="text" id="regexPattern" placeholder="정규식 패턴을 입력하세요" autocomplete="off" spellcheck="false">
+      <input type="text" id="regexPattern" placeholder="Enter regex pattern" autocomplete="off" spellcheck="false">
       <span class="slash">/</span>
       <span class="flags" id="flagsDisplay">g</span>
     </div>
     <div class="regex-error" id="regexError"></div>
     <div class="flags-group">
-      <label><input type="checkbox" id="flagG" checked onchange="updateFlags()"> <code>g</code> 전역</label>
-      <label><input type="checkbox" id="flagI" onchange="updateFlags()"> <code>i</code> 대소문자 무시</label>
-      <label><input type="checkbox" id="flagM" onchange="updateFlags()"> <code>m</code> 멀티라인</label>
+      <label><input type="checkbox" id="flagG" checked onchange="updateFlags()"> <code>g</code> global</label>
+      <label><input type="checkbox" id="flagI" onchange="updateFlags()"> <code>i</code> Ignore case</label>
+      <label><input type="checkbox" id="flagM" onchange="updateFlags()"> <code>m</code> multiline</label>
       <label><input type="checkbox" id="flagS" onchange="updateFlags()"> <code>s</code> dotAll</label>
     </div>
   </div>
 
-  <!-- 빠른 패턴 -->
+  <!-- Quick Patterns -->
   <div class="text-panel">
-    <div class="text-panel-title">빠른 패턴 모음</div>
+    <div class="text-panel-title">Quick Patterns</div>
     <div class="quick-patterns">
-      <button onclick="setPattern('[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}')">이메일</button>
-      <button onclick="setPattern('01[0-9]-?\\d{3,4}-?\\d{4}')">전화번호</button>
+      <button onclick="setPattern('[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}')">Email</button>
+      <button onclick="setPattern('01[0-9]-?\\d{3,4}-?\\d{4}')">Phone</button>
       <button onclick="setPattern('https?:\\/\\/[^\\s]+')">URL</button>
-      <button onclick="setPattern('[가-힣]+')">한글만</button>
-      <button onclick="setPattern('\\d+')">숫자만</button>
-      <button onclick="setPattern('\\d{4}-\\d{2}-\\d{2}')">날짜</button>
-      <button onclick="setPattern('\\s+')">공백</button>
-      <button onclick="setPattern('<[^>]+>')">HTML 태그</button>
+      <button onclick="setPattern('[가-힣]+')">Korean only</button>
+      <button onclick="setPattern('\\d+')">Numbers only</button>
+      <button onclick="setPattern('\\d{4}-\\d{2}-\\d{2}')">Date</button>
+      <button onclick="setPattern('\\s+')">Whitespace</button>
+      <button onclick="setPattern('<[^>]+>')">HTML tag</button>
     </div>
   </div>
 
-  <!-- 테스트 문자열 -->
+  <!-- Test String -->
   <div class="text-panel">
-    <div class="text-panel-title">테스트 문자열</div>
+    <div class="text-panel-title">Test String</div>
     <div class="highlight-container">
-      <textarea id="testString" class="highlight-textarea" rows="8" placeholder="테스트할 문자열을 입력하세요...&#10;예: test@email.com 010-1234-5678 https://example.com"></textarea>
+      <textarea id="testString" class="highlight-textarea" rows="8" placeholder="Enter test string...&#10;e.g.: test@email.com 010-1234-5678 https://example.com"></textarea>
       <div id="highlightBackdrop" class="highlight-backdrop"></div>
     </div>
   </div>
 
-  <!-- 매칭 결과 -->
+  <!-- Match Results -->
   <div class="text-panel">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <div class="text-panel-title" style="margin-bottom:0;">매칭 결과</div>
-      <span class="match-badge" id="matchCount">0개 매칭</span>
+      <div class="text-panel-title" style="margin-bottom:0;">Match Results</div>
+      <span class="match-badge" id="matchCount">0 matches</span>
     </div>
     <div class="matches-list" id="matchesList">
-      <div style="color:var(--text-light); font-size:0.88rem;">패턴과 테스트 문자열을 입력하면 매칭 결과가 표시됩니다.</div>
+      <div style="color:var(--text-light); font-size:0.88rem;">Enter a pattern and test string to see matches.</div>
     </div>
   </div>
 
-  <!-- 치환 -->
+  <!-- Replace -->
   <div class="text-panel">
-    <div class="text-panel-title">치환 (Replace)</div>
-    <input type="text" id="replacePattern" placeholder="치환 패턴 (예: $1-$2)" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:'Consolas',monospace;outline:none;background:#FAFAFA;" spellcheck="false">
+    <div class="text-panel-title">Replace</div>
+    <input type="text" id="replacePattern" placeholder="Replace pattern (e.g. $1-$2)" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:'Consolas',monospace;outline:none;background:#FAFAFA;" spellcheck="false">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-      <span class="text-panel-title" style="margin-bottom:0;">치환 결과</span>
-      <button class="btn btn-success btn-sm" onclick="copyReplace()">📋 복사</button>
+      <span class="text-panel-title" style="margin-bottom:0;">Replace Result</span>
+      <button class="btn btn-success btn-sm" onclick="copyReplace()">📋 Copy</button>
     </div>
-    <div class="replace-result" id="replaceResult">치환 패턴을 입력하면 결과가 표시됩니다.</div>
+    <div class="replace-result" id="replaceResult">Enter a replace pattern to see the result.</div>
   </div>
-  <div id="copyAlert" class="alert alert-success">클립보드에 복사되었습니다!</div>
+  <div id="copyAlert" class="alert alert-success">Copied to clipboard!</div>
 
   <div class="cross-link-tip">
-    💡 URL 인코딩/디코딩이 필요하신가요? <a href="url-encoder.html">URL 인코딩 도구 →</a>
+    💡 Need URL encoding/decoding? <a href="url-encoder.html">URL Encoder →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -501,7 +507,7 @@
     const i = document.getElementById('flagI').checked ? 'i' : '';
     const m = document.getElementById('flagM').checked ? 'm' : '';
     const s = document.getElementById('flagS').checked ? 's' : '';
-    document.getElementById('flagsDisplay').textContent = g + i + m + s || '(없음)';
+    document.getElementById('flagsDisplay').textContent = g + i + m + s || '(none)';
     runTest();
   }
 
@@ -539,9 +545,9 @@
 
     if (!pattern) {
       highlightBackdrop.innerHTML = escapeHtml(testStr) + '\n';
-      matchesList.innerHTML = '<div style="color:var(--text-light);font-size:0.88rem;">패턴을 입력하세요.</div>';
-      matchCountEl.textContent = '0개 매칭';
-      replaceResultEl.textContent = testStr || '치환 패턴을 입력하면 결과가 표시됩니다.';
+      matchesList.innerHTML = '<div style="color:var(--text-light);font-size:0.88rem;">Enter a pattern.</div>';
+      matchCountEl.textContent = '0 matches';
+      replaceResultEl.textContent = testStr || 'Enter a replace pattern to see the result.';
       return;
     }
 
@@ -549,18 +555,18 @@
     try {
       regex = new RegExp(pattern, flags);
     } catch (e) {
-      regexError.textContent = '유효하지 않은 정규식: ' + e.message;
+      regexError.textContent = 'Invalid regex: ' + e.message;
       regexError.classList.add('show');
       highlightBackdrop.innerHTML = escapeHtml(testStr) + '\n';
       matchesList.innerHTML = '';
-      matchCountEl.textContent = '오류';
+      matchCountEl.textContent = 'Error';
       return;
     }
 
     if (!testStr) {
       highlightBackdrop.innerHTML = '\n';
-      matchesList.innerHTML = '<div style="color:var(--text-light);font-size:0.88rem;">테스트 문자열을 입력하세요.</div>';
-      matchCountEl.textContent = '0개 매칭';
+      matchesList.innerHTML = '<div style="color:var(--text-light);font-size:0.88rem;">Enter test string.</div>';
+      matchCountEl.textContent = '0 matches';
       replaceResultEl.textContent = '';
       return;
     }
@@ -588,7 +594,7 @@
       }
     }
 
-    matchCountEl.textContent = matches.length + '개 매칭';
+    matchCountEl.textContent = matches.length + ' matches';
 
     // Highlight
     if (matches.length > 0) {
@@ -612,12 +618,12 @@
       let html = '';
       matches.forEach((match, i) => {
         html += `<div class="match-card">
-          <div class="match-label">매칭 #${i + 1} (인덱스: ${match.index})</div>
+          <div class="match-label">Match #${i + 1} (index: ${match.index})</div>
           <div class="match-value">${escapeHtml(match.value)}</div>`;
         if (match.groups.length > 0) {
-          html += '<div class="match-groups">그룹: ';
+          html += '<div class="match-groups">Groups: ';
           match.groups.forEach((g, gi) => {
-            html += `<span>$${gi + 1}: ${g !== undefined ? escapeHtml(g) : '(없음)'}</span>`;
+            html += `<span>$${gi + 1}: ${g !== undefined ? escapeHtml(g) : '(none)'}</span>`;
           });
           html += '</div>';
         }
@@ -625,7 +631,7 @@
       });
       matchesList.innerHTML = html;
     } else {
-      matchesList.innerHTML = '<div style="color:var(--text-light);font-size:0.88rem;">매칭되는 결과가 없습니다.</div>';
+      matchesList.innerHTML = '<div style="color:var(--text-light);font-size:0.88rem;">No matches found.</div>';
     }
 
     // Replace
@@ -635,7 +641,7 @@
         const result = testStr.replace(regex, replaceVal);
         replaceResultEl.textContent = result;
       } catch (e) {
-        replaceResultEl.textContent = '치환 오류: ' + e.message;
+        replaceResultEl.textContent = 'Replace error: ' + e.message;
       }
     } else {
       replaceResultEl.textContent = testStr;

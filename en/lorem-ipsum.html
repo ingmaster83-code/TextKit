@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -108,12 +108,13 @@
     .lorem-control-group input[type="number"]:focus {
       border-color: var(--primary);
     }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -128,7 +129,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="lorem-ipsum.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/lorem-ipsum.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -166,53 +172,53 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>Lorem Ipsum 생성기</span>
+    <span>Lorem Ipsum Generator</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">📝</span>
     <h1>Lorem Ipsum Generator — Free Online</h1>
-    <p>디자인·개발에 사용할 더미 텍스트를 원하는 형태로 생성합니다</p>
+    <p>Generate Lorem Ipsum placeholder text. Set paragraphs, sentences, or words, and copy instantly.</p>
   </div>
 
   <div class="text-panel">
     <div class="lorem-controls">
       <div class="lorem-control-group">
-        <label for="loremType">유형</label>
+        <label for="loremType">Type</label>
         <select id="loremType">
-          <option value="paragraphs">단락 (Paragraphs)</option>
-          <option value="sentences">문장 (Sentences)</option>
-          <option value="words">단어 (Words)</option>
+          <option value="paragraphs">Paragraphs</option>
+          <option value="sentences">Sentences</option>
+          <option value="words">Words</option>
         </select>
       </div>
       <div class="lorem-control-group">
-        <label for="loremCount">개수</label>
+        <label for="loremCount">Count</label>
         <input type="number" id="loremCount" value="3" min="1" max="100">
       </div>
       <div class="lorem-control-group">
-        <label for="loremLang">언어</label>
+        <label for="loremLang">Language</label>
         <select id="loremLang">
           <option value="latin">Latin (Lorem Ipsum)</option>
-          <option value="korean">한국어</option>
+          <option value="korean">Korean</option>
         </select>
       </div>
-      <button class="btn btn-primary" onclick="generate()">✨ 생성하기</button>
+      <button class="btn btn-primary" onclick="generate()">✨ Generate</button>
     </div>
   </div>
 
   <div class="text-panel">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
-      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">Result</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 Copy</button>
     </div>
     <div class="output-wrap">
-      <textarea id="outputText" rows="12" readonly placeholder="생성하기 버튼을 클릭하면 텍스트가 생성됩니다..."></textarea>
+      <textarea id="outputText" rows="12" readonly placeholder="Click Generate to create placeholder text..."></textarea>
     </div>
-    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+    <div id="copyAlert" class="alert alert-success">✅ Copied to clipboard!</div>
   </div>
 
   <div class="cross-link-tip">
-    💡 비밀번호 생성이 필요하신가요? <a href="password-generator.html">비밀번호 생성기 →</a>
+    💡 Need a password generator? <a href="password-generator.html">Password Generator →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -285,28 +291,28 @@
   ];
 
   const koreanSentences = [
-    '이 텍스트는 디자인 시안이나 개발 테스트를 위한 더미 텍스트입니다.',
-    '실제 콘텐츠가 들어갈 자리를 임시로 채우기 위해 사용됩니다.',
-    '텍스트의 레이아웃과 글꼴이 어떻게 보이는지 확인할 수 있습니다.',
-    '실제 내용이 아닌 placeholder 텍스트로, 완성 전에 대체될 예정입니다.',
-    '좋은 디자인은 내용을 명확하게 전달하고 사용자 경험을 향상시킵니다.',
-    '이 문장은 한국어 더미 텍스트 생성기로 만들어진 샘플 문장입니다.',
-    '프로젝트 초기 단계에서 텍스트 배치를 시뮬레이션하는 데 유용합니다.',
-    '글꼴 크기와 줄 간격이 실제 환경에서 어떻게 보이는지 미리 확인하세요.',
-    '사용자 인터페이스 설계 시 실제 텍스트 양과 유사하게 작성해야 합니다.',
-    '웹사이트나 앱 화면을 구성할 때 이런 더미 텍스트가 도움이 됩니다.',
-    '텍스트 영역의 크기와 여백을 조정할 때 참고용으로 활용하십시오.',
-    '브라우저에서 렌더링 결과를 바로 확인할 수 있는 편리한 도구입니다.',
-    '한국어 폰트의 가독성과 행간을 테스트하는 데 적합한 문장들입니다.',
-    '실제 프로젝트에 투입되기 전에 충분한 테스트를 거쳐야 합니다.',
-    '디자이너와 개발자 모두에게 유용한 더미 텍스트 도구를 제공합니다.',
+    'This text is dummy content for design mockups or development testing.',
+    'It is used to temporarily fill the space where real content will go.',
+    'You can check how the text layout and font appear.',
+    'This is placeholder text, not real content — it will be replaced before completion.',
+    'Good design communicates content clearly and enhances user experience.',
+    'This sentence is a sample generated by the Korean dummy text generator.',
+    'It is useful for simulating text placement in the early stages of a project.',
+    'Preview how font size and line spacing look in a real environment.',
+    'When designing a UI, write text that approximates the actual content volume.',
+    'This dummy text is helpful when composing website or app layouts.',
+    'Use it as reference when adjusting text area size and margins.',
+    'It is a handy tool for immediately checking rendering results in a browser.',
+    'These sentences are suitable for testing the readability and line spacing of Korean fonts.',
+    'Sufficient testing must be done before deploying to a real project.',
+    'We provide a dummy text tool useful for both designers and developers.',
   ];
 
   const koreanWords = [
-    '텍스트','디자인','개발','테스트','콘텐츠','레이아웃','인터페이스','사용자','경험',
-    '프로젝트','시스템','서비스','기능','버튼','화면','데이터','정보','처리','변환',
-    '결과','입력','출력','설정','관리','분석','검색','저장','삭제','수정','확인',
-    '도구','방법','과정','단계','목록','항목','선택','적용','실행','완료',
+    'text','design','develop','test','content','layout','interface','user','experience',
+    'project','system','service','feature','button','screen','data','info','process','convert',
+    'result','input','output','setting','manage','analyze','search','save','delete','edit','confirm',
+    'tool','method','process','step','list','item','select','apply','run','complete',
   ];
 
   function getRandomItem(arr) {
@@ -394,9 +400,9 @@
     }
 
     document.getElementById('outputText').value = result;
-    const typeLabels = { paragraphs: '단락', sentences: '문장', words: '단어' };
-    const langLabels = { latin: 'Latin', korean: '한국어' };
-    document.getElementById('outputLabel').textContent = `결과 — ${langLabels[lang]} ${count}개 ${typeLabels[type]}`;
+    const typeLabels = { paragraphs: 'paragraphs', sentences: 'sentences', words: 'words' };
+    const langLabels = { latin: 'Latin', korean: 'Korean' };
+    document.getElementById('outputLabel').textContent = `Result — ${langLabels[lang]} ${count} ${typeLabels[type]}`;
   }
 
   function copyOutput() {

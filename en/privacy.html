@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50">
@@ -60,12 +60,13 @@
     }
     .privacy-card ul { padding-left: 20px; }
     .privacy-card li:last-child { margin-bottom: 0; }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -73,7 +74,12 @@
   <div class="header-inner">
     <a href="../index.html" class="logo">WooaText</a>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="../privacy.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/privacy.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -87,35 +93,35 @@
 
 <div class="privacy-page">
   <h1>Privacy Policy</h1>
-  <p class="updated">최종 업데이트: 2026년 3월 15일</p>
+  <p class="updated">Last updated: March 15, 2026</p>
 
   <div class="privacy-card">
-    <h2>1. 개인정보 수집 여부</h2>
-    <p>WooaText(textkit.wooahouse.com)은 회원가입, 로그인 등의 기능이 없으며, 사용자의 개인정보를 직접 수집하지 않습니다. 본 서비스는 정적 웹사이트로 운영되며, 입력된 텍스트는 브라우저 내에서만 처리되고 서버로 전송되지 않습니다.</p>
+    <h2>1. Personal Information Collection</h2>
+    <p>WooaText (textkit.wooahouse.com) does not have sign-up or login features and does not directly collect personal information. This service is a static website; entered text is processed only within the browser and never transmitted to a server.</p>
   </div>
 
   <div class="privacy-card">
-    <h2>2. 제3자 서비스</h2>
-    <p>WooaText은 아래 제3자 서비스를 사용하며, 각 서비스의 개인정보 처리방침이 적용됩니다.</p>
+    <h2>2. Third-Party Services</h2>
+    <p>WooaText uses the following third-party services. Each service's own privacy policy applies.</p>
     <ul>
-      <li><strong>Google AdSense:</strong> 광고 게재를 위해 사용됩니다. Google은 쿠키를 통해 광고 관련 정보를 수집할 수 있습니다.</li>
-      <li><strong>Google Analytics (해당 시):</strong> 익명화된 방문 통계 수집에 사용될 수 있습니다.</li>
+      <li><strong>Google AdSense:</strong> Used for ad serving. Google may collect advertising-related information via cookies.</li>
+      <li><strong>Google Analytics (if applicable):</strong> May be used to collect anonymized visit statistics.</li>
     </ul>
   </div>
 
   <div class="privacy-card">
-    <h2>3. 쿠키</h2>
-    <p>WooaText은 자체적으로 쿠키를 사용하지 않습니다. 다만 Google AdSense 등 제3자 서비스에서 광고 목적으로 쿠키를 사용할 수 있습니다. 브라우저 설정에서 쿠키를 비활성화할 수 있습니다.</p>
+    <h2>3. Cookies</h2>
+    <p>WooaText does not use its own cookies. However, third-party services such as Google AdSense may use cookies for advertising purposes. You can disable cookies in your browser settings.</p>
   </div>
 
   <div class="privacy-card">
-    <h2>4. 입력 데이터 처리</h2>
-    <p>WooaText의 모든 도구(글자수 세기, URL 인코딩, 해시 생성 등)는 사용자가 입력한 텍스트를 브라우저 내부에서만 처리합니다. 입력 데이터는 어떠한 서버에도 저장되거나 전송되지 않습니다.</p>
+    <h2>4. Input Data Processing</h2>
+    <p>All WooaText tools (character counter, URL encoder, hash generator, etc.) process text only within your browser. Input data is never stored or transmitted to any server.</p>
   </div>
 
   <div class="privacy-card">
-    <h2>5. 문의</h2>
-    <p>개인정보 처리방침 관련 문의는 아래 이메일로 연락 주세요.</p>
+    <h2>5. Contact</h2>
+    <p>For inquiries regarding this privacy policy, please contact us at:</p>
     <p><strong>wooahouse02@gmail.com</strong></p>
   </div>
 </div>
@@ -123,7 +129,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-bottom" style="border-top:none; padding-top:0;">
-      <p>© 2026 WooaText by WooaHouse. 모든 권리 보유.</p>
+      <p>© 2026 WooaText by WooaHouse. All rights reserved.</p>
       <div class="footer-bottom-links">
         <a href="../privacy.html">Privacy Policy</a>
         <a href="../about.html">About</a>

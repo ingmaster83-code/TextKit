@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -27,7 +27,7 @@
   <meta property="og:url" content="https://textkit.wooahouse.com/en/csv-json.html">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
-  <!-- 구조화 데이터 -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -197,12 +197,13 @@
       text-overflow: ellipsis;
     }
     .table-preview tr:nth-child(even) { background: #F9FAFB; }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -217,7 +218,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="csv-json.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/csv-json.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -255,13 +261,13 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>CSV ↔ JSON 변환</span>
+    <span>CSV ↔ JSON Converter</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🔄</span>
     <h1>CSV ↔ JSON Converter — Free Online</h1>
-    <p>CSV를 JSON으로, JSON을 CSV로 무료 변환합니다</p>
+    <p>Paste CSV to convert to JSON, or paste JSON to convert to CSV. Instant, browser-based.</p>
   </div>
 
   <div class="tab-bar">
@@ -272,30 +278,30 @@
   <!-- CSV → JSON -->
   <div class="tab-content active" id="tab-csv2json">
     <div class="options-row">
-      <label><input type="checkbox" id="csvHeader" checked> 첫 행을 헤더로 사용</label>
-      <label><input type="checkbox" id="csvNullEmpty"> 빈 값을 null로 처리</label>
+      <label><input type="checkbox" id="csvHeader" checked> Use first row as header</label>
+      <label><input type="checkbox" id="csvNullEmpty"> Treat empty values as null</label>
     </div>
     <div class="convert-grid">
       <div class="convert-col">
-        <h3>CSV 입력</h3>
-        <textarea id="csvInput" class="mono" placeholder="CSV 데이터를 붙여넣거나 파일을 업로드하세요...&#10;&#10;예:&#10;이름,나이,도시&#10;홍길동,30,서울&#10;김철수,25,부산"></textarea>
+        <h3>CSV Input</h3>
+        <textarea id="csvInput" class="mono" placeholder="Paste CSV data or upload a file...&#10;&#10;Example:&#10;name,age,city&#10;John,30,Seoul&#10;Jane,25,Busan"></textarea>
         <div class="btn-group">
-          <button class="btn btn-secondary btn-sm" onclick="document.getElementById('csvFileInput').click()">📂 CSV 파일 업로드</button>
-          <button class="btn btn-secondary btn-sm" onclick="clearCsvInput()">🗑️ 지우기</button>
+          <button class="btn btn-secondary btn-sm" onclick="document.getElementById('csvFileInput').click()">📂 Upload CSV</button>
+          <button class="btn btn-secondary btn-sm" onclick="clearCsvInput()">🗑️ Clear</button>
         </div>
         <input type="file" id="csvFileInput" accept=".csv,.tsv,.txt" style="display:none;">
       </div>
       <div class="convert-col">
-        <h3>JSON 결과</h3>
-        <textarea id="jsonOutput" class="mono" readonly placeholder="변환 결과가 여기에 표시됩니다..."></textarea>
+        <h3>JSON Result</h3>
+        <textarea id="jsonOutput" class="mono" readonly placeholder="Conversion result will appear here..."></textarea>
         <div class="btn-group">
-          <button class="btn btn-success btn-sm" onclick="copyText('jsonOutput')">📋 복사</button>
-          <button class="btn btn-outline btn-sm" onclick="downloadFile('jsonOutput','data.json','application/json')">⬇️ JSON 다운로드</button>
+          <button class="btn btn-success btn-sm" onclick="copyText('jsonOutput')">📋 Copy</button>
+          <button class="btn btn-outline btn-sm" onclick="downloadFile('jsonOutput','data.json','application/json')">⬇️ Download JSON</button>
         </div>
       </div>
     </div>
     <div style="text-align:center; margin-top:16px;">
-      <button class="btn btn-primary btn-lg" onclick="convertCsvToJson()" style="max-width:400px;">🔄 CSV → JSON 변환</button>
+      <button class="btn btn-primary btn-lg" onclick="convertCsvToJson()" style="max-width:400px;">🔄 Convert CSV → JSON</button>
     </div>
     <div id="csvInfo" class="info-badge" style="display:none;"></div>
     <div id="csvTablePreview" class="table-preview-wrap" style="display:none;"></div>
@@ -306,34 +312,34 @@
   <div class="tab-content" id="tab-json2csv">
     <div class="convert-grid">
       <div class="convert-col">
-        <h3>JSON 입력</h3>
-        <textarea id="jsonInput" class="mono" placeholder="JSON 배열을 붙여넣거나 파일을 업로드하세요...&#10;&#10;예:&#10;[&#10;  {&quot;이름&quot;:&quot;홍길동&quot;,&quot;나이&quot;:30,&quot;도시&quot;:&quot;서울&quot;},&#10;  {&quot;이름&quot;:&quot;김철수&quot;,&quot;나이&quot;:25,&quot;도시&quot;:&quot;부산&quot;}&#10;]"></textarea>
+        <h3>JSON Input</h3>
+        <textarea id="jsonInput" class="mono" placeholder="Paste JSON array or upload a file...&#10;&#10;Example:&#10;[&#10;  {&quot;name&quot;:&quot;John&quot;,&quot;age&quot;:30,&quot;city&quot;:&quot;Seoul&quot;},&#10;  {&quot;name&quot;:&quot;Jane&quot;,&quot;age&quot;:25,&quot;city&quot;:&quot;Busan&quot;}&#10;]"></textarea>
         <div class="btn-group">
-          <button class="btn btn-secondary btn-sm" onclick="document.getElementById('jsonFileInput').click()">📂 JSON 파일 업로드</button>
-          <button class="btn btn-secondary btn-sm" onclick="clearJsonInput()">🗑️ 지우기</button>
+          <button class="btn btn-secondary btn-sm" onclick="document.getElementById('jsonFileInput').click()">📂 Upload JSON</button>
+          <button class="btn btn-secondary btn-sm" onclick="clearJsonInput()">🗑️ Clear</button>
         </div>
         <input type="file" id="jsonFileInput" accept=".json" style="display:none;">
       </div>
       <div class="convert-col">
-        <h3>CSV 결과</h3>
-        <textarea id="csvOutput" class="mono" readonly placeholder="변환 결과가 여기에 표시됩니다..."></textarea>
+        <h3>CSV Result</h3>
+        <textarea id="csvOutput" class="mono" readonly placeholder="Conversion result will appear here..."></textarea>
         <div class="btn-group">
-          <button class="btn btn-success btn-sm" onclick="copyText('csvOutput')">📋 복사</button>
-          <button class="btn btn-outline btn-sm" onclick="downloadFile('csvOutput','data.csv','text/csv')">⬇️ CSV 다운로드</button>
+          <button class="btn btn-success btn-sm" onclick="copyText('csvOutput')">📋 Copy</button>
+          <button class="btn btn-outline btn-sm" onclick="downloadFile('csvOutput','data.csv','text/csv')">⬇️ Download CSV</button>
         </div>
       </div>
     </div>
     <div style="text-align:center; margin-top:16px;">
-      <button class="btn btn-primary btn-lg" onclick="convertJsonToCsv()" style="max-width:400px;">🔄 JSON → CSV 변환</button>
+      <button class="btn btn-primary btn-lg" onclick="convertJsonToCsv()" style="max-width:400px;">🔄 Convert JSON → CSV</button>
     </div>
     <div id="jsonInfo" class="info-badge" style="display:none;"></div>
     <div id="jsonError" class="alert alert-error"></div>
   </div>
 
-  <div id="copyAlert" class="alert alert-success">클립보드에 복사되었습니다!</div>
+  <div id="copyAlert" class="alert alert-success">Copied to clipboard!</div>
 
   <div class="cross-link-tip" style="margin-top:20px;">
-    💡 JSON 포맷팅이 필요하신가요? <a href="../json-formatter.html">JSON Formatter →</a>
+    💡 Need JSON formatting? <a href="../json-formatter.html">JSON Formatter →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -441,7 +447,7 @@
     tableEl.style.display = 'none';
 
     if (!csv) {
-      showError('csvError', 'CSV 데이터를 입력해주세요.');
+      showError('csvError', 'Please enter CSV data.');
       return;
     }
 
@@ -457,8 +463,8 @@
       });
 
       if (result.errors.length > 0) {
-        const errMsgs = result.errors.slice(0, 3).map(e => `행 ${e.row + 1}: ${e.message}`).join('\n');
-        showError('csvError', '파싱 경고:\n' + errMsgs);
+        const errMsgs = result.errors.slice(0, 3).map(e => `Row ${e.row + 1}: ${e.message}`).join('\n');
+        showError('csvError', 'Parse warning:\n' + errMsgs);
       }
 
       const json = JSON.stringify(result.data, null, 2);
@@ -467,7 +473,7 @@
       // Info
       const rows = result.data.length;
       const cols = useHeader ? (result.meta.fields ? result.meta.fields.length : 0) : (result.data[0] ? result.data[0].length : 0);
-      infoEl.innerHTML = `<strong>${rows}</strong>행 × <strong>${cols}</strong>열 변환 완료`;
+      infoEl.innerHTML = `<strong>${rows}</strong> rows × <strong>${cols}</strong> cols converted`;
       infoEl.style.display = 'inline-block';
 
       // Table preview
@@ -476,7 +482,7 @@
         if (useHeader && result.meta.fields) {
           result.meta.fields.forEach(f => { html += `<th>${escapeHtml(String(f))}</th>`; });
         } else if (result.data[0]) {
-          result.data[0].forEach((_, i) => { html += `<th>열 ${i + 1}</th>`; });
+          result.data[0].forEach((_, i) => { html += `<th>Col ${i + 1}</th>`; });
         }
         html += '</tr></thead><tbody>';
         const previewRows = result.data.slice(0, 20);
@@ -495,14 +501,14 @@
           html += '</tr>';
         });
         if (result.data.length > 20) {
-          html += `<tr><td colspan="99" style="text-align:center;color:var(--text-light);">... 외 ${result.data.length - 20}행</td></tr>`;
+          html += `<tr><td colspan="99" style="text-align:center;color:var(--text-light);">... and ${result.data.length - 20} more rows</td></tr>`;
         }
         html += '</tbody></table>';
         tableEl.innerHTML = html;
         tableEl.style.display = 'block';
       }
     } catch (e) {
-      showError('csvError', 'CSV 파싱 오류: ' + e.message);
+      showError('csvError', 'CSV parse error: ' + e.message);
     }
   }
 
@@ -516,7 +522,7 @@
     infoEl.style.display = 'none';
 
     if (!jsonStr) {
-      showError('jsonError', 'JSON 데이터를 입력해주세요.');
+      showError('jsonError', 'Please enter JSON data.');
       return;
     }
 
@@ -528,13 +534,13 @@
         if (typeof data === 'object' && data !== null) {
           data = [data];
         } else {
-          showError('jsonError', 'JSON은 객체 배열이어야 합니다. 예: [{"key":"value"}, ...]');
+          showError('jsonError', 'JSON must be an array of objects. E.g.: [{"key":"value"}, ...]');
           return;
         }
       }
 
       if (data.length === 0) {
-        showError('jsonError', 'JSON 배열이 비어 있습니다.');
+        showError('jsonError', 'JSON array is empty.');
         return;
       }
 
@@ -562,10 +568,10 @@
       const keys = new Set();
       flatData.forEach(row => Object.keys(row).forEach(k => keys.add(k)));
 
-      infoEl.innerHTML = `<strong>${flatData.length}</strong>행 × <strong>${keys.size}</strong>열 변환 완료`;
+      infoEl.innerHTML = `<strong>${flatData.length}</strong> rows × <strong>${keys.size}</strong> cols converted`;
       infoEl.style.display = 'inline-block';
     } catch (e) {
-      showError('jsonError', 'JSON 파싱 오류: ' + e.message);
+      showError('jsonError', 'JSON parse error: ' + e.message);
     }
   }
 

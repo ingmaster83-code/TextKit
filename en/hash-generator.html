@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -143,12 +143,13 @@
     .hash-copy-btn {
       flex-shrink: 0;
     }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -163,7 +164,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="hash-generator.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/hash-generator.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -201,21 +207,21 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>해시 생성기</span>
+    <span>Hash Generator</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">#️⃣</span>
     <h1>Hash Generator — Free Online</h1>
-    <p>텍스트의 SHA-256, SHA-1, SHA-512 해시값을 브라우저에서 안전하게 생성합니다</p>
+    <p>Enter text to instantly generate MD5, SHA-1, SHA-256, and SHA-512 hash values.</p>
   </div>
 
   <div class="text-panel">
-    <div class="text-panel-title">입력 텍스트</div>
-    <textarea id="inputText" rows="6" placeholder="해시를 생성할 텍스트를 입력하세요...&#10;예: 안녕하세요 / Hello World / pa$$w0rd"></textarea>
+    <div class="text-panel-title">Input Text</div>
+    <textarea id="inputText" rows="6" placeholder="Enter text to generate hash...&#10;e.g.: Hello World / pa$$w0rd"></textarea>
 
     <div style="margin-top:14px; margin-bottom:6px;">
-      <div style="font-size:0.88rem; font-weight:600; color:var(--text-light); margin-bottom:10px;">해시 알고리즘 선택</div>
+      <div style="font-size:0.88rem; font-weight:600; color:var(--text-light); margin-bottom:10px;">Select hash algorithm</div>
       <div class="hash-algo-options">
         <div class="hash-algo-option">
           <input type="checkbox" id="algoSHA256" checked>
@@ -233,19 +239,19 @@
     </div>
 
     <button class="btn btn-primary" onclick="generateHashes()" style="width:100%; padding:12px; font-size:0.95rem;">
-      #️⃣ 해시 생성
+      #️⃣ Generate Hash
     </button>
 
     <div id="errorMsg" class="alert alert-error"></div>
   </div>
 
   <div class="text-panel" id="resultsPanel" style="display:none;">
-    <div class="text-panel-title" style="margin-bottom:16px;">결과</div>
+    <div class="text-panel-title" style="margin-bottom:16px;">Result</div>
     <div class="hash-results" id="hashResults"></div>
   </div>
 
   <div class="cross-link-tip">
-    💡 비밀번호 생성이 필요하신가요? <a href="password-generator.html">비밀번호 생성기 →</a>
+    💡 Need a password generator? <a href="password-generator.html">Password Generator →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -320,7 +326,7 @@
     errEl.classList.remove('show');
 
     if (!input) {
-      errEl.textContent = '❌ 해시를 생성할 텍스트를 입력해주세요.';
+      errEl.textContent = '❌ Enter text to generate a hash.';
       errEl.classList.add('show');
       return;
     }
@@ -330,7 +336,7 @@
     const useSHA512 = document.getElementById('algoSHA512').checked;
 
     if (!useSHA256 && !useSHA1 && !useSHA512) {
-      errEl.textContent = '❌ 최소 하나의 알고리즘을 선택해주세요.';
+      errEl.textContent = '❌ Select at least one algorithm.';
       errEl.classList.add('show');
       return;
     }
@@ -342,7 +348,7 @@
 
     const resultsEl = document.getElementById('hashResults');
     const panel = document.getElementById('resultsPanel');
-    resultsEl.innerHTML = '<div style="color:var(--text-light); font-size:0.88rem;">⏳ 해시 생성 중...</div>';
+    resultsEl.innerHTML = '<div style="color:var(--text-light); font-size:0.88rem;">⏳ Generating hash...</div>';
     panel.style.display = 'block';
 
     try {
@@ -358,12 +364,12 @@
           <div class="hash-result-algo">${r.name}</div>
           <div class="hash-result-row">
             <div class="hash-result-value" id="hash-${r.name.replace('-','')}">${r.hash}</div>
-            <button class="btn btn-outline btn-sm hash-copy-btn" onclick="copyHash('${r.name.replace('-','')}', this)">📋 복사</button>
+            <button class="btn btn-outline btn-sm hash-copy-btn" onclick="copyHash('${r.name.replace('-','')}', this)">📋 Copy</button>
           </div>
         </div>
       `).join('');
     } catch(e) {
-      resultsEl.innerHTML = `<div class="alert alert-error show">❌ 해시 생성 중 오류: ${e.message}</div>`;
+      resultsEl.innerHTML = `<div class="alert alert-error show">❌ Hash generation error: ${e.message}</div>`;
     }
   }
 
@@ -372,7 +378,7 @@
     if (!el) return;
     navigator.clipboard.writeText(el.textContent).then(() => {
       const orig = btn.textContent;
-      btn.textContent = '✅ 복사됨';
+      btn.textContent = '✅ Copied';
       setTimeout(() => { btn.textContent = orig; }, 1500);
     });
   }

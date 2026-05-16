@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -259,12 +259,13 @@
       background: #fff;
     }
     .faq-a.open { display: block; }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -279,7 +280,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="yaml-json.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/yaml-json.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -319,64 +325,64 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>YAML ↔ JSON 변환</span>
+    <span>YAML ↔ JSON Converter</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🔀</span>
     <h1>YAML ↔ JSON Converter — Free Online</h1>
-    <p>YAML을 JSON으로, JSON을 YAML로 즉시 변환합니다. 유효성 검사와 실시간 변환을 지원합니다.</p>
+    <p>Convert YAML to JSON or JSON to YAML. Auto-detect mode converts in the right direction automatically.</p>
   </div>
 
-  <!-- 툴바 -->
+  <!-- Toolbar -->
   <div class="toolbar">
     <label class="toggle-label">
       <span class="toggle-switch">
         <input type="checkbox" id="autoToggle">
         <span class="toggle-track"></span>
       </span>
-      ↔ 양방향 자동 변환
+      ↔ Auto-detect & Convert
     </label>
-    <button class="btn-sm" onclick="loadExample()">📋 예시 불러오기</button>
-    <button class="btn-sm" onclick="clearAll()">🗑️ 전체 지우기</button>
+    <button class="btn-sm" onclick="loadExample()">📋 Load Example</button>
+    <button class="btn-sm" onclick="clearAll()">🗑️ Clear All</button>
   </div>
 
-  <!-- 좌우 2열 레이아웃 -->
+  <!-- Two-column layout -->
   <div class="converter-layout">
 
-    <!-- 왼쪽: YAML 패널 -->
+    <!-- Left: YAML Panel -->
     <div class="panel">
       <div class="panel-header">
         <span class="panel-label">YAML</span>
         <div class="panel-actions">
-          <button class="btn-sm" onclick="copyText('yamlInput', 'yamlCopyBtn')" id="yamlCopyBtn">📋 복사</button>
+          <button class="btn-sm" onclick="copyText('yamlInput', 'yamlCopyBtn')" id="yamlCopyBtn">📋 Copy</button>
         </div>
       </div>
-      <textarea id="yamlInput" rows="20" class="mono" placeholder="YAML을 입력하세요..." oninput="onYamlInput()"></textarea>
+      <textarea id="yamlInput" rows="20" class="mono" placeholder="Enter YAML here..." oninput="onYamlInput()"></textarea>
       <div id="yamlStatus" class="status-msg"></div>
       <div class="convert-btn-row">
-        <button class="btn-primary" onclick="yamlToJson()">→ JSON 변환</button>
+        <button class="btn-primary" onclick="yamlToJson()">→ Convert to JSON</button>
       </div>
     </div>
 
-    <!-- 오른쪽: JSON 패널 -->
+    <!-- Right: JSON Panel -->
     <div class="panel">
       <div class="panel-header">
         <span class="panel-label">JSON</span>
         <div class="panel-actions">
-          <button class="btn-sm" onclick="copyText('jsonInput', 'jsonCopyBtn')" id="jsonCopyBtn">📋 복사</button>
+          <button class="btn-sm" onclick="copyText('jsonInput', 'jsonCopyBtn')" id="jsonCopyBtn">📋 Copy</button>
         </div>
       </div>
-      <textarea id="jsonInput" rows="20" class="mono" placeholder="JSON을 입력하세요..." oninput="onJsonInput()"></textarea>
+      <textarea id="jsonInput" rows="20" class="mono" placeholder="Enter JSON here..." oninput="onJsonInput()"></textarea>
       <div id="jsonStatus" class="status-msg"></div>
       <div class="convert-btn-row">
-        <button class="btn-primary" onclick="jsonToYaml()">→ YAML 변환</button>
+        <button class="btn-primary" onclick="jsonToYaml()">→ Convert to YAML</button>
       </div>
     </div>
 
   </div>
 
-  <!-- 하단 AdSense -->
+  <!-- Bottom AdSense -->
   <div style="text-align:center;margin:32px auto 20px;max-width:728px;padding:0 8px">
     <ins class="adsbygoogle"
          style="display:block"
@@ -393,31 +399,31 @@
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
-        YAML과 JSON의 차이는 무엇인가요?
+        What is the difference between YAML and JSON?
         <span class="faq-arrow">▼</span>
       </div>
       <div class="faq-a">
-        YAML은 들여쓰기 기반으로 사람이 읽기 쉽고, JSON은 중괄호 기반으로 프로그램이 파싱하기 쉽습니다. YAML은 주석을 지원하고 더 간결하지만, JSON은 언어 표준 지원이 더 넓습니다.
+        YAML is indentation-based and human-readable; JSON uses braces and is easily parsed. YAML supports comments and is more concise, but JSON has broader language support.
       </div>
     </div>
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
-        주석이 있는 YAML도 변환되나요?
+        Are YAML comments preserved when converting?
         <span class="faq-arrow">▼</span>
       </div>
       <div class="faq-a">
-        YAML 주석(#으로 시작)은 JSON으로 변환 시 제거됩니다. JSON은 주석을 지원하지 않습니다. 주석 내용을 보존하려면 별도로 관리해야 합니다.
+        YAML comments (starting with #) are removed when converting to JSON. JSON does not support comments. Manage comment content separately if needed.
       </div>
     </div>
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
-        YAML 들여쓰기는 몇 칸으로 변환되나요?
+        How many spaces for YAML indentation?
         <span class="faq-arrow">▼</span>
       </div>
       <div class="faq-a">
-        JSON→YAML 변환 시 기본 2칸 들여쓰기로 생성됩니다. JSON 역시 2칸 들여쓰기로 포맷팅됩니다.
+        JSON→YAML conversion uses 2-space indentation by default. JSON is also formatted with 2-space indentation.
       </div>
     </div>
   </section>
@@ -488,10 +494,10 @@
     try {
       var obj = jsyaml.load(yaml);
       document.getElementById('jsonInput').value = JSON.stringify(obj, null, 2);
-      showStatus('json', 'success', '✅ 변환 완료');
+      showStatus('json', 'success', '✅ Converted');
       clearStatus('yaml');
     } catch(e) {
-      showStatus('yaml', 'error', '❌ YAML 오류: ' + e.message);
+      showStatus('yaml', 'error', '❌ YAML Error: ' + e.message);
     }
   }
 
@@ -501,10 +507,10 @@
     try {
       var obj = JSON.parse(json);
       document.getElementById('yamlInput').value = jsyaml.dump(obj, { indent: 2 });
-      showStatus('yaml', 'success', '✅ 변환 완료');
+      showStatus('yaml', 'success', '✅ Converted');
       clearStatus('json');
     } catch(e) {
-      showStatus('json', 'error', '❌ JSON 오류: ' + e.message);
+      showStatus('json', 'error', '❌ JSON Error: ' + e.message);
     }
   }
 
@@ -528,7 +534,7 @@
     navigator.clipboard.writeText(val).then(function() {
       var btn = document.getElementById(btnId);
       var orig = btn.textContent;
-      btn.textContent = '✅ 복사됨';
+      btn.textContent = '✅ Copied';
       setTimeout(function() { btn.textContent = orig; }, 1500);
     }).catch(function() {
       var ta = document.getElementById(id);

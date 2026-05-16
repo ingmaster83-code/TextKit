@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -140,12 +140,13 @@
       margin-top: 6px;
       font-style: italic;
     }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -160,7 +161,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="timestamp-converter.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/timestamp-converter.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -199,39 +205,39 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>타임스탬프 변환기</span>
+    <span>Timestamp Converter</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🕐</span>
     <h1>Unix Timestamp Converter — Free Online</h1>
-    <p>Unix timestamp를 날짜시간으로, 날짜시간을 timestamp로 변환합니다. 초/밀리초 자동 감지, 현재 시각 실시간 표시.</p>
+    <p>Convert a Unix timestamp to a human-readable date, or convert a date to a Unix timestamp. Real-time current timestamp shown.</p>
   </div>
 
-  <!-- 현재 시각 카드 -->
+  <!-- Current Time Card -->
   <div class="current-time-card" style="background:linear-gradient(135deg,#F59E0B,#D97706);color:white;padding:20px;border-radius:12px;margin-bottom:24px;text-align:center;">
-    <div style="font-size:0.85rem;opacity:0.9;margin-bottom:6px;">현재 Unix Timestamp (초)</div>
+    <div style="font-size:0.85rem;opacity:0.9;margin-bottom:6px;">Current Unix Timestamp (seconds)</div>
     <div id="currentTs" style="font-size:2rem;font-weight:700;font-family:monospace;margin-bottom:8px;"></div>
     <div id="currentDate" style="font-size:0.9rem;opacity:0.9;"></div>
-    <button onclick="useCurrentTs()" style="margin-top:12px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);color:white;padding:6px 16px;border-radius:6px;cursor:pointer;">이 값 사용</button>
+    <button onclick="useCurrentTs()" style="margin-top:12px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);color:white;padding:6px 16px;border-radius:6px;cursor:pointer;">Use this value</button>
   </div>
 
-  <!-- 섹션 1: Timestamp → 날짜시간 -->
+  <!-- Section 1: Timestamp → Date/Time -->
   <div class="text-panel">
-    <div class="result-section-title">🔢 Timestamp → 날짜시간</div>
-    <div style="margin-bottom:10px;font-size:0.85rem;color:var(--text-light);">10자리(초) 또는 13자리(밀리초)를 입력하면 자동 감지합니다.</div>
+    <div class="result-section-title">🔢 Timestamp → Date/Time</div>
+    <div style="margin-bottom:10px;font-size:0.85rem;color:var(--text-light);">Enter 10-digit (seconds) or 13-digit (milliseconds) — auto-detected.</div>
     <div style="display:flex;gap:10px;align-items:center;">
-      <input type="number" id="tsInput" placeholder="예: 1715230800 (초) 또는 1715230800000 (밀리초)"
+      <input type="number" id="tsInput" placeholder="e.g.: 1715230800 (sec) or 1715230800000 (ms)"
         style="flex:1;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;font-family:monospace;background:var(--bg-secondary);color:var(--text);"
         onkeydown="if(event.key==='Enter') convertTs()">
-      <button class="btn btn-primary" onclick="convertTs()" style="white-space:nowrap;">→ 변환</button>
+      <button class="btn btn-primary" onclick="convertTs()" style="white-space:nowrap;">→ Convert</button>
     </div>
     <div id="tsError" class="alert alert-error" style="margin-top:10px;"></div>
 
     <div id="tsResults" style="display:none;margin-top:4px;">
       <div class="result-grid">
         <div class="result-card">
-          <div class="result-card-label">로컬 시간</div>
+          <div class="result-card-label">Local Time</div>
           <div class="result-card-row">
             <div class="result-card-value highlight" id="res-local"></div>
             <button class="btn btn-outline btn-sm" onclick="copyResult('res-local', this)">📋</button>
@@ -252,7 +258,7 @@
           </div>
         </div>
         <div class="result-card">
-          <div class="result-card-label">상대 시간</div>
+          <div class="result-card-label">Relative Time</div>
           <div class="result-card-row">
             <div class="result-card-value" id="res-relative"></div>
             <button class="btn btn-outline btn-sm" onclick="copyResult('res-relative', this)">📋</button>
@@ -260,7 +266,7 @@
         </div>
       </div>
       <div class="result-card" style="margin-top:12px;">
-        <div class="result-card-label">감지된 단위</div>
+        <div class="result-card-label">Detected unit</div>
         <div class="result-card-row">
           <div class="result-card-value" id="res-unit"></div>
         </div>
@@ -270,28 +276,28 @@
 
   <hr class="section-divider">
 
-  <!-- 섹션 2: 날짜시간 → Timestamp -->
+  <!-- Section 2: Date/Time → Timestamp -->
   <div class="text-panel">
-    <div class="result-section-title">📅 날짜시간 → Timestamp</div>
-    <div style="margin-bottom:10px;font-size:0.85rem;color:var(--text-light);">현재 기기의 로컬 시간대 기준으로 변환합니다.</div>
+    <div class="result-section-title">📅 Date/Time → Timestamp</div>
+    <div style="margin-bottom:10px;font-size:0.85rem;color:var(--text-light);">Converts based on your device's local timezone.</div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
       <input type="datetime-local" id="datetimeInput"
         style="flex:1;min-width:200px;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.9rem;background:var(--bg-secondary);color:var(--text);">
-      <button class="btn btn-primary" onclick="convertDatetime()" style="white-space:nowrap;">→ 변환</button>
+      <button class="btn btn-primary" onclick="convertDatetime()" style="white-space:nowrap;">→ Convert</button>
     </div>
     <div id="dtError" class="alert alert-error" style="margin-top:10px;"></div>
 
     <div id="dtResults" style="display:none;margin-top:4px;">
       <div class="result-grid">
         <div class="result-card">
-          <div class="result-card-label">초 (seconds)</div>
+          <div class="result-card-label">Seconds</div>
           <div class="result-card-row">
             <div class="result-card-value highlight" id="res-sec"></div>
             <button class="btn btn-outline btn-sm" onclick="copyResult('res-sec', this)">📋</button>
           </div>
         </div>
         <div class="result-card">
-          <div class="result-card-label">밀리초 (milliseconds)</div>
+          <div class="result-card-label">Milliseconds</div>
           <div class="result-card-row">
             <div class="result-card-value" id="res-ms"></div>
             <button class="btn btn-outline btn-sm" onclick="copyResult('res-ms', this)">📋</button>
@@ -309,7 +315,7 @@
   </div>
 
   <div class="cross-link-tip">
-    💡 해시값이 필요하신가요? <a href="hash-generator.html">해시 생성기 →</a>
+    💡 Need a hash value? <a href="hash-generator.html">Hash Generator →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -370,7 +376,7 @@
 </footer>
 
 <script>
-  // 실시간 현재 시각
+  // Live current time
   function updateClock() {
     const now = Math.floor(Date.now() / 1000);
     document.getElementById('currentTs').textContent = now;
@@ -379,14 +385,14 @@
   updateClock();
   setInterval(updateClock, 1000);
 
-  // 현재 timestamp를 입력 필드에 적용
+  // Apply current timestamp to input field
   function useCurrentTs() {
     const now = Math.floor(Date.now() / 1000);
     document.getElementById('tsInput').value = now;
     convertTs();
   }
 
-  // 초/밀리초 자동 감지
+  // Auto-detect seconds/milliseconds
   function detectAndConvert(val) {
     const str = String(val).replace(/\D/g, '');
     const num = parseInt(str, 10);
@@ -395,22 +401,22 @@
     return { date: new Date(ms), isMs };
   }
 
-  // 상대 시간 계산
+  // Relative time calculation
   function getRelativeTime(date) {
     const diffMs = date.getTime() - Date.now();
     const diffSec = Math.round(diffMs / 1000);
     const abs = Math.abs(diffSec);
-    const suffix = diffSec < 0 ? '전' : '후';
+    const suffix = diffSec < 0 ? 'ago' : 'later';
 
-    if (abs < 60) return abs + '초 ' + suffix;
-    if (abs < 3600) return Math.round(abs / 60) + '분 ' + suffix;
-    if (abs < 86400) return Math.round(abs / 3600) + '시간 ' + suffix;
-    if (abs < 2592000) return Math.round(abs / 86400) + '일 ' + suffix;
-    if (abs < 31536000) return Math.round(abs / 2592000) + '개월 ' + suffix;
-    return Math.round(abs / 31536000) + '년 ' + suffix;
+    if (abs < 60) return abs + 's ' + suffix;
+    if (abs < 3600) return Math.round(abs / 60) + 'min ' + suffix;
+    if (abs < 86400) return Math.round(abs / 3600) + 'hr ' + suffix;
+    if (abs < 2592000) return Math.round(abs / 86400) + 'd ' + suffix;
+    if (abs < 31536000) return Math.round(abs / 2592000) + 'mo ' + suffix;
+    return Math.round(abs / 31536000) + 'yr ' + suffix;
   }
 
-  // Timestamp → 날짜시간 변환
+  // Timestamp → datetime conversion
   function convertTs() {
     const val = document.getElementById('tsInput').value.trim();
     const errEl = document.getElementById('tsError');
@@ -419,14 +425,14 @@
     resEl.style.display = 'none';
 
     if (!val) {
-      errEl.textContent = '❌ Timestamp 값을 입력해주세요.';
+      errEl.textContent = '❌ Please enter a Timestamp value.';
       errEl.classList.add('show');
       return;
     }
 
     const num = parseInt(val.replace(/\D/g, ''), 10);
     if (isNaN(num) || num < 0) {
-      errEl.textContent = '❌ 유효한 숫자를 입력해주세요.';
+      errEl.textContent = '❌ Please enter a valid number.';
       errEl.classList.add('show');
       return;
     }
@@ -434,7 +440,7 @@
     const { date, isMs } = detectAndConvert(val);
 
     if (isNaN(date.getTime())) {
-      errEl.textContent = '❌ 변환할 수 없는 값입니다. 10자리(초) 또는 13자리(밀리초)를 입력해주세요.';
+      errEl.textContent = '❌ Cannot convert this value. Enter 10-digit (seconds) or 13-digit (milliseconds).';
       errEl.classList.add('show');
       return;
     }
@@ -448,13 +454,13 @@
     document.getElementById('res-iso').textContent = date.toISOString();
     document.getElementById('res-relative').textContent = getRelativeTime(date);
     document.getElementById('res-unit').textContent = isMs
-      ? '밀리초(milliseconds) — 13자리 감지'
-      : '초(seconds) — 10자리 감지';
+      ? 'Milliseconds (ms) — 13-digit detected'
+      : 'Seconds (s) — 10-digit detected';
 
     resEl.style.display = 'block';
   }
 
-  // 날짜시간 → Timestamp 변환
+  // Datetime → timestamp conversion
   function convertDatetime() {
     const val = document.getElementById('datetimeInput').value;
     const errEl = document.getElementById('dtError');
@@ -463,14 +469,14 @@
     resEl.style.display = 'none';
 
     if (!val) {
-      errEl.textContent = '❌ 날짜와 시간을 선택해주세요.';
+      errEl.textContent = '❌ Please select a date and time.';
       errEl.classList.add('show');
       return;
     }
 
     const date = new Date(val);
     if (isNaN(date.getTime())) {
-      errEl.textContent = '❌ 유효한 날짜/시간이 아닙니다.';
+      errEl.textContent = '❌ Invalid date/time.';
       errEl.classList.add('show');
       return;
     }
@@ -485,7 +491,7 @@
     resEl.style.display = 'block';
   }
 
-  // 복사 버튼
+  // Copy button
   function copyResult(id, btn) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -496,7 +502,7 @@
     });
   }
 
-  // datetime-local 기본값: 현재 시각
+  // datetime-local default: current time
   (function setDefaultDatetime() {
     const now = new Date();
     const pad = n => String(n).padStart(2, '0');

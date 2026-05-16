@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -75,6 +75,13 @@
   ]
 }
 </script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+  </style>
 </head>
 <body>
 
@@ -89,7 +96,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="case-converter.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/case-converter.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -133,12 +145,12 @@
   <div class="tool-header">
     <span class="tool-header-icon">🔡</span>
     <h1>Case Converter — Free Online</h1>
-    <p>텍스트를 다양한 케이스 형식으로 변환합니다</p>
+    <p>Convert text to any case format: UPPERCASE, lowercase, Title Case, camelCase, snake_case, and more.</p>
   </div>
 
   <div class="text-panel">
-    <div class="text-panel-title">입력 텍스트</div>
-    <textarea id="inputText" rows="8" placeholder="변환할 텍스트를 입력하세요...&#10;예: Hello World, foo bar baz"></textarea>
+    <div class="text-panel-title">Input Text</div>
+    <textarea id="inputText" rows="8" placeholder="Enter text to convert...&#10;e.g.: Hello World, foo bar baz"></textarea>
     <div class="btn-group" style="margin-top:14px;">
       <button class="btn btn-primary" onclick="convert('upper')">UPPERCASE</button>
       <button class="btn btn-primary" onclick="convert('lower')">lowercase</button>
@@ -155,17 +167,17 @@
 
   <div class="text-panel" id="outputPanel">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
-      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">Result</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 Copy</button>
     </div>
     <div class="output-wrap">
-      <textarea id="outputText" rows="8" readonly class="mono" placeholder="변환 버튼을 클릭하면 결과가 표시됩니다..."></textarea>
+      <textarea id="outputText" rows="8" readonly class="mono" placeholder="Click a button to see the result..."></textarea>
     </div>
-    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+    <div id="copyAlert" class="alert alert-success">✅ Copied to clipboard!</div>
   </div>
 
   <div class="cross-link-tip">
-    💡 JSON 키를 snake_case로 바꾸고 싶다면? <a href="../json-formatter.html">JSON Formatter →</a>
+    💡 Want to convert JSON keys to snake_case? <a href="../json-formatter.html">JSON Formatter →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -297,7 +309,7 @@
     }
 
     document.getElementById('outputText').value = result;
-    document.getElementById('outputLabel').textContent = `결과 — ${caseNames[type]}`;
+    document.getElementById('outputLabel').textContent = `Result — ${caseNames[type]}`;
   }
 
   function copyOutput() {

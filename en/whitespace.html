@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -75,6 +75,13 @@
   ]
 }
 </script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+  </style>
 </head>
 <body>
 
@@ -89,7 +96,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="whitespace.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/whitespace.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -127,41 +139,41 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>공백 제거·정리</span>
+    <span>Whitespace</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">⬜</span>
     <h1>Whitespace Remover — Free Online</h1>
-    <p>텍스트의 공백을 다양한 방식으로 제거하고 정리합니다</p>
+    <p>Remove leading/trailing spaces, collapse multiple spaces, convert tabs, or strip all whitespace from your text.</p>
   </div>
 
   <div class="text-panel">
     <div class="text-panel-title">Input</div>
-    <textarea id="inputText" rows="10" placeholder="공백을 정리할 텍스트를 입력하세요...&#10;예:   안녕하세요   반갑습니다   &#10;  WooaText에   오신  것을  환영합니다  "></textarea>
+    <textarea id="inputText" rows="10" placeholder="Enter text to clean up whitespace...&#10;e.g.:   Hello   World   &#10;  Welcome   to  WooaText  "></textarea>
     <div class="btn-group" style="margin-top:14px;">
-      <button class="btn btn-primary" onclick="process('trim-each')">✂️ 각 줄 앞뒤 공백 제거</button>
-      <button class="btn btn-primary" onclick="process('collapse')">📏 연속 공백 하나로</button>
-      <button class="btn btn-outline" onclick="process('remove-all')">🚫 모든 공백 제거</button>
-      <button class="btn btn-outline" onclick="process('tab-to-space')">⇥→□ 탭→스페이스 변환</button>
-      <button class="btn btn-secondary" onclick="process('trim-all')">🔪 전체 앞뒤 공백 제거</button>
-      <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+      <button class="btn btn-primary" onclick="process('trim-each')">✂️ Trim Each Line</button>
+      <button class="btn btn-primary" onclick="process('collapse')">📏 Collapse Spaces</button>
+      <button class="btn btn-outline" onclick="process('remove-all')">🚫 Remove All Whitespace</button>
+      <button class="btn btn-outline" onclick="process('tab-to-space')">⇥→□ Tabs→Spaces</button>
+      <button class="btn btn-secondary" onclick="process('trim-all')">🔪 Trim All</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
     </div>
   </div>
 
   <div class="text-panel">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">결과</div>
-      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+      <div class="text-panel-title" style="margin-bottom:0;" id="outputLabel">Result</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 Copy</button>
     </div>
     <div class="output-wrap">
-      <textarea id="outputText" rows="10" readonly class="mono" placeholder="버튼을 클릭하면 결과가 표시됩니다..."></textarea>
+      <textarea id="outputText" rows="10" readonly class="mono" placeholder="Click a button to see the results..."></textarea>
     </div>
-    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+    <div id="copyAlert" class="alert alert-success">✅ Copied to clipboard!</div>
   </div>
 
   <div class="cross-link-tip">
-    💡 빈 줄도 제거하고 싶다면? <a href="line-tools.html">줄 정렬·중복 제거 →</a>
+    💡 Need to remove blank lines too? <a href="line-tools.html">Line Tools →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -223,11 +235,11 @@
 
 <script>
   const opNames = {
-    'trim-each': '각 줄 앞뒤 공백 제거',
-    'collapse': '연속 공백 하나로',
-    'remove-all': '모든 공백 제거',
-    'tab-to-space': '탭→스페이스 변환',
-    'trim-all': '전체 앞뒤 공백 제거'
+    'trim-each': 'Trim each line',
+    'collapse': 'Collapse spaces',
+    'remove-all': 'Remove all spaces',
+    'tab-to-space': 'Tab→Space',
+    'trim-all': 'Trim all'
   };
 
   function process(op) {
@@ -254,13 +266,13 @@
     }
 
     document.getElementById('outputText').value = result;
-    document.getElementById('outputLabel').textContent = '결과 — ' + opNames[op];
+    document.getElementById('outputLabel').textContent = 'Result — ' + opNames[op];
   }
 
   function clearAll() {
     document.getElementById('inputText').value = '';
     document.getElementById('outputText').value = '';
-    document.getElementById('outputLabel').textContent = '결과';
+    document.getElementById('outputLabel').textContent = 'Result';
   }
 
   function copyOutput() {

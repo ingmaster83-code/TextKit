@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
@@ -175,12 +175,13 @@
       outline: none;
       border-color: var(--primary, #F59E0B);
     }
-      .lang-switcher { display:flex; align-items:center; gap:4px; }
+  
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
     .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
     .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
     .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
     .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -195,7 +196,12 @@
       <a href="hash-generator.html">Hash Generator</a>
     </nav>
     <div class="header-right">
-      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none;">About</a>
+      <div class="lang-switcher">
+        <a href="line-numbering.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/line-numbering.html">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
     </div>
     <div class="header-right">
       <div class="lang-switcher">
@@ -234,86 +240,86 @@
   <div class="breadcrumb">
     <a href="../index.html">WooaText</a>
     <span>›</span>
-    <span>번호 매기기</span>
+    <span>Line Numbering</span>
   </div>
 
   <div class="tool-header">
     <span class="tool-header-icon">🔢</span>
     <h1>Line Numbering Tool — Free Online</h1>
-    <p>텍스트 각 줄에 번호나 글머리 기호를 자동으로 추가합니다. 다양한 형식과 시작 번호를 자유롭게 설정하세요.</p>
+    <p>Add line numbers, bullets, or custom prefixes to every line of your text. Set starting number and format.</p>
   </div>
 
   <div class="text-panel">
-    <div class="text-panel-title">원본 텍스트</div>
-    <textarea id="inputText" rows="10" placeholder="번호를 매길 텍스트를 입력하세요...&#10;예:&#10;사과&#10;바나나&#10;포도&#10;딸기"></textarea>
+    <div class="text-panel-title">Original Text</div>
+    <textarea id="inputText" rows="10" placeholder="Enter text to number...&#10;e.g.:&#10;Apple&#10;Banana&#10;Grape&#10;Strawberry"></textarea>
   </div>
 
   <div class="options-panel">
-    <div class="options-panel-title">형식 선택</div>
+    <div class="options-panel-title">Format</div>
     <div class="format-btn-group" id="formatBtnGroup">
-      <button class="format-btn active" data-format="1.">1. 숫자점</button>
-      <button class="format-btn" data-format="1)">1) 숫자괄호</button>
-      <button class="format-btn" data-format="(1)">(1) 괄호숫자</button>
-      <button class="format-btn" data-format="①">① 원문자</button>
-      <button class="format-btn" data-format="-">- 하이픈</button>
-      <button class="format-btn" data-format="•">• 불릿</button>
-      <button class="format-btn" data-format="▸">▸ 화살표</button>
-      <button class="format-btn" data-format="★">★ 별</button>
-      <button class="format-btn" data-format="custom">✏️ 커스텀</button>
+      <button class="format-btn active" data-format="1.">1. Number+dot</button>
+      <button class="format-btn" data-format="1)">1) Number+paren</button>
+      <button class="format-btn" data-format="(1)">(1) Paren+number</button>
+      <button class="format-btn" data-format="①">① Circled</button>
+      <button class="format-btn" data-format="-">- Hyphen</button>
+      <button class="format-btn" data-format="•">• Bullet</button>
+      <button class="format-btn" data-format="▸">▸ Arrow</button>
+      <button class="format-btn" data-format="★">★ Star</button>
+      <button class="format-btn" data-format="custom">✏️ Custom</button>
     </div>
     <div id="customPrefixWrap" style="display:none;">
-      <input type="text" id="customPrefix" placeholder='커스텀 접두사 입력 (예: >>, Step, ※)' maxlength="20">
+      <input type="text" id="customPrefix" placeholder='Enter custom prefix (e.g. >>, Step, ※)' maxlength="20">
     </div>
 
     <div class="options-grid">
       <div class="option-group">
-        <label>시작 번호 (숫자 형식에만 적용)</label>
+        <label>Start number (for numeric formats only)</label>
         <input type="number" id="startNum" value="1" min="1" max="9999">
       </div>
       <div class="option-group">
-        <label>구분자 (번호와 텍스트 사이)</label>
+        <label>Separator (between number and text)</label>
         <select id="separator">
-          <option value=" ">공백</option>
-          <option value="	">탭</option>
-          <option value="">없음</option>
+          <option value=" ">Space</option>
+          <option value="	">Tab</option>
+          <option value="">None</option>
         </select>
       </div>
       <div class="option-group">
-        <label>빈 줄 처리</label>
+        <label>Empty line handling</label>
         <select id="emptyLineMode">
-          <option value="include">번호 포함</option>
-          <option value="skip">번호 건너뜀</option>
-          <option value="remove">빈 줄 제거</option>
+          <option value="include">Include number</option>
+          <option value="skip">Skip number</option>
+          <option value="remove">Remove line</option>
         </select>
       </div>
       <div class="option-group">
-        <label>정렬 패딩</label>
+        <label>Alignment padding</label>
         <label class="checkbox-label">
           <input type="checkbox" id="padNumbers">
-          자리수 맞추기 (01. 02. … 10.)
+          Pad digits (01. 02. … 10.)
         </label>
       </div>
     </div>
   </div>
 
   <div class="btn-group" style="margin: 4px 0 16px;">
-    <button class="btn btn-primary" onclick="convert()">▶ 변환</button>
-    <button class="btn btn-secondary" onclick="clearAll()">🗑️ 지우기</button>
+    <button class="btn btn-primary" onclick="convert()">▶ Convert</button>
+    <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
   </div>
 
   <div class="text-panel">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <div class="text-panel-title" style="margin-bottom:0;">결과</div>
-      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 복사</button>
+      <div class="text-panel-title" style="margin-bottom:0;">Result</div>
+      <button class="btn btn-success btn-sm" onclick="copyOutput()">📋 Copy</button>
     </div>
     <div class="output-wrap">
-      <textarea id="outputText" rows="10" readonly class="mono" placeholder="변환 버튼을 클릭하면 결과가 표시됩니다..."></textarea>
+      <textarea id="outputText" rows="10" readonly class="mono" placeholder="Click a button to see the result..."></textarea>
     </div>
-    <div id="copyAlert" class="alert alert-success">✅ 클립보드에 복사되었습니다!</div>
+    <div id="copyAlert" class="alert alert-success">✅ Copied to clipboard!</div>
   </div>
 
   <div class="cross-link-tip">
-    💡 줄 정렬이나 중복 제거도 필요하다면? <a href="line-tools.html">줄 정렬·중복 제거 →</a>
+    💡 Need to sort or deduplicate lines? <a href="line-tools.html">Line Tools →</a>
   </div>
 
 <section class="faq-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
@@ -379,7 +385,7 @@
 
   let selectedFormat = '1.';
 
-  // 형식 버튼 클릭
+  // Format button click
   document.getElementById('formatBtnGroup').addEventListener('click', function(e) {
     const btn = e.target.closest('.format-btn');
     if (!btn) return;
@@ -394,10 +400,10 @@
     const lines = text.split('\n');
     let num = opts.start;
 
-    // 숫자 형식 여부
+    // Is numeric format
     const isNumeric = ['1.', '1)', '(1)', '①'].includes(opts.format);
 
-    // 패딩 계산: 번호가 매겨질 줄 수 기준
+    // Padding: based on total numbered lines
     const countableLines = opts.emptyLineMode === 'include'
       ? lines.length
       : lines.filter(l => l.trim() !== '').length;
@@ -413,7 +419,7 @@
       if (isEmpty) {
         if (opts.emptyLineMode === 'remove') continue;
         if (opts.emptyLineMode === 'skip') { result.push(''); continue; }
-        // include: 빈 줄도 번호 부여
+        // include: number blank lines too
       }
 
       let prefix;
@@ -427,7 +433,7 @@
         else if (opts.format === '①') prefix = CIRCLED[num - 1] !== undefined ? CIRCLED[num - 1] : num + '.';
         num++;
       } else {
-        // 기호 형식: -, •, ▸, ★
+        // Symbol format: -, •, ▸, ★
         prefix = opts.format;
       }
 
