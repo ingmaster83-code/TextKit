@@ -17,8 +17,8 @@ SITE_NAME = 'WooaText'
 # ── 1. 페이지별 메타 번역 ──────────────────────────────────────────────────────
 PAGE_META = {
     'index.html': {
-        'title': 'Free Online Text Tools — Character Counter, Converter, Formatter & More | WooaText',
-        'desc':  'Free browser-based text tools: character counter, text diff, case converter, URL encoder, Base64, JSON formatter, hash generator, markdown editor, regex tester, CSV↔JSON and more. No sign-up needed.',
+        'title': 'Free Text Tools — Character Counter, Converter & More | WooaText',
+        'desc':  'Free browser-based text tools: character counter, case converter, JSON formatter, markdown editor, regex tester, Base64, hash generator, and more. No sign-up needed.',
         'kw':    'character counter, text tools, case converter, URL encoder, Base64, JSON formatter, hash generator, markdown editor, regex tester, CSV to JSON, text diff, free online tools',
         'og_title': 'Free Online Text Tools | WooaText',
         'og_desc':  '15+ free text tools in your browser: character counter, converter, formatter, markdown editor, regex tester, and more.',
@@ -26,8 +26,8 @@ PAGE_META = {
         'app_name': 'WooaText',
     },
     'char-counter.html': {
-        'title': 'Character Counter Online Free — Word, Line & Sentence Count | WooaText',
-        'desc':  'Count characters, words, lines, sentences, and paragraphs in real time. Includes/excludes spaces toggle. Essential for blog posts, SNS, and manuscript length. 100% free online character counter.',
+        'title': 'Character Counter — Word, Line & Sentence Count | WooaText',
+        'desc':  'Count characters, words, lines, sentences, and paragraphs in real time. Toggle spaces on/off. Perfect for blog posts, SNS, and manuscript length checks. Free, no sign-up.',
         'kw':    'character counter, word counter, letter count, character count online, count words free, text counter, string length, WooaText',
         'og_title': 'Character Counter Free Online | WooaText',
         'og_desc':  'Count characters, words, lines, sentences, and paragraphs in real time. Free, no sign-up required.',
@@ -45,7 +45,7 @@ PAGE_META = {
         'breadcrumb': 'Character Counter',
     },
     'text-diff.html': {
-        'title': 'Text Diff Checker Online Free — Compare Two Texts | WooaText',
+        'title': 'Text Diff Checker — Compare Two Texts | WooaText',
         'desc':  'Compare two texts and highlight differences in color. Find added, removed, or changed content instantly. Free online text diff tool, no upload needed.',
         'kw':    'text diff, compare text online, text comparison, find differences, diff checker free, text diff tool, WooaText',
         'og_title': 'Text Diff Checker Free Online | WooaText',
@@ -64,7 +64,7 @@ PAGE_META = {
         'breadcrumb': 'Text Diff',
     },
     'case-converter.html': {
-        'title': 'Case Converter Online Free — UPPER, lower, Title, camelCase, snake_case | WooaText',
+        'title': 'Case Converter — UPPER, lower, Title, camelCase | WooaText',
         'desc':  'Convert text case online for free: UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case, kebab-case, and more. Instant, no sign-up needed.',
         'kw':    'case converter, uppercase lowercase, camelCase, snake_case, title case, text case change, online case converter, WooaText',
         'og_title': 'Case Converter Free Online | WooaText',
@@ -83,7 +83,7 @@ PAGE_META = {
         'breadcrumb': 'Case Converter',
     },
     'url-encoder.html': {
-        'title': 'URL Encoder / Decoder Online Free | WooaText',
+        'title': 'URL Encoder / Decoder | WooaText',
         'desc':  'Encode or decode URL strings online for free. Instantly percent-encode special characters for URLs, or decode percent-encoded strings. No sign-up needed.',
         'kw':    'URL encoder, URL decoder, percent encoding, URL encode online free, URL decode, encodeURIComponent, WooaText',
         'og_title': 'URL Encoder / Decoder Free Online | WooaText',
@@ -102,7 +102,7 @@ PAGE_META = {
         'breadcrumb': 'URL Encoder',
     },
     'base64.html': {
-        'title': 'Base64 Encoder / Decoder Online Free | WooaText',
+        'title': 'Base64 Encoder / Decoder | WooaText',
         'desc':  'Encode text to Base64 or decode Base64 strings back to plain text online for free. Supports Unicode and multi-language input. No sign-up needed.',
         'kw':    'Base64 encoder, Base64 decoder, Base64 online, encode Base64 free, decode Base64, base64 converter, WooaText',
         'og_title': 'Base64 Encoder / Decoder Free Online | WooaText',
@@ -121,7 +121,7 @@ PAGE_META = {
         'breadcrumb': 'Base64',
     },
     'html-entity.html': {
-        'title': 'HTML Entity Converter Online Free — Encode & Decode Special Characters | WooaText',
+        'title': 'HTML Entity Converter — Encode & Decode | WooaText',
         'desc':  'Convert special characters to HTML entities (&amp;, &lt;, &gt;, &quot;) and back online for free. Instant, no sign-up needed.',
         'kw':    'HTML entity converter, HTML encode, HTML decode, special characters HTML, &amp; &lt; &gt;, HTML entity free, WooaText',
         'og_title': 'HTML Entity Converter Free Online | WooaText',
@@ -140,7 +140,7 @@ PAGE_META = {
         'breadcrumb': 'HTML Entity',
     },
     'line-tools.html': {
-        'title': 'Line Sort & Remove Duplicates Online Free | WooaText',
+        'title': 'Line Sort & Remove Duplicates | WooaText',
         'desc':  'Sort lines alphabetically, remove duplicate lines, delete blank lines, reverse, or shuffle text lines online for free. Instant, no sign-up needed.',
         'kw':    'sort lines, remove duplicate lines, delete blank lines, reverse lines, shuffle lines, line sorter online free, WooaText',
         'og_title': 'Line Sort & Remove Duplicates Free Online | WooaText',
@@ -159,7 +159,7 @@ PAGE_META = {
         'breadcrumb': 'Line Tools',
     },
     'whitespace.html': {
-        'title': 'Whitespace Remover Online Free — Trim, Clean & Normalize Spaces | WooaText',
+        'title': 'Whitespace Remover — Trim, Clean & Normalize Spaces | WooaText',
         'desc':  'Remove leading/trailing spaces, collapse multiple spaces, convert tabs to spaces, or strip all whitespace from text online for free. Instant, no sign-up.',
         'kw':    'whitespace remover, trim spaces, remove extra spaces, collapse spaces, tabs to spaces, text cleaner online free, WooaText',
         'og_title': 'Whitespace Remover Free Online | WooaText',
@@ -178,7 +178,7 @@ PAGE_META = {
         'breadcrumb': 'Whitespace',
     },
     'lorem-ipsum.html': {
-        'title': 'Lorem Ipsum Generator Online Free — Placeholder Text | WooaText',
+        'title': 'Lorem Ipsum Generator — Placeholder Text | WooaText',
         'desc':  'Generate Lorem Ipsum placeholder text online for free. Choose number of paragraphs, sentences, or words. Includes a Korean placeholder text option.',
         'kw':    'Lorem Ipsum generator, placeholder text, dummy text online free, Lorem Ipsum free, random text generator, WooaText',
         'og_title': 'Lorem Ipsum Generator Free Online | WooaText',
@@ -197,7 +197,7 @@ PAGE_META = {
         'breadcrumb': 'Lorem Ipsum',
     },
     'password-generator.html': {
-        'title': 'Password Generator Online Free — Strong Random Passwords | WooaText',
+        'title': 'Password Generator — Strong Random Passwords | WooaText',
         'desc':  'Generate strong, random passwords online for free. Set length and choose character types: uppercase, lowercase, numbers, symbols. 100% browser-based, never saved.',
         'kw':    'password generator, strong password, random password free, secure password creator, password maker online, WooaText',
         'og_title': 'Password Generator Free Online | WooaText',
@@ -216,7 +216,7 @@ PAGE_META = {
         'breadcrumb': 'Password Generator',
     },
     'json-formatter.html': {
-        'title': 'JSON Formatter & Validator Online Free — Pretty Print & Minify | WooaText',
+        'title': 'JSON Formatter & Validator — Pretty Print & Minify | WooaText',
         'desc':  'Format and validate JSON online for free. Pretty-print with indentation, minify/compress, or validate JSON syntax errors. Instant, browser-based, no sign-up.',
         'kw':    'JSON formatter, JSON validator, pretty print JSON, JSON beautifier, JSON minifier, format JSON online free, WooaText',
         'og_title': 'JSON Formatter & Validator Free Online | WooaText',
@@ -235,7 +235,7 @@ PAGE_META = {
         'breadcrumb': 'JSON Formatter',
     },
     'hash-generator.html': {
-        'title': 'Hash Generator Online Free — MD5, SHA-1, SHA-256, SHA-512 | WooaText',
+        'title': 'Hash Generator — MD5, SHA-1, SHA-256, SHA-512 | WooaText',
         'desc':  'Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text online for free. Instant, browser-based, no upload needed.',
         'kw':    'hash generator, MD5 generator, SHA-256 online, SHA-512, text hash free, hash calculator, checksum online, WooaText',
         'og_title': 'Hash Generator Free Online — MD5, SHA-256, SHA-512 | WooaText',
@@ -254,7 +254,7 @@ PAGE_META = {
         'breadcrumb': 'Hash Generator',
     },
     'markdown-editor.html': {
-        'title': 'Markdown Editor Online Free — Live Preview | WooaText',
+        'title': 'Markdown Editor — Live Preview | WooaText',
         'desc':  'Write and preview Markdown online for free. Real-time HTML preview with syntax highlighting. Export to HTML. No sign-up, no upload.',
         'kw':    'markdown editor online, markdown preview, live markdown, markdown to HTML, markdown free, online markdown editor, WooaText',
         'og_title': 'Markdown Editor Free Online — Live Preview | WooaText',
@@ -273,7 +273,7 @@ PAGE_META = {
         'breadcrumb': 'Markdown Editor',
     },
     'regex-tester.html': {
-        'title': 'Regex Tester Online Free — Regular Expression Matcher | WooaText',
+        'title': 'Regex Tester — Regular Expression Matcher | WooaText',
         'desc':  'Test regular expressions online for free. Enter a pattern and see all matches highlighted in real time. Supports flags: global, case-insensitive, multiline. No sign-up.',
         'kw':    'regex tester, regular expression tester, regex online free, regex match, regex checker, test regex, javascript regex, WooaText',
         'og_title': 'Regex Tester Free Online | WooaText',
@@ -292,7 +292,7 @@ PAGE_META = {
         'breadcrumb': 'Regex Tester',
     },
     'csv-json.html': {
-        'title': 'CSV to JSON Converter Online Free — JSON to CSV | WooaText',
+        'title': 'CSV to JSON Converter — JSON to CSV | WooaText',
         'desc':  'Convert CSV to JSON or JSON to CSV online for free. Paste data, choose direction, and copy the result instantly. Browser-based, no upload needed.',
         'kw':    'CSV to JSON, JSON to CSV, convert CSV JSON online free, CSV JSON converter, data format converter, WooaText',
         'og_title': 'CSV ↔ JSON Converter Free Online | WooaText',
@@ -330,7 +330,7 @@ PAGE_META = {
         'breadcrumb': 'HTML/CSS/JS Editor',
     },
     'jwt-decoder.html': {
-        'title': 'JWT Decoder Online Free — Parse & Inspect JWT Tokens | WooaText',
+        'title': 'JWT Decoder — Parse & Inspect JWT Tokens | WooaText',
         'desc':  'Decode and inspect JWT (JSON Web Tokens) online for free. View header, payload, and expiry without sending tokens to any server. 100% browser-based.',
         'kw':    'JWT decoder, JSON Web Token decoder, JWT parser, decode JWT online free, JWT inspect, token debugger, WooaText',
         'og_title': 'JWT Decoder Free Online | WooaText',
@@ -349,7 +349,7 @@ PAGE_META = {
         'breadcrumb': 'JWT Decoder',
     },
     'unicode-converter.html': {
-        'title': 'Unicode Converter Online Free — Text to \\uXXXX, &#XXXX; & U+XXXX | WooaText',
+        'title': 'Unicode Converter — Text to \\uXXXX, &#XXXX; & U+XXXX | WooaText',
         'desc':  'Convert text to Unicode escape sequences (\\uXXXX), HTML numeric references (&#XXXX;), and code points (U+XXXX) online for free. Reverse conversion included.',
         'kw':    'unicode converter, text to unicode, unicode escape, \\uXXXX, &#XXXX; converter, unicode code point, WooaText',
         'og_title': 'Unicode Converter Free Online | WooaText',
@@ -368,7 +368,7 @@ PAGE_META = {
         'breadcrumb': 'Unicode Converter',
     },
     'text-replacer.html': {
-        'title': 'Text Find & Replace Online Free — Regex Mode & Multi-Rule | WooaText',
+        'title': 'Text Find & Replace — Regex Mode & Multi-Rule | WooaText',
         'desc':  'Find and replace text online for free. Supports regex mode and multiple replacement rules at once. Instant, browser-based, no sign-up needed.',
         'kw':    'text find replace, text replacer online free, find and replace regex, bulk text replace, string replace tool, WooaText',
         'og_title': 'Text Find & Replace Free Online | WooaText',
@@ -387,7 +387,7 @@ PAGE_META = {
         'breadcrumb': 'Text Replacer',
     },
     'xml-formatter.html': {
-        'title': 'XML Formatter & Validator Online Free — Pretty Print & Minify | WooaText',
+        'title': 'XML Formatter & Validator — Pretty Print & Minify | WooaText',
         'desc':  'Format, validate, and minify XML online for free. Pretty-print with indentation, check for syntax errors, or compress XML. Instant, browser-based.',
         'kw':    'XML formatter, XML validator, pretty print XML, XML beautifier, XML minifier, format XML online free, WooaText',
         'og_title': 'XML Formatter & Validator Free Online | WooaText',
@@ -406,7 +406,7 @@ PAGE_META = {
         'breadcrumb': 'XML Formatter',
     },
     'timestamp-converter.html': {
-        'title': 'Unix Timestamp Converter Online Free — Timestamp to Date & Back | WooaText',
+        'title': 'Unix Timestamp Converter — Timestamp to Date & Back | WooaText',
         'desc':  'Convert Unix timestamps to human-readable dates and vice versa online for free. Live current timestamp display. Supports seconds and milliseconds.',
         'kw':    'unix timestamp converter, timestamp to date, date to timestamp, epoch converter online free, current unix time, WooaText',
         'og_title': 'Unix Timestamp Converter Free Online | WooaText',
@@ -425,7 +425,7 @@ PAGE_META = {
         'breadcrumb': 'Timestamp Converter',
     },
     'number-base.html': {
-        'title': 'Number Base Converter Online Free — Binary, Octal, Decimal, Hex | WooaText',
+        'title': 'Number Base Converter — Binary, Octal, Decimal, Hex | WooaText',
         'desc':  'Convert numbers between binary (base 2), octal (base 8), decimal (base 10), and hexadecimal (base 16) online for free. Real-time conversion.',
         'kw':    'number base converter, binary to decimal, hex to decimal, octal converter, base conversion online free, binary hex converter, WooaText',
         'og_title': 'Number Base Converter Free Online | WooaText',
@@ -444,7 +444,7 @@ PAGE_META = {
         'breadcrumb': 'Number Base',
     },
     'text-stats.html': {
-        'title': 'Text Statistics Online Free — Word Frequency & Readability | WooaText',
+        'title': 'Text Statistics — Word Frequency & Readability | WooaText',
         'desc':  'Analyze text statistics online for free: top 20 word frequency, sentence count, paragraph count, readability score, and more. Instant, browser-based.',
         'kw':    'text statistics, word frequency, text analysis online free, readability score, word count statistics, text analyzer, WooaText',
         'og_title': 'Text Statistics Free Online | WooaText',
@@ -463,7 +463,7 @@ PAGE_META = {
         'breadcrumb': 'Text Statistics',
     },
     'slug-generator.html': {
-        'title': 'Slug Generator Online Free — URL Friendly Slug from Text | WooaText',
+        'title': 'Slug Generator — URL Friendly Slug from Text | WooaText',
         'desc':  'Generate URL-friendly slugs from text online for free. Convert spaces and special characters to hyphens. Korean romanization option included.',
         'kw':    'slug generator, URL slug, text to slug, SEO slug, create slug online free, URL friendly string, WooaText',
         'og_title': 'Slug Generator Free Online | WooaText',
@@ -482,7 +482,7 @@ PAGE_META = {
         'breadcrumb': 'Slug Generator',
     },
     'line-numbering.html': {
-        'title': 'Line Numbering Tool Online Free — Add Numbers to Lines | WooaText',
+        'title': 'Line Numbering Tool — Add Numbers to Lines | WooaText',
         'desc':  'Add line numbers, bullets, or custom symbols to each line of text online for free. Customize prefix format and starting number. Instant, browser-based.',
         'kw':    'line numbering, add line numbers, numbered list, line number tool online free, prefix lines, WooaText',
         'og_title': 'Line Numbering Tool Free Online | WooaText',
@@ -501,7 +501,7 @@ PAGE_META = {
         'breadcrumb': 'Line Numbering',
     },
     'yaml-json.html': {
-        'title': 'YAML to JSON Converter Online Free — JSON to YAML | WooaText',
+        'title': 'YAML to JSON Converter — JSON to YAML | WooaText',
         'desc':  'Convert YAML to JSON or JSON to YAML online for free. Auto-detect mode available. Instant, browser-based, no sign-up needed.',
         'kw':    'YAML to JSON, JSON to YAML, YAML JSON converter online free, YAML parser, JSON to YAML converter, WooaText',
         'og_title': 'YAML ↔ JSON Converter Free Online | WooaText',
@@ -520,7 +520,7 @@ PAGE_META = {
         'breadcrumb': 'YAML ↔ JSON',
     },
     'html-markdown.html': {
-        'title': 'HTML to Markdown Converter Online Free | WooaText',
+        'title': 'HTML to Markdown Converter | WooaText',
         'desc':  'Convert HTML to Markdown online for free. Paste HTML and get clean Markdown output instantly. Browser-based, no sign-up needed.',
         'kw':    'HTML to Markdown, convert HTML to MD, HTML markdown converter online free, html2markdown, WooaText',
         'og_title': 'HTML to Markdown Converter Free Online | WooaText',
@@ -539,7 +539,7 @@ PAGE_META = {
         'breadcrumb': 'HTML → Markdown',
     },
     'morse-code.html': {
-        'title': 'Morse Code Translator Online Free — Text to Morse & Back | WooaText',
+        'title': 'Morse Code Translator — Text to Morse & Back | WooaText',
         'desc':  'Translate text to Morse code or decode Morse code back to text online for free. Supports audio playback. Instant, browser-based, no sign-up.',
         'kw':    'morse code translator, text to morse code, morse code decoder, morse code online free, morse code generator, WooaText',
         'og_title': 'Morse Code Translator Free Online | WooaText',
