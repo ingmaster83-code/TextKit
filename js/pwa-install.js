@@ -140,9 +140,7 @@
       '#dl-ad-converting{font-size:1rem;font-weight:700;color:#333;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:8px}',
       '#dl-ad-converting::before{content:"";display:inline-block;width:16px;height:16px;border:2px solid #ddd;border-top-color:#333;border-radius:50%;animation:dlSpin .8s linear infinite}',
       '@keyframes dlSpin{to{transform:rotate(360deg)}}',
-      '#dl-ad-sublabel{font-size:.72rem;color:#aaa;margin-bottom:12px}',
-      '#dl-ad-footer{margin-top:12px;font-size:.83rem;color:#777}',
-      '#dl-ad-close{margin-top:8px;padding:7px 22px;background:#222;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:.83rem;display:none}'
+      '#dl-ad-close{margin-top:14px;padding:7px 22px;background:#222;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:.83rem}'
     ].join('');
     document.head.appendChild(style);
 
@@ -150,24 +148,18 @@
     overlay.id = 'dl-ad-overlay';
     overlay.innerHTML = '<div id="dl-ad-box">' +
       '<div id="dl-ad-converting">변환 중입니다...</div>' +
-      '<div id="dl-ad-sublabel">잠시 광고를 시청해 주세요</div>' +
       '<ins class="adsbygoogle" style="display:block;min-height:100px"' +
         ' data-ad-client="ca-pub-6464921081676309"' +
         ' data-ad-slot="9432796175"' +
         ' data-ad-format="auto"' +
         ' data-full-width-responsive="true"></ins>' +
-      '<div id="dl-ad-footer">' +
-        '<span id="dl-ad-count">5</span>초 후 변환이 시작됩니다' +
-        '<br><button id="dl-ad-close">건너뛰기</button>' +
-      '</div>' +
+      '<button id="dl-ad-close">닫기</button>' +
     '</div>';
     document.body.appendChild(overlay);
 
     try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
 
-    var count = 5;
     var finish = function() {
-      clearInterval(timer);
       var ov = document.getElementById('dl-ad-overlay');
       if (ov) ov.remove();
       callback();
@@ -175,16 +167,7 @@
 
     document.getElementById('dl-ad-close').addEventListener('click', finish);
 
-    var timer = setInterval(function() {
-      count--;
-      var el = document.getElementById('dl-ad-count');
-      if (el) el.textContent = count;
-      if (count <= 3) {
-        var closeBtn = document.getElementById('dl-ad-close');
-        if (closeBtn) closeBtn.style.display = 'inline-block';
-      }
-      if (count <= 0) finish();
-    }, 1000);
+    setTimeout(finish, 3000);
   };
 
 })();
