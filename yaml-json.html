@@ -364,39 +364,8 @@
 
   <!-- FAQ -->
     <div class="wooa-orig-anchor"></div>
-<section class="faq-section">
-    <h2>자주 묻는 질문</h2>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        YAML과 JSON의 차이는 무엇인가요?
-        <span class="faq-arrow">▼</span>
-      </div>
-      <div class="faq-a">
-        YAML은 들여쓰기 기반으로 사람이 읽기 쉽고, JSON은 중괄호 기반으로 프로그램이 파싱하기 쉽습니다. YAML은 주석을 지원하고 더 간결하지만, JSON은 언어 표준 지원이 더 넓습니다.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        주석이 있는 YAML도 변환되나요?
-        <span class="faq-arrow">▼</span>
-      </div>
-      <div class="faq-a">
-        YAML 주석(#으로 시작)은 JSON으로 변환 시 제거됩니다. JSON은 주석을 지원하지 않습니다. 주석 내용을 보존하려면 별도로 관리해야 합니다.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        YAML 들여쓰기는 몇 칸으로 변환되나요?
-        <span class="faq-arrow">▼</span>
-      </div>
-      <div class="faq-a">
-        JSON→YAML 변환 시 기본 2칸 들여쓰기로 생성됩니다. JSON 역시 2칸 들여쓰기로 포맷팅됩니다.
-      </div>
-    </div>
-  </section>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>YAML을 JSON으로, 또는 JSON을 YAML로 변환합니다.</li><li>YAML은 들여쓰기로 구조를 표현하므로 가독성이 좋습니다.</li><li>API 설정 파일이나 CI/CD 파이프라인 설정에 많이 사용됩니다.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>파일이 서버에 저장되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 파일은 서버로 전송되지 않습니다. 완전히 안전합니다.</p></details></div>
 
 </main>
 <aside class="tool-sidebar">
