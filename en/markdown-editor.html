@@ -350,7 +350,7 @@
 </div>
 </main>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-col"><h4>🏠 WooaHouse</h4><p style="color:#9CA3AF;font-size:.84rem;line-height:1.6">No install · No login<br>Free tools that run right in your browser</p><a href="https://wooahouse.com" target="_blank" style="margin-top:10px;display:inline-block;color:#10B981;">wooahouse.com →</a></div><div class="footer-col"><h4>Docs · Media</h4><a href="https://pdfkit.wooahouse.com" target="_blank">📄 WooaPDF</a><a href="https://imagekit.wooahouse.com" target="_blank">🖼️ WooaImage</a><a href="https://wooaocr.wooahouse.com" target="_blank">🔍 WooaOCR</a><a href="https://wooaaudio.wooahouse.com" target="_blank">🎵 WooaAudio</a><a href="https://wooavideo.wooahouse.com" target="_blank">📹 WooaVideo</a></div><div class="footer-col"><h4>Web · Dev · Calc</h4><a href="https://colorkit.wooahouse.com" target="_blank">🎨 WooaColor</a><a href="https://textkit.wooahouse.com" target="_blank">📝 WooaText</a><a href="https://qrkit.wooahouse.com" target="_blank">🔲 WooaQR</a><a href="https://calckit.wooahouse.com" target="_blank">🧮 WooaCalc</a><a href="https://wooaviewer.wooahouse.com" target="_blank">👁️ WooaViewer</a><a href="https://wooasheet.wooahouse.com" target="_blank">📊 WooaSheet</a><a href="https://wooadev.wooahouse.com" target="_blank">🛠️ WooaDev</a></div><div class="footer-col"><h4>Info</h4><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a></div></div><div class="footer-bottom">&copy; 2026 WooaHouse. All rights reserved.</div></div></footer>
+<footer class="footer"></footer>
 
 <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -513,7 +513,9 @@ console.log(greet("World"));
 <html lang="en">
 <head><meta charset="UTF-8"><title>Markdown Editor — Live Preview | WooaText</title>
 <style>body{font-family:-apple-system,sans-serif;max-width:800px;margin:40px auto;padding:0 20px;line-height:1.8;color:#1a1a2e;}pre{background:#1e1e1e;color:#e2e8f0;padding:16px;border-radius:8px;overflow-x:auto;}code{background:#f3f4f6;padding:2px 6px;border-radius:4px;}pre code{background:transparent;}table{border-collapse:collapse;width:100%;}td,th{border:1px solid #e5e7eb;padding:8px 12px;}th{background:#fef3c7;}blockquote{border-left:4px solid #f59e0b;padding-left:16px;color:#6b7280;}</style>
-</head><body>${marked.parse(editor.value)}</body></html>`;
+</head><body>${marked.parse(editor.value)}<script src="../js/wooa-sidebar-en.js"></script>
+<script src="../js/wooa-footer-en.js"></script>
+</body></html>`;
     const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);

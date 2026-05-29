@@ -316,7 +316,7 @@
 
 <div class="toast" id="toast"></div>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-col"><h4>🏠 WooaHouse</h4><p style="color:#9CA3AF;font-size:.84rem;line-height:1.6">설치 불필요 · 로그인 불필요<br>브라우저에서 바로 쓰는 무료 도구 모음</p><a href="https://wooahouse.com" target="_blank" style="margin-top:10px;display:inline-block;color:#10B981;">wooahouse.com →</a></div><div class="footer-col"><h4>문서 · 미디어</h4><a href="https://pdfkit.wooahouse.com" target="_blank">📄 WooaPDF</a><a href="https://imagekit.wooahouse.com" target="_blank">🖼️ WooaImage</a><a href="https://wooaocr.wooahouse.com" target="_blank">🔍 WooaOCR</a><a href="https://wooaaudio.wooahouse.com" target="_blank">🎵 WooaAudio</a><a href="https://wooavideo.wooahouse.com" target="_blank">📹 WooaVideo</a></div><div class="footer-col"><h4>웹 · 개발 · 계산</h4><a href="https://colorkit.wooahouse.com" target="_blank">🎨 WooaColor</a><a href="https://textkit.wooahouse.com" target="_blank">📝 WooaText</a><a href="https://qrkit.wooahouse.com" target="_blank">🔲 WooaQR</a><a href="https://calckit.wooahouse.com" target="_blank">🧮 WooaCalc</a><a href="https://wooaviewer.wooahouse.com" target="_blank">👁️ WooaViewer</a><a href="https://wooasheet.wooahouse.com" target="_blank">📊 WooaSheet</a><a href="https://wooadev.wooahouse.com" target="_blank">🛠️ WooaDev</a></div><div class="footer-col"><h4>정보</h4><a href="about.html">서비스 소개</a><a href="privacy.html">개인정보처리방침</a></div></div><div class="footer-bottom">&copy; 2026 WooaHouse. All rights reserved.</div></div></footer>
+<footer class="footer"></footer>
   <div class="wooa-orig-anchor"></div>
 <div class="tips-panel"><h3>💡 Tips</h3><ul><li>HTML과 CSS를 동시에 편집하고 결과를 실시간으로 확인합니다.</li><li>간단한 프로토타입이나 CSS 스타일 테스트에 유용합니다.</li><li>완성된 코드를 복사해 프로젝트에 바로 사용하세요.</li></ul></div>
 <div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>작성한 코드를 저장할 수 있나요?</summary><p>현재는 별도 저장 기능이 없습니다. 작성한 코드를 복사해 텍스트 파일로 저장해두세요.</p></details><details><summary>외부 CSS 파일이나 라이브러리를 불러올 수 있나요?</summary><p>외부 라이브러리는 <link> 또는 <script> 태그로 HTML 영역에 직접 추가하면 사용할 수 있습니다.</p></details><details><summary>파일이 서버에 저장되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 파일은 서버로 전송되지 않습니다. 완전히 안전합니다.</p></details></div>
@@ -402,7 +402,9 @@ function runCode() {
   const html = cmHtml.getValue();
   const css  = cmCss.getValue();
   const js   = cmJs.getValue();
-  const doc = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>${css}</style></head><body>${html}<script>${js}<\/script></body></html>`;
+  const doc = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>${css}</style></head><body>${html}<script>${js}<\/script><script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body></html>`;
   const frame = document.getElementById('previewFrame');
   frame.srcdoc = doc;
   const status = document.getElementById('previewStatus');
