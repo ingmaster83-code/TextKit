@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speech to Text Free Online No Install — STT Voice Recognition | WooaText</title>
+  <meta name="description" content="Convert speech to text for free. Real-time microphone recognition and audio file transcription (MP3, WAV, M4A) powered by AI Whisper running 100% locally in your browser.">
+  <meta name="keywords" content="speech to text, STT, voice recognition, transcription, free speech recognition, Whisper, audio to text, online STT, WooaText">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/speech-to-text.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/speech-to-text.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/speech-to-text.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/speech-to-text.html">
+  <meta property="og:title" content="Speech to Text Free Online — STT Voice Recognition | WooaText">
+  <meta property="og:description" content="Convert speech to text for free. Real-time microphone recognition and audio file transcription powered by AI Whisper, 100% local.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/speech-to-text.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta property="og:site_name" content="WooaText">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Speech to Text Free Online — STT Voice Recognition | WooaText">
+  <meta name="twitter:description" content="Convert speech to text for free. Real-time microphone and audio file transcription, AI Whisper 100% local.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Speech to Text (STT) — WooaText",
+    "url": "https://textkit.wooahouse.com/en/speech-to-text.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "offers": {"@type": "Offer","price": "0","priceCurrency": "USD"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What is the difference between microphone and file mode?","acceptedAnswer":{"@type":"Answer","text":"Microphone mode uses your browser's built-in speech recognition for real-time transcription. File mode uses the AI Whisper model running entirely in your browser to transcribe audio files — 100% local and private."}},
+      {"@type":"Question","name":"Which languages are supported?","acceptedAnswer":{"@type":"Answer","text":"Microphone mode supports Korean, English, Japanese, and many more. File mode (Whisper) supports 99 languages including English, Korean, Japanese, Chinese, Spanish, French, and German."}},
+      {"@type":"Question","name":"Are files uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. In file mode, the AI model runs entirely in your browser. Your audio files are never sent to any server."}}
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .stt-tabs { display:flex; gap:0; border:1px solid var(--border); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:20px; }
+    .stt-tab { flex:1; padding:10px 16px; background:#F9FAFB; border:none; font-size:0.9rem; font-weight:600; cursor:pointer; font-family:inherit; color:var(--text-light); transition:all 0.15s; }
+    .stt-tab.active { background:var(--primary); color:#fff; }
+    .stt-tab:hover:not(.active) { background:#F3F4F6; color:var(--text); }
+    .stt-panel { display:none; }
+    .stt-panel.active { display:block; }
+    .mic-btn-wrap { display:flex; flex-direction:column; align-items:center; gap:12px; padding:32px 0 24px; }
+    .mic-btn { width:80px; height:80px; border-radius:50%; border:none; cursor:pointer; font-size:2rem; display:flex; align-items:center; justify-content:center; background:#F3F4F6; transition:all 0.2s; color:#374151; }
+    .mic-btn.recording { background:#EF4444; color:#fff; animation:pulse 1.2s infinite; }
+    .mic-btn:hover:not(.recording) { background:#E5E7EB; }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0.3)} 50%{box-shadow:0 0 0 14px rgba(239,68,68,0)} }
+    .mic-status { font-size:0.88rem; color:var(--text-light); min-height:20px; }
+    .mic-status.active { color:#EF4444; font-weight:600; }
+    .stt-result { width:100%; min-height:200px; padding:14px; border:1px solid var(--border); border-radius:var(--radius-sm); font-size:0.95rem; line-height:1.8; font-family:inherit; resize:vertical; background:#fff; }
+    .stt-result:focus { outline:none; border-color:var(--primary); }
+    .stt-drop-zone { border:2px dashed var(--border); border-radius:var(--radius-sm); padding:36px 20px; text-align:center; cursor:pointer; transition:all 0.2s; background:#FAFAFA; }
+    .stt-drop-zone:hover, .stt-drop-zone.drag-over { border-color:var(--primary); background:#FFF9F0; }
+    .stt-drop-icon { font-size:2.5rem; margin-bottom:8px; }
+    .stt-drop-title { font-weight:600; font-size:0.95rem; margin-bottom:4px; }
+    .stt-drop-sub { font-size:0.82rem; color:var(--text-light); }
+    .model-notice { background:#EFF6FF; border:1px solid #BFDBFE; border-radius:8px; padding:12px 16px; font-size:0.85rem; color:#1D4ED8; margin-bottom:14px; }
+    .model-notice strong { display:block; margin-bottom:2px; }
+    .stt-progress { margin:16px 0; display:none; }
+    .stt-progress-label { display:flex; justify-content:space-between; font-size:0.82rem; color:var(--text-light); margin-bottom:6px; }
+    .stt-progress-bar { height:8px; background:#E5E7EB; border-radius:100px; overflow:hidden; }
+    .stt-progress-fill { height:100%; background:var(--primary); border-radius:100px; transition:width 0.3s; width:0%; }
+    .stt-options { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:16px; }
+    .stt-options label { font-size:0.85rem; font-weight:600; color:var(--text); display:flex; align-items:center; gap:6px; }
+    .stt-options select { padding:5px 10px; border:1px solid var(--border); border-radius:6px; font-size:0.85rem; font-family:inherit; background:#fff; }
+    .stt-btn-group { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+    .btn-copy { background:#3B82F6; color:#fff; border:none; padding:8px 18px; border-radius:8px; font-size:0.88rem; font-weight:600; cursor:pointer; font-family:inherit; }
+    .btn-copy:hover { background:#2563EB; }
+    .btn-clear { background:#F3F4F6; color:var(--text); border:none; padding:8px 18px; border-radius:8px; font-size:0.88rem; font-weight:600; cursor:pointer; font-family:inherit; }
+    .btn-clear:hover { background:#E5E7EB; }
+    .btn-download-txt { background:#22C55E; color:#fff; border:none; padding:8px 18px; border-radius:8px; font-size:0.88rem; font-weight:600; cursor:pointer; font-family:inherit; }
+    .btn-download-txt:hover { background:#16A34A; }
+    .char-count { font-size:0.8rem; color:var(--text-light); margin-left:auto; align-self:center; }
+    .browser-warn { background:#FEF9C3; border:1px solid #FDE047; border-radius:8px; padding:10px 14px; font-size:0.83rem; color:#713F12; margin-bottom:14px; display:none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="text-stats.html">Word Count</a>
+      <a href="text-diff.html">Text Diff</a>
+      <a href="case-converter.html">Case</a>
+      <a href="json-formatter.html">JSON</a>
+      <a href="index.html">All Tools ›</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher" style="display:flex;align-items:center;gap:4px;">
+        <a href="../speech-to-text.html" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.8rem;font-weight:600;padding:3px 8px;border-radius:12px;">KO</a>
+        <span style="color:rgba(255,255,255,0.3);font-size:0.75rem;">|</span>
+        <a href="speech-to-text.html" class="active" style="color:white;background:rgba(255,255,255,0.25);text-decoration:none;font-size:0.8rem;font-weight:600;padding:3px 8px;border-radius:12px;">EN</a>
+      </div>
+      <a href="../about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<script src="../js/wooa-sites-bar.js"></script>
+
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="index.html">WooaText</a>
+    <span>›</span>
+    <span>Speech to Text</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🎙️</span>
+    <h1>Speech to Text — Free Online STT Voice Recognition</h1>
+    <p>Transcribe speech in real-time with your microphone, or convert audio files to text using AI Whisper.</p>
+  </div>
+
+  <div class="stt-tabs">
+    <button class="stt-tab active" onclick="switchTab('mic')">🎙️ Microphone (Real-time)</button>
+    <button class="stt-tab" onclick="switchTab('file')">📁 File Upload (AI Whisper)</button>
+  </div>
+
+  <!-- Mic tab -->
+  <div class="stt-panel active" id="panel-mic">
+    <div class="browser-warn" id="micWarn">
+      ⚠️ This browser does not support the Web Speech API. Please use <strong>Chrome or Edge</strong>, or use the File Upload tab below.
+    </div>
+    <div class="stt-options">
+      <label>🌐 Language
+        <select id="micLang">
+          <option value="en-US">English (US)</option>
+          <option value="en-GB">English (UK)</option>
+          <option value="ko-KR">한국어</option>
+          <option value="ja-JP">日本語</option>
+          <option value="zh-CN">中文 (简体)</option>
+          <option value="es-ES">Español</option>
+          <option value="fr-FR">Français</option>
+          <option value="de-DE">Deutsch</option>
+        </select>
+      </label>
+    </div>
+    <div class="mic-btn-wrap">
+      <button class="mic-btn" id="micBtn" onclick="toggleMic()" title="Click to start recognition">🎙️</button>
+      <div class="mic-status" id="micStatus">Click the button to start voice recognition</div>
+    </div>
+    <label style="font-size:0.85rem;font-weight:600;color:var(--text);display:block;margin-bottom:6px;">Transcript</label>
+    <textarea class="stt-result" id="micResult" placeholder="Recognized text will appear here..."></textarea>
+    <div class="stt-btn-group">
+      <button class="btn-copy" onclick="copyResult('micResult')">📋 Copy</button>
+      <button class="btn-download-txt" onclick="downloadTxt('micResult')">⬇️ Save TXT</button>
+      <button class="btn-clear" onclick="clearResult('micResult')">🗑️ Clear</button>
+      <span class="char-count" id="micCharCount">0 chars</span>
+    </div>
+    <p style="font-size:0.78rem;color:var(--text-light);margin-top:12px;">
+      ℹ️ Microphone mode uses your browser's built-in speech recognition. Works best in Chrome and Edge.
+    </p>
+  </div>
+
+  <!-- File tab -->
+  <div class="stt-panel" id="panel-file">
+    <div class="model-notice">
+      <strong>🤖 AI Whisper — 100% Local Processing</strong>
+      Your audio files are never sent to a server. The AI model runs entirely in your browser.<br>
+      First use: model (~75MB) is downloaded automatically and cached for future use.
+    </div>
+    <div class="stt-options">
+      <label>🌐 Language
+        <select id="fileLang">
+          <option value="english">English</option>
+          <option value="korean">한국어</option>
+          <option value="japanese">日本語</option>
+          <option value="chinese">中文</option>
+          <option value="spanish">Español</option>
+          <option value="french">Français</option>
+          <option value="german">Deutsch</option>
+          <option value="auto">Auto Detect</option>
+        </select>
+      </label>
+      <label>⚡ Model
+        <select id="fileModel">
+          <option value="Xenova/whisper-tiny">Tiny (Fast · 75MB)</option>
+          <option value="Xenova/whisper-base">Base (Accurate · 145MB)</option>
+        </select>
+      </label>
+    </div>
+    <div class="stt-drop-zone" id="fileDropZone">
+      <div class="stt-drop-icon">🎵</div>
+      <div class="stt-drop-title">Drop your audio file here</div>
+      <div class="stt-drop-sub">Supports MP3, WAV, M4A, OGG, FLAC, WEBM</div>
+      <label for="fileAudioInput" style="display:inline-block;margin-top:12px;padding:8px 20px;background:var(--primary);color:#fff;border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer;">Select File</label>
+      <input type="file" id="fileAudioInput" accept="audio/*" style="display:none">
+    </div>
+    <div id="fileInfoBox" style="display:none;background:#F9FAFB;border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-top:12px;font-size:0.88rem;">
+      <span id="fileInfoName" style="font-weight:600;"></span>
+      <span id="fileInfoSize" style="color:var(--text-light);margin-left:8px;"></span>
+    </div>
+    <button class="btn-convert" id="fileConvertBtn" onclick="startFileTranscribe()" style="margin-top:14px;display:none;">🤖 Start Transcription</button>
+    <div class="stt-progress" id="fileProgress">
+      <div class="stt-progress-label">
+        <span id="progressText">Loading model...</span>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="stt-progress-bar"><div class="stt-progress-fill" id="progressFill"></div></div>
+    </div>
+    <div id="fileResultWrap" style="display:none;margin-top:16px;">
+      <label style="font-size:0.85rem;font-weight:600;color:var(--text);display:block;margin-bottom:6px;">Transcript</label>
+      <textarea class="stt-result" id="fileResult" placeholder="Transcribed text will appear here..."></textarea>
+      <div class="stt-btn-group">
+        <button class="btn-copy" onclick="copyResult('fileResult')">📋 Copy</button>
+        <button class="btn-download-txt" onclick="downloadTxt('fileResult')">⬇️ Save TXT</button>
+        <button class="btn-clear" onclick="clearResult('fileResult')">🗑️ Clear</button>
+        <span class="char-count" id="fileCharCount">0 chars</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wooa-orig-anchor"></div>
+  <div class="tips-panel"><h3>💡 Tips</h3><ul><li>For best microphone accuracy, speak clearly in a quiet environment.</li><li>The Whisper model is cached after the first download — subsequent uses are instant.</li><li>For long audio files, the Base model provides more accurate results than Tiny.</li></ul></div>
+  <div class="faq-section"><h2>Frequently Asked Questions</h2><details><summary>What is the difference between microphone and file mode?</summary><p>Microphone mode uses your browser's built-in speech recognition for real-time transcription. File mode uses the AI Whisper model running entirely in your browser to transcribe audio files — 100% local and private.</p></details><details><summary>Which languages are supported?</summary><p>Microphone mode supports English, Korean, Japanese, and many more. File mode (Whisper) supports 99 languages including English, Korean, Japanese, Chinese, Spanish, French, and German.</p></details><details><summary>Are files uploaded to a server?</summary><p>No. In file mode, the AI model runs entirely in your browser. Your audio files are never sent to any server.</p></details></div>
+
+</main>
+
+<footer class="footer"></footer>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.stt-tab').forEach((t, i) => {
+    t.classList.toggle('active', (i === 0 && tab === 'mic') || (i === 1 && tab === 'file'));
+  });
+  document.getElementById('panel-mic').classList.toggle('active', tab === 'mic');
+  document.getElementById('panel-file').classList.toggle('active', tab === 'file');
+  if (tab === 'mic') checkMicSupport();
+}
+function copyResult(id) {
+  const el = document.getElementById(id);
+  if (!el.value) return;
+  navigator.clipboard.writeText(el.value).then(() => {
+    const btn = event.target; const orig = btn.textContent;
+    btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent = orig, 1500);
+  });
+}
+function downloadTxt(id) {
+  const text = document.getElementById(id).value;
+  if (!text) return;
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = 'transcript.txt'; a.click(); URL.revokeObjectURL(a.href);
+}
+function clearResult(id) {
+  document.getElementById(id).value = '';
+  updateCharCount(id, id === 'micResult' ? 'micCharCount' : 'fileCharCount');
+}
+function updateCharCount(textId, countId) {
+  const len = document.getElementById(textId).value.length;
+  document.getElementById(countId).textContent = len.toLocaleString() + ' chars';
+}
+let recognition = null, isRecording = false;
+function checkMicSupport() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { document.getElementById('micWarn').style.display = 'block'; document.getElementById('micBtn').disabled = true; }
+}
+function toggleMic() { if (isRecording) stopMic(); else startMic(); }
+function startMic() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return;
+  recognition = new SR();
+  recognition.lang = document.getElementById('micLang').value;
+  recognition.continuous = true; recognition.interimResults = true;
+  recognition.onstart = () => {
+    isRecording = true;
+    document.getElementById('micBtn').classList.add('recording'); document.getElementById('micBtn').textContent = '⏹️';
+    document.getElementById('micStatus').textContent = '🔴 Recording... (click to stop)';
+    document.getElementById('micStatus').className = 'mic-status active';
+  };
+  recognition.onresult = e => {
+    let final = '', interim = '';
+    for (let i = 0; i < e.results.length; i++) {
+      if (e.results[i].isFinal) final += e.results[i][0].transcript + ' ';
+      else interim += e.results[i][0].transcript;
+    }
+    document.getElementById('micResult').value = final;
+    updateCharCount('micResult', 'micCharCount');
+  };
+  recognition.onerror = e => {
+    const msgs = { 'no-speech': 'No speech detected.', 'audio-capture': 'Microphone not found.', 'not-allowed': 'Microphone permission denied. Please allow microphone access in your browser.' };
+    document.getElementById('micStatus').textContent = msgs[e.error] || ('Error: ' + e.error);
+    stopMic();
+  };
+  recognition.onend = () => { if (isRecording) { try { recognition.start(); } catch(_) { stopMic(); } } };
+  recognition.start();
+}
+function stopMic() {
+  isRecording = false;
+  if (recognition) { recognition.stop(); recognition = null; }
+  document.getElementById('micBtn').classList.remove('recording'); document.getElementById('micBtn').textContent = '🎙️';
+  document.getElementById('micStatus').textContent = 'Recognition stopped. Click the button to start again.';
+  document.getElementById('micStatus').className = 'mic-status';
+}
+document.getElementById('micResult').addEventListener('input', () => updateCharCount('micResult', 'micCharCount'));
+const fileDropZone = document.getElementById('fileDropZone');
+const fileAudioInput = document.getElementById('fileAudioInput');
+let selectedAudioFile = null;
+fileDropZone.addEventListener('dragover', e => { e.preventDefault(); fileDropZone.classList.add('drag-over'); });
+fileDropZone.addEventListener('dragleave', () => fileDropZone.classList.remove('drag-over'));
+fileDropZone.addEventListener('drop', e => {
+  e.preventDefault(); fileDropZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0]; if (file && file.type.startsWith('audio/')) loadAudioFile(file);
+});
+fileDropZone.addEventListener('click', e => { if (e.target.tagName === 'LABEL' || e.target === fileAudioInput) return; fileAudioInput.click(); });
+fileAudioInput.addEventListener('change', e => { if (e.target.files[0]) loadAudioFile(e.target.files[0]); });
+function loadAudioFile(file) {
+  selectedAudioFile = file;
+  document.getElementById('fileInfoName').textContent = file.name;
+  document.getElementById('fileInfoSize').textContent = formatSize(file.size);
+  document.getElementById('fileInfoBox').style.display = 'block';
+  document.getElementById('fileConvertBtn').style.display = 'inline-flex';
+  document.getElementById('fileResultWrap').style.display = 'none';
+}
+function formatSize(b) {
+  if (b < 1024) return b + ' B'; if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
+  return (b/(1024*1024)).toFixed(1) + ' MB';
+}
+document.getElementById('fileResult').addEventListener('input', () => updateCharCount('fileResult', 'fileCharCount'));
+async function startFileTranscribe() {
+  if (!selectedAudioFile) return;
+  const btn = document.getElementById('fileConvertBtn');
+  btn.disabled = true; btn.textContent = 'Transcribing...';
+  const progress = document.getElementById('fileProgress');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const progressPct = document.getElementById('progressPct');
+  progress.style.display = 'block';
+  const setP = (pct, text) => { progressFill.style.width = pct + '%'; progressPct.textContent = pct + '%'; progressText.textContent = text; };
+  try {
+    setP(5, 'Loading module...');
+    const { pipeline, env } = await import('https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2');
+    env.allowLocalModels = false;
+    const modelId = document.getElementById('fileModel').value;
+    setP(15, `Loading AI model (${modelId.split('/')[1]})... First run may take a moment`);
+    const transcriber = await pipeline('automatic-speech-recognition', modelId, {
+      progress_callback: (p) => {
+        if (p.status === 'downloading') {
+          const pct = p.total ? Math.round((p.loaded / p.total) * 60) + 15 : 30;
+          setP(pct, `Downloading model... (${Math.round((p.loaded || 0) / 1024 / 1024)}MB)`);
+        } else if (p.status === 'loading') { setP(75, 'Initializing model...'); }
+      }
+    });
+    setP(80, 'Processing audio...');
+    const lang = document.getElementById('fileLang').value;
+    const options = lang !== 'auto' ? { language: lang, task: 'transcribe' } : { task: 'transcribe' };
+    const audioCtx = new AudioContext({ sampleRate: 16000 });
+    const arrayBuffer = await selectedAudioFile.arrayBuffer();
+    const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+    const channelData = audioBuffer.getChannelData(0);
+    setP(90, 'Transcribing with Whisper...');
+    const result = await transcriber(channelData, options);
+    const text = result.text || (Array.isArray(result) ? result.map(r => r.text).join(' ') : '');
+    setP(100, 'Done!');
+    document.getElementById('fileResult').value = text.trim();
+    updateCharCount('fileResult', 'fileCharCount');
+    document.getElementById('fileResultWrap').style.display = 'block';
+    setTimeout(() => { progress.style.display = 'none'; }, 1500);
+  } catch (e) {
+    setP(0, 'Error: ' + (e.message || e)); console.error(e);
+  }
+  btn.disabled = false; btn.textContent = '🤖 Start Transcription';
+}
+checkMicSupport();
+</script>
+
+<script src="../js/wooahouse-originals-tool-en.js"></script>
+<script src="../js/pwa-install.js"></script>
+<div id="bottom-ad-bar" style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;padding:4px 8px;z-index:9999;display:flex;align-items:center;justify-content:center;min-height:60px;">
+  <button onclick="document.getElementById('bottom-ad-bar').style.display='none'" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;color:#9ca3af;" title="Close">✕</button>
+  <div style="font-size:0.65rem;color:#9ca3af;position:absolute;left:8px;top:4px;">Ad</div>
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px;max-width:100%" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</body>
+</html>
