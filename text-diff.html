@@ -195,12 +195,7 @@
 <div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>어떤 형식으로 차이가 표시되나요?</summary><p>추가된 내용은 녹색, 삭제된 내용은 빨간색으로 강조 표시됩니다.</p></details><details><summary>대소문자 구분 없이 비교할 수 있나요?</summary><p>옵션에서 대소문자 무시 설정을 선택할 수 있습니다.</p></details><details><summary>긴 텍스트도 비교 가능한가요?</summary><p>브라우저 메모리 내에서 처리 가능한 길이까지 비교할 수 있습니다.</p></details><details><summary>파일이 서버에 저장되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 파일은 서버로 전송되지 않습니다. 개인정보와 민감한 데이터가 외부로 유출될 걱정이 없으며, 기업 보안 환경에서도 안심하고 사용할 수 있습니다.</p></details></div>
 
 <div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-6464921081676309"
-     data-ad-slot="9432796175"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<div id="resultAd" style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px"></div>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 </main>
@@ -275,6 +270,20 @@
     `;
     document.getElementById('resultPanel').style.display = 'block';
     document.getElementById('resultPanel').scrollIntoView({behavior:'smooth', block:'nearest'});
+      // result 패널 광고 동적 로드
+      const resultAd = document.getElementById('resultAd');
+      if (resultAd && !resultAd.dataset.adLoaded) {
+        const ins = document.createElement('ins');
+        ins.className = 'adsbygoogle';
+        ins.style.cssText = 'display:block';
+        ins.setAttribute('data-ad-client', 'ca-pub-6464921081676309');
+        ins.setAttribute('data-ad-slot', '9432796175');
+        ins.setAttribute('data-ad-format', 'auto');
+        ins.setAttribute('data-full-width-responsive', 'true');
+        resultAd.appendChild(ins);
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        resultAd.dataset.adLoaded = '1';
+      }
   }
 </script>
 <script src="js/wooahouse-originals-tool.js"></script>
