@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+
+User-agent: Daum
+Allow: /
+
 Sitemap: https://textkit.wooahouse.com/sitemap.xml
 
 #DaumWebMasterTool:cbf87cc62ae3a467177f9e9fed230e8f121f72a70d576f40c23c677bce3c02b8:5OHFs/qHHlfCvAas17iLzw==
