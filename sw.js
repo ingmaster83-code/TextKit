@@ -1,4 +1,4 @@
-const CACHE_NAME = 'textkit-v6';
+const CACHE_NAME = 'textkit-v7';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -25,6 +25,7 @@ self.addEventListener('activate', event => {
 
 // Network-first strategy
 self.addEventListener('fetch', event => {
+  if (new URL(event.request.url).origin !== self.location.origin) return; // 타사(광고·분석 등) 요청은 그대로 통과
   event.respondWith(
     fetch(event.request)
       .then(response => {
