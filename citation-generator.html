@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인용(참고문헌) 생성기 — APA·MLA·Chicago 형식 무료 | WooaText</title>
+  <meta name="description" content="웹사이트 출처 정보만 입력하면 APA 7판·MLA 9판·Chicago 형식의 참고문헌 인용을 자동으로 만들어줍니다. 리포트·논문 작성에 바로 복사해 사용하세요.">
+  <meta name="keywords" content="인용생성기,참고문헌생성기,APA인용,MLA인용,Chicago인용,citation generator,논문인용형식,레퍼런스생성">
+  <link rel="canonical" href="https://textkit.wooahouse.com/citation-generator.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/citation-generator.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/citation-generator.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/citation-generator.html">
+  <meta property="og:title" content="인용(참고문헌) 생성기 — APA·MLA·Chicago 형식 무료 | WooaText">
+  <meta property="og:description" content="출처 정보만 입력하면 APA·MLA·Chicago 형식의 참고문헌 인용을 자동으로 만들어줍니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/citation-generator.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta property="og:site_name" content="WooaText">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="인용(참고문헌) 생성기 — APA·MLA·Chicago 형식 무료 | WooaText">
+  <meta name="twitter:description" content="출처 정보만 입력하면 APA·MLA·Chicago 형식의 참고문헌 인용을 자동으로 만들어줍니다.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "인용 생성기",
+  "url": "https://textkit.wooahouse.com/citation-generator.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"어떤 인용 형식을 지원하나요?","acceptedAnswer":{"@type":"Answer","text":"APA 7판, MLA 9판, Chicago(노트-참고문헌) 형식의 웹사이트 인용을 지원합니다."}},
+    {"@type":"Question","name":"저자가 없는 웹페이지는 어떻게 하나요?","acceptedAnswer":{"@type":"Answer","text":"저자란을 비워두면 각 형식의 규칙에 맞게 저자 없이(사이트명 또는 제목을 앞에 두는 방식으로) 자동으로 처리됩니다."}},
+    {"@type":"Question","name":"입력한 정보가 서버에 저장되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 생성은 브라우저 안에서만 이루어지며 입력값은 서버로 전송되지 않습니다."}}
+  ]
+}
+</script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+    .cit-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+    @media (max-width:640px) { .cit-grid { grid-template-columns:1fr; } }
+    .cit-field label { display:block; font-size:0.8rem; color:var(--text-light); margin-bottom:4px; font-weight:600; }
+    .cit-field input { width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:8px; font-family:inherit; box-sizing:border-box; }
+    .cit-result { padding:14px 16px; background:#F9FAFB; border:1.5px solid var(--border); border-radius:10px; margin-bottom:10px; }
+    .cit-result-label { font-size:0.76rem; font-weight:700; color:var(--primary); margin-bottom:6px; }
+    .cit-result-text { line-height:1.7; word-break:break-word; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="citation-generator.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/citation-generator.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="index.html">WooaText</a>
+    <span>›</span>
+    <span>인용 생성기</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">📚</span>
+    <h1>인용(참고문헌) 생성기 — APA·MLA·Chicago</h1>
+    <p>웹사이트 출처 정보를 입력하면 3가지 형식의 인용을 동시에 만들어드립니다.</p>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">출처 정보 (웹사이트)</div>
+    <div class="cit-grid">
+      <div class="cit-field"><label>저자 (성, 이름 순 — 없으면 비워두세요)</label><input id="citAuthor" placeholder="Kim, Minsu" value="Kim, Minsu"></div>
+      <div class="cit-field"><label>페이지 제목</label><input id="citTitle" placeholder="How to Cite a Website" value="How to Cite a Website"></div>
+      <div class="cit-field"><label>사이트명</label><input id="citSite" placeholder="WooaText" value="WooaText"></div>
+      <div class="cit-field"><label>URL</label><input id="citUrl" placeholder="https://example.com/page" value="https://textkit.wooahouse.com/citation-generator.html"></div>
+      <div class="cit-field"><label>발행 연도</label><input id="citYear" placeholder="2026" value="2026"></div>
+      <div class="cit-field"><label>발행 월/일 (선택, 예: August 26)</label><input id="citDate" placeholder="August 26"></div>
+    </div>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">생성된 인용</div>
+    <div id="citResults"></div>
+  </div>
+
+    <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="char-counter.html" class="related-card"><span class="related-icon">🔢</span><span>글자수 세기</span></a>
+    <a href="markdown-editor.html" class="related-card"><span class="related-icon">📝</span><span>Markdown 에디터</span></a>
+    <a href="text-stats.html" class="related-card"><span class="related-icon">📊</span><span>텍스트 통계</span></a>
+    <a href="case-converter.html" class="related-card"><span class="related-icon">🔡</span><span>대소문자 변환</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>저자를 모르면 비워두세요 — 형식별 규칙에 맞게 자동으로 처리됩니다.</li><li>학교·학술지마다 세부 규정이 다를 수 있으니 최종 제출 전 지도교수·가이드라인을 확인하세요.</li><li>여러 출처를 인용해야 한다면 값을 바꿔가며 하나씩 복사해 참고문헌 목록에 추가하세요.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>어떤 인용 형식을 지원하나요?</summary><p>APA 7판, MLA 9판, Chicago(노트-참고문헌) 형식의 웹사이트 인용을 지원합니다.</p></details><details><summary>저자가 없는 웹페이지는 어떻게 하나요?</summary><p>저자란을 비워두면 각 형식의 규칙에 맞게 저자 없이(사이트명 또는 제목을 앞에 두는 방식으로) 자동으로 처리됩니다.</p></details><details><summary>입력한 정보가 서버에 저장되나요?</summary><p>아니요. 모든 생성은 브라우저 안에서만 이루어지며 입력값은 서버로 전송되지 않습니다.</p></details></div>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar"></aside>
+</div>
+
+<footer class="footer"></footer>
+
+<script>
+  function firstLast(author) {
+    // "Kim, Minsu" -> {last:'Kim', first:'Minsu'}
+    if (!author) return null;
+    const parts = author.split(',').map(s => s.trim());
+    if (parts.length >= 2) return { last: parts[0], first: parts[1] };
+    return { last: author, first: '' };
+  }
+
+  function genAPA(f) {
+    const a = firstLast(f.author);
+    const authorPart = a ? `${a.last}, ${a.first ? a.first[0] + '.' : ''} ` : '';
+    const dateStr = f.year ? `(${f.year}${f.date ? ', ' + f.date : ''}). ` : '(n.d.). ';
+    if (a) {
+      return `${authorPart}${dateStr}${f.title}. ${f.site}. ${f.url}`;
+    }
+    return `${f.site}. ${dateStr}${f.title}. ${f.url}`;
+  }
+
+  function genMLA(f) {
+    const a = firstLast(f.author);
+    const authorPart = a ? `${a.last}, ${a.first}. ` : '';
+    const dateStr = f.date && f.year ? `${f.date}, ${f.year}` : (f.year || 'n.d.');
+    return `${authorPart}"${f.title}." ${f.site}, ${dateStr}, ${f.url}.`;
+  }
+
+  function genChicago(f) {
+    const a = firstLast(f.author);
+    const authorPart = a ? `${a.first} ${a.last}. ` : '';
+    const dateStr = f.date && f.year ? `${f.date}, ${f.year}` : (f.year || 'n.d.');
+    return `${authorPart}"${f.title}." ${f.site}. ${dateStr}. ${f.url}.`;
+  }
+
+  function render() {
+    const f = {
+      author: document.getElementById('citAuthor').value.trim(),
+      title: document.getElementById('citTitle').value.trim() || 'Untitled',
+      site: document.getElementById('citSite').value.trim() || 'Website',
+      url: document.getElementById('citUrl').value.trim(),
+      year: document.getElementById('citYear').value.trim(),
+      date: document.getElementById('citDate').value.trim(),
+    };
+    const items = [
+      { label: 'APA 7판', text: genAPA(f) },
+      { label: 'MLA 9판', text: genMLA(f) },
+      { label: 'Chicago', text: genChicago(f) },
+    ];
+    document.getElementById('citResults').innerHTML = items.map((it, i) => `
+      <div class="cit-result">
+        <div class="cit-result-label">${it.label}</div>
+        <div class="cit-result-text" id="citText${i}">${escHtml(it.text)}</div>
+        <button class="btn btn-secondary btn-sm" style="margin-top:8px;" onclick="copyCit(${i})">복사</button>
+      </div>`).join('');
+  }
+  function copyCit(i) { navigator.clipboard.writeText(document.getElementById('citText'+i).textContent); }
+  function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  document.querySelectorAll('.cit-field input').forEach(el => el.addEventListener('input', render));
+  render();
+</script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script>window.PWA_CONFIG={appName:"WooaText",themeColor:"#8B5CF6",icon:"✏️",convertIds:['convertBtn','compressBtn','mergeBtn','splitBtn','deleteBtn','applyBtn','rotateBtn','unlockBtn','processBtn','cropBtn','generateBtn','resizeBtn','startBtn','generateAllBtn','printBtn']};</script>
+<script src="js/pwa-install.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

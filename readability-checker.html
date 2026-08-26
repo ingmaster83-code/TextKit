@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가독성 점수 분석기 — 글이 얼마나 읽기 쉬운지 확인 무료 | WooaText</title>
+  <meta name="description" content="문장 길이, 단어 난이도를 분석해 글의 가독성 점수를 계산합니다. 블로그·보고서·이메일을 더 쉽게 읽히도록 다듬을 때 활용하세요.">
+  <meta name="keywords" content="가독성검사,가독성점수,글쓰기분석,readability checker,플레시점수,문장분석,글쓰기도구">
+  <link rel="canonical" href="https://textkit.wooahouse.com/readability-checker.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/readability-checker.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/readability-checker.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/readability-checker.html">
+  <meta property="og:title" content="가독성 점수 분석기 — 글이 얼마나 읽기 쉬운지 확인 무료 | WooaText">
+  <meta property="og:description" content="문장 길이, 단어 난이도를 분석해 글의 가독성 점수를 계산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/readability-checker.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta property="og:site_name" content="WooaText">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="가독성 점수 분석기 — 글이 얼마나 읽기 쉬운지 확인 무료 | WooaText">
+  <meta name="twitter:description" content="문장 길이, 단어 난이도를 분석해 글의 가독성 점수를 계산합니다.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "가독성 점수 분석기",
+  "url": "https://textkit.wooahouse.com/readability-checker.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"한글 텍스트도 분석할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"한글은 평균 문장 길이와 평균 단어 길이 위주로 간단한 지표를 보여드립니다. 영어 텍스트는 Flesch 가독성 점수까지 함께 계산됩니다."}},
+    {"@type":"Question","name":"가독성 점수가 낮으면 어떻게 해야 하나요?","acceptedAnswer":{"@type":"Answer","text":"문장을 짧게 나누고, 어려운 단어를 쉬운 표현으로 바꾸면 점수가 올라갑니다. 한 문장에 하나의 생각만 담는 것이 좋습니다."}},
+    {"@type":"Question","name":"입력한 글이 서버에 저장되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 분석은 브라우저 안에서만 이루어지며 서버로 전송되지 않습니다."}}
+  ]
+}
+</script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+    .rc-textarea { width:100%; min-height:220px; padding:14px 16px; border:1.5px solid var(--border); border-radius:10px; font-size:0.98rem; font-family:inherit; box-sizing:border-box; resize:vertical; line-height:1.6; }
+    .rc-score-wrap { display:flex; align-items:center; gap:20px; margin:18px 0; padding:20px; background:#F9FAFB; border-radius:12px; flex-wrap:wrap; }
+    .rc-score-circle { width:88px; height:88px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-direction:column; font-weight:800; font-size:1.6rem; color:white; flex-shrink:0; }
+    .rc-score-circle span { font-size:0.62rem; font-weight:600; opacity:0.9; }
+    .rc-score-label { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .rc-score-desc { font-size:0.86rem; color:var(--text-light); }
+    .rc-stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin:16px 0; }
+    .rc-stat-card { background:#F9FAFB; border-radius:10px; padding:14px; text-align:center; }
+    .rc-stat-card .val { font-size:1.4rem; font-weight:800; color:var(--primary); }
+    .rc-stat-card .lbl { font-size:0.76rem; color:var(--text-light); margin-top:2px; }
+    .rc-empty { color:var(--text-light); text-align:center; padding:30px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="readability-checker.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/readability-checker.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="index.html">WooaText</a>
+    <span>›</span>
+    <span>가독성 점수 분석기</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">📖</span>
+    <h1>가독성 점수 분석기</h1>
+    <p>문장 길이와 단어 난이도를 분석해 글이 얼마나 읽기 쉬운지 점수로 확인하세요.</p>
+  </div>
+
+  <div class="text-panel">
+    <textarea class="rc-textarea" id="rcInput" placeholder="분석할 글을 붙여넣으세요..."></textarea>
+    <div id="rcOutput"></div>
+  </div>
+
+    <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="char-counter.html" class="related-card"><span class="related-icon">🔢</span><span>글자수 세기</span></a>
+    <a href="token-counter.html" class="related-card"><span class="related-icon">🤖</span><span>AI 토큰 계산기</span></a>
+    <a href="case-converter.html" class="related-card"><span class="related-icon">🔡</span><span>대소문자 변환</span></a>
+    <a href="citation-generator.html" class="related-card"><span class="related-icon">📚</span><span>인용 생성기</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>한 문장에 하나의 생각만 담으면 가독성이 크게 좋아집니다.</li><li>영어 글은 짧고 쉬운 단어를 쓸수록 Flesch 점수가 올라갑니다.</li><li>블로그 글, 보고서, 이메일을 발행 전에 점검해보세요.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>한글 텍스트도 분석할 수 있나요?</summary><p>한글은 평균 문장 길이와 평균 단어 길이 위주로 간단한 지표를 보여드립니다. 영어 텍스트는 Flesch 가독성 점수까지 함께 계산됩니다.</p></details><details><summary>가독성 점수가 낮으면 어떻게 해야 하나요?</summary><p>문장을 짧게 나누고, 어려운 단어를 쉬운 표현으로 바꾸면 점수가 올라갑니다. 한 문장에 하나의 생각만 담는 것이 좋습니다.</p></details><details><summary>입력한 글이 서버에 저장되나요?</summary><p>아니요. 모든 분석은 브라우저 안에서만 이루어지며 서버로 전송되지 않습니다.</p></details></div>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar"></aside>
+</div>
+
+<footer class="footer"></footer>
+
+<script>
+  const CJK_RE = /[가-힯㄰-㆏一-鿿぀-ヿ]/;
+
+  function countSyllablesEn(word) {
+    word = word.toLowerCase().replace(/[^a-z]/g, '');
+    if (!word) return 0;
+    if (word.length <= 3) return 1;
+    word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+    word = word.replace(/^y/, '');
+    const matches = word.match(/[aeiouy]{1,2}/g);
+    return matches ? Math.max(1, matches.length) : 1;
+  }
+
+  function scoreColor(score) {
+    if (score >= 80) return '#10B981';
+    if (score >= 60) return '#3B82F6';
+    if (score >= 40) return '#F59E0B';
+    return '#EF4444';
+  }
+
+  function scoreLabel(score) {
+    if (score >= 90) return ['매우 쉬움', '초등학생도 쉽게 읽을 수 있는 수준입니다.'];
+    if (score >= 70) return ['쉬움', '일반 대중이 편안하게 읽을 수 있는 수준입니다.'];
+    if (score >= 60) return ['보통', '평이한 수준으로, 대부분의 독자가 읽기 무난합니다.'];
+    if (score >= 50) return ['다소 어려움', '고등학생 이상의 독해력이 필요합니다.'];
+    if (score >= 30) return ['어려움', '대학생 수준의 독해력이 필요합니다.'];
+    return ['매우 어려움', '전문적이고 복잡한 문장이 많습니다.'];
+  }
+
+  function analyze(text) {
+    const trimmed = text.trim();
+    const isKorean = CJK_RE.test(trimmed);
+    const sentences = trimmed.split(/(?<=[.!?。！？])\s+|\n+/).map(s => s.trim()).filter(Boolean);
+    const words = trimmed.split(/\s+/).filter(Boolean);
+    const sentenceCount = Math.max(1, sentences.length);
+    const wordCount = Math.max(1, words.length);
+    const avgWordsPerSentence = wordCount / sentenceCount;
+    const avgCharsPerWord = words.reduce((sum, w) => sum + w.replace(/[^\p{L}\p{N}]/gu, '').length, 0) / wordCount;
+
+    let score, flesch = null;
+    if (isKorean) {
+      // Simple heuristic for Korean: penalize long sentences and long words
+      score = Math.max(0, Math.min(100, 120 - avgWordsPerSentence * 3.2 - avgCharsPerWord * 4));
+    } else {
+      const syllableCount = words.reduce((sum, w) => sum + countSyllablesEn(w), 0);
+      const avgSyllablesPerWord = syllableCount / wordCount;
+      flesch = 206.835 - 1.015 * avgWordsPerSentence - 84.6 * avgSyllablesPerWord;
+      score = Math.max(0, Math.min(100, flesch));
+    }
+
+    return { isKorean, sentenceCount, wordCount, avgWordsPerSentence, avgCharsPerWord, score, flesch };
+  }
+
+  function render() {
+    const text = document.getElementById('rcInput').value;
+    const out = document.getElementById('rcOutput');
+    if (!text.trim()) {
+      out.innerHTML = '<div class="rc-empty">분석할 글을 입력하면 가독성 점수가 여기 표시됩니다.</div>';
+      return;
+    }
+    const r = analyze(text);
+    const [label, desc] = scoreLabel(r.score);
+    const color = scoreColor(r.score);
+    out.innerHTML = `
+      <div class="rc-score-wrap">
+        <div class="rc-score-circle" style="background:${color}">${Math.round(r.score)}<span>/ 100</span></div>
+        <div>
+          <div class="rc-score-label">${label}</div>
+          <div class="rc-score-desc">${desc}</div>
+        </div>
+      </div>
+      <div class="rc-stats-grid">
+        <div class="rc-stat-card"><div class="val">${r.sentenceCount}</div><div class="lbl">문장 수</div></div>
+        <div class="rc-stat-card"><div class="val">${r.wordCount}</div><div class="lbl">단어 수</div></div>
+        <div class="rc-stat-card"><div class="val">${r.avgWordsPerSentence.toFixed(1)}</div><div class="lbl">문장당 평균 단어수</div></div>
+        <div class="rc-stat-card"><div class="val">${r.avgCharsPerWord.toFixed(1)}</div><div class="lbl">단어당 평균 글자수</div></div>
+      </div>
+      ${r.flesch !== null ? `<div style="font-size:0.82rem;color:var(--text-light);margin-top:8px;">Flesch Reading Ease: ${r.flesch.toFixed(1)}점</div>` : ''}
+    `;
+  }
+
+  document.getElementById('rcInput').addEventListener('input', render);
+  render();
+</script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script>window.PWA_CONFIG={appName:"WooaText",themeColor:"#8B5CF6",icon:"✏️",convertIds:['convertBtn','compressBtn','mergeBtn','splitBtn','deleteBtn','applyBtn','rotateBtn','unlockBtn','processBtn','cropBtn','generateBtn','resizeBtn','startBtn','generateAllBtn','printBtn']};</script>
+<script src="js/pwa-install.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

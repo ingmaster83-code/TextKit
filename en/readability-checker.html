@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Readability Checker — Score How Easy Your Text Is to Read Free | WooaText</title>
+  <meta name="description" content="Analyze sentence length and word difficulty to calculate a Flesch readability score. Use it to polish blog posts, reports, and emails before you publish.">
+  <meta name="keywords" content="readability checker,flesch reading ease,readability score,writing analysis,text readability,writing tool">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/readability-checker.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/readability-checker.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/readability-checker.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/readability-checker.html">
+  <meta property="og:title" content="Readability Checker — Score How Easy Your Text Is to Read Free | WooaText">
+  <meta property="og:description" content="Analyze sentence length and word difficulty to calculate a Flesch readability score.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/readability-checker.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta property="og:site_name" content="WooaText">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Readability Checker — Score How Easy Your Text Is to Read Free | WooaText">
+  <meta name="twitter:description" content="Analyze sentence length and word difficulty to calculate a Flesch readability score.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="../js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Readability Checker",
+  "url": "https://textkit.wooahouse.com/en/readability-checker.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What formula does this use?","acceptedAnswer":{"@type":"Answer","text":"For English text it calculates the standard Flesch Reading Ease score based on average sentence length and syllables per word."}},
+    {"@type":"Question","name":"What should I do if my score is low?","acceptedAnswer":{"@type":"Answer","text":"Break long sentences into shorter ones and replace difficult words with simpler alternatives. Aim for one idea per sentence."}},
+    {"@type":"Question","name":"Is my text uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All analysis happens locally in your browser and nothing is sent to a server."}}
+  ]
+}
+</script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+    .rc-textarea { width:100%; min-height:220px; padding:14px 16px; border:1.5px solid var(--border); border-radius:10px; font-size:0.98rem; font-family:inherit; box-sizing:border-box; resize:vertical; line-height:1.6; }
+    .rc-score-wrap { display:flex; align-items:center; gap:20px; margin:18px 0; padding:20px; background:#F9FAFB; border-radius:12px; flex-wrap:wrap; }
+    .rc-score-circle { width:88px; height:88px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-direction:column; font-weight:800; font-size:1.6rem; color:white; flex-shrink:0; }
+    .rc-score-circle span { font-size:0.62rem; font-weight:600; opacity:0.9; }
+    .rc-score-label { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .rc-score-desc { font-size:0.86rem; color:var(--text-light); }
+    .rc-stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin:16px 0; }
+    .rc-stat-card { background:#F9FAFB; border-radius:10px; padding:14px; text-align:center; }
+    .rc-stat-card .val { font-size:1.4rem; font-weight:800; color:var(--primary); }
+    .rc-stat-card .lbl { font-size:0.76rem; color:var(--text-light); margin-top:2px; }
+    .rc-empty { color:var(--text-light); text-align:center; padding:30px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Generator</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../readability-checker.html">KO</a>
+        <span>|</span>
+        <a href="readability-checker.html" class="active">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<script src="../js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="index.html">WooaText</a>
+    <span>›</span>
+    <span>Readability Checker</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">📖</span>
+    <h1>Readability Checker</h1>
+    <p>Analyze sentence length and word difficulty to see how easy your text is to read.</p>
+  </div>
+
+  <div class="text-panel">
+    <textarea class="rc-textarea" id="rcInput" placeholder="Paste your text here..."></textarea>
+    <div id="rcOutput"></div>
+  </div>
+
+    <div class="related-tools">
+  <h2>Tools you might also like</h2>
+  <div class="related-grid">
+    <a href="char-counter.html" class="related-card"><span class="related-icon">🔢</span><span>Character Counter</span></a>
+    <a href="token-counter.html" class="related-card"><span class="related-icon">🤖</span><span>AI Token Counter</span></a>
+    <a href="case-converter.html" class="related-card"><span class="related-icon">🔡</span><span>Case Converter</span></a>
+    <a href="citation-generator.html" class="related-card"><span class="related-icon">📚</span><span>Citation Generator</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>One idea per sentence makes a huge difference to readability.</li><li>Shorter, simpler words raise your Flesch score.</li><li>Check your blog posts, reports, and emails before you publish them.</li></ul></div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2><details><summary>What formula does this use?</summary><p>For English text it calculates the standard Flesch Reading Ease score based on average sentence length and syllables per word.</p></details><details><summary>What should I do if my score is low?</summary><p>Break long sentences into shorter ones and replace difficult words with simpler alternatives. Aim for one idea per sentence.</p></details><details><summary>Is my text uploaded to a server?</summary><p>No. All analysis happens locally in your browser and nothing is sent to a server.</p></details></div>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar"></aside>
+</div>
+
+<footer class="footer"></footer>
+
+<script>
+  const CJK_RE = /[가-힯㄰-㆏一-鿿぀-ヿ]/;
+
+  function countSyllablesEn(word) {
+    word = word.toLowerCase().replace(/[^a-z]/g, '');
+    if (!word) return 0;
+    if (word.length <= 3) return 1;
+    word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+    word = word.replace(/^y/, '');
+    const matches = word.match(/[aeiouy]{1,2}/g);
+    return matches ? Math.max(1, matches.length) : 1;
+  }
+
+  function scoreColor(score) {
+    if (score >= 80) return '#10B981';
+    if (score >= 60) return '#3B82F6';
+    if (score >= 40) return '#F59E0B';
+    return '#EF4444';
+  }
+
+  function scoreLabel(score) {
+    if (score >= 90) return ['Very Easy', 'Easily understood by an average 11-year-old student.'];
+    if (score >= 70) return ['Easy', 'Comfortable for most general readers.'];
+    if (score >= 60) return ['Standard', 'Plain English, easily understood by most adults.'];
+    if (score >= 50) return ['Fairly Difficult', 'Best understood by high school students.'];
+    if (score >= 30) return ['Difficult', 'Best understood by college-level readers.'];
+    return ['Very Difficult', 'Dense, complex text best suited to specialists.'];
+  }
+
+  function analyze(text) {
+    const trimmed = text.trim();
+    const isKorean = CJK_RE.test(trimmed);
+    const sentences = trimmed.split(/(?<=[.!?。！？])\s+|\n+/).map(s => s.trim()).filter(Boolean);
+    const words = trimmed.split(/\s+/).filter(Boolean);
+    const sentenceCount = Math.max(1, sentences.length);
+    const wordCount = Math.max(1, words.length);
+    const avgWordsPerSentence = wordCount / sentenceCount;
+    const avgCharsPerWord = words.reduce((sum, w) => sum + w.replace(/[^\p{L}\p{N}]/gu, '').length, 0) / wordCount;
+
+    let score, flesch = null;
+    if (isKorean) {
+      score = Math.max(0, Math.min(100, 120 - avgWordsPerSentence * 3.2 - avgCharsPerWord * 4));
+    } else {
+      const syllableCount = words.reduce((sum, w) => sum + countSyllablesEn(w), 0);
+      const avgSyllablesPerWord = syllableCount / wordCount;
+      flesch = 206.835 - 1.015 * avgWordsPerSentence - 84.6 * avgSyllablesPerWord;
+      score = Math.max(0, Math.min(100, flesch));
+    }
+
+    return { isKorean, sentenceCount, wordCount, avgWordsPerSentence, avgCharsPerWord, score, flesch };
+  }
+
+  function render() {
+    const text = document.getElementById('rcInput').value;
+    const out = document.getElementById('rcOutput');
+    if (!text.trim()) {
+      out.innerHTML = '<div class="rc-empty">Your readability score will appear here once you enter some text.</div>';
+      return;
+    }
+    const r = analyze(text);
+    const [label, desc] = scoreLabel(r.score);
+    const color = scoreColor(r.score);
+    out.innerHTML = `
+      <div class="rc-score-wrap">
+        <div class="rc-score-circle" style="background:${color}">${Math.round(r.score)}<span>/ 100</span></div>
+        <div>
+          <div class="rc-score-label">${label}</div>
+          <div class="rc-score-desc">${desc}</div>
+        </div>
+      </div>
+      <div class="rc-stats-grid">
+        <div class="rc-stat-card"><div class="val">${r.sentenceCount}</div><div class="lbl">Sentences</div></div>
+        <div class="rc-stat-card"><div class="val">${r.wordCount}</div><div class="lbl">Words</div></div>
+        <div class="rc-stat-card"><div class="val">${r.avgWordsPerSentence.toFixed(1)}</div><div class="lbl">Words / sentence</div></div>
+        <div class="rc-stat-card"><div class="val">${r.avgCharsPerWord.toFixed(1)}</div><div class="lbl">Chars / word</div></div>
+      </div>
+      ${r.flesch !== null ? `<div style="font-size:0.82rem;color:var(--text-light);margin-top:8px;">Flesch Reading Ease: ${r.flesch.toFixed(1)}</div>` : ''}
+    `;
+  }
+
+  document.getElementById('rcInput').addEventListener('input', render);
+  render();
+</script>
+<script src="../js/wooahouse-originals-tool-en.js"></script>
+<script>window.PWA_CONFIG={appName:"WooaText",themeColor:"#8B5CF6",icon:"✏️",convertIds:['convertBtn','compressBtn','mergeBtn','splitBtn','deleteBtn','applyBtn','rotateBtn','unlockBtn','processBtn','cropBtn','generateBtn','resizeBtn','startBtn','generateAllBtn','printBtn']};</script>
+<script src="../js/pwa-install.js"></script>
+<script src="../js/wooa-sidebar-en.js"></script>
+<script src="../js/wooa-footer-en.js"></script>
+</body>
+</html>

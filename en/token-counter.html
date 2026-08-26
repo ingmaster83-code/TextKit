@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Token Counter — Estimate GPT/Claude Tokens & API Cost Free | WooaText</title>
+  <meta name="description" content="Paste text to estimate the token count for GPT, Claude, and other AI models, then plug in a price to estimate API cost. Non-Latin scripts use more tokens than English.">
+  <meta name="keywords" content="ai token counter, gpt token calculator, token count online, api cost calculator, chatgpt tokens, claude tokens, llm cost estimator">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/token-counter.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/token-counter.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/token-counter.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/token-counter.html">
+  <meta property="og:title" content="AI Token Counter — Estimate GPT/Claude Tokens & API Cost Free | WooaText">
+  <meta property="og:description" content="Estimate the AI token count of your text and its approximate API cost. Works for English and non-Latin scripts.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/token-counter.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta property="og:site_name" content="WooaText">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Token Counter — Estimate GPT/Claude Tokens & API Cost Free | WooaText">
+  <meta name="twitter:description" content="Estimate the AI token count of your text and its approximate API cost.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="../js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI Token Counter",
+  "url": "https://textkit.wooahouse.com/en/token-counter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Does this match the exact token count?","acceptedAnswer":{"@type":"Answer","text":"No, it's an estimate, not a byte-for-byte match to a real BPE tokenizer. Roughly 4 characters per token for English; non-Latin scripts use more tokens per character. Check the model's official tokenizer for exact counts."}},
+    {"@type":"Question","name":"Why do non-Latin scripts use more tokens than English?","acceptedAnswer":{"@type":"Answer","text":"Most AI models train their BPE vocabulary mostly on English text, so a single Korean, Chinese, or Japanese character often splits into multiple byte-level tokens. The same character count uses more tokens than English."}},
+    {"@type":"Question","name":"Is my text sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All calculations happen entirely in your browser and your text is never sent anywhere."}}
+  ]
+}
+</script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+    .tc-notice { background:#FFFBEB; border:1px solid #FDE68A; border-radius:8px; padding:10px 14px; font-size:0.82rem; color:#92400E; margin-bottom:14px; line-height:1.6; }
+    .tc-cost-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:10px; }
+    .tc-cost-row input { width:120px; padding:8px 10px; border:1px solid var(--border); border-radius:8px; font-family:inherit; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../token-counter.html">KO</a>
+        <span>|</span>
+        <a href="token-counter.html" class="active">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<script src="../js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="../index.html">WooaText</a>
+    <span>›</span>
+    <span>AI Token Counter</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔢</span>
+    <h1>AI Token Counter — Estimate GPT/Claude Tokens & Cost</h1>
+    <p>Enter text to estimate its AI token count and approximate API cost.</p>
+  </div>
+
+  <div class="tc-notice">⚠️ This is a character-pattern based <strong>estimate</strong>. It may not exactly match a real BPE tokenizer.</div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">Text input</div>
+    <textarea id="inputText" rows="10" placeholder="Type or paste text here...">Hello! This tool estimates the AI token count of your text.</textarea>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">Token estimate</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="statTokens">0</div>
+        <div class="stat-label">Estimated tokens</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statChars">0</div>
+        <div class="stat-label">Total characters</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statWords">0</div>
+        <div class="stat-label">Words</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statRatio">0</div>
+        <div class="stat-label">Chars per token</div>
+      </div>
+    </div>
+
+    <div class="tc-cost-row">
+      <span style="font-size:0.88rem;color:var(--text-light);">Price per 1,000 tokens ($)</span>
+      <input type="number" id="pricePer1k" value="3.00" step="0.01" min="0">
+      <span style="font-weight:700;">→ Estimated cost: <span id="statCost" style="color:var(--primary);">$0.00</span></span>
+    </div>
+  </div>
+
+    <div class="related-tools">
+  <h2>Related Tools</h2>
+  <div class="related-grid">
+    <a href="char-counter.html" class="related-card"><span class="related-icon">🔢</span><span>Character Counter</span></a>
+    <a href="text-stats.html" class="related-card"><span class="related-icon">📊</span><span>Text Statistics</span></a>
+    <a href="json-formatter.html" class="related-card"><span class="related-icon">📋</span><span>JSON Formatter</span></a>
+    <a href="markdown-editor.html" class="related-card"><span class="related-icon">📝</span><span>Markdown Editor</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>Use this to get a rough cost sense before sending a prompt to an API.</li><li>Non-English prompts use more tokens than English — write in English if cost is a concern.</li><li>Prices change often — check the model's official pricing page and enter the current rate.</li></ul></div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2><details><summary>Does this match the exact token count?</summary><p>No, it's an estimate, not a byte-for-byte match to a real BPE tokenizer. Roughly 4 characters per token for English; non-Latin scripts use more tokens per character. Check the model's official tokenizer for exact counts.</p></details><details><summary>Why do non-Latin scripts use more tokens than English?</summary><p>Most AI models train their BPE vocabulary mostly on English text, so a single Korean, Chinese, or Japanese character often splits into multiple byte-level tokens. The same character count uses more tokens than English.</p></details><details><summary>Is my text sent to a server?</summary><p>No. All calculations happen entirely in your browser and your text is never sent anywhere.</p></details></div>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar"></aside>
+</div>
+
+<footer class="footer"></footer>
+
+<script>
+  const inputText = document.getElementById('inputText');
+
+  const CJK_RE = /[가-힯㄰-㆏一-鿿぀-ヿ]/;
+  function estimateTokens(text) {
+    if (!text) return 0;
+    let cjkCount = 0, otherCount = 0;
+    for (const ch of text) {
+      if (CJK_RE.test(ch)) cjkCount++; else otherCount++;
+    }
+    const tokens = Math.ceil(otherCount / 4) + Math.ceil(cjkCount / 1.7);
+    return Math.max(text.trim() ? 1 : 0, tokens);
+  }
+
+  function calc() {
+    const text = inputText.value;
+    const tokens = estimateTokens(text);
+    const chars = text.length;
+    const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+    const ratio = tokens > 0 ? (chars / tokens).toFixed(2) : '0';
+    const price = parseFloat(document.getElementById('pricePer1k').value) || 0;
+    const cost = (tokens / 1000 * price);
+
+    document.getElementById('statTokens').textContent = tokens.toLocaleString();
+    document.getElementById('statChars').textContent = chars.toLocaleString();
+    document.getElementById('statWords').textContent = words.toLocaleString();
+    document.getElementById('statRatio').textContent = ratio;
+    document.getElementById('statCost').textContent = '$' + cost.toFixed(4);
+  }
+
+  inputText.addEventListener('input', calc);
+  document.getElementById('pricePer1k').addEventListener('input', calc);
+  calc();
+</script>
+<script src="../js/wooahouse-originals-tool-en.js"></script>
+<script>window.PWA_CONFIG={appName:"WooaText",themeColor:"#8B5CF6",icon:"✏️",convertIds:['convertBtn','compressBtn','mergeBtn','splitBtn','deleteBtn','applyBtn','rotateBtn','unlockBtn','processBtn','cropBtn','generateBtn','resizeBtn','startBtn','generateAllBtn','printBtn']};</script>
+<script src="../js/pwa-install.js"></script>
+<script src="../js/wooa-sidebar-en.js"></script>
+<script src="../js/wooa-footer-en.js"></script>
+</body>
+</html>

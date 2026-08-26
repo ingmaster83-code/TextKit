@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Unscrambler — Find Words From Scrambled Letters Free | WooaText</title>
+  <meta name="description" content="Enter scrambled letters and instantly find every English word you can make. Great for anagram games, word puzzles, and crossword hints.">
+  <meta name="keywords" content="word unscrambler,anagram solver,scrabble solver,word finder,letter unscrambler,word puzzle">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/word-unscrambler.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/word-unscrambler.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/word-unscrambler.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/word-unscrambler.html">
+  <meta property="og:title" content="Word Unscrambler — Find Words From Scrambled Letters Free | WooaText">
+  <meta property="og:description" content="Enter scrambled letters and instantly find every English word you can make.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/word-unscrambler.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta property="og:site_name" content="WooaText">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Word Unscrambler — Find Words From Scrambled Letters Free | WooaText">
+  <meta name="twitter:description" content="Enter scrambled letters and instantly find every English word you can make.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="../js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Word Unscrambler",
+  "url": "https://textkit.wooahouse.com/en/word-unscrambler.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What word list does this use?","acceptedAnswer":{"@type":"Answer","text":"A curated list of about 8,000 common English words. Very rare or highly technical terms may not be included."}},
+    {"@type":"Question","name":"Can I filter by starting letter?","acceptedAnswer":{"@type":"Answer","text":"Yes, use the starting letter filter to only show words beginning with a specific letter."}},
+    {"@type":"Question","name":"Is anything I type uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens locally in your browser and nothing is sent to a server."}}
+  ]
+}
+</script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+    .wu-input { width:100%; padding:14px 16px; border:1.5px solid var(--border); border-radius:10px; font-size:1.3rem; font-family:inherit; box-sizing:border-box; text-transform:lowercase; letter-spacing:2px; }
+    .wu-opts { display:flex; gap:16px; flex-wrap:wrap; margin:12px 0; align-items:center; }
+    .wu-opts label { font-size:0.86rem; color:var(--text-light); display:flex; align-items:center; gap:6px; }
+    .wu-opts select, .wu-opts input[type=text] { padding:6px 10px; border:1.5px solid var(--border); border-radius:8px; font-family:inherit; }
+    .wu-count { font-size:0.86rem; color:var(--text-light); margin:10px 0; }
+    .wu-results { display:flex; flex-wrap:wrap; gap:8px; max-height:420px; overflow-y:auto; padding:4px; }
+    .wu-word { background:#F9FAFB; border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:1rem; font-weight:600; }
+    .wu-word .len { color:var(--text-light); font-weight:400; font-size:0.78rem; margin-left:4px; }
+    .wu-empty { color:var(--text-light); padding:20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Generator</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../word-unscrambler.html">KO</a>
+        <span>|</span>
+        <a href="word-unscrambler.html" class="active">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<script src="../js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="index.html">WooaText</a>
+    <span>›</span>
+    <span>Word Unscrambler</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔤</span>
+    <h1>Word Unscrambler</h1>
+    <p>Enter scrambled letters and we'll find every English word you can make from them.</p>
+  </div>
+
+  <div class="text-panel">
+    <input class="wu-input" id="wuInput" placeholder="e.g. setrat" maxlength="20" autocomplete="off">
+    <div class="wu-opts">
+      <label>Min length <select id="wuMinLen">
+        <option value="1">1+</option>
+        <option value="2" selected>2+</option>
+        <option value="3">3+</option>
+        <option value="4">4+</option>
+      </select></label>
+      <label>Starts with <input type="text" id="wuStartsWith" maxlength="1" style="width:44px;text-align:center;" placeholder="Any"></label>
+    </div>
+    <div class="wu-count" id="wuCount"></div>
+    <div class="wu-results" id="wuResults"></div>
+  </div>
+
+    <div class="related-tools">
+  <h2>Tools you might also like</h2>
+  <div class="related-grid">
+    <a href="fancy-text.html" class="related-card"><span class="related-icon">✨</span><span>Fancy Text Generator</span></a>
+    <a href="char-counter.html" class="related-card"><span class="related-icon">🔢</span><span>Character Counter</span></a>
+    <a href="case-converter.html" class="related-card"><span class="related-icon">🔡</span><span>Case Converter</span></a>
+    <a href="emoji-picker.html" class="related-card"><span class="related-icon">😀</span><span>Emoji Picker</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>Use this as a hint helper for crosswords, Scrabble, and word puzzle games.</li><li>Set a starting letter to quickly narrow down results.</li><li>More letters means more possible word combinations.</li></ul></div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2><details><summary>What word list does this use?</summary><p>A curated list of about 8,000 common English words. Very rare or highly technical terms may not be included.</p></details><details><summary>Can I filter by starting letter?</summary><p>Yes, use the starting letter filter to only show words beginning with a specific letter.</p></details><details><summary>Is anything I type uploaded to a server?</summary><p>No. All processing happens locally in your browser and nothing is sent to a server.</p></details></div>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar"></aside>
+</div>
+
+<footer class="footer"></footer>
+
+<script src="../js/word-list.js"></script>
+<script>
+  function sortedLetters(w) { return w.split('').sort().join(''); }
+
+  let WORD_INDEX = null;
+  function buildIndex() {
+    WORD_INDEX = {};
+    for (const w of WORDLIST) {
+      const key = sortedLetters(w);
+      if (!WORD_INDEX[key]) WORD_INDEX[key] = [];
+      WORD_INDEX[key].push(w);
+    }
+  }
+
+  function subsetsOfLetters(letters) {
+    const n = letters.length;
+    const results = new Set();
+    const arr = letters.split('');
+    const total = 1 << n;
+    for (let mask = 1; mask < total; mask++) {
+      let sub = '';
+      for (let i = 0; i < n; i++) if (mask & (1 << i)) sub += arr[i];
+      results.add(sub.split('').sort().join(''));
+    }
+    return results;
+  }
+
+  function findWords(input, minLen, startsWith) {
+    const letters = input.toLowerCase().replace(/[^a-z]/g, '');
+    if (!letters) return [];
+    if (letters.length > 12) return null;
+    const keys = subsetsOfLetters(letters);
+    let found = [];
+    for (const key of keys) {
+      const words = WORD_INDEX[key];
+      if (words) found = found.concat(words);
+    }
+    found = found.filter(w => w.length >= minLen);
+    if (startsWith) found = found.filter(w => w[0] === startsWith.toLowerCase());
+    found = [...new Set(found)];
+    found.sort((a, b) => b.length - a.length || a.localeCompare(b));
+    return found;
+  }
+
+  function render() {
+    const input = document.getElementById('wuInput').value;
+    const minLen = parseInt(document.getElementById('wuMinLen').value, 10);
+    const startsWith = document.getElementById('wuStartsWith').value.trim();
+    const countEl = document.getElementById('wuCount');
+    const resultsEl = document.getElementById('wuResults');
+    if (!input.trim()) {
+      countEl.textContent = '';
+      resultsEl.innerHTML = '<div class="wu-empty">Words you can make will appear here.</div>';
+      return;
+    }
+    const words = findWords(input, minLen, startsWith);
+    if (words === null) {
+      countEl.textContent = '';
+      resultsEl.innerHTML = '<div class="wu-empty">Please enter up to 12 letters.</div>';
+      return;
+    }
+    countEl.textContent = `Found ${words.length} word${words.length===1?'':'s'}`;
+    resultsEl.innerHTML = words.map(w => `<div class="wu-word">${w}<span class="len">${w.length}</span></div>`).join('') || '<div class="wu-empty">No matching words found.</div>';
+  }
+
+  document.getElementById('wuInput').addEventListener('input', render);
+  document.getElementById('wuMinLen').addEventListener('change', render);
+  document.getElementById('wuStartsWith').addEventListener('input', render);
+  buildIndex();
+  render();
+</script>
+<script src="../js/wooahouse-originals-tool-en.js"></script>
+<script>window.PWA_CONFIG={appName:"WooaText",themeColor:"#8B5CF6",icon:"✏️",convertIds:['convertBtn','compressBtn','mergeBtn','splitBtn','deleteBtn','applyBtn','rotateBtn','unlockBtn','processBtn','cropBtn','generateBtn','resizeBtn','startBtn','generateAllBtn','printBtn']};</script>
+<script src="../js/pwa-install.js"></script>
+<script src="../js/wooa-sidebar-en.js"></script>
+<script src="../js/wooa-footer-en.js"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 토큰 카운터 — GPT·Claude 토큰 수·API 비용 추정 무료 | WooaText</title>
+  <meta name="description" content="텍스트를 붙여넣으면 GPT·Claude 등 AI 모델의 대략적인 토큰 수를 추정하고, 단가를 입력해 예상 API 비용까지 계산합니다. 한글은 영문보다 토큰을 더 많이 씁니다.">
+  <meta name="keywords" content="AI토큰카운터,GPT토큰계산,토큰수세기,API비용계산,ChatGPT토큰,Claude토큰,token counter online,LLM비용계산기">
+  <link rel="canonical" href="https://textkit.wooahouse.com/token-counter.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/token-counter.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/token-counter.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/token-counter.html">
+  <meta property="og:title" content="AI 토큰 카운터 — GPT·Claude 토큰 수·API 비용 추정 무료 | WooaText">
+  <meta property="og:description" content="텍스트의 AI 토큰 수를 추정하고 예상 API 비용까지 계산합니다. 한글·영문 모두 지원.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/token-counter.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta property="og:site_name" content="WooaText">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI 토큰 카운터 — GPT·Claude 토큰 수·API 비용 추정 무료 | WooaText">
+  <meta name="twitter:description" content="텍스트의 AI 토큰 수를 추정하고 예상 API 비용까지 계산합니다.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI 토큰 카운터",
+  "url": "https://textkit.wooahouse.com/token-counter.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"정확한 토큰 수와 일치하나요?","acceptedAnswer":{"@type":"Answer","text":"아니요, 실제 BPE 토크나이저와 100% 동일하진 않은 추정치입니다. 영문 약 4자당 1토큰, 한글은 그보다 토큰을 더 많이 씁니다. 정확한 값은 모델별 공식 토크나이저로 확인해야 합니다."}},
+    {"@type":"Question","name":"왜 한글이 영문보다 토큰을 더 많이 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"대부분의 AI 모델은 영어 위주 데이터로 BPE 사전을 학습해서, 한글 한 글자가 여러 바이트로 쪼개져 토큰화되는 경우가 많습니다. 그래서 같은 글자 수라면 한글이 영문보다 토큰을 더 많이 소비합니다."}},
+    {"@type":"Question","name":"입력한 텍스트가 서버로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 계산은 브라우저 안에서만 이루어지며 입력한 텍스트는 어디로도 전송되지 않습니다."}}
+  ]
+}
+</script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+    .tc-notice { background:#FFFBEB; border:1px solid #FDE68A; border-radius:8px; padding:10px 14px; font-size:0.82rem; color:#92400E; margin-bottom:14px; line-height:1.6; }
+    .tc-cost-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:10px; }
+    .tc-cost-row input { width:120px; padding:8px 10px; border:1px solid var(--border); border-radius:8px; font-family:inherit; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="token-counter.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/token-counter.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="index.html">WooaText</a>
+    <span>›</span>
+    <span>AI 토큰 카운터</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">🔢</span>
+    <h1>AI 토큰 카운터 — GPT·Claude 토큰 수·비용 추정</h1>
+    <p>텍스트를 입력하면 AI 모델 기준 대략적인 토큰 수와 예상 API 비용을 계산합니다.</p>
+  </div>
+
+  <div class="tc-notice">⚠️ 이 도구는 문자 패턴 기반 <strong>추정치</strong>입니다. 실제 BPE 토크나이저와 정확히 일치하지 않을 수 있습니다.</div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">텍스트 입력</div>
+    <textarea id="inputText" rows="10" placeholder="여기에 텍스트를 입력하거나 붙여넣기 하세요...">Hello! 안녕하세요. 이 도구는 AI 토큰 수를 추정해줍니다.</textarea>
+  </div>
+
+  <div class="text-panel">
+    <div class="text-panel-title">토큰 추정 결과</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="statTokens">0</div>
+        <div class="stat-label">추정 토큰 수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statChars">0</div>
+        <div class="stat-label">전체 글자수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statWords">0</div>
+        <div class="stat-label">단어수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statRatio">0</div>
+        <div class="stat-label">글자/토큰 비율</div>
+      </div>
+    </div>
+
+    <div class="tc-cost-row">
+      <span style="font-size:0.88rem;color:var(--text-light);">1,000 토큰당 단가($)</span>
+      <input type="number" id="pricePer1k" value="3.00" step="0.01" min="0">
+      <span style="font-weight:700;">→ 예상 비용: <span id="statCost" style="color:var(--primary);">$0.00</span></span>
+    </div>
+  </div>
+
+    <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="char-counter.html" class="related-card"><span class="related-icon">🔢</span><span>글자수 세기</span></a>
+    <a href="text-stats.html" class="related-card"><span class="related-icon">📊</span><span>텍스트 통계</span></a>
+    <a href="json-formatter.html" class="related-card"><span class="related-icon">📋</span><span>JSON 포맷터</span></a>
+    <a href="markdown-editor.html" class="related-card"><span class="related-icon">📝</span><span>Markdown 에디터</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>프롬프트를 API로 보내기 전에 대략적인 비용 감을 잡는 용도로 활용하세요.</li><li>한글 프롬프트는 영문보다 토큰을 더 많이 쓰니, 비용에 민감하다면 영문으로 작성하는 것도 방법입니다.</li><li>단가는 이용 중인 모델의 공식 요금표를 확인해 직접 입력하세요(수시로 변동됨).</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>정확한 토큰 수와 일치하나요?</summary><p>아니요, 실제 BPE 토크나이저와 100% 동일하진 않은 추정치입니다. 영문 약 4자당 1토큰, 한글은 그보다 토큰을 더 많이 씁니다. 정확한 값은 모델별 공식 토크나이저로 확인해야 합니다.</p></details><details><summary>왜 한글이 영문보다 토큰을 더 많이 쓰나요?</summary><p>대부분의 AI 모델은 영어 위주 데이터로 BPE 사전을 학습해서, 한글 한 글자가 여러 바이트로 쪼개져 토큰화되는 경우가 많습니다. 그래서 같은 글자 수라면 한글이 영문보다 토큰을 더 많이 소비합니다.</p></details><details><summary>입력한 텍스트가 서버로 전송되나요?</summary><p>아니요. 모든 계산은 브라우저 안에서만 이루어지며 입력한 텍스트는 어디로도 전송되지 않습니다.</p></details></div>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar"></aside>
+</div>
+
+<footer class="footer"></footer>
+
+<script>
+  const inputText = document.getElementById('inputText');
+
+  // OpenAI 공식 근사치("영문 약 4자=1토큰")를 기반으로, CJK 글자만 별도 비율(약 1.7자=1토큰)을 적용.
+  // 공백·구두점은 별도로 세지 않고 전체 문자수 비율에 포함시켜 이중 계산을 방지.
+  const CJK_RE = /[가-힯㄰-㆏一-鿿぀-ヿ]/;
+  function estimateTokens(text) {
+    if (!text) return 0;
+    let cjkCount = 0, otherCount = 0;
+    for (const ch of text) {
+      if (CJK_RE.test(ch)) cjkCount++; else otherCount++;
+    }
+    const tokens = Math.ceil(otherCount / 4) + Math.ceil(cjkCount / 1.7);
+    return Math.max(text.trim() ? 1 : 0, tokens);
+  }
+
+  function calc() {
+    const text = inputText.value;
+    const tokens = estimateTokens(text);
+    const chars = text.length;
+    const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+    const ratio = tokens > 0 ? (chars / tokens).toFixed(2) : '0';
+    const price = parseFloat(document.getElementById('pricePer1k').value) || 0;
+    const cost = (tokens / 1000 * price);
+
+    document.getElementById('statTokens').textContent = tokens.toLocaleString();
+    document.getElementById('statChars').textContent = chars.toLocaleString();
+    document.getElementById('statWords').textContent = words.toLocaleString();
+    document.getElementById('statRatio').textContent = ratio;
+    document.getElementById('statCost').textContent = '$' + cost.toFixed(4);
+  }
+
+  inputText.addEventListener('input', calc);
+  document.getElementById('pricePer1k').addEventListener('input', calc);
+  calc();
+</script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script>window.PWA_CONFIG={appName:"WooaText",themeColor:"#8B5CF6",icon:"✏️",convertIds:['convertBtn','compressBtn','mergeBtn','splitBtn','deleteBtn','applyBtn','rotateBtn','unlockBtn','processBtn','cropBtn','generateBtn','resizeBtn','startBtn','generateAllBtn','printBtn']};</script>
+<script src="js/pwa-install.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

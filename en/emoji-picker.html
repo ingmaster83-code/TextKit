@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emoji Picker — Search and Copy With One Click Free | WooaText</title>
+  <meta name="description" content="Browse by category or search to find the emoji you want, then copy it with a single click. Find emoji fast on desktop without an emoji keyboard.">
+  <meta name="keywords" content="emoji picker,emoji search,emoji copy,emoji keyboard,emoji list,copy paste emoji">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/emoji-picker.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/emoji-picker.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/emoji-picker.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/emoji-picker.html">
+  <meta property="og:title" content="Emoji Picker — Search and Copy With One Click Free | WooaText">
+  <meta property="og:description" content="Browse by category or search to find the emoji you want, then copy it with a single click.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/emoji-picker.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta property="og:site_name" content="WooaText">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Emoji Picker — Search and Copy With One Click Free | WooaText">
+  <meta name="twitter:description" content="Browse by category or search to find the emoji you want, then copy it with a single click.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="../js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Emoji Picker",
+  "url": "https://textkit.wooahouse.com/en/emoji-picker.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How do I copy an emoji?","acceptedAnswer":{"@type":"Answer","text":"Click any emoji and it's automatically copied to your clipboard. Paste it wherever you need."}},
+    {"@type":"Question","name":"Can I search by name?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can search each emoji by its English name."}},
+    {"@type":"Question","name":"Is anything I pick recorded on a server?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens locally in your browser and nothing is sent to a server."}}
+  ]
+}
+</script>
+<style>
+    .lang-switcher { display:flex; align-items:center; gap:4px; }
+    .lang-switcher a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.8rem; font-weight:600; padding:3px 8px; border-radius:12px; transition:background 0.15s; }
+    .lang-switcher a.active { color:white; background:rgba(255,255,255,0.25); }
+    .lang-switcher a:hover { color:white; background:rgba(255,255,255,0.18); }
+    .lang-switcher span { color:rgba(255,255,255,0.3); font-size:0.75rem; }
+    .em-search { width:100%; padding:12px 16px; border:1.5px solid var(--border); border-radius:10px; font-size:1rem; font-family:inherit; box-sizing:border-box; margin-bottom:12px; }
+    .em-cats { display:flex; gap:6px; overflow-x:auto; padding-bottom:6px; margin-bottom:12px; }
+    .em-cat-btn { flex-shrink:0; padding:8px 14px; border:1.5px solid var(--border); border-radius:20px; background:white; cursor:pointer; font-size:0.84rem; white-space:nowrap; }
+    .em-cat-btn.active { border-color:var(--primary); background:var(--primary); color:white; }
+    .em-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(52px,1fr)); gap:6px; max-height:480px; overflow-y:auto; padding:4px; }
+    .em-btn { font-size:1.7rem; padding:8px 0; border:none; background:#F9FAFB; border-radius:10px; cursor:pointer; transition:background .1s,transform .1s; }
+    .em-btn:hover { background:#F3F4F6; transform:scale(1.1); }
+    .em-recent { font-size:0.78rem; color:var(--text-light); margin-bottom:6px; }
+    .em-copied-toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#1A1A2E; color:white; padding:10px 20px; border-radius:20px; font-size:0.88rem; opacity:0; transition:opacity .2s; pointer-events:none; z-index:999; }
+    .em-copied-toast.show { opacity:1; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Generator</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../emoji-picker.html">KO</a>
+        <span>|</span>
+        <a href="emoji-picker.html" class="active">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+
+<script src="../js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="page-with-sidebar">
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="index.html">WooaText</a>
+    <span>›</span>
+    <span>Emoji Picker</span>
+  </div>
+
+  <div class="tool-header">
+    <span class="tool-header-icon">😀</span>
+    <h1>Emoji Picker — Search & Copy in One Click</h1>
+    <p>Search or browse by category, then click any emoji to copy it instantly.</p>
+  </div>
+
+  <div class="text-panel">
+    <input class="em-search" id="emSearch" placeholder="🔍 Search by emoji name (e.g. smile, heart, cat...)">
+    <div class="em-cats" id="emCats"></div>
+    <div id="emRecentWrap" style="display:none;">
+      <div class="em-recent">Recently used</div>
+      <div class="em-grid" id="emRecentGrid" style="max-height:70px;margin-bottom:14px;"></div>
+    </div>
+    <div class="em-grid" id="emGrid"></div>
+  </div>
+
+    <div class="related-tools">
+  <h2>Tools you might also like</h2>
+  <div class="related-grid">
+    <a href="fancy-text.html" class="related-card"><span class="related-icon">✨</span><span>Fancy Text Generator</span></a>
+    <a href="char-counter.html" class="related-card"><span class="related-icon">🔢</span><span>Character Counter</span></a>
+    <a href="unicode-converter.html" class="related-card"><span class="related-icon">🔤</span><span>Unicode Converter</span></a>
+    <a href="case-converter.html" class="related-card"><span class="related-icon">🔡</span><span>Case Converter</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>Quickly paste emoji on desktop without needing an emoji keyboard.</li><li>Search works by the emoji's English name.</li><li>Recently used emoji are kept at the top for quick access.</li></ul></div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2><details><summary>How do I copy an emoji?</summary><p>Click any emoji and it's automatically copied to your clipboard. Paste it wherever you need.</p></details><details><summary>Can I search by name?</summary><p>Yes, you can search each emoji by its English name.</p></details><details><summary>Is anything I pick recorded on a server?</summary><p>No. All processing happens locally in your browser and nothing is sent to a server.</p></details></div>
+
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</main>
+<aside class="tool-sidebar"></aside>
+</div>
+
+<footer class="footer"></footer>
+
+<div class="em-copied-toast" id="emToast">Copied!</div>
+
+<script>
+  const CATEGORIES = {
+    'Smileys': [
+      ['😀','smile grin'],['😁','beam'],['😂','joy laugh tears'],['🤣','rofl'],['😃','happy'],
+      ['😄','laugh'],['😅','sweat smile'],['😆','xd laugh'],['😉','wink'],['😊','blush smile'],
+      ['😍','heart eyes love'],['🥰','in love'],['😘','kiss'],['😗','kiss'],['😋','yum'],
+      ['😛','tongue'],['😝','tongue closed eyes'],['🤪','zany crazy'],['🤔','thinking'],['🤨','skeptical'],
+      ['😐','neutral'],['😑','expressionless'],['😶','no mouth'],['🙄','rolling eyes'],['😏','smirk'],
+      ['😣','persevere'],['😥','sad relieved'],['😮','open mouth'],['🤐','zipper mouth'],['😯','hushed'],
+      ['😪','sleepy'],['😫','tired'],['🥱','yawn'],['😴','sleeping'],['😌','relieved'],
+      ['😜','wink tongue'],['😔','pensive sad'],['😟','worried'],['🙁','frown'],
+      ['☹️','frowning'],['😕','confused'],['😢','cry'],['😭','sob crying'],['😤','huff angry'],
+      ['😠','angry'],['😡','rage'],['🤬','cursing'],['🤯','mindblown'],['😳','flushed'],
+      ['🥵','hot'],['🥶','cold'],['😱','scream fear'],['😨','fearful'],['😰','anxious sweat'],
+      ['😓','sweat sad'],['🤗','hug'],['🤭','giggle'],['🤫','shh quiet'],['🤥','lying'],
+      ['😷','mask sick'],['🤒','fever thermometer'],['🤕','injured bandage'],['🤢','nauseated'],['🤮','vomit'],
+      ['🥳','party celebrate'],['😎','cool sunglasses'],['🤓','nerd glasses'],['🧐','monocle'],['😇','angel innocent'],
+    ],
+    'Gestures': [
+      ['👍','thumbs up like'],['👎','thumbs down dislike'],['👏','clap'],['🙌','praise hands up'],['👋','wave hello bye'],
+      ['🤝','handshake'],['🙏','pray thanks please'],['💪','muscle strong'],['✌️','victory peace'],['🤞','fingers crossed'],
+      ['👌','ok'],['🤟','love you'],['🤘','rock horns'],['👊','fist bump'],['✊','raised fist'],
+      ['👆','point up'],['👇','point down'],['👈','point left'],['👉','point right'],['☝️','index up'],
+      ['🖐️','hand five'],['✋','stop hand'],['🤙','call me shaka'],['💅','nail polish'],['🤳','selfie'],
+    ],
+    'Hearts & Symbols': [
+      ['❤️','red heart love'],['🧡','orange heart'],['💛','yellow heart'],['💚','green heart'],['💙','blue heart'],
+      ['💜','purple heart'],['🖤','black heart'],['🤍','white heart'],['🤎','brown heart'],['💔','broken heart'],
+      ['❣️','heart exclamation'],['💕','two hearts'],['💞','revolving hearts'],['💓','beating heart'],['💗','growing heart'],
+      ['💖','sparkling heart'],['💘','cupid arrow heart'],['💝','gift heart ribbon'],['💯','hundred points'],['✨','sparkles'],
+      ['🔥','fire hot'],['⭐','star'],['🌟','glowing star'],['💫','dizzy star'],['⚡','lightning'],
+      ['✅','check ok'],['❌','cross no'],['❓','question mark'],['❗','exclamation mark'],['💬','speech bubble'],
+    ],
+    'Animals': [
+      ['🐶','dog puppy'],['🐱','cat'],['🐭','mouse'],['🐹','hamster'],['🐰','rabbit'],
+      ['🦊','fox'],['🐻','bear'],['🐼','panda'],['🐨','koala'],['🐯','tiger'],
+      ['🦁','lion'],['🐮','cow'],['🐷','pig'],['🐸','frog'],['🐵','monkey'],
+      ['🐔','chicken'],['🐧','penguin'],['🐦','bird'],['🦆','duck'],['🦉','owl'],
+      ['🐺','wolf'],['🐗','boar'],['🐴','horse'],['🦄','unicorn'],['🐝','bee'],
+      ['🐛','bug caterpillar'],['🦋','butterfly'],['🐌','snail'],['🐞','ladybug'],['🐢','turtle'],
+      ['🐍','snake'],['🐙','octopus'],['🦀','crab'],['🐠','fish'],['🐬','dolphin'],
+      ['🐳','whale'],['🦈','shark'],['🐘','elephant'],['🦒','giraffe'],['🐫','camel'],
+    ],
+    'Food': [
+      ['🍎','apple'],['🍊','orange'],['🍋','lemon'],['🍌','banana'],['🍉','watermelon'],
+      ['🍇','grape'],['🍓','strawberry'],['🍈','melon'],['🍒','cherry'],['🍑','peach'],
+      ['🥝','kiwi'],['🍅','tomato'],['🥑','avocado'],['🌽','corn'],['🥕','carrot'],
+      ['🍞','bread'],['🥐','croissant'],['🧀','cheese'],['🍔','burger'],['🍟','fries'],
+      ['🍕','pizza'],['🌭','hotdog'],['🥪','sandwich'],['🌮','taco'],['🍣','sushi'],
+      ['🍜','ramen noodle'],['🍚','rice'],['🍦','icecream'],['🎂','cake birthday'],['🍩','donut'],
+      ['🍪','cookie'],['🍫','chocolate'],['☕','coffee'],['🍺','beer'],['🍷','wine'],
+    ],
+    'Activities & Objects': [
+      ['🎉','party celebrate'],['🎊','confetti'],['🎁','gift present'],['🎈','balloon'],['🎵','music note'],
+      ['🎶','music notes'],['📱','phone mobile'],['💻','laptop computer'],['⌚','watch'],['📷','camera'],
+      ['💡','lightbulb idea'],['📝','memo write'],['📌','pin'],['🔒','lock'],['🔑','key'],
+      ['🎮','game controller'],['⚽','soccer ball'],['🏀','basketball'],['🎨','art palette'],['📚','books study'],
+      ['✈️','airplane'],['🚗','car'],['🚲','bike'],['⏰','alarm clock'],['📅','calendar'],
+      ['💰','money bag'],['💵','dollar'],['🏆','trophy'],['🎯','target'],['🚀','rocket'],
+    ],
+    'Nature': [
+      ['🌸','cherry blossom'],['🌹','rose'],['🌻','sunflower'],['🌷','tulip'],['🌵','cactus'],
+      ['🌲','tree'],['🍀','clover luck'],['🍁','maple leaf'],['🍂','fallen leaf'],['🌈','rainbow'],
+      ['☀️','sun'],['🌙','moon'],['⭐','star2'],['☁️','cloud'],['🌧️','rain'],
+      ['⛄','snowman'],['❄️','snowflake'],['🌊','wave ocean'],['🔥','fire flame'],['🌍','earth globe'],
+    ],
+  };
+
+  let recent = [];
+  try { recent = JSON.parse(localStorage.getItem('wooatext_recent_emoji_en') || '[]'); } catch(e) {}
+
+  function buildCats() {
+    const catNames = Object.keys(CATEGORIES);
+    document.getElementById('emCats').innerHTML = catNames.map((c, i) =>
+      `<div class="em-cat-btn ${i===0?'active':''}" data-cat="${c}" onclick="selectCat('${c}')">${c}</div>`
+    ).join('');
+  }
+  let curCat = Object.keys(CATEGORIES)[0];
+  function selectCat(c) {
+    curCat = c;
+    document.getElementById('emSearch').value = '';
+    document.querySelectorAll('.em-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === c));
+    renderGrid();
+  }
+
+  function allEmojis() {
+    return Object.values(CATEGORIES).flat();
+  }
+
+  function renderGrid() {
+    const q = document.getElementById('emSearch').value.trim().toLowerCase();
+    let list;
+    if (q) {
+      list = allEmojis().filter(([e, name]) => name.toLowerCase().includes(q));
+    } else {
+      list = CATEGORIES[curCat];
+    }
+    document.getElementById('emGrid').innerHTML = list.map(([e, name]) =>
+      `<button class="em-btn" title="${name}" onclick="pick('${e}')">${e}</button>`
+    ).join('') || '<div style="color:var(--text-light);padding:20px;">No matching emoji found.</div>';
+  }
+
+  function renderRecent() {
+    if (!recent.length) { document.getElementById('emRecentWrap').style.display = 'none'; return; }
+    document.getElementById('emRecentWrap').style.display = 'block';
+    document.getElementById('emRecentGrid').innerHTML = recent.map(e => `<button class="em-btn" onclick="pick('${e}')">${e}</button>`).join('');
+  }
+
+  function pick(emoji) {
+    navigator.clipboard.writeText(emoji).catch(()=>{});
+    recent = [emoji, ...recent.filter(e => e !== emoji)].slice(0, 12);
+    try { localStorage.setItem('wooatext_recent_emoji_en', JSON.stringify(recent)); } catch(e) {}
+    renderRecent();
+    const toast = document.getElementById('emToast');
+    toast.textContent = emoji + ' Copied!';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1000);
+  }
+
+  document.getElementById('emSearch').addEventListener('input', renderGrid);
+  buildCats();
+  renderGrid();
+  renderRecent();
+</script>
+<script src="../js/wooahouse-originals-tool-en.js"></script>
+<script>window.PWA_CONFIG={appName:"WooaText",themeColor:"#8B5CF6",icon:"✏️",convertIds:['convertBtn','compressBtn','mergeBtn','splitBtn','deleteBtn','applyBtn','rotateBtn','unlockBtn','processBtn','cropBtn','generateBtn','resizeBtn','startBtn','generateAllBtn','printBtn']};</script>
+<script src="../js/pwa-install.js"></script>
+<script src="../js/wooa-sidebar-en.js"></script>
+<script src="../js/wooa-footer-en.js"></script>
+</body>
+</html>
