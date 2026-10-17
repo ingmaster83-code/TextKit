@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <title>동형 이의 문자 탐지기 — 피싱 도메인·계정 위장 문자 찾기 | WooaText</title>
+  <meta name="description" content="키릴·그리스·전각 등 ASCII 와 닮은 문자와 한 단어 안의 스크립트 혼용을 찾아 줍니다. 스켈레톤(ASCII 환원)과 punycode, 두 문자열의 겉모양 비교로 도메인·계정 위장을 점검합니다.">
+  <meta name="keywords" content="동형 이의 문자, homoglyph 탐지, 피싱 도메인 확인, 유니코드 혼동 문자, IDN 스푸핑, punycode 변환, confusable characters, 키릴 문자 위장">
+  <link rel="canonical" href="https://textkit.wooahouse.com/confusable-detector.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/confusable-detector.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/confusable-detector.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/confusable-detector.html">
+  <meta property="og:title" content="동형 이의 문자 탐지기 — 피싱 도메인·계정 위장 문자 찾기 | WooaText">
+  <meta property="og:description" content="키릴·그리스·전각 등 ASCII 와 닮은 문자와 한 단어 안의 스크립트 혼용을 찾아 줍니다. 스켈레톤(ASCII 환원)과 punycode, 두 문자열의 겉모양 비교로 도메인·계정 위장을 점검합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/confusable-detector.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="동형 이의 문자 탐지기 — 피싱 도메인·계정 위장 문자 찾기 | WooaText">
+  <meta name="twitter:description" content="키릴·그리스·전각 등 ASCII 와 닮은 문자와 한 단어 안의 스크립트 혼용을 찾아 줍니다. 스켈레톤(ASCII 환원)과 punycode, 두 문자열의 겉모양 비교로 도메인·계정 위장을 점검합니다.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"동형 이의 문자 탐지기","url":"https://textkit.wooahouse.com/confusable-detector.html","description":"키릴·그리스·전각 등 ASCII 와 닮은 문자와 한 단어 안의 스크립트 혼용을 찾아 줍니다. 스켈레톤(ASCII 환원)과 punycode, 두 문자열의 겉모양 비교로 도메인·계정 위장을 점검합니다.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"featureList":["탐지: 키릴·그리스 대문자·소문자, 전각 ASCII, 수학/원문자 서식 문자, 한글 자모와 한자(ㅇ ㅡ ㅣ 一 〇)가 ASCII 와 닮은 경우","스크립트 혼용: 한 단어에서 라틴+키릴처럼 섞인 경우를 경고(한·중·일 정상 조합은 허용)","스켈레톤: 닮은 문자를 ASCII 로 환원한 값과 도메인 형태 단어의 punycode(xn--)","비교: 텍스트 B 와 스켈레톤이 같으면 스푸핑 가능성을 알림, l/I/1·O/0 처럼 글꼴에 따라 헷갈리는 ASCII 도 표시"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"모든 닮은꼴 문자를 찾나요?","acceptedAnswer":{"@type":"Answer","text":"자주 악용되는 문자 위주의 부분집합입니다. 유니코드 컨퓨저블 전체 데이터는 포함하지 않으므로 중요한 판단에는 punycode 도 함께 확인하세요."}},{"@type":"Question","name":"한글 텍스트도 문제로 표시되나요?","acceptedAnswer":{"@type":"Answer","text":"한글만 있거나 한글과 영문, 한자가 섞인 정상적인 조합은 경고하지 않습니다. 한글 자모 중 ASCII 와 닮은 글자만 참고용으로 표시합니다."}},{"@type":"Question","name":"입력한 데이터가 서버로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/"},{"@type":"ListItem","position":2,"name":"동형 이의 문자 탐지기","item":"https://textkit.wooahouse.com/confusable-detector.html"}]}</script>
+  <link rel="stylesheet" href="css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="confusable-detector.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/confusable-detector.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>동형 이의 문자 탐지기</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">🎭</span>
+    <h1>동형 이의(Homoglyph) 문자 탐지기</h1>
+    <p>paypal.com 처럼 보이지만 일부가 키릴 문자인 도메인, 'аdmin' 같은 위장 계정, 전각 문자 등 겉모양이 비슷한 문자를 찾아 줍니다. 한 단어 안의 스크립트 혼용을 검사하고 ASCII 로 환원한 스켈레톤과 punycode 를 보여 주며, 두 문자열이 겉모양이 같은지 비교할 수도 있습니다.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">이 도구는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜 주세요.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>사용 예시</h2>
+<p>⛔ 의심스러운 문자 14개 · 혼용 단어 2개</p>
+<h3>입력 — 검사할 텍스트 (도메인, 사용자 이름, 코드 등)</h3><pre>раураl.com
+admin 계정: аdmіn
+wooahouse.com
+ＰａｙＰａｌ
+l0gin Ο1</pre>
+<h3>입력 — 비교할 텍스트 B (선택 — 겉모양이 같은지 확인)</h3><pre>paypal.com</pre>
+<h3>결과 — 의심 문자</h3><pre>위치(줄:열) | 글자 | 코드 | 스크립트 | 닮은 글자 | 설명 | 
+1:1 | р | U+0440 | Cyrillic | p | ASCII "p" 와 겉모양이 비슷합니다 | ⚠️
+1:2 | а | U+0430 | Cyrillic | a | ASCII "a" 와 겉모양이 비슷합니다 | ⚠️
+1:3 | у | U+0443 | Cyrillic | y | ASCII "y" 와 겉모양이 비슷합니다 | ⚠️
+1:4 | р | U+0440 | Cyrillic | p | ASCII "p" 와 겉모양이 비슷합니다 | ⚠️
+1:5 | а | U+0430 | Cyrillic | a | ASCII "a" 와 겉모양이 비슷합니다 | ⚠️
+2:11 | а | U+0430 | Cyrillic | a | ASCII "a" 와 겉모양이 비슷합니다 | ⚠️
+2:14 | і | U+0456 | Cyrillic | i | ASCII "i" 와 겉모양이 비슷합니다 | ⚠️
+4:1 | Ｐ | U+FF30 | Latin | P | 전각(Fullwidth) 문자 — ASCII "P" 의 전각 형태 | ⚠️
+4:2 | ａ | U+FF41 | Latin | a | 전각(Fullwidth) 문자 — ASCII "a" 의 전각 형태 | ⚠️
+4:3 | ｙ | U+FF59 | Latin | y | 전각(Fullwidth) 문자 — ASCII "y" 의 전각 형태 | ⚠️
+4:4 | Ｐ | U+FF30 | Latin | P | 전각(Fullwidth) 문자 — ASCII "P" 의 전각 형태 | ⚠️
+4:5 | ａ | U+FF41 | Latin | a | 전각(Fullwidth) 문자 — ASCII "a" 의 전각 형태 | ⚠️
+4:6 | ｌ | U+FF4C | Latin | l | 전각(Fullwidth) 문자 — ASCII "l" 의 전각 형태 | ⚠️
+5:7 | Ο | U+039F | Greek | O | ASCII "O" 와 겉모양이 비슷합니다 | ⚠️</pre>
+<h3>결과 — 단어별 스크립트</h3><pre>단어 | 스크립트 구성 | 판정 | punycode
+раураl.com | Cyrillic 5 + Latin 4 | ⚠️ 혼용 | xn--l-7sba6dbr.com
+аdmіn | Cyrillic 2 + Latin 3 | ⚠️ 혼용 | —</pre>
+</section>
+  <section class="tk-about">
+<h2>이 도구로 할 수 있는 일</h2>
+<p>도메인, 사용자 이름, 코드에 닮은꼴 문자가 섞였는지 확인합니다. 텍스트는 서버로 전송되지 않습니다.</p>
+<ul><li>탐지: 키릴·그리스 대문자·소문자, 전각 ASCII, 수학/원문자 서식 문자, 한글 자모와 한자(ㅇ ㅡ ㅣ 一 〇)가 ASCII 와 닮은 경우</li><li>스크립트 혼용: 한 단어에서 라틴+키릴처럼 섞인 경우를 경고(한·중·일 정상 조합은 허용)</li><li>스켈레톤: 닮은 문자를 ASCII 로 환원한 값과 도메인 형태 단어의 punycode(xn--)</li><li>비교: 텍스트 B 와 스켈레톤이 같으면 스푸핑 가능성을 알림, l/I/1·O/0 처럼 글꼴에 따라 헷갈리는 ASCII 도 표시</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="invisible-character-detector.html" class="related-card"><span class="related-icon">👻</span><span>보이지 않는 문자 탐지기</span></a>
+    <a href="unicode-inspector.html" class="related-card"><span class="related-icon">🔬</span><span>유니코드 검사기</span></a>
+    <a href="unicode-normalizer.html" class="related-card"><span class="related-icon">🧬</span><span>유니코드 정규화 도구</span></a>
+    <a href="url-encoder.html" class="related-card"><span class="related-icon">🔗</span><span>URL 인코딩</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>브라우저가 주소창에 xn-- 로 표시하는 도메인은 대개 스크립트가 섞였다는 뜻입니다. 클릭하기 전에 확인하세요.</li><li>사용자 이름 중복 검사는 원문 비교가 아니라 NFKC 정규화 + 스켈레톤 비교로 해야 위장 계정을 막습니다.</li><li>소스 코드 리뷰에서는 변수명에 섞인 키릴 문자가 컴파일은 되지만 의도와 다르게 동작하는 원인이 되기도 합니다.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>모든 닮은꼴 문자를 찾나요?</summary><p>자주 악용되는 문자 위주의 부분집합입니다. 유니코드 컨퓨저블 전체 데이터는 포함하지 않으므로 중요한 판단에는 punycode 도 함께 확인하세요.</p></details><details><summary>한글 텍스트도 문제로 표시되나요?</summary><p>한글만 있거나 한글과 영문, 한자가 섞인 정상적인 조합은 경고하지 않습니다. 한글 자모 중 ASCII 와 닮은 글자만 참고용으로 표시합니다.</p></details><details><summary>입력한 데이터가 서버로 전송되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="js/tk.js"></script>
+<script src="js/tools/confusable-detector.js"></script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

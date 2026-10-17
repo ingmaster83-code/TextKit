@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <title>유니코드 검사기 — 코드 포인트·UTF-8·문자소 분석 | WooaText</title>
+  <meta name="description" content="텍스트의 문자별 코드 포인트, 이름, 분류, 스크립트, UTF-8·UTF-16 바이트를 보여 주고 문자소 수와 length 가 다른 이유를 설명합니다. 이모지·한글·결합 문자를 지원합니다.">
+  <meta name="keywords" content="유니코드 검사, 코드포인트 확인, 문자 정보, UTF-8 바이트, 문자소 개수, 이모지 길이, unicode inspector, 한글 자모 확인">
+  <link rel="canonical" href="https://textkit.wooahouse.com/unicode-inspector.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/unicode-inspector.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/unicode-inspector.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/unicode-inspector.html">
+  <meta property="og:title" content="유니코드 검사기 — 코드 포인트·UTF-8·문자소 분석 | WooaText">
+  <meta property="og:description" content="텍스트의 문자별 코드 포인트, 이름, 분류, 스크립트, UTF-8·UTF-16 바이트를 보여 주고 문자소 수와 length 가 다른 이유를 설명합니다. 이모지·한글·결합 문자를 지원합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/unicode-inspector.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="유니코드 검사기 — 코드 포인트·UTF-8·문자소 분석 | WooaText">
+  <meta name="twitter:description" content="텍스트의 문자별 코드 포인트, 이름, 분류, 스크립트, UTF-8·UTF-16 바이트를 보여 주고 문자소 수와 length 가 다른 이유를 설명합니다. 이모지·한글·결합 문자를 지원합니다.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"유니코드 검사기","url":"https://textkit.wooahouse.com/unicode-inspector.html","description":"텍스트의 문자별 코드 포인트, 이름, 분류, 스크립트, UTF-8·UTF-16 바이트를 보여 주고 문자소 수와 length 가 다른 이유를 설명합니다. 이모지·한글·결합 문자를 지원합니다.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"featureList":["문자별 표: 코드 포인트, 이름(한글 음절·CJK 포함), 일반 분류(Lu, Ll, Mn, Cf 등), 스크립트, UTF-8 바이트, UTF-16 코드 유닛","요약: 코드 포인트·문자소·UTF-16·UTF-8 개수, 이미 정규화된 형식, 스크립트 구성","문자소 표: 여러 코드 포인트로 이루어진 글자(가족 이모지, é 의 결합형 등)","점검: 제로폭·방향 제어 문자, 분해된 한글 자모(NFD), JS length 와 실제 글자 수의 차이"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"모든 문자의 이름이 나오나요?","acceptedAnswer":{"@type":"Answer","text":"자주 쓰는 문자, 한글 음절, CJK 한자는 이름을 보여 주고 나머지는 분류와 스크립트 중심으로 보여 줍니다."}},{"@type":"Question","name":"코드 포인트와 문자소의 차이는 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"코드 포인트는 유니코드 번호 하나이고 문자소는 사람이 한 글자로 느끼는 단위입니다. é(e+결합 악센트)나 👨‍👩‍👧 는 여러 코드 포인트가 한 문자소입니다."}},{"@type":"Question","name":"입력한 데이터가 서버로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/"},{"@type":"ListItem","position":2,"name":"유니코드 검사기","item":"https://textkit.wooahouse.com/unicode-inspector.html"}]}</script>
+  <link rel="stylesheet" href="css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="unicode-inspector.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/unicode-inspector.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>유니코드 검사기</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">🔬</span>
+    <h1>유니코드 검사기 (코드 포인트 · 문자소)</h1>
+    <p>텍스트의 모든 문자를 코드 포인트(U+XXXX), 이름, 일반 분류, 스크립트, UTF-8·UTF-16 바이트로 풀어 보여 주고 문자소(화면에서 보이는 글자) 수와 length 의 차이를 설명합니다. 한글 음절 이름, 이모지 ZWJ 시퀀스, 결합 문자, 제로폭 문자를 한눈에 확인할 수 있습니다.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">이 도구는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜 주세요.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>사용 예시</h2>
+<p>✅ 코드 포인트 30개 · 문자소 25개 · UTF-8 57바이트</p>
+<h3>입력 — 검사할 텍스트</h3><pre>Hello, 안녕! café 👨‍👩‍👧 한글​ Á ①</pre>
+<h3>결과 — 요약</h3><pre>문자 수 (코드 포인트): 30
+문자소 수 (사용자가 보는 글자 수): 25
+UTF-16 코드 유닛 (JS length): 33
+UTF-8 바이트: 57
+이미 정규화된 형식: 없음 (NFC/NFD/NFKC/NFKD 모두 다름)
+스크립트: Latin 10, Common 13, Hangul 4, Inherited 3
+분류: Lu 2, Ll 8, Po 2, Zs 6, Lo 4, So 3, Cf 3, Mn 1, No 1</pre>
+<h3>결과 — 코드 포인트별 정보</h3><pre># | 글자 | 코드 포인트 | 이름 | 분류 | 스크립트 | UTF-8 | UTF-16
+1 | H | U+0048 | LATIN CAPITAL LETTER H | Lu 대문자 | Latin | 48 | 0048
+2 | e | U+0065 | LATIN SMALL LETTER E | Ll 소문자 | Latin | 65 | 0065
+3 | l | U+006C | LATIN SMALL LETTER L | Ll 소문자 | Latin | 6C | 006C
+4 | l | U+006C | LATIN SMALL LETTER L | Ll 소문자 | Latin | 6C | 006C
+5 | o | U+006F | LATIN SMALL LETTER O | Ll 소문자 | Latin | 6F | 006F
+6 | , | U+002C | COMMA | Po 기타 구두점 | Common | 2C | 002C
+7 | ␠ | U+0020 | SPACE | Zs 공백 | Common | 20 | 0020
+8 | 안 | U+C548 | HANGUL SYLLABLE AN | Lo 기타 글자 | Hangul | EC 95 88 | C548
+9 | 녕 | U+B155 | HANGUL SYLLABLE NYEONG | Lo 기타 글자 | Hangul | EB 85 95 | B155
+10 | ! | U+0021 | EXCLAMATION MARK | Po 기타 구두점 | Common | 21 | 0021
+11 | ␠ | U+0020 | SPACE | Zs 공백 | Common | 20 | 0020
+12 | c | U+0063 | LATIN SMALL LETTER C | Ll 소문자 | Latin | 63 | 0063
+13 | a | U+0061 | LATIN SMALL LETTER A | Ll 소문자 | Latin | 61 | 0061
+14 | f | U+0066 | LATIN SMALL LETTER F | Ll 소문자 | Latin | 66 | 0066
+15 | é | U+00E9 | — | Ll 소문자 | Latin | C3 A9 | 00E9
+16 | ␠ | U+0020 | SPACE | Zs 공백 | Common | 20 | 0020
+17 | 👨 | U+1F468 | MAN | So 기타 기호 | Common | F0 9F 91 A8 | D83D DC68
+18 | · | U+200D | ZERO WIDTH JOINER | Cf 서식 문자 | Inherited | E2 80 8D | 200D
+19 | 👩 | U+1F469 | WOMAN | So 기타 기호 | Common | F0 9F 91 A9 | D83D DC69
+20 | · | U+200D | ZERO WIDTH JOINER | Cf 서식 문자 | Inherited | E2 80 8D | 200D
+…</pre>
+</section>
+  <section class="tk-about">
+<h2>이 도구로 할 수 있는 일</h2>
+<p>글자가 왜 이렇게 세어지는지, 보이지 않는 문자가 있는지 확인합니다. 텍스트는 서버로 전송되지 않습니다.</p>
+<ul><li>문자별 표: 코드 포인트, 이름(한글 음절·CJK 포함), 일반 분류(Lu, Ll, Mn, Cf 등), 스크립트, UTF-8 바이트, UTF-16 코드 유닛</li><li>요약: 코드 포인트·문자소·UTF-16·UTF-8 개수, 이미 정규화된 형식, 스크립트 구성</li><li>문자소 표: 여러 코드 포인트로 이루어진 글자(가족 이모지, é 의 결합형 등)</li><li>점검: 제로폭·방향 제어 문자, 분해된 한글 자모(NFD), JS length 와 실제 글자 수의 차이</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="unicode-converter.html" class="related-card"><span class="related-icon">🔤</span><span>유니코드 변환기</span></a>
+    <a href="char-counter.html" class="related-card"><span class="related-icon">🔢</span><span>글자수 세기</span></a>
+    <a href="html-entity.html" class="related-card"><span class="related-icon">🏷️</span><span>HTML 엔티티</span></a>
+    <a href="text-stats.html" class="related-card"><span class="related-icon">📊</span><span>텍스트 통계</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>이모지 한 개가 length 2~11 이 되는 이유를 코드 포인트 표에서 확인하세요.</li><li>한글이 분해형(NFD)이면 검색·정렬이 달라집니다. '유니코드 정규화' 도구로 NFC 로 합치세요.</li><li>복사한 텍스트가 이상하게 동작하면 제어·제로폭 문자가 섞였는지 먼저 보세요.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>모든 문자의 이름이 나오나요?</summary><p>자주 쓰는 문자, 한글 음절, CJK 한자는 이름을 보여 주고 나머지는 분류와 스크립트 중심으로 보여 줍니다.</p></details><details><summary>코드 포인트와 문자소의 차이는 무엇인가요?</summary><p>코드 포인트는 유니코드 번호 하나이고 문자소는 사람이 한 글자로 느끼는 단위입니다. é(e+결합 악센트)나 👨‍👩‍👧 는 여러 코드 포인트가 한 문자소입니다.</p></details><details><summary>입력한 데이터가 서버로 전송되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="js/tk.js"></script>
+<script src="js/tools/unicode-inspector.js"></script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="../js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Locale Tag Parser – BCP 47 Breakdown and Format Preview | WooaText</title>
+  <meta name="description" content="Split BCP 47 locale tags such as ko-KR and zh-Hant-TW into language, script, region and extensions, and preview canonical form, direction, plural categories and date / number / currency formats.">
+  <meta name="keywords" content="locale tag parser, BCP 47 parser, locale code lookup, Intl.Locale, language region code, i18n locale format, locale validator">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/locale-parser.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/locale-parser.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/locale-parser.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/locale-parser.html">
+  <meta property="og:title" content="Locale Tag Parser – BCP 47 Breakdown and Format Preview | WooaText">
+  <meta property="og:description" content="Split BCP 47 locale tags such as ko-KR and zh-Hant-TW into language, script, region and extensions, and preview canonical form, direction, plural categories and date / number / currency formats.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/locale-parser.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Locale Tag Parser – BCP 47 Breakdown and Format Preview | WooaText">
+  <meta name="twitter:description" content="Split BCP 47 locale tags such as ko-KR and zh-Hant-TW into language, script, region and extensions, and preview canonical form, direction, plural categories and date / number / currency formats.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Locale Tag Parser","url":"https://textkit.wooahouse.com/en/locale-parser.html","description":"Split BCP 47 locale tags such as ko-KR and zh-Hant-TW into language, script, region and extensions, and preview canonical form, direction, plural categories and date / number / currency formats.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Parsing: language, script, region and Unicode extensions (calendar ca, numbering system nu, hour cycle hc, collation co)","Cleanup: canonical casing, notes for POSIX-style tags (de_CH), maximized / minimized forms and validity","Names: language, script and region names in Korean, English, Japanese or Chinese","Preview: full and short dates, numbers, currency, percent, lists, relative time, hour cycle and first weekday","Plural categories: cardinal and ordinal categories (needed for ICU plural messages)"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do results differ between browsers?","acceptedAnswer":{"@type":"Answer","text":"Intl data (CLDR) versions and supported locales differ, so samples and names can vary slightly."}},{"@type":"Question","name":"What about unsupported locales?","acceptedAnswer":{"@type":"Answer","text":"A valid tag without data in the browser is marked 'no data in this browser' and the samples fall back to the default locale."}},{"@type":"Question","name":"Is my data uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Everything is processed inside your browser; what you enter is never sent to or stored on a server, so you can safely paste data containing personal information, internal settings or API keys."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/en/index.html"},{"@type":"ListItem","position":2,"name":"Locale Tag Parser","item":"https://textkit.wooahouse.com/en/locale-parser.html"}]}</script>
+  <link rel="stylesheet" href="../css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../locale-parser.html">KO</a>
+        <span>|</span>
+        <a href="locale-parser.html" class="active">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+<script src="../js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>Locale Tag Parser</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">🌐</span>
+    <h1>Locale Tag Parser (BCP 47)</h1>
+    <p>Break tags such as ko-KR, zh-Hant-TW, sr-Latn-RS or ko-KR-u-ca-gregory into language, script, region and Unicode extensions, with the canonical form, maximized and minimized forms, display names and writing direction. Preview that locale's date, number, currency, list and relative-time formatting and its plural categories too.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">This tool needs JavaScript. Please enable it in your browser.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>Example</h2>
+<p>⛔ 1 invalid of 8 tag(s)</p>
+<h3>Input — Locale tags (BCP 47) - one per line</h3><pre>ko-KR
+en-US
+zh-Hant-TW
+sr-Latn-RS
+ko-KR-u-ca-gregory-nu-hanidec
+ar-EG
+de_CH
+xx-INVALID-</pre>
+<h3>Result — Components</h3><pre>Input | Canonical | Language | Script | Region | Extensions | Maximized / minimized | Direction | Supported
+ko-KR | ko-KR | ko (한국어) | — | KR (대한민국) | — | ko-Kore-KR / ko | ltr | ✅
+en-US | en-US | en (영어) | — | US (미국) | — | en-Latn-US / en | ltr | ✅
+zh-Hant-TW | zh-Hant-TW | zh (중국어) | Hant (번체) | TW (대만) | — | zh-Hant-TW / zh-TW | ltr | ✅
+sr-Latn-RS | sr-Latn-RS | sr (세르비아어) | Latn (로마자) | RS (세르비아) | — | sr-Latn-RS / sr-Latn | ltr | ✅
+ko-KR-u-ca-gregory-nu-hanidec | ko-KR-u-ca-gregory-nu-hanidec | ko (한국어) | — | KR (대한민국) | calendar=gregory, numberingSystem=hanidec | ko-Kore-KR-u-ca-gregory-nu-hanidec / ko-u-ca-gregory-nu-hanidec | ltr | ✅
+ar-EG | ar-EG | ar (아랍어) | — | EG (이집트) | — | ar-Arab-EG / ar | rtl | ✅
+de_CH | de-CH | de (독일어) | — | CH (스위스) | — | de-Latn-CH / de-CH | ltr | ✅
+xx-INVALID- | ⛔ invalid |  |  |  |  |  |  | </pre>
+<h3>Result — Formatting samples</h3><pre>Locale | Date &amp; time (full) | Date (short) | Number | Currency / percent | List / relative time | Plural categories (cardinal | ordinal) | Hour cycle
+ko-KR | 2026년 10월 17일 토요일 오후 1:05 | 26. 10. 17. | 1,234,567.891 | ₩1,235 / 26% | A, B 및 C / 어제 | other | other | h12 · week starts Sun
+en-US | Saturday, October 17, 2026 at 1:05 PM | 10/17/26 | 1,234,567.891 | $1,234.50 / 26% | A, B, and C / yesterday | one, other | one, two, few, other | h12 · week starts Sun
+zh-Hant-TW | 2026年10月17日 星期六 下午1:05 | 2026/10/17 | 1,234,567.891 | $1,234.50 / 26% | A、B和C / 昨天 | other | other | h12 · week starts Sun
+sr-Latn-RS | subota, 17. oktobar 2026. 13:05 | 17. 10. 2026. | 1.234.567,891 | 1.234,50 RSD / 26% | A, B i C / juče | one, few, other | other | h23 · week starts Mon
+ko-KR-u-ca-gregory-nu-hanidec | 二〇二六년 10월 一七일 토요일 오후 一:〇五 | 二六. 一〇. 一七. | 一,二三四,五六七.八九一 | ₩一,二三五 / 二六% | A, B 및 C / 어제 | other | other | h12 · week starts Sun
+ar-EG | السبت، ١٧ أكتوبر ٢٠٢٦ في ١:٠٥ م | ١٧‏/١٠‏/٢٠٢٦ | ١٬٢٣٤٬٥٦٧٫٨٩١ | ‏١٬٢٣٤٫٥٠ ج.م.‏ / ٢٦٪؜ | A وB وC / أمس | zero, one, two, few, many, other | other | h12 · week starts Sat
+de-CH | Samstag, 17. Oktober 2026 um 13:05 | 17.10.26 | 1'234'567.891 | CHF 1'234.50 / 26% | A, B und C / gestern | one, other | other | h23 · week starts Mon</pre>
+</section>
+  <section class="tk-about">
+<h2>What this tool does</h2>
+<p>Check that your locale tags are correct when building multilingual apps. Tags are not uploaded.</p>
+<ul><li>Parsing: language, script, region and Unicode extensions (calendar ca, numbering system nu, hour cycle hc, collation co)</li><li>Cleanup: canonical casing, notes for POSIX-style tags (de_CH), maximized / minimized forms and validity</li><li>Names: language, script and region names in Korean, English, Japanese or Chinese</li><li>Preview: full and short dates, numbers, currency, percent, lists, relative time, hour cycle and first weekday</li><li>Plural categories: cardinal and ordinal categories (needed for ICU plural messages)</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>Related Tools</h2>
+  <div class="related-grid">
+    <a href="timestamp-converter.html" class="related-card"><span class="related-icon">🕐</span><span>Timestamp</span></a>
+    <a href="number-base.html" class="related-card"><span class="related-icon">🔢</span><span>Number Base</span></a>
+    <a href="unicode-converter.html" class="related-card"><span class="related-icon">🔤</span><span>Unicode Converter</span></a>
+    <a href="text-stats.html" class="related-card"><span class="related-icon">📊</span><span>Text Stats</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>BCP 47 uses hyphens; an underscore form such as en_US is POSIX / Java style, so write en-US.</li><li>ko has a single plural category (other) while Russian and Arabic need 3 to 6.</li><li>Distinguish Simplified and Traditional Chinese by script (zh-Hans / zh-Hant) rather than by region.</li></ul></div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2><details><summary>Do results differ between browsers?</summary><p>Intl data (CLDR) versions and supported locales differ, so samples and names can vary slightly.</p></details><details><summary>What about unsupported locales?</summary><p>A valid tag without data in the browser is marked 'no data in this browser' and the samples fall back to the default locale.</p></details><details><summary>Is my data uploaded to a server?</summary><p>No. Everything is processed inside your browser; what you enter is never sent to or stored on a server, so you can safely paste data containing personal information, internal settings or API keys.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="../js/tk.js"></script>
+<script src="../js/tools/locale-parser.js"></script>
+<script src="../js/wooahouse-originals-tool-en.js"></script>
+<script src="../js/wooa-sidebar-en.js"></script>
+<script src="../js/wooa-footer-en.js"></script>
+</body>
+</html>

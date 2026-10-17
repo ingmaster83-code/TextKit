@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <title>줄바꿈 변환기 — CRLF LF CR 분석과 통일, BOM 제거 | WooaText</title>
+  <meta name="description" content="텍스트의 CRLF·LF·CR 줄바꿈 개수와 혼용 여부를 분석하고 한 가지로 통일합니다. 마지막 줄바꿈 추가·제거, 줄 끝 공백 제거, UTF-8 BOM 제거를 지원합니다.">
+  <meta name="keywords" content="줄바꿈 변환, CRLF LF 변환, 줄바꿈 통일, dos2unix 온라인, 윈도우 리눅스 줄바꿈, BOM 제거, 줄 끝 공백 제거">
+  <link rel="canonical" href="https://textkit.wooahouse.com/line-ending-converter.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/line-ending-converter.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/line-ending-converter.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/line-ending-converter.html">
+  <meta property="og:title" content="줄바꿈 변환기 — CRLF LF CR 분석과 통일, BOM 제거 | WooaText">
+  <meta property="og:description" content="텍스트의 CRLF·LF·CR 줄바꿈 개수와 혼용 여부를 분석하고 한 가지로 통일합니다. 마지막 줄바꿈 추가·제거, 줄 끝 공백 제거, UTF-8 BOM 제거를 지원합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/line-ending-converter.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="줄바꿈 변환기 — CRLF LF CR 분석과 통일, BOM 제거 | WooaText">
+  <meta name="twitter:description" content="텍스트의 CRLF·LF·CR 줄바꿈 개수와 혼용 여부를 분석하고 한 가지로 통일합니다. 마지막 줄바꿈 추가·제거, 줄 끝 공백 제거, UTF-8 BOM 제거를 지원합니다.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"줄바꿈 변환기","url":"https://textkit.wooahouse.com/line-ending-converter.html","description":"텍스트의 CRLF·LF·CR 줄바꿈 개수와 혼용 여부를 분석하고 한 가지로 통일합니다. 마지막 줄바꿈 추가·제거, 줄 끝 공백 제거, UTF-8 BOM 제거를 지원합니다.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"featureList":["분석: LF·CRLF·CR 개수, 주된 줄바꿈, 혼용 여부와 혼용된 위치, 마지막 줄바꿈, BOM, 줄 끝 공백","변환: LF · CRLF · CR 로 통일하거나 분석만 수행","정리: 마지막 줄바꿈 추가/제거, 줄 끝 공백 제거, UTF-8 BOM 추가/제거","입력: 파일 선택(원본 그대로 분석) 또는 붙여 넣기(브라우저가 LF 로 통일), 결과는 복사·다운로드"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"CRLF 와 LF 의 차이는 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"CRLF 는 Windows 의 줄바꿈(\\r\\n, 두 바이트)이고 LF 는 Linux·macOS 의 줄바꿈(\\n, 한 바이트)입니다. 섞이면 diff 가 지저분해지고 스크립트가 실행되지 않을 수 있습니다."}},{"@type":"Question","name":"큰 파일도 되나요?","acceptedAnswer":{"@type":"Answer","text":"브라우저 메모리가 허용하는 한 수십 MB 도 처리하지만 화면에는 결과의 앞부분만 보일 수 있으니 다운로드를 사용하세요."}},{"@type":"Question","name":"입력한 데이터가 서버로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/"},{"@type":"ListItem","position":2,"name":"줄바꿈 변환기","item":"https://textkit.wooahouse.com/line-ending-converter.html"}]}</script>
+  <link rel="stylesheet" href="css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="line-ending-converter.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/line-ending-converter.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>줄바꿈 변환기</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">↵</span>
+    <h1>줄바꿈 변환기 (CRLF · LF · CR)</h1>
+    <p>텍스트 파일을 선택하면 LF, CRLF, CR 줄바꿈이 각각 몇 개인지 세고 섞여 있는지 알려 줍니다. 원하는 형식(LF·CRLF·CR)으로 통일하고 마지막 줄바꿈, 줄 끝 공백, UTF-8 BOM 도 함께 정리해 다운로드할 수 있습니다.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">이 도구는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜 주세요.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>사용 예시</h2>
+<p>⚠️ 줄바꿈 혼용 — LF 1 · CRLF 2 · CR 1</p>
+<h3>입력 — 텍스트 (붙여 넣은 텍스트는 브라우저가 줄바꿈을 LF 로 통일합니다 — 정확한 분석은 파일 선택)</h3><pre>first line\r\nsecond line\nthird line\rfourth line\r\n</pre>
+<h3>결과 — 분석</h3><pre>파일: (붙여 넣은 텍스트)
+LF (\n): 1
+CRLF (\r\n): 2
+CR (\r): 1
+줄 수: 4
+주된 줄바꿈: CRLF
+혼용 여부: 예 — 서로 다른 줄바꿈이 섞여 있습니다
+마지막 줄바꿈: 있음 (CRLF)
+BOM: 없음
+줄 끝 공백이 있는 곳: 0
+크기: 48 B → 46 B</pre>
+<h3>결과 — 혼용된 줄바꿈 (처음 50개)</h3><pre>줄바꿈 번호 | 종류 | 주된 종류
+2 | LF | CRLF
+3 | CR | CRLF</pre>
+</section>
+  <section class="tk-about">
+<h2>이 도구로 할 수 있는 일</h2>
+<p>Windows(CRLF)와 Linux·macOS(LF) 사이에서 생기는 줄바꿈 문제를 브라우저에서 해결합니다. 파일은 서버로 전송되지 않습니다.</p>
+<ul><li>분석: LF·CRLF·CR 개수, 주된 줄바꿈, 혼용 여부와 혼용된 위치, 마지막 줄바꿈, BOM, 줄 끝 공백</li><li>변환: LF · CRLF · CR 로 통일하거나 분석만 수행</li><li>정리: 마지막 줄바꿈 추가/제거, 줄 끝 공백 제거, UTF-8 BOM 추가/제거</li><li>입력: 파일 선택(원본 그대로 분석) 또는 붙여 넣기(브라우저가 LF 로 통일), 결과는 복사·다운로드</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="line-tools.html" class="related-card"><span class="related-icon">📋</span><span>줄 정렬·중복 제거</span></a>
+    <a href="text-diff.html" class="related-card"><span class="related-icon">🔍</span><span>텍스트 비교</span></a>
+    <a href="text-replacer.html" class="related-card"><span class="related-icon">🔄</span><span>텍스트 치환기</span></a>
+    <a href="unicode-converter.html" class="related-card"><span class="related-icon">🔤</span><span>유니코드 변환기</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>붙여 넣은 텍스트는 브라우저가 줄바꿈을 LF 로 바꿔 버립니다. CRLF 여부를 확인하려면 '파일 선택'을 사용하세요.</li><li>셸 스크립트와 Dockerfile 은 LF 로 저장해야 합니다. CRLF 면 'bad interpreter ^M' 오류가 납니다.</li><li>Git 에서 줄바꿈 경고가 나오면 .gitattributes 의 text=auto 와 eol 설정도 함께 확인하세요.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>CRLF 와 LF 의 차이는 무엇인가요?</summary><p>CRLF 는 Windows 의 줄바꿈(\r\n, 두 바이트)이고 LF 는 Linux·macOS 의 줄바꿈(\n, 한 바이트)입니다. 섞이면 diff 가 지저분해지고 스크립트가 실행되지 않을 수 있습니다.</p></details><details><summary>큰 파일도 되나요?</summary><p>브라우저 메모리가 허용하는 한 수십 MB 도 처리하지만 화면에는 결과의 앞부분만 보일 수 있으니 다운로드를 사용하세요.</p></details><details><summary>입력한 데이터가 서버로 전송되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="js/tk.js"></script>
+<script src="js/tools/line-ending-converter.js"></script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

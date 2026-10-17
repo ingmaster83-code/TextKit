@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="../js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Unicode Normalizer – NFC / NFD Conversion and Decomposed Hangul Fix | WooaText</title>
+  <meta name="description" content="Normalise text to NFC, NFD, NFKC or NFKD and compare length, bytes and changed characters. Fixes macOS decomposed Hangul, fullwidth and ligature issues and checks equality after normalisation.">
+  <meta name="keywords" content="unicode normalize, NFC NFD converter, NFKC, decomposed hangul fix, macOS filename hangul, fullwidth to ascii, unicode equivalence, normalization form">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/unicode-normalizer.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/unicode-normalizer.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/unicode-normalizer.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/unicode-normalizer.html">
+  <meta property="og:title" content="Unicode Normalizer – NFC / NFD Conversion and Decomposed Hangul Fix | WooaText">
+  <meta property="og:description" content="Normalise text to NFC, NFD, NFKC or NFKD and compare length, bytes and changed characters. Fixes macOS decomposed Hangul, fullwidth and ligature issues and checks equality after normalisation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/unicode-normalizer.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Unicode Normalizer – NFC / NFD Conversion and Decomposed Hangul Fix | WooaText">
+  <meta name="twitter:description" content="Normalise text to NFC, NFD, NFKC or NFKD and compare length, bytes and changed characters. Fixes macOS decomposed Hangul, fullwidth and ligature issues and checks equality after normalisation.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Unicode Normalizer","url":"https://textkit.wooahouse.com/en/unicode-normalizer.html","description":"Normalise text to NFC, NFD, NFKC or NFKD and compare length, bytes and changed characters. Fixes macOS decomposed Hangul, fullwidth and ligature issues and checks equality after normalisation.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Forms: NFC (compose), NFD (decompose), NFKC (compatibility compose), NFKD (compatibility decompose)","Comparison table: code points, UTF-16 length, UTF-8 bytes and equality with the input per form","Changed characters: code points before and after with the kind (decomposed, composed, replaced), including grapheme-level composition","Compare with text B: finds a line or word that becomes equal under NFC / NFKC","Situation notes for decomposed Hangul (U+1100 jamo) and information loss under compatibility forms"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I use NFC or NFD?","acceptedAnswer":{"@type":"Answer","text":"NFC is generally recommended for storage and comparison. NFD appears in the macOS file system and as an intermediate step, for example when stripping accents."}},{"@type":"Question","name":"Does normalising change the character count?","acceptedAnswer":{"@type":"Answer","text":"Code points can change: a Hangul syllable becomes 2-3 jamo in NFD and e + combining accent becomes one é in NFC. What people see (graphemes) stays the same."}},{"@type":"Question","name":"Is my data uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Everything is processed inside your browser; what you enter is never sent to or stored on a server, so you can safely paste data containing personal information, internal settings or API keys."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/en/index.html"},{"@type":"ListItem","position":2,"name":"Unicode Normalizer","item":"https://textkit.wooahouse.com/en/unicode-normalizer.html"}]}</script>
+  <link rel="stylesheet" href="../css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../unicode-normalizer.html">KO</a>
+        <span>|</span>
+        <a href="unicode-normalizer.html" class="active">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+<script src="../js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>Unicode Normalizer</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">🧬</span>
+    <h1>Unicode Normalizer (NFC · NFD · NFKC · NFKD)</h1>
+    <p>Convert text that looks identical but has different code points (composed vs decomposed Hangul, two forms of é, fullwidth, enclosed and ligature characters) to NFC, NFD, NFKC or NFKD. See a length and byte table for all four forms and the list of changed characters, and check whether two texts are equal after normalisation.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">This tool needs JavaScript. Please enable it in your browser.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>Example</h2>
+<p>✅ Converted to NFC: 40 → 35 code points</p>
+<h3>Input — Text</h3><pre>한글 파일명(분해형): 한글.txt
+café ﬁ ① ㈜ Ａ１ ½</pre>
+<h3>Input — Text B (optional — equal after normalisation?)</h3><pre>café</pre>
+<h3>Result — All four forms</h3><pre>Form | Code points | UTF-16 length | UTF-8 bytes | vs input
+NFC | 35 | 35 | 67 | differs
+NFD | 54 | 54 | 122 | differs
+NFKC | 40 | 40 | 65 | differs
+NFKD | 60 | 60 | 123 | differs</pre>
+<h3>Result — Changed characters</h3><pre>Position | Original | Original code | Result | Result code | Kind
+14 (cluster) | 한 | U+1112 U+1161 U+11AB | 한 | U+D55C | composed
+15 (cluster) | 글 | U+1100 U+1173 U+11AF | 글 | U+AE00 | composed
+24 (cluster) | é | U+0065 U+0301 | é | U+00E9 | composed</pre>
+</section>
+  <section class="tk-about">
+<h2>What this tool does</h2>
+<p>Fix search, comparison and de-duplication that fail on text that looks the same. Your text is not uploaded.</p>
+<ul><li>Forms: NFC (compose), NFD (decompose), NFKC (compatibility compose), NFKD (compatibility decompose)</li><li>Comparison table: code points, UTF-16 length, UTF-8 bytes and equality with the input per form</li><li>Changed characters: code points before and after with the kind (decomposed, composed, replaced), including grapheme-level composition</li><li>Compare with text B: finds a line or word that becomes equal under NFC / NFKC</li><li>Situation notes for decomposed Hangul (U+1100 jamo) and information loss under compatibility forms</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>Related Tools</h2>
+  <div class="related-grid">
+    <a href="unicode-inspector.html" class="related-card"><span class="related-icon">🔬</span><span>Unicode Inspector</span></a>
+    <a href="invisible-character-detector.html" class="related-card"><span class="related-icon">👻</span><span>Invisible Character Detector</span></a>
+    <a href="text-diff.html" class="related-card"><span class="related-icon">🔍</span><span>Text Diff</span></a>
+    <a href="unicode-converter.html" class="related-card"><span class="related-icon">🔤</span><span>Unicode Converter</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>Normalise user input to NFC before storing or comparing so search and duplicate checks stay consistent.</li><li>Hangul file names made on macOS can show split jamo on Windows or the web; convert them to NFC.</li><li>NFKC reduces meaning (① → 1, ㈜ → (주), ﬁ → fi), so use it for identifiers and search keys only.</li></ul></div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2><details><summary>Should I use NFC or NFD?</summary><p>NFC is generally recommended for storage and comparison. NFD appears in the macOS file system and as an intermediate step, for example when stripping accents.</p></details><details><summary>Does normalising change the character count?</summary><p>Code points can change: a Hangul syllable becomes 2-3 jamo in NFD and e + combining accent becomes one é in NFC. What people see (graphemes) stays the same.</p></details><details><summary>Is my data uploaded to a server?</summary><p>No. Everything is processed inside your browser; what you enter is never sent to or stored on a server, so you can safely paste data containing personal information, internal settings or API keys.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="../js/tk.js"></script>
+<script src="../js/tools/unicode-normalizer.js"></script>
+<script src="../js/wooahouse-originals-tool-en.js"></script>
+<script src="../js/wooa-sidebar-en.js"></script>
+<script src="../js/wooa-footer-en.js"></script>
+</body>
+</html>

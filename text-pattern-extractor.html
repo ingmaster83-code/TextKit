@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <title>텍스트 패턴 추출기 — 이메일·URL·전화번호·IP 한 번에 추출 | WooaText</title>
+  <meta name="description" content="텍스트에서 이메일, URL, 전화번호, IP, 날짜, 금액, 해시태그, UUID 를 추출하고 중복 제거·정렬·위치·개수를 보여 줍니다. 직접 입력한 정규식도 지원하며 데이터는 전송되지 않습니다.">
+  <meta name="keywords" content="텍스트 추출, 이메일 추출, URL 추출, 전화번호 추출, IP 주소 추출, 정규식 추출기, 해시태그 추출, text extractor">
+  <link rel="canonical" href="https://textkit.wooahouse.com/text-pattern-extractor.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/text-pattern-extractor.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/text-pattern-extractor.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/text-pattern-extractor.html">
+  <meta property="og:title" content="텍스트 패턴 추출기 — 이메일·URL·전화번호·IP 한 번에 추출 | WooaText">
+  <meta property="og:description" content="텍스트에서 이메일, URL, 전화번호, IP, 날짜, 금액, 해시태그, UUID 를 추출하고 중복 제거·정렬·위치·개수를 보여 줍니다. 직접 입력한 정규식도 지원하며 데이터는 전송되지 않습니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/text-pattern-extractor.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="텍스트 패턴 추출기 — 이메일·URL·전화번호·IP 한 번에 추출 | WooaText">
+  <meta name="twitter:description" content="텍스트에서 이메일, URL, 전화번호, IP, 날짜, 금액, 해시태그, UUID 를 추출하고 중복 제거·정렬·위치·개수를 보여 줍니다. 직접 입력한 정규식도 지원하며 데이터는 전송되지 않습니다.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"텍스트 패턴 추출기","url":"https://textkit.wooahouse.com/text-pattern-extractor.html","description":"텍스트에서 이메일, URL, 전화번호, IP, 날짜, 금액, 해시태그, UUID 를 추출하고 중복 제거·정렬·위치·개수를 보여 줍니다. 직접 입력한 정규식도 지원하며 데이터는 전송되지 않습니다.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"featureList":["항목: 이메일, URL, 한국·국제 전화번호, IPv4, IPv6, 날짜(ISO·한글), 금액(원), 숫자, 해시태그, @멘션, 16진수 색상, UUID, 한글·영어 단어","개인정보 점검: 주민등록번호 형식, Luhn 검사를 통과한 카드번호 형식을 찾아 경고","정리: 중복 제거, 등장 순서·가나다순·빈도순 정렬, 값별 횟수와 처음 위치(줄:열)","직접 정규식: i m s u 플래그, 잘못된 정규식 오류 안내","모두 보기: 유형별 전체·고유 개수 요약 표와 한 줄에 하나씩 복사용 목록"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"전화번호·이메일을 정확히 검증하나요?","acceptedAnswer":{"@type":"Answer","text":"형식만 보고 찾습니다. 실제 사용 중인 번호나 주소인지는 확인하지 않으며 드물게 비슷한 숫자열이 섞일 수 있습니다."}},{"@type":"Question","name":"정규식 문법은 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"브라우저의 JavaScript 정규식입니다. 유니코드 속성(\\p{L} 등)을 쓰려면 u 플래그를 켜세요."}},{"@type":"Question","name":"입력한 데이터가 서버로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/"},{"@type":"ListItem","position":2,"name":"텍스트 패턴 추출기","item":"https://textkit.wooahouse.com/text-pattern-extractor.html"}]}</script>
+  <link rel="stylesheet" href="css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="text-pattern-extractor.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/text-pattern-extractor.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>텍스트 패턴 추출기</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">🧲</span>
+    <h1>텍스트 패턴 추출기 (이메일 · URL · 전화번호 · IP)</h1>
+    <p>로그, 메일 본문, 문서에서 이메일, URL, 전화번호, IPv4·IPv6, 날짜, 금액, 해시태그, 멘션, 색상 코드, UUID 같은 값만 뽑아 줍니다. 중복 제거와 정렬, 등장 위치(줄:열), 유형별 개수 요약을 제공하고 직접 정규식을 넣어 추출할 수도 있습니다. 주민등록번호·카드번호 형식은 개인정보 경고와 함께 알려 줍니다.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">이 도구는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜 주세요.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>사용 예시</h2>
+<p>✅ 16개 찾음 (고유 16개)</p>
+<h3>입력 — 텍스트</h3><pre>문의: help@wooahouse.com, sales@example.co.kr / 전화 02-1234-5678, 010-9876-5432
+서버 192.168.0.10 (백업 10.0.0.255) 접속 https://wooahouse.com/docs?id=7, http://example.org/a.
+결제 금액 1,250,000원, 주문번호 3f2504e0-4f89-41d3-9a0c-0305e82c3301, 색상 #ff6600
+태그 #우아하우스 #devtools 담당 @wooa_dev 마감 2026-10-17 (2026년 11월 3일)</pre>
+<h3>결과 — 유형별 개수</h3><pre>유형 | 전체 | 고유
+이메일 | 2 | 2
+URL | 2 | 2
+전화(한국) | 2 | 2
+전화(국제) | 0 | 0
+IPv4 | 2 | 2
+IPv6 | 0 | 0
+날짜 | 2 | 2
+금액 | 1 | 1
+해시태그 | 2 | 2
+@멘션 | 1 | 1
+색상 | 1 | 1
+UUID | 1 | 1
+주민번호 형식 | 0 | 0
+카드번호 | 0 | 0</pre>
+<h3>결과 — 추출 결과</h3><pre>값 | 유형 | 횟수 | 처음 위치(줄:열)
+help@wooahouse.com | 이메일 | 1 | 1:5
+sales@example.co.kr | 이메일 | 1 | 1:25
+02-1234-5678 | 전화(한국) | 1 | 1:50
+010-9876-5432 | 전화(한국) | 1 | 1:64
+192.168.0.10 | IPv4 | 1 | 2:4
+10.0.0.255 | IPv4 | 1 | 2:21
+https://wooahouse.com/docs?id=7 | URL | 1 | 2:36
+http://example.org/a | URL | 1 | 2:69
+1,250,000원 | 금액 | 1 | 3:7
+3f2504e0-4f89-41d3-9a0c-0305e82c3301 | UUID | 1 | 3:24
+#ff6600 | 색상 | 1 | 3:65
+#우아하우스 | 해시태그 | 1 | 4:4
+#devtools | 해시태그 | 1 | 4:11
+@wooa_dev | @멘션 | 1 | 4:24
+2026-10-17 | 날짜 | 1 | 4:37
+2026년 11월 3일 | 날짜 | 1 | 4:49</pre>
+</section>
+  <section class="tk-about">
+<h2>이 도구로 할 수 있는 일</h2>
+<p>긴 텍스트 안에서 필요한 값만 골라냅니다. 텍스트는 서버로 전송되지 않습니다.</p>
+<ul><li>항목: 이메일, URL, 한국·국제 전화번호, IPv4, IPv6, 날짜(ISO·한글), 금액(원), 숫자, 해시태그, @멘션, 16진수 색상, UUID, 한글·영어 단어</li><li>개인정보 점검: 주민등록번호 형식, Luhn 검사를 통과한 카드번호 형식을 찾아 경고</li><li>정리: 중복 제거, 등장 순서·가나다순·빈도순 정렬, 값별 횟수와 처음 위치(줄:열)</li><li>직접 정규식: i m s u 플래그, 잘못된 정규식 오류 안내</li><li>모두 보기: 유형별 전체·고유 개수 요약 표와 한 줄에 하나씩 복사용 목록</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="regex-tester.html" class="related-card"><span class="related-icon">🔍</span><span>정규식 테스터</span></a>
+    <a href="text-stats.html" class="related-card"><span class="related-icon">📊</span><span>텍스트 통계</span></a>
+    <a href="line-tools.html" class="related-card"><span class="related-icon">📋</span><span>줄 정렬·중복 제거</span></a>
+    <a href="html-entity.html" class="related-card"><span class="related-icon">🏷️</span><span>HTML 엔티티</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>URL 뒤에 붙은 마침표·쉼표·괄호는 자동으로 제외합니다. 필요하면 직접 정규식을 쓰세요.</li><li>로그에서 IP 만 모아 빈도순으로 정렬하면 접속이 많은 주소를 바로 볼 수 있습니다.</li><li>추출한 목록은 '줄 정렬·중복 제거'에 붙여 넣어 추가로 정리할 수 있습니다.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>전화번호·이메일을 정확히 검증하나요?</summary><p>형식만 보고 찾습니다. 실제 사용 중인 번호나 주소인지는 확인하지 않으며 드물게 비슷한 숫자열이 섞일 수 있습니다.</p></details><details><summary>정규식 문법은 무엇인가요?</summary><p>브라우저의 JavaScript 정규식입니다. 유니코드 속성(\p{L} 등)을 쓰려면 u 플래그를 켜세요.</p></details><details><summary>입력한 데이터가 서버로 전송되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="js/tk.js"></script>
+<script src="js/tools/text-pattern-extractor.js"></script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

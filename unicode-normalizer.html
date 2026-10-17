@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <title>유니코드 정규화 — NFC NFD 변환, 한글 분해형 파일명 해결 | WooaText</title>
+  <meta name="description" content="텍스트를 NFC·NFD·NFKC·NFKD 로 정규화하고 4가지 형식의 길이·바이트와 바뀐 글자를 비교합니다. macOS 분해형 한글, 전각, 합자 문제를 해결하고 두 문자열이 정규화 후 같은지 확인합니다.">
+  <meta name="keywords" content="유니코드 정규화, NFC NFD 변환, 한글 자모 분리 해결, macOS 파일명 한글, NFKC 변환, 전각 문자 변환, unicode normalize, 한글 조합형 분해형">
+  <link rel="canonical" href="https://textkit.wooahouse.com/unicode-normalizer.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/unicode-normalizer.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/unicode-normalizer.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/unicode-normalizer.html">
+  <meta property="og:title" content="유니코드 정규화 — NFC NFD 변환, 한글 분해형 파일명 해결 | WooaText">
+  <meta property="og:description" content="텍스트를 NFC·NFD·NFKC·NFKD 로 정규화하고 4가지 형식의 길이·바이트와 바뀐 글자를 비교합니다. macOS 분해형 한글, 전각, 합자 문제를 해결하고 두 문자열이 정규화 후 같은지 확인합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/unicode-normalizer.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="유니코드 정규화 — NFC NFD 변환, 한글 분해형 파일명 해결 | WooaText">
+  <meta name="twitter:description" content="텍스트를 NFC·NFD·NFKC·NFKD 로 정규화하고 4가지 형식의 길이·바이트와 바뀐 글자를 비교합니다. macOS 분해형 한글, 전각, 합자 문제를 해결하고 두 문자열이 정규화 후 같은지 확인합니다.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"유니코드 정규화 도구","url":"https://textkit.wooahouse.com/unicode-normalizer.html","description":"텍스트를 NFC·NFD·NFKC·NFKD 로 정규화하고 4가지 형식의 길이·바이트와 바뀐 글자를 비교합니다. macOS 분해형 한글, 전각, 합자 문제를 해결하고 두 문자열이 정규화 후 같은지 확인합니다.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"featureList":["변환: NFC(조합), NFD(분해), NFKC(호환 조합), NFKD(호환 분해)","비교표: 형식별 코드 포인트 수, UTF-16 길이, UTF-8 바이트, 입력과의 일치 여부","바뀐 글자: 원본과 변환 결과의 코드 포인트, 분해/조합/대체 종류 (문자소 단위 조합도 표시)","비교: 텍스트 B 와 같은 줄·단어가 있는지 확인해 NFC/NFKC 로 같아지는지 안내","한글 분해형(U+1100 자모), 호환 문자 손실 가능성 등 상황별 안내"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"NFC 와 NFD 중 무엇을 써야 하나요?","acceptedAnswer":{"@type":"Answer","text":"일반적으로 저장과 비교에는 NFC 를 권장합니다. NFD 는 macOS 파일 시스템이나 악센트 제거 같은 처리 중간 단계에서 쓰입니다."}},{"@type":"Question","name":"정규화하면 글자 수가 달라지나요?","acceptedAnswer":{"@type":"Answer","text":"네. 한글은 NFD 에서 음절 1자가 자모 2~3개가 되고 e + 결합 악센트는 NFC 에서 é 한 글자로 합쳐집니다. 사람이 보는 글자 수(문자소)는 그대로입니다."}},{"@type":"Question","name":"입력한 데이터가 서버로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/"},{"@type":"ListItem","position":2,"name":"유니코드 정규화 도구","item":"https://textkit.wooahouse.com/unicode-normalizer.html"}]}</script>
+  <link rel="stylesheet" href="css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="unicode-normalizer.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/unicode-normalizer.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>유니코드 정규화 도구</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">🧬</span>
+    <h1>유니코드 정규화 (NFC · NFD · NFKC · NFKD)</h1>
+    <p>같아 보이지만 코드 포인트가 다른 텍스트(조합형/분해형 한글, é 의 두 표현, 전각·원문자·합자)를 NFC, NFD, NFKC, NFKD 로 변환합니다. 네 형식의 길이·바이트 비교표와 바뀐 글자 목록을 보여 주고, 두 텍스트가 정규화 후 같은지도 확인합니다.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">이 도구는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜 주세요.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>사용 예시</h2>
+<p>✅ NFC 로 변환: 40 → 35자</p>
+<h3>입력 — 텍스트</h3><pre>한글 파일명(분해형): 한글.txt
+café ﬁ ① ㈜ Ａ１ ½</pre>
+<h3>입력 — 비교할 텍스트 B (선택 — 정규화하면 같은지 확인)</h3><pre>café</pre>
+<h3>결과 — 4가지 형식 비교</h3><pre>형식 | 코드 포인트 | UTF-16 길이 | UTF-8 바이트 | 원본 비교
+NFC | 35 | 35 | 67 | 다름
+NFD | 54 | 54 | 122 | 다름
+NFKC | 40 | 40 | 65 | 다름
+NFKD | 60 | 60 | 123 | 다름</pre>
+<h3>결과 — 바뀐 글자</h3><pre>위치 | 원본 | 원본 코드 | 변환 | 변환 코드 | 종류
+14 (문자소) | 한 | U+1112 U+1161 U+11AB | 한 | U+D55C | 합침
+15 (문자소) | 글 | U+1100 U+1173 U+11AF | 글 | U+AE00 | 합침
+24 (문자소) | é | U+0065 U+0301 | é | U+00E9 | 합침</pre>
+</section>
+  <section class="tk-about">
+<h2>이 도구로 할 수 있는 일</h2>
+<p>겉모양은 같은데 검색·비교·중복 제거가 실패하는 문제를 해결합니다. 텍스트는 서버로 전송되지 않습니다.</p>
+<ul><li>변환: NFC(조합), NFD(분해), NFKC(호환 조합), NFKD(호환 분해)</li><li>비교표: 형식별 코드 포인트 수, UTF-16 길이, UTF-8 바이트, 입력과의 일치 여부</li><li>바뀐 글자: 원본과 변환 결과의 코드 포인트, 분해/조합/대체 종류 (문자소 단위 조합도 표시)</li><li>비교: 텍스트 B 와 같은 줄·단어가 있는지 확인해 NFC/NFKC 로 같아지는지 안내</li><li>한글 분해형(U+1100 자모), 호환 문자 손실 가능성 등 상황별 안내</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="unicode-inspector.html" class="related-card"><span class="related-icon">🔬</span><span>유니코드 검사기</span></a>
+    <a href="invisible-character-detector.html" class="related-card"><span class="related-icon">👻</span><span>보이지 않는 문자 탐지기</span></a>
+    <a href="text-diff.html" class="related-card"><span class="related-icon">🔍</span><span>텍스트 비교</span></a>
+    <a href="unicode-converter.html" class="related-card"><span class="related-icon">🔤</span><span>유니코드 변환기</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>사용자 입력을 저장·비교할 때는 NFC 로 통일하세요. 검색과 중복 검사가 일관됩니다.</li><li>macOS 에서 만든 한글 파일명을 Windows·웹에서 다루면 자모가 분리되어 보일 수 있습니다. NFC 로 바꾸세요.</li><li>NFKC 는 ① → 1, ㈜ → (주), ﬁ → fi 처럼 의미를 줄입니다. 식별자·검색 키에만 쓰는 것이 안전합니다.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>NFC 와 NFD 중 무엇을 써야 하나요?</summary><p>일반적으로 저장과 비교에는 NFC 를 권장합니다. NFD 는 macOS 파일 시스템이나 악센트 제거 같은 처리 중간 단계에서 쓰입니다.</p></details><details><summary>정규화하면 글자 수가 달라지나요?</summary><p>네. 한글은 NFD 에서 음절 1자가 자모 2~3개가 되고 e + 결합 악센트는 NFC 에서 é 한 글자로 합쳐집니다. 사람이 보는 글자 수(문자소)는 그대로입니다.</p></details><details><summary>입력한 데이터가 서버로 전송되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="js/tk.js"></script>
+<script src="js/tools/unicode-normalizer.js"></script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

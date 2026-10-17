@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="../js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Invisible Character Detector – Find Zero-width, NBSP and Bidi Controls | WooaText</title>
+  <meta name="description" content="Find invisible characters such as zero-width spaces, NBSP, bidi overrides and Hangul fillers with position and risk, and remove them. Emoji ZWJ sequences are treated as normal.">
+  <meta name="keywords" content="invisible characters, remove zero width space, zero width space remover, remove NBSP, hidden characters, Trojan Source, hangul filler, find hidden unicode">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/invisible-character-detector.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/invisible-character-detector.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/invisible-character-detector.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/invisible-character-detector.html">
+  <meta property="og:title" content="Invisible Character Detector – Find Zero-width, NBSP and Bidi Controls | WooaText">
+  <meta property="og:description" content="Find invisible characters such as zero-width spaces, NBSP, bidi overrides and Hangul fillers with position and risk, and remove them. Emoji ZWJ sequences are treated as normal.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/invisible-character-detector.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Invisible Character Detector – Find Zero-width, NBSP and Bidi Controls | WooaText">
+  <meta name="twitter:description" content="Find invisible characters such as zero-width spaces, NBSP, bidi overrides and Hangul fillers with position and risk, and remove them. Emoji ZWJ sequences are treated as normal.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Invisible Character Detector","url":"https://textkit.wooahouse.com/en/invisible-character-detector.html","description":"Find invisible characters such as zero-width spaces, NBSP, bidi overrides and Hangul fillers with position and risk, and remove them. Emoji ZWJ sequences are treated as normal.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Detects: zero-width characters (200B, 200C, 200D, 2060, FEFF), unusual spaces (NBSP, ideographic, thin), soft hyphen, bidi controls (LRM, RLM, LRO, RLO, isolates), Hangul fillers (3164 ...), Braille blank, tag characters, control characters and the replacement character (�)","Table: line:column, code, name, kind, risk (low to critical), context and counts by kind","Cleaning: remove all (space-like ones become ASCII spaces), convert only space-like ones, or mark with [U+XXXX] without removing","Options to treat ZWJ / variation selectors in emoji as normal and to ignore a leading BOM"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does removing ZWJ break emoji?","acceptedAnswer":{"@type":"Answer","text":"Yes. Combined emoji such as 👨‍👩‍👧 are joined with ZWJ and fall apart without it, so ZWJ next to emoji is treated as normal by default."}},{"@type":"Question","name":"Does it remove ordinary spaces too?","acceptedAnswer":{"@type":"Answer","text":"No. Normal spaces (U+0020), tabs and line breaks are untouched; only unusual spaces are targeted."}},{"@type":"Question","name":"Is my data uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Everything is processed inside your browser; what you enter is never sent to or stored on a server, so you can safely paste data containing personal information, internal settings or API keys."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/en/index.html"},{"@type":"ListItem","position":2,"name":"Invisible Character Detector","item":"https://textkit.wooahouse.com/en/invisible-character-detector.html"}]}</script>
+  <link rel="stylesheet" href="../css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../invisible-character-detector.html">KO</a>
+        <span>|</span>
+        <a href="invisible-character-detector.html" class="active">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+<script src="../js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>Invisible Character Detector</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">👻</span>
+    <h1>Invisible Character Detector &amp; Remover</h1>
+    <p>Find zero-width spaces (U+200B), NBSP, ideographic spaces, soft hyphens, bidirectional overrides (Trojan Source), the Hangul filler (U+3164), the Braille blank, tag characters and control characters hiding in copied text, with line:column positions and a risk level, then mark them as [U+XXXX] or remove them in one step.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">This tool needs JavaScript. Please enable it in your browser.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>Example</h2>
+<p>⚠️ 10 suspicious character(s) (10 kind(s))</p>
+<h3>Input — Text to check</h3><pre>Hello​World, price is 100　won.
+user‮admin‬ = "ok";­ soft⁠ joined‍ text﻿ㅤ</pre>
+<h3>Result — Found characters</h3><pre>Position | Code | Name | Kind | Risk | Context
+1:6 | U+200B | ZERO WIDTH SPACE | Zero-width | high | Hello ▮ World,
+1:19 | U+00A0 | NO-BREAK SPACE | Unusual space | low |  price ▮ is 100
+1:26 | U+3000 | IDEOGRAPHIC SPACE | Unusual space | low | is 100 ▮ won.↵u
+2:5 | U+202E | RIGHT-TO-LEFT OVERRIDE | Bidi control | critical | .↵user ▮ admin‬
+2:11 | U+202C | POP DIRECTIONAL FORMATTING | Bidi control | critical | ‮admin ▮  = "ok
+2:20 | U+00AD | SOFT HYPHEN | Format character | medium |  "ok"; ▮  soft⁠
+2:26 | U+2060 | WORD JOINER | Zero-width | medium | ­ soft ▮  joine
+2:34 | U+200D | ZERO WIDTH JOINER | Zero-width | medium | joined ▮  text﻿
+2:40 | U+FEFF | ZERO WIDTH NO-BREAK SPACE / BOM | Zero-width | medium | ‍ text ▮ ㅤ
+2:41 | U+3164 | HANGUL FILLER | Blank filler | high |  text﻿ ▮ </pre>
+<h3>Result — Count by kind</h3><pre>Code | Name | Count | Risk
+U+200B | ZERO WIDTH SPACE | 1 | high
+U+00A0 | NO-BREAK SPACE | 1 | low
+U+3000 | IDEOGRAPHIC SPACE | 1 | low
+U+202E | RIGHT-TO-LEFT OVERRIDE | 1 | critical
+U+202C | POP DIRECTIONAL FORMATTING | 1 | critical
+U+00AD | SOFT HYPHEN | 1 | medium
+U+2060 | WORD JOINER | 1 | medium
+U+200D | ZERO WIDTH JOINER | 1 | medium
+U+FEFF | ZERO WIDTH NO-BREAK SPACE / BOM | 1 | medium
+U+3164 | HANGUL FILLER | 1 | high</pre>
+</section>
+  <section class="tk-about">
+<h2>What this tool does</h2>
+<p>Track down why pasted text mysteriously fails. Your text is not uploaded.</p>
+<ul><li>Detects: zero-width characters (200B, 200C, 200D, 2060, FEFF), unusual spaces (NBSP, ideographic, thin), soft hyphen, bidi controls (LRM, RLM, LRO, RLO, isolates), Hangul fillers (3164 ...), Braille blank, tag characters, control characters and the replacement character (�)</li><li>Table: line:column, code, name, kind, risk (low to critical), context and counts by kind</li><li>Cleaning: remove all (space-like ones become ASCII spaces), convert only space-like ones, or mark with [U+XXXX] without removing</li><li>Options to treat ZWJ / variation selectors in emoji as normal and to ignore a leading BOM</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>Related Tools</h2>
+  <div class="related-grid">
+    <a href="unicode-inspector.html" class="related-card"><span class="related-icon">🔬</span><span>Unicode Inspector</span></a>
+    <a href="whitespace.html" class="related-card"><span class="related-icon">⬜</span><span>Whitespace</span></a>
+    <a href="unicode-normalizer.html" class="related-card"><span class="related-icon">🧬</span><span>Unicode Normalizer</span></a>
+    <a href="confusable-detector.html" class="related-card"><span class="related-icon">🎭</span><span>Confusable Character Detector</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>If a pasted password, API key or URL fails, check for a zero-width space.</li><li>Bidi controls in source code or file names can make the visible text differ from the real content, which is dangerous.</li><li>The Hangul filler looks like an empty name but passes whitespace checks; add this check to nickname validation.</li></ul></div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2><details><summary>Does removing ZWJ break emoji?</summary><p>Yes. Combined emoji such as 👨‍👩‍👧 are joined with ZWJ and fall apart without it, so ZWJ next to emoji is treated as normal by default.</p></details><details><summary>Does it remove ordinary spaces too?</summary><p>No. Normal spaces (U+0020), tabs and line breaks are untouched; only unusual spaces are targeted.</p></details><details><summary>Is my data uploaded to a server?</summary><p>No. Everything is processed inside your browser; what you enter is never sent to or stored on a server, so you can safely paste data containing personal information, internal settings or API keys.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="../js/tk.js"></script>
+<script src="../js/tools/invisible-character-detector.js"></script>
+<script src="../js/wooahouse-originals-tool-en.js"></script>
+<script src="../js/wooa-sidebar-en.js"></script>
+<script src="../js/wooa-footer-en.js"></script>
+</body>
+</html>

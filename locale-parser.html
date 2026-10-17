@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <title>로케일 태그 분석기 — BCP 47 분해와 날짜·숫자 서식 미리보기 | WooaText</title>
+  <meta name="description" content="ko-KR, zh-Hant-TW 같은 BCP 47 로케일 태그를 언어·스크립트·지역·확장으로 분해하고 표준형, 방향, 복수형 범주, 날짜·숫자·통화 서식 예시를 보여 줍니다.">
+  <meta name="keywords" content="로케일 태그, BCP 47 분석, 로케일 코드 확인, ko-KR 의미, Intl.Locale, 언어 코드 지역 코드, locale parser, i18n 로케일 서식">
+  <link rel="canonical" href="https://textkit.wooahouse.com/locale-parser.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/locale-parser.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/locale-parser.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/locale-parser.html">
+  <meta property="og:title" content="로케일 태그 분석기 — BCP 47 분해와 날짜·숫자 서식 미리보기 | WooaText">
+  <meta property="og:description" content="ko-KR, zh-Hant-TW 같은 BCP 47 로케일 태그를 언어·스크립트·지역·확장으로 분해하고 표준형, 방향, 복수형 범주, 날짜·숫자·통화 서식 예시를 보여 줍니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/locale-parser.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="로케일 태그 분석기 — BCP 47 분해와 날짜·숫자 서식 미리보기 | WooaText">
+  <meta name="twitter:description" content="ko-KR, zh-Hant-TW 같은 BCP 47 로케일 태그를 언어·스크립트·지역·확장으로 분해하고 표준형, 방향, 복수형 범주, 날짜·숫자·통화 서식 예시를 보여 줍니다.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"로케일 태그 분석기","url":"https://textkit.wooahouse.com/locale-parser.html","description":"ko-KR, zh-Hant-TW 같은 BCP 47 로케일 태그를 언어·스크립트·지역·확장으로 분해하고 표준형, 방향, 복수형 범주, 날짜·숫자·통화 서식 예시를 보여 줍니다.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"featureList":["분해: 언어, 스크립트, 지역, 유니코드 확장(달력 ca, 숫자 체계 nu, 시간 주기 hc, 정렬 co)","정리: 표준 표기(대소문자), POSIX 형식(de_CH) 변환 안내, 보완/최소화 형태, 유효성 검사","이름: 한국어·영어·일본어·중국어로 언어·스크립트·지역 이름 표시","미리보기: 전체·짧은 날짜, 숫자, 통화, 퍼센트, 목록, 상대 시각, 시간 주기, 주 시작 요일","복수형 범주: 기수와 서수 범주(ICU 메시지를 쓸 때 필요한 plural 형태)"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"브라우저마다 결과가 다른가요?","acceptedAnswer":{"@type":"Answer","text":"Intl 데이터(CLDR) 버전과 지원 로케일이 브라우저마다 달라 서식 예시나 이름이 조금 다를 수 있습니다."}},{"@type":"Question","name":"지원하지 않는 로케일은 어떻게 되나요?","acceptedAnswer":{"@type":"Answer","text":"유효한 태그라도 브라우저에 데이터가 없으면 '이 브라우저에 데이터 없음'으로 표시하고 기본 로케일로 대체해 서식을 만듭니다."}},{"@type":"Question","name":"입력한 데이터가 서버로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/"},{"@type":"ListItem","position":2,"name":"로케일 태그 분석기","item":"https://textkit.wooahouse.com/locale-parser.html"}]}</script>
+  <link rel="stylesheet" href="css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="locale-parser.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/locale-parser.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>로케일 태그 분석기</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">🌐</span>
+    <h1>로케일 태그 분석기 (BCP 47)</h1>
+    <p>ko-KR, zh-Hant-TW, sr-Latn-RS, ko-KR-u-ca-gregory 같은 로케일 태그를 언어·스크립트·지역·유니코드 확장으로 나누고 표준형, 보완(maximize)·최소화(minimize) 형태, 표시 이름, 글쓰기 방향을 보여 줍니다. 그 로케일의 날짜·숫자·통화·목록·상대 시각 서식과 복수형 범주도 함께 미리 볼 수 있습니다.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">이 도구는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜 주세요.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>사용 예시</h2>
+<p>⛔ 유효하지 않은 태그 1개 / 8개</p>
+<h3>입력 — 로케일 태그 (BCP 47) — 한 줄에 하나</h3><pre>ko-KR
+en-US
+zh-Hant-TW
+sr-Latn-RS
+ko-KR-u-ca-gregory-nu-hanidec
+ar-EG
+de_CH
+xx-INVALID-</pre>
+<h3>결과 — 구성 요소</h3><pre>입력 | 표준형 | 언어 | 스크립트 | 지역 | 확장 옵션 | 보완 / 최소화 | 방향 | 지원
+ko-KR | ko-KR | ko (한국어) | — | KR (대한민국) | — | ko-Kore-KR / ko | ltr | ✅
+en-US | en-US | en (영어) | — | US (미국) | — | en-Latn-US / en | ltr | ✅
+zh-Hant-TW | zh-Hant-TW | zh (중국어) | Hant (번체) | TW (대만) | — | zh-Hant-TW / zh-TW | ltr | ✅
+sr-Latn-RS | sr-Latn-RS | sr (세르비아어) | Latn (로마자) | RS (세르비아) | — | sr-Latn-RS / sr-Latn | ltr | ✅
+ko-KR-u-ca-gregory-nu-hanidec | ko-KR-u-ca-gregory-nu-hanidec | ko (한국어) | — | KR (대한민국) | calendar=gregory, numberingSystem=hanidec | ko-Kore-KR-u-ca-gregory-nu-hanidec / ko-u-ca-gregory-nu-hanidec | ltr | ✅
+ar-EG | ar-EG | ar (아랍어) | — | EG (이집트) | — | ar-Arab-EG / ar | rtl | ✅
+de_CH | de-CH | de (독일어) | — | CH (스위스) | — | de-Latn-CH / de-CH | ltr | ✅
+xx-INVALID- | ⛔ 유효하지 않음 |  |  |  |  |  |  | </pre>
+<h3>결과 — 서식 예시</h3><pre>로케일 | 날짜·시간(전체) | 날짜(짧게) | 숫자 | 통화 / 퍼센트 | 목록 / 상대 시각 | 복수형 범주 (기수 | 서수) | 시간 주기
+ko-KR | 2026년 10월 17일 토요일 오후 1:05 | 26. 10. 17. | 1,234,567.891 | ₩1,235 / 26% | A, B 및 C / 어제 | other | other | h12 · 주 시작 일
+en-US | Saturday, October 17, 2026 at 1:05 PM | 10/17/26 | 1,234,567.891 | $1,234.50 / 26% | A, B, and C / yesterday | one, other | one, two, few, other | h12 · 주 시작 일
+zh-Hant-TW | 2026年10月17日 星期六 下午1:05 | 2026/10/17 | 1,234,567.891 | $1,234.50 / 26% | A、B和C / 昨天 | other | other | h12 · 주 시작 일
+sr-Latn-RS | subota, 17. oktobar 2026. 13:05 | 17. 10. 2026. | 1.234.567,891 | 1.234,50 RSD / 26% | A, B i C / juče | one, few, other | other | h23 · 주 시작 월
+ko-KR-u-ca-gregory-nu-hanidec | 二〇二六년 10월 一七일 토요일 오후 一:〇五 | 二六. 一〇. 一七. | 一,二三四,五六七.八九一 | ₩一,二三五 / 二六% | A, B 및 C / 어제 | other | other | h12 · 주 시작 일
+ar-EG | السبت، ١٧ أكتوبر ٢٠٢٦ في ١:٠٥ م | ١٧‏/١٠‏/٢٠٢٦ | ١٬٢٣٤٬٥٦٧٫٨٩١ | ‏١٬٢٣٤٫٥٠ ج.م.‏ / ٢٦٪؜ | A وB وC / أمس | zero, one, two, few, many, other | other | h12 · 주 시작 토
+de-CH | Samstag, 17. Oktober 2026 um 13:05 | 17.10.26 | 1'234'567.891 | CHF 1'234.50 / 26% | A, B und C / gestern | one, other | other | h23 · 주 시작 월</pre>
+</section>
+  <section class="tk-about">
+<h2>이 도구로 할 수 있는 일</h2>
+<p>다국어 앱을 만들 때 로케일 태그를 올바르게 쓰는지 확인합니다. 태그는 서버로 전송되지 않습니다.</p>
+<ul><li>분해: 언어, 스크립트, 지역, 유니코드 확장(달력 ca, 숫자 체계 nu, 시간 주기 hc, 정렬 co)</li><li>정리: 표준 표기(대소문자), POSIX 형식(de_CH) 변환 안내, 보완/최소화 형태, 유효성 검사</li><li>이름: 한국어·영어·일본어·중국어로 언어·스크립트·지역 이름 표시</li><li>미리보기: 전체·짧은 날짜, 숫자, 통화, 퍼센트, 목록, 상대 시각, 시간 주기, 주 시작 요일</li><li>복수형 범주: 기수와 서수 범주(ICU 메시지를 쓸 때 필요한 plural 형태)</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="timestamp-converter.html" class="related-card"><span class="related-icon">🕐</span><span>타임스탬프 변환기</span></a>
+    <a href="number-base.html" class="related-card"><span class="related-icon">🔢</span><span>이진수/진법 변환기</span></a>
+    <a href="unicode-converter.html" class="related-card"><span class="related-icon">🔤</span><span>유니코드 변환기</span></a>
+    <a href="text-stats.html" class="related-card"><span class="related-icon">📊</span><span>텍스트 통계</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>BCP 47 은 하이픈(-)을 씁니다. en_US 같은 밑줄 표기는 POSIX/Java 형식이니 en-US 로 바꿔 쓰세요.</li><li>ko 에는 복수형 구분이 없어 other 하나뿐이지만 러시아어·아랍어는 3~6개 범주가 필요합니다.</li><li>zh-Hans(간체)와 zh-Hant(번체)는 지역이 아니라 스크립트로 구분하는 것이 안전합니다.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>브라우저마다 결과가 다른가요?</summary><p>Intl 데이터(CLDR) 버전과 지원 로케일이 브라우저마다 달라 서식 예시나 이름이 조금 다를 수 있습니다.</p></details><details><summary>지원하지 않는 로케일은 어떻게 되나요?</summary><p>유효한 태그라도 브라우저에 데이터가 없으면 '이 브라우저에 데이터 없음'으로 표시하고 기본 로케일로 대체해 서식을 만듭니다.</p></details><details><summary>입력한 데이터가 서버로 전송되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="js/tk.js"></script>
+<script src="js/tools/locale-parser.js"></script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

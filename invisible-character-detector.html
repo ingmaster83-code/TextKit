@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <title>보이지 않는 문자 탐지기 — 제로폭·NBSP·방향 제어 문자 찾기와 제거 | WooaText</title>
+  <meta name="description" content="텍스트 속 제로폭 공백, NBSP, 방향 덮어쓰기, 한글 필러 같은 눈에 보이지 않는 문자를 찾아 위치와 위험도를 보여 주고 제거합니다. 이모지 ZWJ 는 정상으로 처리합니다.">
+  <meta name="keywords" content="보이지 않는 문자, 제로폭 공백 제거, zero width space 제거, NBSP 제거, 숨은 문자 찾기, Trojan Source, 한글 필러, invisible characters">
+  <link rel="canonical" href="https://textkit.wooahouse.com/invisible-character-detector.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/invisible-character-detector.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/invisible-character-detector.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/invisible-character-detector.html">
+  <meta property="og:title" content="보이지 않는 문자 탐지기 — 제로폭·NBSP·방향 제어 문자 찾기와 제거 | WooaText">
+  <meta property="og:description" content="텍스트 속 제로폭 공백, NBSP, 방향 덮어쓰기, 한글 필러 같은 눈에 보이지 않는 문자를 찾아 위치와 위험도를 보여 주고 제거합니다. 이모지 ZWJ 는 정상으로 처리합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/invisible-character-detector.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="보이지 않는 문자 탐지기 — 제로폭·NBSP·방향 제어 문자 찾기와 제거 | WooaText">
+  <meta name="twitter:description" content="텍스트 속 제로폭 공백, NBSP, 방향 덮어쓰기, 한글 필러 같은 눈에 보이지 않는 문자를 찾아 위치와 위험도를 보여 주고 제거합니다. 이모지 ZWJ 는 정상으로 처리합니다.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"보이지 않는 문자 탐지기","url":"https://textkit.wooahouse.com/invisible-character-detector.html","description":"텍스트 속 제로폭 공백, NBSP, 방향 덮어쓰기, 한글 필러 같은 눈에 보이지 않는 문자를 찾아 위치와 위험도를 보여 주고 제거합니다. 이모지 ZWJ 는 정상으로 처리합니다.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"featureList":["탐지: 제로폭 문자(200B·200C·200D·2060·FEFF), 특수 공백(NBSP·전각·얇은 공백), 소프트 하이픈, 방향 제어(LRM·RLM·LRO·RLO·격리), 한글 필러(3164 등), 점자 공백, 태그 문자, 제어 문자, 대체 문자(�)","표: 줄:열, 코드, 이름, 분류, 위험도(낮음~심각), 앞뒤 문맥과 종류별 개수","정리: 모두 제거(공백류는 일반 공백으로), 공백류만 변환, 제거 없이 [U+XXXX] 표시","이모지 시퀀스의 ZWJ·변형 선택자는 정상으로 간주하는 옵션, 맨 앞 BOM 제외 옵션"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ZWJ 를 모두 지우면 이모지가 깨지나요?","acceptedAnswer":{"@type":"Answer","text":"네. 👨‍👩‍👧 같은 결합 이모지는 ZWJ 로 이어져 있어 지우면 따로 분리됩니다. 그래서 이모지 옆의 ZWJ 는 기본으로 정상 처리합니다."}},{"@type":"Question","name":"한글 텍스트의 정상적인 공백도 지우나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 일반 공백(U+0020), 탭, 줄바꿈은 건드리지 않고 특수 공백만 대상으로 합니다."}},{"@type":"Question","name":"입력한 데이터가 서버로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/"},{"@type":"ListItem","position":2,"name":"보이지 않는 문자 탐지기","item":"https://textkit.wooahouse.com/invisible-character-detector.html"}]}</script>
+  <link rel="stylesheet" href="css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="invisible-character-detector.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/invisible-character-detector.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>보이지 않는 문자 탐지기</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">👻</span>
+    <h1>보이지 않는 문자 탐지 · 제거기</h1>
+    <p>복사한 텍스트에 섞인 제로폭 공백(U+200B), NBSP, 전각 공백, 소프트 하이픈, 방향 덮어쓰기(Trojan Source), 한글 필러(U+3164), 점자 공백, 태그 문자, 제어 문자를 찾아 줄:열 위치와 위험도를 표로 보여 주고 [U+XXXX] 로 표시하거나 한 번에 제거합니다.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">이 도구는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜 주세요.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>사용 예시</h2>
+<p>⚠️ 의심 문자 10개 (10종류)</p>
+<h3>입력 — 검사할 텍스트</h3><pre>Hello​World, price is 100　won.
+user‮admin‬ = "ok";­ soft⁠ joined‍ text﻿ㅤ</pre>
+<h3>결과 — 발견된 문자</h3><pre>위치(줄:열) | 코드 | 이름 | 분류 | 위험도 | 앞뒤 문맥
+1:6 | U+200B | ZERO WIDTH SPACE | 제로폭 문자 | 높음 | Hello ▮ World,
+1:19 | U+00A0 | NO-BREAK SPACE | 특수 공백 | 낮음 |  price ▮ is 100
+1:26 | U+3000 | IDEOGRAPHIC SPACE | 특수 공백 | 낮음 | is 100 ▮ won.↵u
+2:5 | U+202E | RIGHT-TO-LEFT OVERRIDE | 방향 제어 | 심각 | .↵user ▮ admin‬
+2:11 | U+202C | POP DIRECTIONAL FORMATTING | 방향 제어 | 심각 | ‮admin ▮  = "ok
+2:20 | U+00AD | SOFT HYPHEN | 서식 문자 | 중간 |  "ok"; ▮  soft⁠
+2:26 | U+2060 | WORD JOINER | 제로폭 문자 | 중간 | ­ soft ▮  joine
+2:34 | U+200D | ZERO WIDTH JOINER | 제로폭 문자 | 중간 | joined ▮  text﻿
+2:40 | U+FEFF | ZERO WIDTH NO-BREAK SPACE / BOM | 제로폭 문자 | 중간 | ‍ text ▮ ㅤ
+2:41 | U+3164 | HANGUL FILLER | 빈 글자(필러) | 높음 |  text﻿ ▮ </pre>
+<h3>결과 — 종류별 개수</h3><pre>코드 | 이름 | 개수 | 위험도
+U+200B | ZERO WIDTH SPACE | 1 | 높음
+U+00A0 | NO-BREAK SPACE | 1 | 낮음
+U+3000 | IDEOGRAPHIC SPACE | 1 | 낮음
+U+202E | RIGHT-TO-LEFT OVERRIDE | 1 | 심각
+U+202C | POP DIRECTIONAL FORMATTING | 1 | 심각
+U+00AD | SOFT HYPHEN | 1 | 중간
+U+2060 | WORD JOINER | 1 | 중간
+U+200D | ZERO WIDTH JOINER | 1 | 중간
+U+FEFF | ZERO WIDTH NO-BREAK SPACE / BOM | 1 | 중간
+U+3164 | HANGUL FILLER | 1 | 높음</pre>
+</section>
+  <section class="tk-about">
+<h2>이 도구로 할 수 있는 일</h2>
+<p>복사·붙여넣기 후 이유 없이 동작하지 않는 텍스트의 원인을 찾습니다. 텍스트는 서버로 전송되지 않습니다.</p>
+<ul><li>탐지: 제로폭 문자(200B·200C·200D·2060·FEFF), 특수 공백(NBSP·전각·얇은 공백), 소프트 하이픈, 방향 제어(LRM·RLM·LRO·RLO·격리), 한글 필러(3164 등), 점자 공백, 태그 문자, 제어 문자, 대체 문자(�)</li><li>표: 줄:열, 코드, 이름, 분류, 위험도(낮음~심각), 앞뒤 문맥과 종류별 개수</li><li>정리: 모두 제거(공백류는 일반 공백으로), 공백류만 변환, 제거 없이 [U+XXXX] 표시</li><li>이모지 시퀀스의 ZWJ·변형 선택자는 정상으로 간주하는 옵션, 맨 앞 BOM 제외 옵션</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="unicode-inspector.html" class="related-card"><span class="related-icon">🔬</span><span>유니코드 검사기</span></a>
+    <a href="whitespace.html" class="related-card"><span class="related-icon">⬜</span><span>공백 제거·정리</span></a>
+    <a href="unicode-normalizer.html" class="related-card"><span class="related-icon">🧬</span><span>유니코드 정규화 도구</span></a>
+    <a href="confusable-detector.html" class="related-card"><span class="related-icon">🎭</span><span>동형 이의 문자 탐지기</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>비밀번호·API 키·URL 을 붙여 넣었는데 실패하면 제로폭 공백이 끼어 있는지 확인하세요.</li><li>소스 코드나 파일 이름의 방향 제어 문자는 겉모양과 실제 내용이 다르게 보이게 만들 수 있어 위험합니다.</li><li>한글 필러(ㅤ)는 빈 이름처럼 보이지만 공백 검사를 통과합니다. 닉네임 검증에 이 탐지를 추가하세요.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>ZWJ 를 모두 지우면 이모지가 깨지나요?</summary><p>네. 👨‍👩‍👧 같은 결합 이모지는 ZWJ 로 이어져 있어 지우면 따로 분리됩니다. 그래서 이모지 옆의 ZWJ 는 기본으로 정상 처리합니다.</p></details><details><summary>한글 텍스트의 정상적인 공백도 지우나요?</summary><p>아니요. 일반 공백(U+0020), 탭, 줄바꿈은 건드리지 않고 특수 공백만 대상으로 합니다.</p></details><details><summary>입력한 데이터가 서버로 전송되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="js/tk.js"></script>
+<script src="js/tools/invisible-character-detector.js"></script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

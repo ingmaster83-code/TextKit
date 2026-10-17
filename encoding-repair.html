@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <title>인코딩 복구 — 깨진 한글·모지바케를 UTF-8·CP949 로 되돌리기 | WooaText</title>
+  <meta name="description" content="&#x27;ì•ˆë…•&#x27;, &#x27;Ã©&#x27; 같은 깨진 글자를 UTF-8·EUC-KR·Latin-1 오해석 패턴으로 되돌려 복구합니다. 퍼센트 인코딩, HTML 엔티티, \u 이스케이프, MIME 단어도 해독합니다.">
+  <meta name="keywords" content="인코딩 복구, 깨진 한글 복구, 모지바케, 한글 깨짐 해결, utf-8 euc-kr 변환, mojibake fix, 문자 깨짐, 인코딩 변환">
+  <link rel="canonical" href="https://textkit.wooahouse.com/encoding-repair.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/encoding-repair.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/encoding-repair.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/encoding-repair.html">
+  <meta property="og:title" content="인코딩 복구 — 깨진 한글·모지바케를 UTF-8·CP949 로 되돌리기 | WooaText">
+  <meta property="og:description" content="&#x27;ì•ˆë…•&#x27;, &#x27;Ã©&#x27; 같은 깨진 글자를 UTF-8·EUC-KR·Latin-1 오해석 패턴으로 되돌려 복구합니다. 퍼센트 인코딩, HTML 엔티티, \u 이스케이프, MIME 단어도 해독합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/encoding-repair.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="인코딩 복구 — 깨진 한글·모지바케를 UTF-8·CP949 로 되돌리기 | WooaText">
+  <meta name="twitter:description" content="&#x27;ì•ˆë…•&#x27;, &#x27;Ã©&#x27; 같은 깨진 글자를 UTF-8·EUC-KR·Latin-1 오해석 패턴으로 되돌려 복구합니다. 퍼센트 인코딩, HTML 엔티티, \u 이스케이프, MIME 단어도 해독합니다.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"인코딩 복구 도구","url":"https://textkit.wooahouse.com/encoding-repair.html","description":"'ì•ˆë…•', 'Ã©' 같은 깨진 글자를 UTF-8·EUC-KR·Latin-1 오해석 패턴으로 되돌려 복구합니다. 퍼센트 인코딩, HTML 엔티티, \\u 이스케이프, MIME 단어도 해독합니다.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"featureList":["모지바케: UTF-8 을 Latin-1(CP1252)로 잘못 읽음, 이중 인코딩, UTF-8 을 EUC-KR·Shift_JIS·GBK·Big5·EUC-JP 로 잘못 읽음, 그 문자 집합의 바이트를 Latin-1 로 읽음","디코딩: 퍼센트 인코딩(URL), HTML 엔티티(&#xC548;), \\uC548·\\xE9 이스케이프, MIME 인코딩 단어(=?UTF-8?B?…?=), Quoted-Printable","점수: 대체 문자(�), 제어 문자, 모지바케 특유의 글자 패턴, 한글·라틴 혼합 단어 등을 보고 후보 순위를 매김","여러 줄을 한 번에 처리하고 줄마다 가장 좋은 결과를 모아 출력"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"항상 완전히 복구되나요?","acceptedAnswer":{"@type":"Answer","text":"바이트가 그대로 남아 있을 때만 복구됩니다. 일부 글자가 '?' 나 '�' 로 바뀐 텍스트는 그 부분을 되살릴 수 없습니다."}},{"@type":"Question","name":"EUC-KR 과 CP949 는 같은가요?","acceptedAnswer":{"@type":"Answer","text":"브라우저의 euc-kr 은 CP949(확장 완성형)로 동작해 대부분의 한글 음절을 지원합니다. 이 도구도 같은 규칙을 사용합니다."}},{"@type":"Question","name":"입력한 데이터가 서버로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/"},{"@type":"ListItem","position":2,"name":"인코딩 복구 도구","item":"https://textkit.wooahouse.com/encoding-repair.html"}]}</script>
+  <link rel="stylesheet" href="css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="encoding-repair.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/encoding-repair.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>인코딩 복구 도구</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">🩹</span>
+    <h1>깨진 글자 복구 (모지바케 · 인코딩 복구)</h1>
+    <p>'ì•ˆë…•', 'Ã©', '¾È³ç' 같은 깨진 글자를 UTF-8, EUC-KR(CP949), Latin-1(CP1252) 등 잘못 해석한 규칙을 거꾸로 적용해 복구합니다. 후보마다 그럴듯함 점수를 매겨 가장 좋은 결과를 보여 주고, 퍼센트 인코딩·HTML 엔티티·\u 이스케이프·MIME 인코딩 단어·Quoted-Printable 도 풀어 줍니다.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">이 도구는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜 주세요.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>사용 예시</h2>
+<p>✅ 7/7줄을 복구했습니다</p>
+<h3>입력 — 깨진 텍스트 (한 줄에 하나씩 넣어도 됩니다)</h3><pre>ì•ˆë…•í•˜ì„¸ìš”
+Ã©tÃ© cafÃ©
+¾È³çÇÏ¼¼¿ä
+â€œSmart quotesâ€
+%EC%95%88%EB%85%95
+&amp;#xC548;&amp;#xB155;
+\uC548\uB155</pre>
+<h3>결과 — 가장 그럴듯한 복구 결과</h3><pre>안녕하세요
+été café
+안녕하세요
+“Smart quotes�
+안녕
+안녕
+안녕</pre>
+<h3>결과 — 후보</h3><pre>줄 | 원본 | 복구 방식 | 결과 | 그럴듯함
+1 | ì•ˆë…•í•˜ì„¸ìš” | UTF-8 을 Latin-1(CP1252)로 잘못 읽음 | 안녕하세요 | 100%
+2 | Ã©tÃ© cafÃ© | UTF-8 을 Latin-1(CP1252)로 잘못 읽음 | été café | 93%
+3 | ¾È³çÇÏ¼¼¿ä | euc-kr 를 Latin-1(CP1252)로 잘못 읽음 | 안녕하세요 | 100%
+4 | â€œSmart quotesâ€ | UTF-8 을 Latin-1(CP1252)로 잘못 읽음 | “Smart quotes� | 96%
+5 | %EC%95%88%EB%85%95 | 퍼센트 인코딩(URL) | 안녕 | 100%
+6 | &amp;#xC548;&amp;#xB155; | HTML 엔티티 | 안녕 | 100%
+7 | \uC548\uB155 | \uXXXX 이스케이프 | 안녕 | 100%</pre>
+</section>
+  <section class="tk-about">
+<h2>이 도구로 할 수 있는 일</h2>
+<p>깨진 문자열의 원래 모양을 추측해 복원합니다. 텍스트는 서버로 전송되지 않습니다.</p>
+<ul><li>모지바케: UTF-8 을 Latin-1(CP1252)로 잘못 읽음, 이중 인코딩, UTF-8 을 EUC-KR·Shift_JIS·GBK·Big5·EUC-JP 로 잘못 읽음, 그 문자 집합의 바이트를 Latin-1 로 읽음</li><li>디코딩: 퍼센트 인코딩(URL), HTML 엔티티(&amp;#xC548;), \uC548·\xE9 이스케이프, MIME 인코딩 단어(=?UTF-8?B?…?=), Quoted-Printable</li><li>점수: 대체 문자(�), 제어 문자, 모지바케 특유의 글자 패턴, 한글·라틴 혼합 단어 등을 보고 후보 순위를 매김</li><li>여러 줄을 한 번에 처리하고 줄마다 가장 좋은 결과를 모아 출력</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="unicode-inspector.html" class="related-card"><span class="related-icon">🔬</span><span>유니코드 검사기</span></a>
+    <a href="html-entity.html" class="related-card"><span class="related-icon">🏷️</span><span>HTML 엔티티</span></a>
+    <a href="url-encoder.html" class="related-card"><span class="related-icon">🔗</span><span>URL 인코딩</span></a>
+    <a href="base64.html" class="related-card"><span class="related-icon">🔐</span><span>Base64 변환</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>깨진 글자가 '�' 로 보이면 이미 정보가 사라진 상태라 복구할 수 없습니다. 원본 파일을 올바른 인코딩으로 다시 여세요.</li><li>한글이 'ì•ˆë…•' 처럼 보이면 UTF-8 을 Latin-1 로, '¾È³ç' 처럼 보이면 EUC-KR 을 Latin-1 로 읽은 경우가 많습니다.</li><li>DB·CSV 에서 깨졌다면 연결(connection) 문자 집합과 파일 인코딩을 먼저 확인하는 것이 근본 해결입니다.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>항상 완전히 복구되나요?</summary><p>바이트가 그대로 남아 있을 때만 복구됩니다. 일부 글자가 '?' 나 '�' 로 바뀐 텍스트는 그 부분을 되살릴 수 없습니다.</p></details><details><summary>EUC-KR 과 CP949 는 같은가요?</summary><p>브라우저의 euc-kr 은 CP949(확장 완성형)로 동작해 대부분의 한글 음절을 지원합니다. 이 도구도 같은 규칙을 사용합니다.</p></details><details><summary>입력한 데이터가 서버로 전송되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="js/tk.js"></script>
+<script src="js/tools/encoding-repair.js"></script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="../js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>ICU Message Tester – plural and select Output with Error Checks | WooaText</title>
+  <meta name="description" content="Format ICU MessageFormat plural, selectordinal, select, number and date per locale. Checks missing other, plural categories the locale lacks, missing arguments and apostrophe escaping.">
+  <meta name="keywords" content="ICU MessageFormat tester, plural message test, selectordinal, i18n message validator, formatjs playground, ICU syntax, pluralization, message format online">
+  <link rel="canonical" href="https://textkit.wooahouse.com/en/icu-message-tester.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/icu-message-tester.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/icu-message-tester.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/icu-message-tester.html">
+  <meta property="og:title" content="ICU Message Tester – plural and select Output with Error Checks | WooaText">
+  <meta property="og:description" content="Format ICU MessageFormat plural, selectordinal, select, number and date per locale. Checks missing other, plural categories the locale lacks, missing arguments and apostrophe escaping.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/en/icu-message-tester.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ICU Message Tester – plural and select Output with Error Checks | WooaText">
+  <meta name="twitter:description" content="Format ICU MessageFormat plural, selectordinal, select, number and date per locale. Checks missing other, plural categories the locale lacks, missing arguments and apostrophe escaping.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ICU Message Tester","url":"https://textkit.wooahouse.com/en/icu-message-tester.html","description":"Format ICU MessageFormat plural, selectordinal, select, number and date per locale. Checks missing other, plural categories the locale lacks, missing arguments and apostrophe escaping.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Syntax: {name}, {n, number[, integer|percent|currency|::skeleton]}, {d, date|time[, short|medium|long|full|::skeleton]}, plural / selectordinal (offset, =N, #), select and nesting","Quoting: '' → ', '{' escapes braces, '#' inside plurals","Checks: missing other, unknown categories, categories the locale does not use (e.g. one in ko), required categories missing, bad number / date values, missing and unused arguments","Output: the formatted message, an argument table (type, value), the AST as JSON and the locale's plural categories","Locale and time-zone settings to compare en-US, ru, ar-EG and more"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the result identical to formatjs or ICU4J?","acceptedAnswer":{"@type":"Answer","text":"It follows ICU MessageFormat syntax but formats with the browser's Intl, so some details (such as date skeleton patterns) can differ from a library."}},{"@type":"Question","name":"Are tags (<b>...<\/b>) or rich text supported?","acceptedAnswer":{"@type":"Answer","text":"No. Only plain ICU message syntax is parsed."}},{"@type":"Question","name":"Is my data uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Everything is processed inside your browser; what you enter is never sent to or stored on a server, so you can safely paste data containing personal information, internal settings or API keys."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/en/index.html"},{"@type":"ListItem","position":2,"name":"ICU Message Tester","item":"https://textkit.wooahouse.com/en/icu-message-tester.html"}]}</script>
+  <link rel="stylesheet" href="../css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">Char Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="password-generator.html">Password Gen</a>
+      <a href="hash-generator.html">Hash Generator</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="../icu-message-tester.html">KO</a>
+        <span>|</span>
+        <a href="icu-message-tester.html" class="active">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">About</a>
+    </div>
+  </div>
+</header>
+<script src="../js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>ICU Message Tester</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">🌍</span>
+    <h1>ICU MessageFormat Tester</h1>
+    <p>Enter an ICU message from your translation files plus JSON argument values and see exactly how it renders in the chosen locale. Supports plural (with offset), selectordinal, select, number (skeletons), date and time, nesting and apostrophe escaping, and reports a missing other, plural categories the locale does not use, and missing arguments.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">This tool needs JavaScript. Please enable it in your browser.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>Example</h2>
+<p>✅ Formatted (ko-KR)</p>
+<h3>Input — ICU message (MessageFormat)</h3><pre>{gender, select, female{그녀는} male{그는} other{그들은}} 사진 {count, plural, =0{없음} =1{한 장을} other{# 장을}} 올렸습니다. 총액 {price, number, ::currency/KRW}, {when, date, long}</pre>
+<h3>Input — Argument values (JSON object)</h3><pre>{"gender":"female","count":3,"price":12500,"when":"2026-10-17T09:00:00Z"}</pre>
+<h3>Result — Formatted result</h3><pre>그녀는 사진 3 장을 올렸습니다. 총액 ₩12,500, 2026년 10월 17일</pre>
+<h3>Result — Arguments</h3><pre>Argument | Type | Value | Status
+gender | select | "female" | ✅
+count | plural | 3 | ✅
+price | number | 12500 | ✅
+when | date | "2026-10-17T09:00:00Z" | ✅</pre>
+</section>
+  <section class="tk-about">
+<h2>What this tool does</h2>
+<p>Check the syntax and output of translation messages before shipping them. Messages and arguments are not uploaded.</p>
+<ul><li>Syntax: {name}, {n, number[, integer|percent|currency|::skeleton]}, {d, date|time[, short|medium|long|full|::skeleton]}, plural / selectordinal (offset, =N, #), select and nesting</li><li>Quoting: '' → ', '{' escapes braces, '#' inside plurals</li><li>Checks: missing other, unknown categories, categories the locale does not use (e.g. one in ko), required categories missing, bad number / date values, missing and unused arguments</li><li>Output: the formatted message, an argument table (type, value), the AST as JSON and the locale's plural categories</li><li>Locale and time-zone settings to compare en-US, ru, ar-EG and more</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>Related Tools</h2>
+  <div class="related-grid">
+    <a href="locale-parser.html" class="related-card"><span class="related-icon">🌐</span><span>Locale Tag Parser</span></a>
+    <a href="text-replacer.html" class="related-card"><span class="related-icon">🔄</span><span>Text Replacer</span></a>
+    <a href="regex-tester.html" class="related-card"><span class="related-icon">🔍</span><span>Regex Tester</span></a>
+    <a href="json-formatter.html" class="related-card"><span class="related-icon">📦</span><span>JSON Formatter</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li>Russian, Polish and Arabic need few, many and more besides one; switch locales to verify.</li><li>Korean, Japanese and Chinese use only other, but exact =0 / =1 options still work.</li><li>Ask translators to write the whole sentence inside each plural option and mark the number with #.</li></ul></div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2><details><summary>Is the result identical to formatjs or ICU4J?</summary><p>It follows ICU MessageFormat syntax but formats with the browser's Intl, so some details (such as date skeleton patterns) can differ from a library.</p></details><details><summary>Are tags (&lt;b&gt;...&lt;/b&gt;) or rich text supported?</summary><p>No. Only plain ICU message syntax is parsed.</p></details><details><summary>Is my data uploaded to a server?</summary><p>No. Everything is processed inside your browser; what you enter is never sent to or stored on a server, so you can safely paste data containing personal information, internal settings or API keys.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="../js/tk.js"></script>
+<script src="../js/tools/icu-message-tester.js"></script>
+<script src="../js/wooahouse-originals-tool-en.js"></script>
+<script src="../js/wooa-sidebar-en.js"></script>
+<script src="../js/wooa-footer-en.js"></script>
+</body>
+</html>

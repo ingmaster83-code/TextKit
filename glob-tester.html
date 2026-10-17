@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZGENFSXWC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9ZGENFSXWC');
+  </script>
+  <meta name="naver-site-verification" content="7396a327607b884b9bef1283dfd3a5c6115a2b50" />
+  <meta name="google-site-verification" content="tNM8tmr_6DFold03YSScWz4KEtu5Zo0Fsqc03u5Afms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="WooaText">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+<script src="js/ad-dev-placeholder.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Glob·.gitignore 패턴 테스터 — 경로 일치 여부 즉시 확인 | WooaText</title>
+  <meta name="description" content="glob 과 .gitignore 패턴이 어떤 파일 경로에 일치하는지 확인합니다. **, *, ?, {a,b}, [abc], ! 제외, 마지막 규칙 우선, 폴더 전용 슬래시를 지원하고 정규식 변환도 보여 줍니다.">
+  <meta name="keywords" content="glob 테스트, gitignore 테스트, glob 패턴 확인, minimatch 테스트, gitignore 규칙 검사, 파일 경로 패턴, glob tester">
+  <link rel="canonical" href="https://textkit.wooahouse.com/glob-tester.html">
+  <link rel="alternate" hreflang="ko" href="https://textkit.wooahouse.com/glob-tester.html">
+  <link rel="alternate" hreflang="en" href="https://textkit.wooahouse.com/en/glob-tester.html">
+  <link rel="alternate" hreflang="x-default" href="https://textkit.wooahouse.com/en/glob-tester.html">
+  <meta property="og:title" content="Glob·.gitignore 패턴 테스터 — 경로 일치 여부 즉시 확인 | WooaText">
+  <meta property="og:description" content="glob 과 .gitignore 패턴이 어떤 파일 경로에 일치하는지 확인합니다. **, *, ?, {a,b}, [abc], ! 제외, 마지막 규칙 우선, 폴더 전용 슬래시를 지원하고 정규식 변환도 보여 줍니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textkit.wooahouse.com/glob-tester.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://textkit.wooahouse.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Glob·.gitignore 패턴 테스터 — 경로 일치 여부 즉시 확인 | WooaText">
+  <meta name="twitter:description" content="glob 과 .gitignore 패턴이 어떤 파일 경로에 일치하는지 확인합니다. **, *, ?, {a,b}, [abc], ! 제외, 마지막 규칙 우선, 폴더 전용 슬래시를 지원하고 정규식 변환도 보여 줍니다.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Glob 패턴 테스터","url":"https://textkit.wooahouse.com/glob-tester.html","description":"glob 과 .gitignore 패턴이 어떤 파일 경로에 일치하는지 확인합니다. **, *, ?, {a,b}, [abc], ! 제외, 마지막 규칙 우선, 폴더 전용 슬래시를 지원하고 정규식 변환도 보여 줍니다.","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"featureList":["glob: *, **, ?, [abc]·[!abc]·[a-z], {js,ts}, {1..3}, 앞의 ! 로 제외, # 주석, 점 파일 옵션, 대소문자 옵션",".gitignore: 슬래시 없는 이름은 모든 깊이에서 일치, 앞의 / 는 루트 기준, 끝의 / 는 폴더만, 마지막으로 일치한 규칙이 우선, 상위 폴더가 무시되면 ! 로 되살릴 수 없음","결과: 경로별 일치 여부와 결정한 규칙, 일치한 경로만 복사","패턴 → 정규식 변환 표로 동작 원리 확인"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"extglob(@(a|b))도 되나요?","acceptedAnswer":{"@type":"Answer","text":"지원하지 않습니다. {a,b} 중괄호나 여러 줄 패턴으로 바꿔 쓰세요."}},{"@type":"Question","name":"Git 과 결과가 다를 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"핵심 규칙은 구현했지만 모든 예외(예: 이미 추적 중인 파일, 전역 ignore)는 다루지 않습니다. 최종 확인은 git check-ignore -v 로 하세요."}},{"@type":"Question","name":"입력한 데이터가 서버로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WooaText","item":"https://textkit.wooahouse.com/"},{"@type":"ListItem","position":2,"name":"Glob 패턴 테스터","item":"https://textkit.wooahouse.com/glob-tester.html"}]}</script>
+  <link rel="stylesheet" href="css/tk.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">WooaText</a>
+    <nav>
+      <a href="char-counter.html">글자수 세기</a>
+      <a href="case-converter.html">대소문자 변환</a>
+      <a href="json-formatter.html">JSON 포맷터</a>
+      <a href="password-generator.html">비밀번호 생성</a>
+      <a href="hash-generator.html">해시 생성</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="glob-tester.html" class="active">KO</a>
+        <span>|</span>
+        <a href="en/glob-tester.html">EN</a>
+      </div>
+      <a href="about.html" style="color:rgba(255,255,255,0.85); font-size:0.85rem; text-decoration:none; margin-left:8px;">소개</a>
+    </div>
+  </div>
+</header>
+<script src="js/wooa-sites-bar.js"></script>
+<div class="mobile-top-ad">
+  <ins class="adsbygoogle" style="display:block;width:100%;height:80px" data-ad-client="ca-pub-6464921081676309" data-ad-slot="7080296704" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="page-with-sidebar">
+<div class="tool-page">
+  <div class="breadcrumb"><a href="index.html">WooaText</a><span>›</span><span>Glob 패턴 테스터</span></div>
+  <div class="tool-header">
+    <span class="tool-header-icon">🎯</span>
+    <h1>Glob · .gitignore 패턴 테스터</h1>
+    <p>패턴과 경로 목록을 넣으면 어떤 경로가 일치하는지, 어떤 규칙이 결정했는지 표로 보여 줍니다. minimatch 방식의 glob(**, *, ?, 중괄호, 문자 집합, ! 제외)과 .gitignore 방식(마지막 규칙 우선, 폴더 전용 슬래시, 루트 고정)을 모두 지원하고 각 패턴을 정규식으로 바꾼 결과도 보여 줍니다.</p>
+  </div>
+
+  <div class="tk" id="tk-root"><noscript><div class="alert alert-info">이 도구는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜 주세요.</div></noscript></div>
+
+  <section class="tk-example">
+<h2>사용 예시</h2>
+<p>✅ 9개 중 4개 일치</p>
+<h3>입력 — 패턴 (한 줄에 하나, # 주석, ! 로 시작하면 제외)</h3><pre>src/**/*.{js,ts}
+!**/*.test.*
+*.md
+# 숨김 파일은 기본적으로 제외됩니다
+**/node_modules/**</pre>
+<h3>입력 — 경로 목록 (한 줄에 하나)</h3><pre>src/index.js
+src/utils/format.ts
+src/utils/format.test.ts
+src/.hidden/config.js
+README.md
+docs/guide.md
+node_modules/lib/index.js
+package.json
+lib/a/b/c.js</pre>
+<h3>결과 — 경로별 결과</h3><pre>경로 | 결과 | 결정한 규칙
+src/index.js | ✅ 일치 | src/**/*.{js,ts}
+src/utils/format.ts | ✅ 일치 | src/**/*.{js,ts}
+src/utils/format.test.ts | — 불일치 | !**/*.test.*
+src/.hidden/config.js | — 불일치 | —
+README.md | ✅ 일치 | *.md
+docs/guide.md | — 불일치 | —
+node_modules/lib/index.js | ✅ 일치 | **/node_modules/**
+package.json | — 불일치 | —
+lib/a/b/c.js | — 불일치 | —</pre>
+<h3>결과 — 패턴 → 정규식</h3><pre>패턴 | 정규식
+src/**/*.{js,ts} | ^src\/(?:(?:(?!\.)[^/]*)/)*(?!\.)[^/]*\.js$
+src/**/*.{js,ts} | ^src\/(?:(?:(?!\.)[^/]*)/)*(?!\.)[^/]*\.ts$
+!**/*.test.* | ^(?:(?:(?!\.)[^/]*)/)*(?!\.)[^/]*\.test\.[^/]*$
+*.md | ^(?!\.)[^/]*\.md$
+**/node_modules/** | ^(?:(?:(?!\.)[^/]*)/)*node_modules\/.*$</pre>
+</section>
+  <section class="tk-about">
+<h2>이 도구로 할 수 있는 일</h2>
+<p>빌드 설정이나 .gitignore 를 고치기 전에 패턴이 의도대로 동작하는지 확인합니다. 입력은 서버로 전송되지 않습니다.</p>
+<ul><li>glob: *, **, ?, [abc]·[!abc]·[a-z], {js,ts}, {1..3}, 앞의 ! 로 제외, # 주석, 점 파일 옵션, 대소문자 옵션</li><li>.gitignore: 슬래시 없는 이름은 모든 깊이에서 일치, 앞의 / 는 루트 기준, 끝의 / 는 폴더만, 마지막으로 일치한 규칙이 우선, 상위 폴더가 무시되면 ! 로 되살릴 수 없음</li><li>결과: 경로별 일치 여부와 결정한 규칙, 일치한 경로만 복사</li><li>패턴 → 정규식 변환 표로 동작 원리 확인</li></ul>
+</section>
+  <div class="related-tools">
+  <h2>함께 쓰면 좋은 도구</h2>
+  <div class="related-grid">
+    <a href="regex-tester.html" class="related-card"><span class="related-icon">🔍</span><span>정규식 테스터</span></a>
+    <a href="line-tools.html" class="related-card"><span class="related-icon">📋</span><span>줄 정렬·중복 제거</span></a>
+    <a href="text-replacer.html" class="related-card"><span class="related-icon">🔄</span><span>텍스트 치환기</span></a>
+    <a href="text-diff.html" class="related-card"><span class="related-icon">🔍</span><span>텍스트 비교</span></a>
+  </div>
+</div>
+<div class="wooa-orig-anchor"></div>
+<div class="tips-panel"><h3>💡 Tips</h3><ul><li><code>*</code> 는 / 를 넘지 못합니다. 여러 폴더를 포함하려면 <code>**</code> 를 쓰세요.</li><li>.gitignore 에서 <code>build</code> 는 어느 깊이의 build 든 무시하지만 <code>/build</code> 는 루트의 build 만 무시합니다.</li><li>폴더가 무시되면 그 안의 파일은 <code>!</code> 로 다시 포함할 수 없습니다. 폴더 대신 내용물 패턴(<code>build/*</code>)을 쓰세요.</li></ul></div>
+<div class="faq-section"><h2>자주 묻는 질문</h2><details><summary>extglob(@(a|b))도 되나요?</summary><p>지원하지 않습니다. {a,b} 중괄호나 여러 줄 패턴으로 바꿔 쓰세요.</p></details><details><summary>Git 과 결과가 다를 수 있나요?</summary><p>핵심 규칙은 구현했지만 모든 예외(예: 이미 추적 중인 파일, 전역 ignore)는 다루지 않습니다. 최종 확인은 git check-ignore -v 로 하세요.</p></details><details><summary>입력한 데이터가 서버로 전송되나요?</summary><p>아니요. 모든 처리는 브라우저 안에서만 이루어지며 입력한 내용은 서버로 전송되거나 저장되지 않습니다. 개인정보나 사내 설정값, API 키가 들어 있는 데이터도 안심하고 붙여 넣을 수 있습니다.</p></details></div>
+<div style="text-align:center;margin:16px auto;max-width:728px;padding:0 8px">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6464921081676309"
+     data-ad-slot="1419180025"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+<aside class="tool-sidebar"></aside>
+</div>
+<footer class="footer"></footer>
+<script src="js/tk.js"></script>
+<script src="js/tools/glob-tester.js"></script>
+<script src="js/wooahouse-originals-tool.js"></script>
+<script src="js/wooa-sidebar.js"></script>
+<script src="js/wooa-footer.js"></script>
+</body>
+</html>
